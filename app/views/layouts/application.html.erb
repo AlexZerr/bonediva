@@ -8,7 +8,24 @@
 </head>
 <body>
 
-<%= yield %>
+<div style="color:red"> 
+  <div style="text-align:center" > 
+    <%= yield :header %>
+  </div>
+</div>
+
+<div>
+  <%= yield :about_link %>
+</div>
+
+<div>
+  <%= yield :display_about_content %>
+</div>
+
+<div style="background-color:black">
+</div>
+
+
 
 </body>
 </html>

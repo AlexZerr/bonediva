@@ -4,8 +4,8 @@ development: &defaults
   adapter:  postgresql
   #adapter:  mongo
   database: bonediva_development
-  username: weedmaps
-  password: password
+  username: sterling
+  password: sterling1
   host:     localhost
   min_messages: warning
 
