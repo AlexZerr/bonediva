@@ -14,7 +14,11 @@ class MainController < ApplicationController
 
   def create
 
-  end
+    @user  = User.new(params[:user])
+      if @user.save
+            redirect_to @user
+      else
+        render action: "new"
 
   def update
     @user = User.find(params[:id])
