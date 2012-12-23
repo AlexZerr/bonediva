@@ -4,6 +4,5 @@ class User < ActiveRecord::Base
   validate :password, presence: true,
 
 
-    has_many :comments
-  
-end
+   # has_many :comments
+end 

@@ -2,15 +2,14 @@ class MainController < ApplicationController
 
   respond_to :html, :js
 
-  before_filter :ensure_admin, only_on: [:edit, :delete]
-  before_filter :ensure_authorized, only_on: [:create, :update]
+ # before_filter :ensure_admin, only_on: [:edit, :delete]
+ # before_filter :ensure_authorized, only_on: [:create, :update]
 
 
 
   def index
-    @pictures = Picture.find.(:all, :order => date) 
-    @user     = User.find(:all, :order => 'id DESC') 
-
+   # @pictures = Picture.find.(:all, :order => date) 
+   # @user     = User.find(:all, :order => 'id DESC') 
   end
 
   def edit
@@ -37,18 +36,18 @@ class MainController < ApplicationController
   def update
     @user = User.find(params[:id])
     if User.update(@user.id, user_params)
-      redirect_to @user, notice: { "#{@user.name} was succesfully updated" } 
+      #redirect_to @user, notice: { "was succesfully updated" } 
     end
     @picture = Picture.find(params[:id])
     if Picture.update(@picture.id, picture_params)
-      redirect_to @picture, notice: { " #{@picture.name} was succesfully updated" }
+     # redirect_to @picture, notice: { " was succesfully updated" }
     end
   end
 
   def delete
-    if @user.delete
-      notice: { "#{@user.name} was succesfully deleted." } 
-    end
+   # if @user.delete
+    #  notice: { "was succesfully deleted." } 
+   # end
   end
 
   def destroy
@@ -62,7 +61,7 @@ class MainController < ApplicationController
   end
  
   def about
-    @picture = Picture.find(params[:id])
+    #@picture = Picture.find(params[:id])
 
   end
 

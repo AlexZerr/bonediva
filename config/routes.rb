@@ -52,7 +52,7 @@ Bonediva::Application.routes.draw do
 
  #aasdf match "/about", :controller => 'main', :action => 'about'
 
-  get '/about', :to => 'main#about'
+  match '/about', :to => 'main#about'
 
   # See how all your routes lay out with "rake routes"
 
