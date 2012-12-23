@@ -50,10 +50,8 @@ Bonediva::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'main#index'
 
- #aasdf match "/about", :controller => 'main', :action => 'about'
 
-  match '/about', :to => 'main#about'
-  match '/main', :to =>  "main#index"
+  match '/main', :to => 'main#about'
 
   # See how all your routes lay out with "rake routes"
 

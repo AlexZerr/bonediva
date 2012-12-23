@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bonediva</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Bonediva</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div style="color:red"> 
+      <div style="text-align:center" > 
+        <%= yield :header %>
+      </div>
+    </div>
 
-<div style="color:red"> 
-  <div style="text-align:center" > 
-    <%= yield :header %>
-  </div>
-</div>
+    <% if !@hide_sidebar %>
+      <div style="float: right;">
+        <%= yield :sidebar %>
+      </div>
+    <% end %>
 
-<div>
-  <%= yield :about_link %>
-</div>
+    <div>
+      <%= yield %>
+    </div>
 
-<div>
-  <%= yield :display_about_content %>
-</div>
-
-<div style="background-color:black">
-</div>
-
-
-
-</body>
+  </body>
 </html>
