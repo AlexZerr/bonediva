@@ -51,7 +51,9 @@ Bonediva::Application.routes.draw do
   root :to => 'main#index'
 
 
-  match '/main', :to => 'main#about'
+  match '/index', :to => 'main#index'
+
+  get '/about', :to => 'main#about' 
 
   # See how all your routes lay out with "rake routes"
 
