@@ -6,8 +6,6 @@ development: &defaults
   database: bonediva_development
   username: sterling
   password: sterling1
-  username: weedmaps
-  password: password
   host:     localhost
   min_messages: warning
 

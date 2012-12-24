@@ -11,3 +11,47 @@
  *= require_self
  *= require_tree .
  */
+/* --- Top Bar --- */
+#top_bar_wrap {
+	width:100%;
+	display:inline-block;
+	border-bottom:1px solid #000;
+	background:#2D2D2D;
+}
+
+#top_bar {
+	width:940px;
+	margin:1px auto;
+}
+
+	#top_bar p {
+		margin:0px;
+		display:inline-block;
+		float:right;
+		text-shadow:-1px 1px 1px #000;
+	}
+
+	#top_bar p.left {
+		float:left;
+	}
+
+		#top_bar p, #top_bar a {
+			font-size:12px;
+			color:#fff;
+		}
+
+	#top_bar a {
+		margin:0px 5px 0px 5px;
+		padding:5px 7px 5px 7px;
+		display:inline-block;
+		font-weight:bold;
+	}
+
+
+
+
+
+
+
+
+
