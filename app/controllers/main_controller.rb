@@ -12,6 +12,7 @@ class MainController < ApplicationController
   end
 
   def about
+    @picture = Picture.order( 'id desc' ).limit(20)
     render
   end
 
