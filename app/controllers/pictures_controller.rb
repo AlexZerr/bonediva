@@ -21,8 +21,9 @@ class PicturesController < ApplicationController
     @picture = Picture.new(params[:picture])
     if Picture.save
       redirect_to ('/')
+      flash: ( "You're picture has been saved" )
     end
-    end
+   end
 
   end
 
