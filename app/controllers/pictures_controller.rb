@@ -6,16 +6,19 @@ class PicturesController < ApplicationController
   
   
   def index
+    @picture = Picture.order("id desc")
 
   end
 
 
   def show
+    @picture = Picture.find(params[:id])
 
   end
 
 
   def new
+    @picture = Picture.new(params[:picture])
 
   end
 
@@ -37,5 +40,10 @@ class PicturesController < ApplicationController
   
   def update
 
+  end
+
+
+  def fab_five
+    @picture = User.picture(params[:id]).order("id desc").limit(5)
   end
 end
