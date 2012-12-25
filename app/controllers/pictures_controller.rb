@@ -19,6 +19,10 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new(params[:picture])
+    if Picture.save
+      redirect_to ('/')
+    end
+    end
 
   end
 
