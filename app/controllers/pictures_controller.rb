@@ -18,11 +18,8 @@ class PicturesController < ApplicationController
 
 
   def new
-    @picture = Picture.new(params[:picture])
-    if Picture.save
-      redirect_to ('/')
-      flash: ( "You're picture has been saved" )
-    end
+    @picture = Picture.new
+      respond_with @picture
    end
 
   end
@@ -47,5 +44,3 @@ class PicturesController < ApplicationController
 
   end
 
-
-end

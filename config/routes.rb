@@ -55,7 +55,7 @@ Bonediva::Application.routes.draw do
 
   get '/about', :to => 'main#about' 
 
- # match '/picture/new' :to => 'picture#new' :as => '/new_picture'
+  match '/picture/new' => 'pictures#new'
 
   # See how all your routes lay out with "rake routes"
 
