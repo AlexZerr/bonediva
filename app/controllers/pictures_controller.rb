@@ -48,7 +48,4 @@ class PicturesController < ApplicationController
   end
 
 
-  def fab_five
-    @picture = User.picture(params[:id]).order("id desc").limit(5)
-  end
 end

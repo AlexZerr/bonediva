@@ -1,8 +1,3 @@
 class Picture < ActiveRecord::Base
-
-
-  validates :name, presence: true
-
-
-  has_many :comments
+  attr_accessible :description, :price, :title
 end
