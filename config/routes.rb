@@ -2,6 +2,7 @@ Bonediva::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  resources :users
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -53,9 +54,11 @@ Bonediva::Application.routes.draw do
 
   match '/index', :to => 'main#index'
 
-  get '/about', :to => 'main#about' 
+  get '/about', :to => 'main#about'
 
-  match '/picture/new' => 'pictures#new'
+
+
+
 
   # See how all your routes lay out with "rake routes"
 

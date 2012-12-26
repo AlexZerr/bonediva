@@ -27,9 +27,11 @@ class UsersController < ApplicationController
 
 
   def create
-    @error = []
     @user = User.new(params[:user])
-    @error << "Field cannot be blank" if user_params.blank?
+    if @user.save 
+      redirect_to :action => 'show'
+    
+    end
   end
 
 
@@ -39,7 +41,14 @@ class UsersController < ApplicationController
 
 
   def new
+    @user = User.new(params[:user])
+    
 
+  end
+
+
+  def show_info
+    @user = User.find(params[:id])
   end
 
 
