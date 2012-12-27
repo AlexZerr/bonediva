@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
 
   def show
-    @user     = User.find(params[:id])
+    @user     = get(params[:user])
     @pictures = Picture.order('id desc').limit(20) 
 
   end
@@ -49,6 +49,10 @@ class UsersController < ApplicationController
 
   def show_info
     @user = User.find(params[:id])
+  end
+
+  def get(id)
+    User.find(:id)
   end
 
 
