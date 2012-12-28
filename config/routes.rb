@@ -3,6 +3,7 @@ Bonediva::Application.routes.draw do
   # first created -> highest priority.
 
   resources :users
+  resources :pictures
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
