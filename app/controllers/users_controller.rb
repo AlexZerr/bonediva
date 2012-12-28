@@ -4,10 +4,12 @@ class UsersController < ApplicationController
   # before_filter :ensure_authorized, only: [ :edit, :update, :delete ] 
 
 
-
+  def index
+    render
+  end
 
   def show
-   # @user   = User.find
+    @user   = User.find(params[:id])
     @pictures = Picture.order('id desc').limit(20) 
 
   end
@@ -26,9 +28,9 @@ class UsersController < ApplicationController
 
 
   def create
-    @user = User.create(params[:user])
+    @user = User.new(params[:user])
     if @user.save 
-      redirect_to :action => 'show'
+      redirect_to user_path(@user)
     
     end
   end

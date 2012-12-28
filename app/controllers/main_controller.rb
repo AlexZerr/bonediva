@@ -12,11 +12,5 @@ class MainController < ApplicationController
     render
   end
 
-  def current_user
-    if self.id == User.id
-      current_user == true 
-    end
-   end
-  
  end
 
