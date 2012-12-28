@@ -1,0 +1,8 @@
+<h1>New bonediva_scaffold</h1>
+<%= form_for @image, html: { multipart: true } do |f|%>
+  <%= f.text_field :picture %>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', bonediva_scaffolds_path %>

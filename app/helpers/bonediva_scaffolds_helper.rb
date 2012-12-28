@@ -1,0 +1,2 @@
+module BonedivaScaffoldsHelper
+end
