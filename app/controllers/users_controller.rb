@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
 
   respond_to :html, :js
-  before_filter :ensure_authorized, only: [ :edit, :update, :delete ] 
+  # before_filter :ensure_authorized, only: [ :edit, :update, :delete ] 
 
 
-#Should I just have this enherrit from the MainController?
 
 
   def show
-    @user     = get(params[:user])
+   # @user   = User.find
     @pictures = Picture.order('id desc').limit(20) 
 
   end
@@ -27,7 +26,7 @@ class UsersController < ApplicationController
 
 
   def create
-    @user = User.new(params[:user])
+    @user = User.create(params[:user])
     if @user.save 
       redirect_to :action => 'show'
     
@@ -43,16 +42,13 @@ class UsersController < ApplicationController
   def new
     @user = User.new(params[:user])
     
+    
 
   end
 
-
-  def show_info
-    @user = User.find(params[:id])
-  end
 
   def get(id)
-    User.find(:id)
+    User.find(params[:id])
   end
 
 

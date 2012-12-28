@@ -57,7 +57,7 @@ Bonediva::Application.routes.draw do
   get '/about', :to => 'main#about'
 
 
-  get '/show' => 'users#show'
+  match '/show' => 'users#show'
 
 
   # See how all your routes lay out with "rake routes"

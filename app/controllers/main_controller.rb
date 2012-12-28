@@ -2,10 +2,6 @@ class MainController < ApplicationController
 
   respond_to :html, :js
 
- # before_filter :ensure_admin, only_on: [:edit, :delete]
- # before_filter :ensure_authorized, only_on: [:create, :update]
-
-
 
   def index
     render
@@ -16,4 +12,11 @@ class MainController < ApplicationController
     render
   end
 
-end
+  def current_user
+    if self.id == User.id
+      current_user == true 
+    end
+   end
+  
+ end
+
