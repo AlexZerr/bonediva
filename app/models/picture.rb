@@ -1,3 +1,6 @@
 class Picture < ActiveRecord::Base
-  attr_accessible :description, :price, :title
+  attr_accessible :description, :title
+
+  belongs_to :user
+
 end
