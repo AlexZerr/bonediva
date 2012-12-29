@@ -31,7 +31,18 @@
     <div>
     <% if !@hide_sidebar %>
       <div style="float: right;">
-        <%= yield :sidebar %>
+       <%= content_for :sidebar do %>
+         <div id="sidebar">
+           I know i should not make database calls in views, but i dont know how else to do it.
+           <h3><%= "#{User.count} Users signed up" %></h3> 
+           <%= @users.each do |u| %>
+             <%= u.name %> --- <%= u.email %></br>
+           <% end %>
+
+         
+         <% end %>
+            <%= yield :sidebar %>
+         </div>
       </div>
     </div>
     <% end %>

@@ -1,5 +1,5 @@
 class Picture < ActiveRecord::Base
- i# attr_accessible :description, :title, :image
+  attr_accessible :description, :title, :image, :remote_image_url
   mount_uploader :image, ImagesUploader
   #accepts_nested_attributes_for :images
 

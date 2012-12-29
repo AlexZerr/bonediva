@@ -27,6 +27,8 @@ class PicturesController < ApplicationController
     @picture = Picture.new(params[:picture])
     if @picture.save
       redirect_to picture_path(@picture)
+    else
+      redirect_to new_picture_path, :notice => "Could not create picture." 
     end
     end
   end

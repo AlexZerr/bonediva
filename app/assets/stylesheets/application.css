@@ -50,11 +50,25 @@
 
   #flash_notice {
     background: black;
-    border: 2px solid darken(red, 80%);
+    border: 2px solid, white;
     text-align: center;
     padding: 5px;
     color: red;
   }
+
+  #sidebar {
+  background: black;
+  border: 5px solid red;
+  float: right;
+  text-shadow: -1px 1px 1px #808080;
+  padding: 55px;
+  width: 210px;
+  color: red;
+  margin: 2px 2px 2px 2px;
+  
+}
+
+
 
 
 

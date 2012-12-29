@@ -4,11 +4,12 @@ class MainController < ApplicationController
 
 
   def index
+    @users = User.all
     render
   end
 
   def about
-    @picture = Picture.order( 'id desc' ).limit(20)
+     @picture = Picture.order( 'id desc' ).limit(20)
     render
   end
 
