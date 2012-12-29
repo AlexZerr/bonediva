@@ -24,15 +24,21 @@ class UsersController < ApplicationController
 
 
   def update
-
-  end
+    @user = User.find(params[:id])
+      if @user.update_attributes(params[:user])
+        redirect_to user_path(@user), :notice => "User Succesfully Updated"
+      else
+        redirect_to :back, :notice => "There was an error updating #{@user.name}"
+      end
+    end
 
 
   def create
     @user = User.new(params[:user])
     if @user.save 
-      redirect_to user_path(@user)
-    
+      redirect_to user_path(@user), :notice => " #{@user.name} was created sucessfully"
+    else
+     redirect_to new_user_path, :notice => " Fields must be filled out." 
     end
   end
 
@@ -53,9 +59,5 @@ class UsersController < ApplicationController
   def get(id)
     User.find(params[:id])
   end
-
-
-
-
 
 end

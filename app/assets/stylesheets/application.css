@@ -48,9 +48,14 @@
 	}
 
 
-
-
-
+  #flash_notice {
+    background: black;
+    border: 2px solid darken(red, 80% );
+    text-align: center;
+    padding: 5px;
+    color: red;
+  
+  }
 
 
 

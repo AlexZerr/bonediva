@@ -28,14 +28,25 @@
       </div>
     </div>
 
+    <div>
     <% if !@hide_sidebar %>
       <div style="float: right;">
         <%= yield :sidebar %>
       </div>
     <% end %>
 
+
+    <%= flash.each do |name, message| %>
+      <div id="flash_<%= name %>"
+        <%= message %>
+      </div>
+    <% end %>
+  
+
     <div>
       <%= yield %>
+    </div>
+
 
 
   </body>
