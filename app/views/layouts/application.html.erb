@@ -28,6 +28,14 @@
       </div>
     </div>
 
+    <%= flash.each do |name, message| %>
+      <div id="flash_<%= name %>">
+        <%= message %>
+      </div>
+      
+    <% end %>
+
+
     <div>
     <% if !@hide_sidebar %>
       <div style="float: right;">
@@ -39,11 +47,6 @@
     <%= yield %>
 
 
-    <%= flash.each do |name, message| %>
-      <div id="flash_<%= name %>"
-        <%= message %>
-      </div>
-    <% end %>
     
   
 
