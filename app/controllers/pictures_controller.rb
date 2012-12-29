@@ -6,7 +6,8 @@ class PicturesController < ApplicationController
   
   
   def index
-    @picture = Picture.order("id desc")
+    @picture = Picture.find(params[:id])
+      Picture.order("id desc")
 
   end
 
@@ -23,7 +24,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(params[:picture])
+    @picture = Pictures.create(params[:picture])
     if @picture.save
       redirect_to picture_path(@picture)
     end
