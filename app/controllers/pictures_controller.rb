@@ -12,15 +12,22 @@ class PicturesController < ApplicationController
 
 
   def show
-    @picture = @user.picture.find(params[:id])
+    @picture = Picture.find(params[:id])
 
   end
 
 
   def new
-    @picture = Picture.new
-      respond_with @picture
-   end
+    @picture = Picture.new(params[:picture])
+
+  end
+
+  def create
+    @picture = Picture.new(params[:picture])
+    if @picture.save
+      redirect_to picture_path(@picture)
+    end
+    end
 
   end
 

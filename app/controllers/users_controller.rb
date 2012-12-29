@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @user   = User.find(params[:id])
-    @pictures = @user.pictures.order('id desc').limit(10) 
+    #@pictures = @user.pictures.order('id desc').image.limit(10) 
 
   end
 
