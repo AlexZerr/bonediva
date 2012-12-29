@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    #@picture = Picture.find(params[:id])
+    @picture = User.picture
 
   end
 
@@ -50,14 +50,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new(params[:user])
-    
-    
-
-  end
-
-
-  def get(id)
-    User.find(params[:id])
   end
 
 end
