@@ -33,21 +33,18 @@
       <div style="float: right;">
         <%= yield :sidebar %>
       </div>
+    </div>
     <% end %>
 
 
     <%= flash.each do |name, message| %>
       <div id="flash_<%= name %>"
-        <%= message %>
-      </div>
-    <% end %>
+        <%= message %></div>
+      <% end %>
+    
   
 
-    <div>
       <%= yield %>
-    </div>
-
-
 
   </body>
 </html>

@@ -29,7 +29,6 @@ class PicturesController < ApplicationController
       redirect_to picture_path(@picture)
     end
     end
-
   end
 
 

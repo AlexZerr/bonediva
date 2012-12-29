@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228210400) do
-
-  create_table "bonediva_scaffolds", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "image"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121229133047) do
 
   create_table "pictures", :force => true do |t|
     t.string   "title"
