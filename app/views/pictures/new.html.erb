@@ -6,12 +6,13 @@
 </div>
 
 <div>
-  <%= form_for @picture do |f|%>
+  <%= fields_for @picture, :html => { :multipart => true } do |f|%>
     <%= f.label :title, "Title"%>
-    <%= f.text_field :title %>
+    <%= f.text_field :title %></br>
     <%= f.label :description, "Description" %>
-    <%= f.text_field :description %>
-    <%= f.text_field :image %>
+    <%= f.text_field :description %></br>
+    <%= f.file_field :image %>
     <%= f.submit %>
   <% end %>
+
 </div>

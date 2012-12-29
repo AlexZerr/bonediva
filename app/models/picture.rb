@@ -1,6 +1,7 @@
 class Picture < ActiveRecord::Base
-  attr_accessible :description, :title
-  mount_uploader :image, PicturesUploader
+ i# attr_accessible :description, :title, :image
+  mount_uploader :image, ImagesUploader
+  #accepts_nested_attributes_for :images
 
   belongs_to :user
 

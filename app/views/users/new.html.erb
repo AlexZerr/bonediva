@@ -8,18 +8,6 @@
 </div>
 
 <div>
-  <%= form_for @user do |f| %>
-    <%= f.label :name, 'Name'%>
-    <%= f.text_field :name %><br>
-    <%= f.label :username, 'Username' %>
-    <%= f.text_field :username %><br>
-    <%= f.label :password, 'Password' %>
-    <%= f.text_field :password %><br>
-    <%= f.label :email, 'Email Address'%>
-    <%= f.text_field :email %><br>
-    <%= f.label :age, 'Age (optional)'%>
-    <%= f.text_field :age %><br>
-    <%= f.submit %>
-  <% end %>
+  <%= render "user_form" %> 
 
 </div>

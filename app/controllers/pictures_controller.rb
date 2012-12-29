@@ -24,7 +24,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Pictures.create(params[:picture])
+    @picture = Picture.new(params[:picture])
     if @picture.save
       redirect_to picture_path(@picture)
     end
