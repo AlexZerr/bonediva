@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :age, :email, :name, :password, :username
   #before_filter :set_current_user
-  before_save :encrypt_password
+  #before_save :encrypt_password
 
   validates_confirmation_of :password
   validates :password, presence: true, on: :create
