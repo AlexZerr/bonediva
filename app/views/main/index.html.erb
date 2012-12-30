@@ -5,7 +5,15 @@
     <h1>
       BoneDiva
     </h1>
-  </div> 
+  </div>
+
+  <% content_for :sidebar do%>
+    <%= @user.attributes.each do |x|%>
+      <%= x.name %>
+      <%= x.username %>
+      <%= x.email %>
+    <% end %> 
+    <%= yield %>
 
   <div style="color:black">
     <div style="text-align:center">
