@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :age, :email, :name, :password, :username
   #before_filter :set_current_user
-  #before_save :encrypt_password
+  before_save :encrypt_password
 
   validates_confirmation_of :password
   validates :password, presence: true, on: :create
@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   def self.authenticate(email, password)
     user = find_by_email(email)
-    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
+    if user && user.password_hash == BCrypt::Engine.hash_secret( password, user.password_salt )
       user
     else
       redirect_to new_session_path, :notice => "could not authenticate"
