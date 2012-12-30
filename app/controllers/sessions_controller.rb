@@ -1,6 +1,11 @@
 class SessionsController < ApplicationController
 
  
+  def index
+    render
+  end
+
+
   def new
   end 
 
