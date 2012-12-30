@@ -7,14 +7,7 @@
     </h1>
   </div>
 
-  <% content_for :sidebar do%>
-    <%= @user.attributes.each do |x|%>
-      <%= x.name %>
-      <%= x.username %>
-      <%= x.email %>
-    <% end %> 
-    <%= yield %>
-
+ 
   <div style="color:black">
     <div style="text-align:center">
       <%= link_to 'ACEO Web Page', "http://www.lisaluree.com" %>

@@ -7,6 +7,7 @@ Bonediva::Application.routes.draw do
 
   resources :users
   resources :pictures
+  resources :sessions
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -59,8 +60,10 @@ Bonediva::Application.routes.draw do
   match '/index', :to => 'main#index'
 
   get '/about', :to => 'main#about'
-
-
+  
+  get "log_in" => "sessions#new", :as => "log_in"
+  
+  get "log_out" => "sessions#delete", :as => "log_out"
 
 
   # See how all your routes lay out with "rake routes"

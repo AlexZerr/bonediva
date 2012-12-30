@@ -1,17 +1,30 @@
 <div style="text-align:center">
   <div style="color:purple">
-  <%= form_for @user do |f| %>
+    <%= form_for @user do |f| %>
+      <% if @user.errors.any? %>
+        
+        <div class="error_messages">
+          <h2>Form is Invalid</h2>
+          <ul>
+            <% for message in @user.errors.full_message %>
+              <%= message %>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     <%= f.label :name, 'Name'%>
     <%= f.text_field :name, required: true %></br>
     <%= f.label :username, 'Username' %>
     <%= f.text_field :username, required: true %></br>
     <%= f.label :password, 'Password' %>
-    <%= f.text_field :password, required: true %></br>
+    <%= f.password_field :password, required: true %></br>
+    <%= f.label :password_confirmation, 'Confirm Password' %>
+    <%= f.password_field :password_confirmation, required: true %></br>
     <%= f.label :email, 'Email Address'%>
     <%= f.text_field :email, required: true %></br>
     <%= f.label :age, 'Age (optional)'%>
     <%= f.text_field :age %></br>
     <%= f.submit %>
-  <% end %>
+   <% end %>
   </div>
 </div>
