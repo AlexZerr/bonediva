@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :age, :email, :name, :password, :username
+  attr_accessible :age, :email, :name, :username, :password, :password_confirmation
+  attr_accessor   :password, :password_confirmation
   #before_filter :set_current_user
   #before_save :encrypt_password
 
@@ -11,6 +12,7 @@ class User < ActiveRecord::Base
 
 
   has_many :pictures
+  accepts_nested_attributes_for :pictures
 
 
   def self.authenticate(email, password)
@@ -18,7 +20,7 @@ class User < ActiveRecord::Base
     if user && user.password_hash == BCrypt::Engine.hash_secret( password, user.password_salt )
       user
     else
-      redirect_to new_session_path, :notice => "could not authenticate"
+      nil
     end
   end
 

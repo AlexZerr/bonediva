@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
       redirect_to root_url, :notice => "Logged In"
     else
       redirect_to sessions_path, :notice => "Sorry, your login failed."
-      render
     end
   end
 
