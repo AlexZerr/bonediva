@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   respond_to :html, :js
+  force_ssl
   # before_filter :ensure_authorized, only: [ :edit, :update, :delete ] 
 
 
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save 
+    if @user.save
       redirect_to user_path(@user), :notice => " #{@user.name} was created sucessfully"
     else
      redirect_to new_user_path, :notice => " Fields must be filled out." 

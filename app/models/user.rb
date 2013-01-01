@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :age, :email, :name, :username, :password, :password_confirmation
-  attr_accessor   :password, :password_confirmation
+  attr_accessible :age, :email, :name, :username, :password_confirmation, :password
   #before_filter :set_current_user
-  #before_save :encrypt_password
+  has_secure_password
 
   validates_confirmation_of :password
   validates :password, presence: true, on: :create
@@ -14,20 +13,8 @@ class User < ActiveRecord::Base
   has_many :pictures
   accepts_nested_attributes_for :pictures
 
-
   def self.authenticate(email, password)
-    user = find_by_email(email)
-    if user && user.password_hash == BCrypt::Engine.hash_secret( password, user.password_salt )
-      user
-    else
-      nil
-    end
+    find_by_email(email).try(:authenticate, password)
   end
 
-  def encrypt_password
-    if password.present?
-      self.password_salt = BCrypt::Engine.generate_salt
-      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-    end
-  end
 end
