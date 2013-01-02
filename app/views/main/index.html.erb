@@ -7,6 +7,9 @@
     </h1>
   </div>
 
+    
+
+
  
   <div style="color:black">
     <div style="text-align:center">
@@ -15,3 +18,9 @@
   </div>
 
 </div>
+
+
+  <% content_for :sidebar do %>
+    <%= render :partial =>  "sessions/login" %>
+  <% end %>
+

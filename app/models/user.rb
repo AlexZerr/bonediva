@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :pictures
 
   def self.authenticate(email, password)
-    find_by_email(email).try(:authenticate, password)
+    find_by_email(email).try(authenticate: password)
   end
 
 end
