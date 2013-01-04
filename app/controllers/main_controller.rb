@@ -5,7 +5,8 @@ class MainController < ApplicationController
 
   def index
     @users = User.all
-    #@user = User.find(params[:id])
+    @user = current_user
+    @picture = Picture.new(params[:picture])
   end
 
   def about
