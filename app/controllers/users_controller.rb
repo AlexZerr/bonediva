@@ -51,6 +51,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new(params[:user])
+    @new_picture = Picture.new(params[:picture])
   end
 
 end

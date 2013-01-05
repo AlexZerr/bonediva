@@ -36,28 +36,26 @@
     <% end if !flash.blank? %>
 
 
-    <div>
+  <div>
     <% if !@hide_sidebar %>
       <div style="float: right;">
         <div id="sidebar">
           <% if current_user.present? %>
-           <h5>
-             <div>Name::<u><%= "   #{@user.username}" %></u></div>
-             <div>User Name::<%= current_user.name %></div>
-             <div>Email::<%= current_user.email %></div>
-            </h5>
-           </br>
-           <%= render :partial =>  "pictures/form" %>
-         <% else %>
-           <%= render :partial => "sessions/login" %>
-         <% end %>
-       </div>
-     </div>
-   <%= yield :sidebar %>
-  </div>
+            <div style="text-align: center;">
+                Name::              <%= current_user.name %></br>
+                Email::             <%= current_user.email %></br>
+                Username::       <u><%= "#{@user.username}" %></u></br>
+            </div>
+            </br>
+            <%= render :partial =>  "pictures/form" %>
+          <% else %>
+            <%= render :partial => "sessions/login" %>
+          <% end %>
+        </div>
+      </div>
+      <%= yield :sidebar %>
+    <% end %>
  </div>
-<% end %>
-    <%= yield %>
 
 
 
