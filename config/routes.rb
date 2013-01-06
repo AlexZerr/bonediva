@@ -65,6 +65,10 @@ Bonediva::Application.routes.draw do
   
   get "log_out" => "sessions#destroy", :as => "log_out"
 
+#  get "/show" => 'users#show', :as => "users"
+
+#  get "users" => "users#show", :as => "users"
+
 
   # See how all your routes lay out with "rake routes"
 

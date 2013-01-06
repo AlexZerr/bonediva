@@ -14,10 +14,14 @@
           <a href="/">Home</a>
         </p>
         <p id="top-bar-actions">
-          <a href="/sessions/new">Log_in</a>
-          <a href="/users/new">Signup</a>
-          <a href="/pictures/new">Add a Picture</a>
-          <a href="/about">About</a>
+          <% if !current_user.present? %>
+            <a href="/sessions/new">Log_in</a>
+            <a href="/users/new">Signup</a>
+          <% else %>
+            <a href="/pictures/new">Add a Picture</a>
+            <a href="/about">About</a>
+            <a href="/log_out">Sign Out</a>
+          <% end %>
         </p>
       </div><!--end #top_bar-->
     </div> 
@@ -41,8 +45,12 @@
 
         <div id="sidebar">
           <%#= yield :sidebar %>
-        <% if current_user.present? %>  
-          Logged in as <%= current_user.email %>
+        <% if current_user.present? %>
+
+         <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "img")  %>
+
+         <br/>
+      <%= link_to "#{@user.username}", user_path(@user) %>
         <% else %>
           <%= render :partial =>  "sessions/login" %>
         <% end %>
