@@ -26,7 +26,7 @@ class PicturesController < ApplicationController
 
   def create
 
-    @picture = Picture.new(params.require(:picture).permit([:title, :description, :image]))
+    @picture = current_user.picture.new(params.require(:picture).permit([:title, :description, :image]))
     if @picture.save
       redirect_to picture_path(@picture)
     else
