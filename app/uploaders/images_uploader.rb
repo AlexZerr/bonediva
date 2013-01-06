@@ -2,7 +2,7 @@
 
 class ImagesUploader < CarrierWave::Uploader::Base
 
-  
+  require 'fog' 
   # Include RMagick or MiniMagick support:
    include CarrierWave::RMagick
    include CarrierWave::MiniMagick

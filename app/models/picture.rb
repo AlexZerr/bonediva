@@ -4,6 +4,6 @@ class Picture < ActiveRecord::Base
   accepts_nested_attributes_for :image
 
   has_many :images
-  belongs_to :user
+  belongs_to :use
 
 end
