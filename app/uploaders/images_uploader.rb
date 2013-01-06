@@ -4,20 +4,22 @@ class ImagesUploader < CarrierWave::Uploader::Base
 
   
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+   include CarrierWave::RMagick
+   include CarrierWave::MiniMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper
   # include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :fog
   # storage :fog
 
-  uploader = ImagesUploader.new
-  uploader.store!(my_file)
-  uploader.retrieve_from_store!(my_file.png) 
+  #uploader = ImagesUploader.new
+  #uploader.store!(my_file)
+  #uploader.retrieve_from_store!(my_file.png) 
+  
+  
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir

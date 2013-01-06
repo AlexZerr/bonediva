@@ -14,6 +14,7 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+    @new_picture = Picture.new(params[:picture])
 
   end
 
@@ -24,6 +25,7 @@ class PicturesController < ApplicationController
   end
 
   def create
+
     @picture = Picture.new(params.require(:picture).permit([:title, :description, :image]))
     if @picture.save
       redirect_to picture_path(@picture)

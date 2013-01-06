@@ -4,19 +4,11 @@
   </div>
 </div>
 
+
 <%= content_for :sidebar do%>
-  <div style="text-align:left">
-    <h3>
-     Name ------- <%= @user.name %></br>
-     Username --- <%= @user.username%></br>
-       <%= @user.email %></br>
-     Age -------- <%= @user.age %></br>
-   </h3> 
- </div>
  <div>
    <%= @pictures %>
  </div>
-
 <% end%>
 
 <div style="color:#808080">

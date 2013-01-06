@@ -44,7 +44,7 @@
             <div style="text-align: center;">
                 Name::              <%= current_user.name %></br>
                 Email::             <%= current_user.email %></br>
-                Username::       <u><%= "#{@user.username}" %></u></br>
+                Username::       <u><%= current_user.username %></u></br>
             </div>
             </br>
             <%= render :partial =>  "pictures/form" %>
@@ -55,6 +55,7 @@
       </div>
       <%= yield :sidebar %>
     <% end %>
+    <%= yield %>
  </div>
 
 

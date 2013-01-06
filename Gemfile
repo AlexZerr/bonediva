@@ -25,6 +25,7 @@ gem "pundit", "~> 0.1.0"
 gem "carrierwave", "~> 0.7.1"
 gem "fog",         "~> 1.8.0"
 gem "mini_magick", "~> 3.4"
+gem 'aws-s3', :require => 'aws/s3'
 # Friendships
 gem "amistad", "~> 0.9.2"
 
