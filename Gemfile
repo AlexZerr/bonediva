@@ -22,8 +22,8 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem "pundit", "~> 0.1.0"
 
 # File Upload
-gem "carrierwave", "~> 0.7.1"
-gem "fog",         "~> 1.8.0"
+#gem "carrierwave", "~> 0.7.1"
+#gem "fog",         "~> 1.8.0"
 #gem "imagemagick", "~> 6.3.0"
 gem "mini_magick", "~> 3.4"
 #gem "rmagick", "~> 2.13.1"

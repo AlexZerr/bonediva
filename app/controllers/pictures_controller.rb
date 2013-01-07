@@ -14,8 +14,9 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
-    #@new_picture = Picture.new(params[:picture])
-
+      respond_to do |format|
+      format.html
+    end
   end
 
 
@@ -26,10 +27,12 @@ class PicturesController < ApplicationController
 
   def create
 
-    @picture = current_user.picture.new(params.require(:picture).permit([:title, :description, :image]))
-    if @picture.save
+    @picture = Picture.new(params.require(:picture).permit([:title, :description, :image]))
+    if @picture.attributes.blank?
+     @picture.errors 
+    elsif  @picture.save
       redirect_to picture_path(@picture)
-    else
+    elsif
       redirect_to new_picture_path, :notice => "Could not create picture." 
     end
   end

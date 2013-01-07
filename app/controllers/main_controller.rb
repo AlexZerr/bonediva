@@ -5,7 +5,6 @@ class MainController < ApplicationController
 
   def index
     @users = User.all
-    @user = current_user
     @new_picture = Picture.new(params[:picture])
   end
 
@@ -13,7 +12,7 @@ class MainController < ApplicationController
      @new_picture = Picture.new(params[:picture])
      @pictures = Picture.order( 'id desc' ).limit(20)
      @users   = User.all
-     @user    = current_user
+    # @user    = current_user
     render
   end
 
