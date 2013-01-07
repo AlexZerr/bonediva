@@ -60,6 +60,8 @@
   #sidebar {
   background: black;
   border: 5px solid red;
+  border-radius:25px;
+  -moz-border-radius:25px; 
   float: right;
   text-shadow: -1px 1px 1px #808080;
   padding: 15px;
@@ -68,6 +70,20 @@
   color: red;
   margin: 2px 2px 2px 2px;  
   }
+
+  #mid_component {
+  background: black;
+  border: 5px solid red;
+  border-radius:25px;
+  -moz-border-radius: 25px;
+  padding: 15px;
+  width: 600px;
+  height: 500px;
+  color: red;
+  margin: 0px auto;
+  
+  }
+
 
   .login_position {
     position:absolute;
