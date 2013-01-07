@@ -27,7 +27,7 @@ class PicturesController < ApplicationController
 
   def create
 
-    @picture = Picture.new(params.require(:picture).permit([:title, :description, :image]))
+    @picture = Picture.new(params[:picture])
     if @picture.attributes.blank?
      @picture.errors 
     elsif  @picture.save
