@@ -46,11 +46,14 @@
         <div id="sidebar">
           <%#= yield :sidebar %>
         <% if current_user.present? %>
-        
-          <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "img")  %>
 
+          <div style="float:right;">
+            asdfa
+          </div>
+          <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "img")  %>
           <br/>
           <%= link_to current_user.username, user_path(@user) %>
+
         <% else %>
           <%= render :partial =>  "sessions/login" %>
         <% end %>
@@ -75,12 +78,19 @@
       <%= link_to "log_in", log_in_path %>
     <% end %>
   </div>
-<div style="text-align:center">
-<div id="mid_component">
-  some output
-  <%= yield :mid_component%>
-</div>
-</div>
+
+  <div id="mid_component">
+    A list of all the users
+    <br/>
+    <div>
+      <% @users.each do |u| %>
+        <div style="text-align: center">
+          <%= u.name %>
+        </div>
+      <% end %>
+    </div>
+    <%= yield :mid_component%>
+  </div>
 
 
     

@@ -77,10 +77,11 @@
   border-radius:25px;
   -moz-border-radius: 25px;
   padding: 15px;
-  width: 600px;
+  width: 800px;
   height: 500px;
   color: red;
   margin: 0px auto;
+  margin-left: 100px;
   
   }
 
