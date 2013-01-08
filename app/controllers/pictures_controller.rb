@@ -27,12 +27,16 @@ class PicturesController < ApplicationController
 
   def create
     #params[:picture][:image]
-    @picture = current_user.pictures.build(picture_params)
+    @picture = current_user.pictures.new(picture_params)
     @picture.title = params[:picture][:title]
     @picture.description = params[:picture][:title]
     @picture.image = params[:picture][:pic]
     @picture.save
     respond_with @picture
+    uploader = ImagesUploader.new
+    uploader.store!(@picture.image)
+    uploader.retrieve_from_store!(@picture.image)
+    
   end
 
 
