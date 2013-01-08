@@ -19,19 +19,3 @@
 
 </div>
 
-<div>
-<% content_for :sidebar do %>
-  <% if current_user.present? %>
-    <h3>
-      <div>Name::<u><%= "   #{@user.username}" %></u></div>
-      <div>User Name::<%= current_user.name %></div>
-      <div>Email::<%= current_user.email %></div>
-    </h3>
-    </br>
-    <%= render :partial =>  "pictures/form" %>
-  <% else %>
-    <%= render :partial => "sessions/login" %>
-  <% end %>
-<% end %>
-</div>
-

@@ -2,8 +2,15 @@
   hello <%= "#{ User.name}" %> this is the picture show page
 </div>
 <div>
-  picture should show here
-  <%= @picture %>
-
-  
+  picture should show here</br>
+  title: 
+  <%= @picture.title %>
+  </br>
+  description: 
+  </br>
+  <%= @picture.description %>
+  </br>
+  image: 
+  </br>
+  <%= image_tag(@picture.image) %>
 </div>

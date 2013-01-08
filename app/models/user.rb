@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :age, :email, :name, :username, :password_confirmation, :password
+  attr_accessible :age, :email, :name, :username, :password_confirmation, :password, :image
   #before_filter :set_current_user
   has_secure_password
+
+  mount_uploader :image, ImagesUploader
 
   validates_confirmation_of :password
   validates :password, presence: true, on: :create
@@ -11,7 +13,7 @@ class User < ActiveRecord::Base
 
 
   has_many :pictures
-  accepts_nested_attributes_for :pictures
+  #accepts_nested_attributes_for :pictures
 
   def self.authenticate(email, password)
     find_by_email(email).try(authenticate: password)

@@ -8,13 +8,14 @@ class PicturesController < ApplicationController
   def index
     @picture = Picture.find(params[:id])
       Picture.order("id desc")
-
   end
 
 
   def show
     @picture = Picture.find(params[:id])
-
+      respond_to do |format|
+      format.html
+    end
   end
 
 
@@ -24,13 +25,16 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(params.require(:picture).permit([:title, :description, :image]))
-    if @picture.save
-      redirect_to picture_path(@picture)
-    else
-      redirect_to new_picture_path, :notice => "Could not create picture." 
-    end
-    end
+    @picture = current_user.pictures.new(picture_params)
+    @picture.title = params[:picture][:title]
+    @picture.description = params[:picture][:description]
+    uploader = ImagesUploader.new
+    uploader.store!(params[:picture][:pic])
+    @picture.image = uploader.to_s 
+    @picture.save
+    respond_with @picture
+   # uploader.retrieve_from_store!(@picture.image)
+    
   end
 
 
@@ -52,4 +56,12 @@ class PicturesController < ApplicationController
   def update
 
   end
+
+  private
+
+  def picture_params
+    params.require(:picture).permit(:title, :description, :image)
+  end
+
+end
 

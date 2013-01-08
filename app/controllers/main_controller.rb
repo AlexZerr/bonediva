@@ -5,12 +5,14 @@ class MainController < ApplicationController
 
   def index
     @users = User.all
-    @user = current_user
-    @picture = Picture.new(params[:picture])
+    @new_picture = Picture.new(params[:picture])
   end
 
   def about
-     @picture = Picture.order( 'id desc' ).limit(20)
+     @new_picture = Picture.new(params[:picture])
+     @pictures = Picture.order( 'id desc' ).limit(20)
+     @users   = User.all
+    # @user    = current_user
     render
   end
 

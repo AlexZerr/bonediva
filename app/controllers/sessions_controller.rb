@@ -3,6 +3,8 @@ class SessionsController < ApplicationController
  
 
   def new
+    @user = current_user
+    @new_picture = Picture.new(params[:picture])
 
   end 
 
