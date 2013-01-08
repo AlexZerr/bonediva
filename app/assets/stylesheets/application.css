@@ -104,6 +104,12 @@
    background-color: #4C0080;
 }
 
+  .center_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 
 

@@ -7,7 +7,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    
+
+    <div>
+          <%=image_tag("testing.jpg", :alt => "rss feed", :class => "center_image")  %>
+    </div>
     <div id="top_bar_wrap">
       <div id="top_bar">
         <p class="left">
@@ -48,9 +51,17 @@
         <% if current_user.present? %>
 
           <div style="float:right;">
-            asdfa
+            Logout
           </div>
+          </br>
+          <div style="float: right;">
+            Another cool link
+          </div>
+
           <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "img")  %>
+
+<%#= link_to image_tag("default_pic.jpg") + "some extra text", "/", :class => "img", :remote => true %>
+
           <br/>
           <%= link_to current_user.username, user_path(@user) %>
 
