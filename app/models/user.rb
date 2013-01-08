@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
 
   has_many :pictures
-  accepts_nested_attributes_for :pictures
+  #accepts_nested_attributes_for :pictures
 
   def self.authenticate(email, password)
     find_by_email(email).try(authenticate: password)

@@ -1,6 +1,6 @@
-# encoding: utf-8
-
 class ImagesUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
+  include CarrierWave::MimeTypes
 
   require 'fog' 
   # Include RMagick or MiniMagick support:

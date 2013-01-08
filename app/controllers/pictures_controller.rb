@@ -26,15 +26,13 @@ class PicturesController < ApplicationController
   end
 
   def create
-
-    @picture = Picture.new(params[:picture])
-    if @picture.attributes.blank?
-     @picture.errors 
-    elsif  @picture.save
-      redirect_to picture_path(@picture)
-    elsif
-      redirect_to new_picture_path, :notice => "Could not create picture." 
-    end
+    #params[:picture][:image]
+    @picture = current_user.pictures.build(picture_params)
+    @picture.title = params[:picture][:title]
+    @picture.description = params[:picture][:title]
+    @picture.image = params[:picture][:pic]
+    @picture.save
+    respond_with @picture
   end
 
 
@@ -56,5 +54,12 @@ class PicturesController < ApplicationController
   def update
 
   end
+
+  private
+
+  def picture_params
+    params.require(:picture).permit(:title, :description, :image)
+  end
+
 end
 

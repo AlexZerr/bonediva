@@ -4,8 +4,8 @@
     <%= f.text_field :title%></br>
     <%= f.label :description, "Description" %>
     <%= f.text_field :description %>
-      <%= f.label :image, "Image" %>
-      <%= f.file_field :image %></br>
+      <%#= f.label :image, "Image" %>
+      <%= file_field :picture, :pic %></br>
       <div>
         <%= f.submit %>
       </div>
