@@ -19,3 +19,15 @@
 
 </div>
 
+  <% content_for :sidebar do %>
+    <% if current_user.present? %>
+      <div>
+        Logged in a <%= current_user.username %> 
+      </div>
+    <% else %>
+      <div> 
+        <%= render :partial =>  "sessions/login" %>
+      </div>
+    <% end %>
+  <% end %>
+

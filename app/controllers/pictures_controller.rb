@@ -22,6 +22,7 @@ class PicturesController < ApplicationController
   def new
     @picture = Picture.new(params[:picture])
 
+    @user = current_user
   end
 
   def create

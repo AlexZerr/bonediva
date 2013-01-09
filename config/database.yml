@@ -1,0 +1,40 @@
+# This is a sample database file for the DataMapper ORM
+development: &defaults
+  # These are the settings for repository :default
+  adapter:  postgresql
+  #adapter:  mongo
+  database: bonediva_development
+  username: sterling
+  password: sterling1
+  host:     localhost
+  min_messages: warning
+
+  # Add more repositories
+  # repositories:
+  #   repo1:
+  #     adapter:  postgresql
+  #     database: sample_development
+  #     username: the_user
+  #     password: secrets
+  #     host:     localhost
+  #   repo2:
+  #     ...
+
+test:
+  <<:       *defaults
+  database: bonediva_test
+  min_messages: error
+
+  # repositories:
+  #   repo1:
+  #     database: sample_development
+
+production:
+  <<:       *defaults
+  database: bonediva_production
+
+  # repositories:
+  #   repo1:
+  #     database: sample_development
+rake:
+  <<:       *defaults

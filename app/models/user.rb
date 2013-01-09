@@ -19,4 +19,5 @@ class User < ActiveRecord::Base
     find_by_email(email).try(authenticate: password)
   end
 
+  
 end
