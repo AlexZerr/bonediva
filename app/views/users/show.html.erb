@@ -18,6 +18,12 @@
       <%= attr_name %> --- <%= attr_value %></br>
    <% end %>
  </div>
+
+ <div id="mid_component">
+   <% @pictures.each do |p| %>
+     <%= image_tag p.image %>
+   <% end %>
+ </div>
 </div>
 
     

@@ -22,9 +22,10 @@ class PicturesController < ApplicationController
 
 
   def new
-    @picture = Picture.new(params[:picture])
-    @users = User.all
     @user = current_user
+    @pictures = current_user.pictures
+    respond_with @pictures.order("id desc").limit(5)
+    @users = User.all
   end
 
   def create
