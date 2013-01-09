@@ -31,3 +31,18 @@
     <% end %>
   <% end %>
 
+
+
+  <div id="mid_component">
+    A list of all the users
+    <br/>
+    <div>
+      <% @users.each do |u| %>
+        <div style="text-align: center">
+          <%= u.name %>
+        </div>
+      <% end %>
+    </div>
+    <%= yield :mid_component%>
+  </div>
+

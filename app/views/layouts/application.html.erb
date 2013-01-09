@@ -48,26 +48,26 @@
 
         <div id="sidebar">
           <%#= yield :sidebar %>
-        <% if current_user.present? %>
+          <% if current_user.present? %>
 
-          <div style="float:right;">
-            Logout
-          </div>
-          </br>
-          <div style="float: right;">
-            Another cool link
-          </div>
+            <div style="float:right;">
+              Logout
+            </div>
+            </br>
+            <div style="float: right;">
+              Another cool link
+            </div>
 
-          <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "img")  %>
+            <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "img")  %>
 
-<%#= link_to image_tag("default_pic.jpg") + "some extra text", "/", :class => "img", :remote => true %>
+            <%#= link_to image_tag("default_pic.jpg") + "some extra text", "/", :class => "img", :remote => true %>
 
-          <br/>
-          <%= link_to current_user.username, user_path(@user) %>
+            <br/>
+            <%= link_to current_user.username, user_path(@user) %>
 
-        <% else %>
-          <%= render :partial =>  "sessions/login" %>
-        <% end %>
+          <% else %>
+            <%= render :partial =>  "sessions/login" %>
+          <% end %>
        
         </div>
       </div>
@@ -90,18 +90,7 @@
     <% end %>
   </div>
 
-  <div id="mid_component">
-    A list of all the users
-    <br/>
-    <div>
-      <% @users.each do |u| %>
-        <div style="text-align: center">
-          <%= u.name %>
-        </div>
-      <% end %>
-    </div>
-    <%= yield :mid_component%>
-  </div>
+
 
 
     
