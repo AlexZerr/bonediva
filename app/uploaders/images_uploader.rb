@@ -1,3 +1,4 @@
+require 'carrierwave/processing/mini_magick'
 class ImagesUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   include CarrierWave::MimeTypes
@@ -43,7 +44,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
    version :thumb do
-     process :resize_to_limit => [100, 100]
+     process :resize_to_fit => [100, 100]
    end
 
   # Add a white list of extensions which are allowed to be uploaded.
