@@ -37,8 +37,6 @@ class PicturesController < ApplicationController
     @picture.image = uploader.to_s 
     @picture.save
     respond_with @picture
-   # uploader.retrieve_from_store!(@picture.image)
-    
   end
 
 
