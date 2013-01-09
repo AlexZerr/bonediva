@@ -17,3 +17,5 @@ pickle-email-*.html
 config/database.yml
 config/initializers/fog.rb
 config/s3_credentials.yml
+public/uploads/
+public/.DS_Store
