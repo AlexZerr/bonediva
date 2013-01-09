@@ -13,6 +13,8 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+    @users = User.all
+    @user = current_user
       respond_to do |format|
       format.html
     end
@@ -21,7 +23,7 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new(params[:picture])
-
+    @users = User.all
     @user = current_user
   end
 

@@ -7,12 +7,14 @@ class UsersController < ApplicationController
 
   def index
     @user = current_user
+
    # @user = User.find(params[:id])
     render
   end
 
   def show
     @user   = User.find(params[:id])
+    @users = User.all
     @new_picture = Picture.new(params[:picture])
     #@pictures = @user.pictures.order('id desc').image.limit(10) 
 
