@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def index
     @user = current_user
+    @users = User.all
 
    # @user = User.find(params[:id])
     render
@@ -51,7 +52,6 @@ class UsersController < ApplicationController
   def delete
 
   end
-
 
   def new
     @user = User.new(params[:user])

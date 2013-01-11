@@ -8,10 +8,6 @@
   </head>
   <body>
 
-    <div>
-          <%=image_tag("testing.jpg", :alt => "rss feed", :class => "center_image")  %>
-    </div>
-    <div id="top_bar_wrap">
       <div id="top_bar">
         <p class="left">
           <a href="/">Home</a>
@@ -21,13 +17,23 @@
             <a href="/sessions/new">Log_in</a>
             <a href="/users/new">Signup</a>
           <% else %>
-            <a href="/pictures/new">Add a Picture</a>
-            <a href="/about">About</a>
-            <a href="/log_out">Sign Out</a>
+            <p class="left">
+              <a href="/users/">User List</a>
+              <a href="/pictures/new">Add a Picture</a>
+            </p>
+
+            <p class="right">
+              <a href="/log_out">Sign Out</a>
+            </p>
           <% end %>
         </p>
       </div><!--end #top_bar-->
-    </div> 
+
+      <%=image_tag("top_image.jpg", :alt => "rss feed", :class => "top_image")  %>
+    <div>
+
+    </div>
+
 
 
     <div style="color:red"> 
@@ -45,44 +51,39 @@
 
   <div>
     <% if !@hide_sidebar %>
-
-        <div id="sidebar">
-          <%#= yield :sidebar %>
-          <% if current_user.present? %>
-
-            <div style="float:right;">
-              Logout
-            </div>
+      <div id="sidebar">
+        <% if current_user.present? %>
+          <div style="float:right;">
+            Logout
+          </div>
+          </br>
+          <div style="float: right;">
+            Another cool link
             </br>
-            <div style="float: right;">
-              Another cool link
-            </div>
+          </div>
 
-            <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "img")  %>
+          <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "avatar_img")  %>
 
-            <%#= link_to image_tag("default_pic.jpg") + "some extra text", "/", :class => "img", :remote => true %>
+          <%#= link_to image_tag("default_pic.jpg") + current_user.username, user_path(@user), :class => "avatar_img", :remote => true %>
 
-            <br/>
-            <%= link_to current_user.username, user_path(@user) %>
+          <br/>
+          <%= link_to current_user.username, user_path(@user) %>
 
-          <% else %>
-            <%= render :partial =>  "sessions/login" %>
-          <% end %>
-       
-        </div>
+        <% else %>
+          <%= render :partial =>  "sessions/login" %>
+        <% end %>
       </div>
-      <%= yield :sidebar %>
     <% end %>
-    <%= yield %>
  </div>
 
-
+  <div>
+    <%= yield %>
+  </div>
 
   <div id="user_nav">
     <% if current_user.present? %>
         Logged in as <%= current_user.email %>
         <br/>
-        this user: <%#=  %>
       <%= link_to "log_out", log_out_path %>
     <% else %>
       <%= link_to "Sign_up", new_user_path %>
@@ -90,11 +91,6 @@
     <% end %>
   </div>
 
-
-
-
-    
-  
 
 
   </body>
