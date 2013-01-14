@@ -14,13 +14,16 @@
 /* --- Top Bar --- */
 
 #top_bar {
-  width:98.8%;
+
+  top: 0px;
+
+  width:100%;
+  position: fixed;
+
   margin:1px auto;
-  display:inline-block;
   border-bottom:1px solid #000;
   background:#2D2D2D;
-  top: 0px;
-  position: fixed;
+  display:inline-block;
 }
 
 #top_bar p {
@@ -31,11 +34,15 @@
 }
 
 #top_bar p.left {
-  float:left;
+  position: relative;
+  float: left;
+  left: 60px;
 }
 
 #top_bar p.right {
-  float:right;
+  position: relative;
+  float: right;
+  right: 60px;
 }
 
 

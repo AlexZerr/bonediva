@@ -14,8 +14,10 @@
         </p>
         <p id="top-bar-actions">
           <% if !current_user.present? %>
-            <a href="/sessions/new">Log_in</a>
-            <a href="/users/new">Signup</a>
+            <p class="right">
+              <a href="/sessions/new">Log_in</a>
+              <a href="/users/new">Signup</a>
+            </p>
           <% else %>
             <p class="left">
               <a href="/users/">User List</a>
