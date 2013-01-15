@@ -1,3 +1,5 @@
+
+require 'carrierwave/processing/mini_magick'
 class PicturesController < ApplicationController
 
   respond_to :html, :js
@@ -22,6 +24,7 @@ class PicturesController < ApplicationController
 
 
   def new
+    @picture = Picture.new(params[:picture]) 
     @user = current_user
     @pictures = current_user.pictures
     respond_with @pictures.order("id desc").limit(5)
@@ -29,12 +32,13 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = current_user.pictures.new(picture_params)
-    @picture.title = params[:picture][:title]
-    @picture.description = params[:picture][:description]
-    uploader = ImagesUploader.new
-    uploader.store!(params[:picture][:pic])
-    @picture.image = uploader.to_s 
+    @picture = current_user.pictures.new(params[:picture])
+    #@picture.title = params[:picture][:title]
+    #@picture.description = params[:picture][:description]
+    #uploader = ImagesUploader.new
+    #uploader.store!(@picture)
+   # uploader.retrieve_from_store!(params[:pic])
+    #@picture.image
     @picture.save
     respond_with @picture
   end
