@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   #before_filter :set_current_user
   has_secure_password
 
-  mount_uploader :image, ImagesUploader
+ # mount_uploader :image, ImagesUploader
 
   validates_confirmation_of :password
   validates :password, presence: true, on: :create
@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true
 
 
-  has_many :pictures
+  has_many :paintings
   #accepts_nested_attributes_for :pictures
 
   def self.authenticate(email, password)

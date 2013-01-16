@@ -1,3 +1,5 @@
+require 'carrierwave/processing/mini_magick'
+
 class ImagesUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   include CarrierWave::MimeTypes
@@ -23,7 +25,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/"
+    "uploads/new/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -42,20 +44,32 @@ class ImagesUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-   #  process :scale => [50, 50]
-  # end
-
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
+
    def extension_white_list
      %w(jpg jpeg gif png)
    end
+
+    version :standard do
+      process :resize_to_fit => [300,300]
+    end
+
+     version :thumb do
+       process :resize_to_fill => [100,100]
+     end
+
+     
+   #uploader.retrieve_from_store!(@picture)
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
   # end
+  def default_url
+    filename = [version_name, "missing.png"].compact.join("_")
+    "/assets/attachments_missing/pictures/#{filename}"
+  end
 
 end
