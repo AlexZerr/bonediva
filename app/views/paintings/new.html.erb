@@ -1,0 +1,9 @@
+<%= form_for Painting.new, :html => {:multipart => true} do |f| %>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.file_field :image %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   #before_filter :set_current_user
   has_secure_password
 
-  mount_uploader :image, ImagesUploader
+ # mount_uploader :image, ImagesUploader
 
   validates_confirmation_of :password
   validates :password, presence: true, on: :create

@@ -1,0 +1,22 @@
+class PaintingsController < ApplicationController
+
+  def new
+    @painting = Painting.new(params[:painting])
+    @user = current_user
+    @users = User.all
+  end
+
+  def create
+    @painting = Painting.new(params[:painting])
+    if @painting.save
+      redirect_to @painting
+    end
+  end
+
+  def show
+    @painting = Painting.find(params[:id])
+    @users = User.all
+    @user = current_user
+  end
+
+end

@@ -27,8 +27,8 @@ class PicturesController < ApplicationController
     @picture = Picture.new 
     @user = current_user
     @pictures = current_user.pictures
-    respond_with @pictures.order("id desc").limit(5)
     @users = User.all
+    respond_with @pictures.order("id desc").limit(5)
   end
 
   def create
