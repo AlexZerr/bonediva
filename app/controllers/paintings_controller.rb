@@ -7,7 +7,7 @@ class PaintingsController < ApplicationController
   end
 
   def create
-    @painting = Painting.new(params[:painting])
+    @painting = current_user.paintings.new(params[:painting])
     if @painting.save
       redirect_to @painting
     end

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true
 
 
-  has_many :pictures
+  has_many :paintings
   #accepts_nested_attributes_for :pictures
 
   def self.authenticate(email, password)

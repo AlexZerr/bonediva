@@ -51,10 +51,15 @@ class ImagesUploader < CarrierWave::Uploader::Base
      %w(jpg jpeg gif png)
    end
 
+    version :standard do
+      process :resize_to_fit => [300,300]
+    end
 
      version :thumb do
        process :resize_to_fill => [100,100]
      end
+
+     
    #uploader.retrieve_from_store!(@picture)
 
   # Override the filename of the uploaded files:

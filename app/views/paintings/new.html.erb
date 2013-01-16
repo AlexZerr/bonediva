@@ -1,9 +1,17 @@
 <%= form_for Painting.new, :html => {:multipart => true} do |f| %>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
-  </p>
+    </p>
+    <p>
+    <%= f.label :description, "Description" %></br>
+    <%= f.text_field :description %>
+    </p>
   <p>
     <%= f.file_field :image %>
-  </p>
+    </p>
+    <p>
+    <%= f.label :remote_image_url, "Upload from a url" %></br>
+    <%= f.text_field :remote_image_url %>
+    </p>
   <p><%= f.submit %></p>
 <% end %>
