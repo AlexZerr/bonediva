@@ -28,6 +28,8 @@ class ImagesUploader < CarrierWave::Uploader::Base
     "uploads/new/"
   end
 
+    uploader = ImagesUploader.new
+    uploader.store!(@picture)
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -36,7 +38,6 @@ class ImagesUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-    uploader = ImagesUploader.new
   # Process files as they are uploaded:
   # process :scale => [200, 300]
   #
@@ -58,7 +59,6 @@ class ImagesUploader < CarrierWave::Uploader::Base
        process :resize_to_fill => [100,100]
      end
    #uploader.retrieve_from_store!(@picture)
-    uploader.store!(@picture)
     uploader.retrieve_from_store!(@picture)
 
   # Override the filename of the uploaded files:

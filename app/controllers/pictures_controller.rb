@@ -24,7 +24,7 @@ class PicturesController < ApplicationController
 
 
   def new
-    @picture = Picture.new(params[:picture]) 
+    @picture = Picture.new 
     @user = current_user
     @pictures = current_user.pictures
     respond_with @pictures.order("id desc").limit(5)
@@ -38,7 +38,7 @@ class PicturesController < ApplicationController
     #uploader = ImagesUploader.new
     #uploader.store!(@picture)
    # uploader.retrieve_from_store!(params[:pic])
-    #@picture.image
+    #@picture.image = uploader.to_s
     @picture.save
     respond_with @picture
   end
@@ -67,6 +67,12 @@ class PicturesController < ApplicationController
 
   def picture_params
     params.require(:picture).permit(:title, :description, :image)
+  end
+
+  def upload_method
+    uploader = ImagesUploader.new
+    uploader.store!(@picture.image)
+    return uploader.to_s
   end
 
 end

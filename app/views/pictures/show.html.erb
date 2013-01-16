@@ -12,5 +12,5 @@
   </br>
   image: 
   </br>
-  <%= image_tag @picture.image_url %>
+  <%= image_tag @picture.image if @picture.image? %>
 </div>
