@@ -1,11 +1,11 @@
 <div>
-  <%= form_for Picture.new, :html => { :multipart => true } do |f|%>
+  <%= form_for @picture, :html => { :multipart => true } do |f|%>
     <%= f.label :title, "Title"%>
     <%= f.text_field :title%></br>
     <%= f.label :description, "Description" %>
     <%= f.text_field :description %>
       <%#= f.label :image, "Image" %>
-      <%= file_field :picture, :pic %></br>
+      <%= f.file_field :image %></br>
       <div>
         <%= f.submit %>
       </div>

@@ -15,8 +15,24 @@
     <h4>Info</h4>
     <% @user.attributes.each do |attr_name, attr_value| %>
       <%= attr_name %> --- <%= attr_value %></br>
-    <% end %>
-  </div>
+   <% end %>
+ </div>
 </div>
+
+ <div id="mid_component">
+   <% @paintings.each do |p| %>
+    <div>
+      <div>
+        <%= p.title %>
+      </div>
+      <div>
+        <%= image_tag (p.image_url(:thumb)) %>
+      </div>
+      <div>
+        <%= p.description %>
+      </div>
+    </div>
+   <% end %>
+ </div>
 
     
