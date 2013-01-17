@@ -20,13 +20,13 @@
  </div>
 
  <div id="mid_component">
-   <% @pictures.each do |p| %>
+   <% @paintings.each do |p| %>
     <div>
       <div>
         <%= p.title %>
       </div>
       <div>
-        <%= image_tag (p.image) %>
+        <%= image_tag (p.image_url(:thumb)) %>
       </div>
       <div>
         <%= p.description %>
