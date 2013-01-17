@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @picture = User.picture
+    @painting = current_user.paintings
 
   end
 
