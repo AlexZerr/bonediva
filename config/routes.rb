@@ -57,7 +57,6 @@ Bonediva::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'main#index'
 
-
   match '/index', :to => 'main#index'
 
   get '/about', :to => 'main#about'

@@ -1,0 +1,28 @@
+
+
+
+<div style="color:red">
+  <div style="text-align:center">
+    <h1>
+      User List
+    </h1>
+  </div>
+</div>
+ 
+
+
+
+  <div id="mid_component">
+    A list of all the users
+    <br/>
+    <div>
+      <% @users.each do |u| %>
+        <div style="text-align: center">
+          <ul>
+            <li> <%= u.name %>: </li> 
+            <li> <%= link_to u.username, user_path(u) %> </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>

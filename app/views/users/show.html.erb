@@ -1,11 +1,10 @@
 <div style="text-align:center">
   <div style="color:red">
-    <h2> welcome <%= @user.username %></h2>
+    <h2> Welcome <%= @user.username %></h2>
   </div>
 </div>
 
-
-<%= content_for :sidebar do%>
+<%= content_for :sidebar do %>
  <div>
    <%= @pictures %>
  </div>
@@ -13,11 +12,12 @@
 
 <div style="color:#808080">
   <div style="text-align:center">
-  <h4>Info</h4>
+    <h4>Info</h4>
     <% @user.attributes.each do |attr_name, attr_value| %>
       <%= attr_name %> --- <%= attr_value %></br>
    <% end %>
  </div>
+</div>
 
   <div style="color:red">
     <%= link_to "Edit User", edit_user_path(@user) %>

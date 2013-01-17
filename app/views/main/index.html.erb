@@ -7,10 +7,8 @@
     </h1>
   </div>
 
-    
 
 
- 
   <div style="color:black">
     <div style="text-align:center">
       <%= link_to 'ACEO Web Page', "http://www.lisaluree.com" %>
@@ -18,16 +16,4 @@
   </div>
 
 </div>
-
-  <% content_for :sidebar do %>
-    <% if current_user.present? %>
-      <div>
-        Logged in a <%= current_user.username %> 
-      </div>
-    <% else %>
-      <div> 
-        <%= render :partial =>  "sessions/login" %>
-      </div>
-    <% end %>
-  <% end %>
-
+Home Page

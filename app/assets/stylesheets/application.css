@@ -12,28 +12,40 @@
  *= require_tree .
  */
 /* --- Top Bar --- */
-#top_bar_wrap {
-  width:100%;
-  display:inline-block;
-  border-bottom:1px solid #000;
-  background:#2D2D2D;
-}
 
 #top_bar {
-  width:940px;
+
+  top: 0px;
+
+  width: 98.8%;
+  position: fixed;
+
   margin:1px auto;
+  border-bottom:1px solid #000;
+  background:#2D2D2D;
+  display:inline-block;
 }
 
 #top_bar p {
-  margin:0px;
+  margin:3px;
   display:inline-block;
   float:right;
   text-shadow:-1px 1px 1px #000;
 }
 
 #top_bar p.left {
-  float:left;
+  position: relative;
+  float: left;
+  left: 60px;
 }
+
+#top_bar p.right {
+  position: relative;
+  float: right;
+  right: 60px;
+}
+
+
 
 #top_bar p, #top_bar a {
   font-size:12px;
@@ -68,7 +80,7 @@
   width: 240px;
   height: 190px;
   color: red;
-  margin: 2px 2px 2px 2px;  
+  margin: 2px 2px 2px 2px;
   }
 
   #mid_component {
@@ -78,7 +90,7 @@
   -moz-border-radius: 25px;
   padding: 15px;
   width: 800px;
-  height: 500px;
+  height: 2000px;
   color: red;
   margin: 0px auto;
   margin-left: 100px;
@@ -98,19 +110,18 @@
     top:0px;
   }
 
-  .img {
+  .avatar_img {
+   position: relative;
+   top: -18px;
    padding:5px;
    border:1px solid #f00000;
+   border-radius:10px;
+   -moz-border-radius: 10px;
    background-color: #4C0080;
 }
 
-  .center_image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  .top_image {
+    width: 100%;
+    margin-top:28px;
 }
-
-
-
-
 
