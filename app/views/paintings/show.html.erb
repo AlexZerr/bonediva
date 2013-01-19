@@ -5,4 +5,7 @@ testinginging
     <%= image_tag @painting.image_url(:large) %>
     <p><h4><%= "#{@painting.description}" %></h4></p>
   </div>
+  <div>
+    <%= link_to "Delete", @painting, data: { method: :delete, confirm: "Are you sure you want to delete this painting?" } %>
+  </div>
 </div>

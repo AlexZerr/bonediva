@@ -14,9 +14,15 @@ class PaintingsController < ApplicationController
   end
 
   def show
-    @painting = current_user.paintings.find(params[:id])
+    @painting = Painting.find(params[:id])
     @users = User.all
     @user = current_user
+  end
+
+   def destroy
+    @painting = Painting.find(params[:id])
+    @painting.destroy
+    respond_with @painting
   end
 
 end
