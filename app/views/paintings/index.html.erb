@@ -9,7 +9,12 @@
 <div id="mid_component">
   <% @paintings.each do |p| %>
     <div>
-      <%= link_to image_tag(p.image_url(:thumb)), painting_path(p.id) %>
+      <div>
+        Title: <%= link_to p.title, painting_path(p.id) %>
+      </div>
+      <div>
+        <%= link_to image_tag(p.image_url(:thumb)), painting_path(p.id) %>
+      </div>
       <% if p.user_id.to_i != 0 # delete this after first few pics are deleted %> 
         <div>
           Image Posted by: <%= link_to User.find(p.user_id.to_i).username, user_path(User.find(p.user_id.to_i)) %>
