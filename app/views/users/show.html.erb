@@ -5,9 +5,10 @@
 </div>
 
 <%= content_for :sidebar do %>
- <div>
-   <%= @pictures %>
- </div>
+  <div id="sidebar">
+    <div style="color:red">
+    </div>
+  </div>
 <% end%>
 
 <div style="color:#808080">
@@ -15,24 +16,28 @@
     <h4>Info</h4>
     <% @user.attributes.each do |attr_name, attr_value| %>
       <%= attr_name %> --- <%= attr_value %></br>
-   <% end %>
+    <% end %>
+     <%= link_to "Edit User Info", edit_user_path(@user) %>
  </div>
 </div>
 
+
  <div id="mid_component">
    <% @paintings.each do |p| %>
-    <div>
+     <div>
+       <p>
       <div>
         <%= p.title %>
       </div>
       <div>
-        <%= image_tag (p.image_url(:thumb)) %>
+        <%= link_to (image_tag p.image_url(:thumb)), painting_path(p) %>
       </div>
       <div>
         <%= p.description %>
       </div>
+      </p>
     </div>
-   <% end %>
+  <% end %>
  </div>
 
     

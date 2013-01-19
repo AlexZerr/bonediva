@@ -1,30 +1,32 @@
 <div style="text-align:center">
-  <div style="color:purple">
-    <%= form_for @user do |f| %>
-      <% if @user.errors.any? %>
+  <div style="float:center">
+    <div style="color:purple">
+      <%= form_for @user do |f| %>
+        <% if @user.errors.any? %>
         
-        <div class="error_messages">
-          <h2>Form is Invalid</h2>
-          <ul>
-            <% for message in @user.errors.full_message %>
-              <%= message %>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-    <%= f.label :name, 'Name'%>
-    <%= f.text_field :name, required: true %></br>
-    <%= f.label :username, 'Username' %>
-    <%= f.text_field :username, required: true %></br>
-    <%= f.label :password, 'Password' %>
-    <%= f.password_field :password, required: true %></br>
-    <%= f.label :password_confirmation, 'Confirm Password' %>
-    <%= f.password_field :password_confirmation, required: true %></br>
-    <%= f.label :email, 'Email Address'%>
-    <%= f.text_field :email, required: true %></br>
-    <%= f.label :age, 'Age (optional)'%>
-    <%= f.text_field :age %></br>
-    <%= f.submit %>
-   <% end %>
+          <div class="error_messages">
+            <h2>Form is Invalid</h2>
+            <ul>
+              <% for message in @user.errors.full_message %>
+                <%= message %>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <p><%= f.label :name, 'Name'%></br>
+        <%= f.text_field :name, required: true %></p>
+      <p><%= f.label :username, 'Username' %></br>
+        <%= f.text_field :username, required: true %></p>
+      <p><%= f.label :password, 'Password' %></br>
+        <%= f.password_field :password, required: true %></p>
+      <p><%= f.label :password_confirmation, 'Confirm' %></br>
+        <%= f.password_field :password_confirmation, required: true %></p>
+      <p><%= f.label :email, 'Email Address'%></br>
+        <%= f.text_field :email, required: true %></p>
+      <p><%= f.label :age, 'Age (optional)'%></br>
+        <%= f.text_field :age %></p>
+      <p><%= f.submit %></p>
+    <% end %>
+    </div>
   </div>
 </div>
