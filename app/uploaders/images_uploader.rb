@@ -51,6 +51,10 @@ class ImagesUploader < CarrierWave::Uploader::Base
      %w(jpg jpeg gif png)
    end
 
+   version :large do
+     process :resize_to_fit => [800,800]
+   end
+
     version :standard do
       process :resize_to_fit => [300,300]
     end
