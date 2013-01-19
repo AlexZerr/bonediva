@@ -30,6 +30,7 @@ class PaintingsController < ApplicationController
     @user = current_user
   end
 
+<<<<<<< HEAD
  def destroy
     @painting = Painting.find(params[:id])
     @painting.destroy
@@ -38,4 +39,12 @@ class PaintingsController < ApplicationController
 
  private
 
+=======
+   def destroy
+    @painting = Painting.find(params[:id])
+    @painting.destroy
+    respond_with @painting
+  end
+
+>>>>>>> Add delete painting link to paintings show
 end
