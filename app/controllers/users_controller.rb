@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @user   = User.find(params[:id])
     @users = User.all
     @paintings = Painting.where(user_id: params[:id])
+    #@painting = current_user.paintings.find(params[:id])
     #@pictures = Picture.find_by_user_id(params[:user_id])
     #@pictures = @user.pictures.order('id desc').image.limit(10) 
   end
