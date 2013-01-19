@@ -1,2 +1,33 @@
 
-ajsdhgfkja
+<div style="color:red">
+  <div style="text-align:center">
+    <h1>
+      Paintings Of All Users
+    </h1>
+  </div>
+
+<div id="mid_component">
+  <% @paintings.each do |p| %>
+    <div>
+      <div>
+        Title: <%= link_to p.title, painting_path(p.id) %>
+      </div>
+      <div>
+        <%= link_to image_tag(p.image_url(:thumb)), painting_path(p.id) %>
+      </div>
+      <% if p.user_id.to_i != 0 # delete this after first few pics are deleted %> 
+        <div>
+          Image Posted by: <%= link_to User.find(p.user_id.to_i).username, user_path(User.find(p.user_id.to_i)) %>
+        </div>
+      <% else %>
+        <div>
+          This Painting has user_id = 0 and needs to be deleted.
+        <div>
+      <% end %>
+    </div>
+    </br>
+    </br>
+    </br>
+  <% end %>
+<div>
+  

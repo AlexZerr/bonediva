@@ -1,5 +1,10 @@
 class PaintingsController < ApplicationController
 
+  def index
+    @paintings = Painting.all
+    @user = current_user
+  end
+
   def new
     @painting = Painting.new(params[:painting])
     @user = current_user
