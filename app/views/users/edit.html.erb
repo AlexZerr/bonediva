@@ -4,4 +4,19 @@
 
 <div id="mid_component">
   <%= render :partial => "users/user_form" %>
+  <% @paintings.each do |p|%>
+    <div class="row-fluid">
+      <div class="span12">
+        <p>
+      <%= p.title %>
+      <div>
+        <%= image_tag p.image_url(:thumb) %><%= p.description %>
+      </div>
+        <div>
+          <%= link_to "Delete", @painting, data: { method: :delete, confirm: "Are you sure you want to delete this painting?" } %>
+        </div>
+        </p> 
+      </div>
+    </div>
+  <% end %>
 </div>
