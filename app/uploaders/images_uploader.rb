@@ -50,13 +50,9 @@ class ImagesUploader < CarrierWave::Uploader::Base
      %w(jpg jpeg gif png)
    end
 
-    version :full_size do
-     # width = @painting.image[:width]
-     # if width > 500
-        process :resize_to_fit => [400,400]
-     # end
-
-    end
+   version :large do
+     process :resize_to_fit => [800,800]
+   end
 
     version :standard do
       process :resize_to_fit => [300,300]

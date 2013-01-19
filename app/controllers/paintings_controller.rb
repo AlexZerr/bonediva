@@ -19,7 +19,7 @@ class PaintingsController < ApplicationController
   end
 
   def show
-    @painting = Painting.find(params[:id])
+    @painting = current_user.paintings.find(params[:id])
     @users = User.all
     @user = current_user
   end
