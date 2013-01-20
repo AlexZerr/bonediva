@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
 
   def index
-    @user = current_user
+    @user = User.find(params[:id])
     @users = User.all
 
    # @user = User.find(params[:id])
@@ -55,8 +55,16 @@ class UsersController < ApplicationController
   end
 
   def new
+   if !current_user.present? 
     @user = User.new(params[:user])
+   else
+     @user = current_user
+   end
     @new_picture = Picture.new(params[:picture])
+  end
+
+  def logged_in?
+    User.find(session[:id])
   end
 
 end
