@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user   = User.find(params[:id])
+    @user = User.find(params[:id])
     @users = User.all
     @paintings = current_user.paintings
     @painting = current_user.paintings
