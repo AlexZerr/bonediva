@@ -25,10 +25,11 @@
         <%= f.text_field :email, required: true %></p>
       <p><%= f.label :age, 'Age (optional)'%></br>
       <%= f.text_field :age %></p>
-      <p><% if current_user.admin? %>
-        <%= f.check_box :admin %>
-      <% end %></p>
       <p><%= f.submit %></p>
+      <% if current_user.admin? %>
+        <%= "Make and admin?"%>
+        <%= f.check_box :admin %>
+      <% end %>
     <% end %>
     </div>
   </div>
