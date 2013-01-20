@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :age, :email, :name, :username, :password_confirmation, :password, :image
+  attr_accessible :age, :email, :name, :username, :password_confirmation, :password, :image, :admin
   #before_filter :set_current_user
   has_secure_password
 
