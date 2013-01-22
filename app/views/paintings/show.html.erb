@@ -5,6 +5,8 @@
     <p><h4><%= "#{@painting.description}" %></h4></p>
   </div>
   <div>
-    <%= link_to "Delete", @painting, data: { method: :delete, confirm: "Are you sure you want to delete this painting?" } %>
+    <% if current_user.admin? %>
+      <%= link_to "Delete", @painting, data: { method: :delete, confirm: "Are you sure you want to delete this painting?" } %>
+    <% end %>
   </div>
 </div>

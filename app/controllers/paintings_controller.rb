@@ -1,5 +1,7 @@
 class PaintingsController < ApplicationController
 
+  before_filter :ensure_admin, only: [:destroy]
+
   def index
     @paintings = Painting.all
     @user = current_user
@@ -14,7 +16,7 @@ class PaintingsController < ApplicationController
   def create
     @painting = current_user.paintings.new(params[:painting])
     if @painting.save
-      redirect_to @painting
+      redirect_to @painting, :notice => "#{@painting.title} was created sucessfully"
     end
   end
 
@@ -24,10 +26,12 @@ class PaintingsController < ApplicationController
     @user = current_user
   end
 
-   def destroy
+ def destroy
     @painting = Painting.find(params[:id])
     @painting.destroy
-    respond_with @painting
+    redirect_to root, :notice => "#{@painting.title} has been terminated!"
   end
+
+ private
 
 end

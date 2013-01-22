@@ -6,9 +6,7 @@ class UsersController < ApplicationController
 
 
   def index
-    @user = User.find(params[:id])
     @users = User.all
-
    # @user = User.find(params[:id])
     render
   end

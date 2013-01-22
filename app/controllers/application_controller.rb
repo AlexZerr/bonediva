@@ -3,9 +3,12 @@ class ApplicationController < ActionController::Base
 
 
   def is_admin?
-    current_user && current_user.admin?
+    current_user.present? && current_user.admin?
   end
 
+  def ensure_admin
+    return unauthorized! unless current_user.present? && current_user.admin?# &&
+  end
  # def set_current_user 
   #  Authorization.current_user = current_user
  # end
