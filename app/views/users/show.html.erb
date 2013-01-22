@@ -11,15 +11,17 @@
 <div style="color:#808080">
   <div style="text-align:left">
     <h4>Info</h4>
-    <% @user.attributes.each do |attr_name, attr_value| %>
-      <b><%= attr_name %></b> --- <%= attr_value %></br>
-    <% end %>
+    <h2><p>Email: <%= @user.email %></p>
+      <p>Name: <%= @user.name %></p>
+      <p>Username: <%= @user.username %></p>
+      <p>Age: <%= @user.age %>
+      <p>website:<%= link_to @user.user_link, @user.user_link %></h2>
      <%= link_to "Edit User Info", edit_user_path(@user) %>
  </div>
 </div>
 
 
- <div id="mid_component">
+<div id="mid_component">
    <% @paintings.each do |p| %>
      <div>
        <p>
@@ -27,7 +29,7 @@
         <%= p.title %>
       </div>
       <div>
-        <%= link_to (image_tag p.image_url(:thumb)), painting_path(p) %>
+        <%= link_to (image_tag p.image_url(:thumb).to_s), painting_path(p) %>
       </div>
       <div>
         <%= p.description %>

@@ -14,7 +14,11 @@ class PaintingsController < ApplicationController
   end
 
   def create
+    if current_user.present?
     @painting = current_user.paintings.new(params[:painting])
+    else
+      redirect_to new_user_path, :notice => "You must be logged in to add a picture"
+    end
     if @painting.save
       redirect_to @painting, :notice => "#{@painting.title} was created sucessfully"
     end
