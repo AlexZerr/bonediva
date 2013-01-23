@@ -41,3 +41,7 @@ gem "audited-activerecord", "~> 3.0.0"
 
 gem "puma", "~> 1.6.3"
 
+group :assets do
+  gem 'bootstrap-sass-rails'
+end
+
