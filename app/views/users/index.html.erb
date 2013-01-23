@@ -21,7 +21,7 @@
           <ul>
             <li> <%= u.name %>: </li> 
             <li> <%= link_to u.username, user_path(u) %> </li>
-            <% if current_user.admin? %>
+            <% if is_admin? %>
               <%= link_to "delete", u, :method => :delete, :confirm => "Are you sure?" %>
             <% end %>
           </ul>
