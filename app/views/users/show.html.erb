@@ -15,7 +15,7 @@
       <p>Name: <%= @user.name %></p>
       <p>Username: <%= @user.username %></p>
       <p>Age: <%= @user.age %>
-      <p>website:<%= link_to @user.user_link, @user.user_link %></h2>
+      <p>website:<%= link_to @user.user_link, "http://" + @user.user_link %></h2>
      <%= link_to "Edit User Info", edit_user_path(@user) %>
  </div>
 </div>
