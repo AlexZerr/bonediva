@@ -22,21 +22,20 @@
 
 
 <div id="mid_component">
-   <% @paintings.each do |p| %>
-     <div>
-       <p>
-      <div>
-        <%= p.title %>
-      </div>
-      <div>
-        <%= link_to (image_tag p.image_url(:thumb).to_s), painting_path(p) %>
-      </div>
-      <div>
-        <%= p.description %>
-      </div>
-      </p>
+  <div style="display:inline">
+      <span>
+    <% @paintings.each do |p| %>
+         <p>
+        <div>
+          <%= p.title %>
+        </div>
+        <div>
+          <%= link_to (image_tag p.image_url(:thumb).to_s), painting_path(p) %>
+        </div>
+        </p>
+   <% end %>
+      </span>
     </div>
-  <% end %>
  </div>
 
     
