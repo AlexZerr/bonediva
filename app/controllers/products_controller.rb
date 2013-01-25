@@ -6,14 +6,13 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = current_user.products.new(params[:product])
     render
   end
 
   def create
-    @product = Product.new(params[:product])
-    if @product.save
-      respond_with @product
-    end
+    @product = current_user.products.new(params[:product])
+     @product.save
   end
 
   def edit
