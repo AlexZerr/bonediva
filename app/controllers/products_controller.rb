@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_user.products.new(params[:product])
+    @painting = Product.paintings.new(params[:painting])
      if@product.save
        redirect_to product_path(@product)
      end
