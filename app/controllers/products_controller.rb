@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
     @products = Product.all
     render
   end
+  
+  def show
+    @product = Product.find(params[:id])
+  end
 
   def new
     @product = current_user.products.new(params[:product])
