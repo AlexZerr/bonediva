@@ -12,7 +12,9 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_user.products.new(params[:product])
-     @product.save
+     if@product.save
+       redirect_to product_path(@product)
+     end
   end
 
   def edit
