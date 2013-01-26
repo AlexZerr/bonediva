@@ -5,39 +5,37 @@
 </div>
 
 <%= content_for :sidebar do %>
-  <div id="sidebar">
-    <div style="color:red">
-    </div>
-  </div>
+  
 <% end%>
 
 <div style="color:#808080">
-  <div style="text-align:center">
+  <div style="text-align:left">
     <h4>Info</h4>
-    <% @user.attributes.each do |attr_name, attr_value| %>
-      <%= attr_name %> --- <%= attr_value %></br>
-    <% end %>
+    <h2><p>Email: <%= @user.email %></p>
+      <p>Name: <%= @user.name %></p>
+      <p>Username: <%= @user.username %></p>
+      <p>Age: <%= @user.age %>
+      <p>website:<%= link_to @user.user_link, "http://" + @user.user_link %></h2>
      <%= link_to "Edit User Info", edit_user_path(@user) %>
  </div>
 </div>
 
 
- <div id="mid_component">
-   <% @paintings.each do |p| %>
-     <div>
-       <p>
-      <div>
-        <%= p.title %>
-      </div>
-      <div>
-        <%= link_to (image_tag p.image_url(:thumb)), painting_path(p) %>
-      </div>
-      <div>
-        <%= p.description %>
-      </div>
-      </p>
+<div id="mid_component">
+  <div style="display:inline">
+      <span>
+    <% @paintings.each do |p| %>
+         <p>
+        <div>
+          <%= p.title %>
+        </div>
+        <div>
+          <%= link_to (image_tag p.image_url(:thumb).to_s), painting_path(p) %>
+        </div>
+        </p>
+   <% end %>
+      </span>
     </div>
-  <% end %>
  </div>
 
     

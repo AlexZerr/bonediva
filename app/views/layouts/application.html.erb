@@ -67,14 +67,15 @@
 
           <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "avatar_img")  %>
 
+          <%= link_to current_user.name, current_user_path %>
           <%#= link_to image_tag("default_pic.jpg") + current_user.username, user_path(@user), :class => "avatar_img", :remote => true %>
 
           <br/>
-          <%= link_to current_user.username, user_path(@user) %>
 
         <% else %>
           <%= render :partial =>  "sessions/login" %>
         <% end %>
+        <%= yield :sidebar %>
       </div>
     <% end %>
  </div>

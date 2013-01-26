@@ -61,12 +61,14 @@
 
 
   #flash_notice {
-    background: black;
+    background: #980000;
     border: 2px solid, white;
     text-align: center;
     padding: 5px;
-    color: red;
-    height: 25px;
+    color: #0C0C0C;
+    height: 30px;
+    font-size: 20px;
+
   }
 
   #sidebar {
@@ -123,5 +125,16 @@
   .top_image {
     width: 100%;
     margin-top:28px;
+}
+
+
+  .button {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    color:red;
+    background-color:black;
+
+
 }
 

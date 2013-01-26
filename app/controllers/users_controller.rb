@@ -6,9 +6,7 @@ class UsersController < ApplicationController
 
 
   def index
-    @user = current_user
     @users = User.all
-
    # @user = User.find(params[:id])
     render
   end
@@ -16,8 +14,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.all
-    @paintings = current_user.paintings
-    @painting = current_user.paintings
+    @paintings = if current_user.present? 
+                  current_user.paintings
+                 else
+                  redirect_to root_path, :notice => "log in"
+                 end 
+    #@painting = current_user.paintings
     #@pictures = Picture.find_by_user_id(params[:user_id])
     #@pictures = @user.pictures.order('id desc').image.limit(10) 
   end
@@ -25,7 +27,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @painting = current_user.paintings
+    @paintings = current_user.paintings
 
   end
 
@@ -55,8 +57,16 @@ class UsersController < ApplicationController
   end
 
   def new
+   if !current_user.present? 
     @user = User.new(params[:user])
+   else
+     @user = current_user
+   end
     @new_picture = Picture.new(params[:picture])
+  end
+
+  def logged_in?
+    User.find(session[:id])
   end
 
 end

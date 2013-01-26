@@ -1,0 +1,13 @@
+<div>
+<%= form_for @product do |f| %>
+  <p><%= f.label :name, 'Name' %>
+    <%= f.text_field :name, required: true %></p>
+    <p><%= f.label :description, 'Description' %>
+      <%= f.text_field :description %></p>
+      <p><%= f.label :price, 'Price' %>
+    <%= f.text_field :price, required: true %></p>
+    <p><%= f.label :size, "Size" %>
+  <%= f.text_field :size, required: true %></p>
+  <p><%= f.submit %></p>
+<% end %>
+</div>
