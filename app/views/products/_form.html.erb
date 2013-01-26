@@ -1,12 +1,12 @@
-<div>
+<div id="mid_component">
 <%= form_for @product do |f| %>
-  <p><%= f.label :name, 'Name' %>
+  <p><%= f.label :name, 'Name' %></br>
     <%= f.text_field :name, required: true %></p>
-    <p><%= f.label :description, 'Description' %>
+    <p><%= f.label :description, 'Description' %></br>
       <%= f.text_field :description %></p>
-      <p><%= f.label :price, 'Price' %>
+      <p><%= f.label :price, 'Price' %></br>
     <%= f.text_field :price, required: true %></p>
-    <p><%= f.label :size, "Size" %>
+    <p><%= f.label :size, "Size" %></br>
   <%= f.text_field :size, required: true %></p>
   <p><%= f.submit %></p>
 <% end %>
