@@ -6,6 +6,23 @@
     <div style="text-align:center">
       <h2>Now add your painting</h2>
     </div>
-    <%= render :partial => "paintings/form" %>
+    <%= form_for @product do |f| %>
+      <%= f.label :title %><br />
+        <%= f.text_field :title %>
+      </p>
+      <p>
+        <%= f.label :description, "Description" %></br>
+        <%= f.text_field :description %>
+      </p>
+      <p>
+        <%= f.file_field :image %>
+      </p>
+      <p>
+        <%= f.label :remote_image_url, "Upload from a url" %></br>
+        <%= f.text_field :remote_image_url %>
+      </p>
+      <p><%= f.submit %></p>
+    <% end %>
+
  </div>
 </div>
