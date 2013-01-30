@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = current_user.products.new(params[:product])
-    @painting = @product.painting
+    @painting = @product.paintings
     render
   end
 

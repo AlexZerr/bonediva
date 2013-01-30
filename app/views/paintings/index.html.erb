@@ -17,7 +17,7 @@
       </div>
       <% if p.user_id.to_i != 0 # delete this after first few pics are deleted %> 
         <div>
-          Image Posted by: <%= link_to User.find(p.user_id.to_i).username, user_path(User.find(p.user_id.to_i)) %>
+          Image Posted by: <%= link_to @user.username, user_path(@user) %>
         </div>
       <% else %>
         <div>
