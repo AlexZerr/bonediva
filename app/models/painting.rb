@@ -5,5 +5,4 @@ class Painting < ActiveRecord::Base
   belongs_to :paintable, polymorphic: true
   validates :title, presence: true
   
-  belongs_to :user
 end
