@@ -4,4 +4,9 @@
     <%= @product.name %>
     <%= @product.description %>
   </div>
+  <div>
+    <% @product.paintings.each do |p| %>
+      <%= p.title %>
+    <% end %>
+  </div>
 </div>
