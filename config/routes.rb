@@ -9,6 +9,7 @@ Bonediva::Application.routes.draw do
   resources :products do
     resources :paintings
   end
+  resources :paintings
   resources :sessions
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
      if@product.save
        @painting = @product.paintings.new(params[:painting])
        @painting.title = @product.name
+       @painting.description = @product.description
        @painting.user_id = current_user.id
        @painting.save
        @painting.errors.full_messages
