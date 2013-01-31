@@ -1,14 +1,24 @@
 <div>
   <h1>Products/show</h1>
-  <div>
-    <h1>  <%= @product.name %>
-    <%= @product.description %></h1>
+</div>
+
+<div id="mid_component">
+  <div style="text-align:center">
+    <p><h2><u>Product Name</u> </h2>
+    <h3>  <%= @product.name %></h3></p>
+    <p><h2><u> Product Description</u> </h2>
+    <h3><%= @product.description %></h3></p>
+    <p><h2><u> Size</u> </h2>
+    <h3><%= @product.size %></h3></p>
+    <p><h2><u> Price</u> </h2>
+    <h3><%= @product.price %></h3></p>
   </div>
-  <div>
+</div>
+<div id="mid_component">
+  <div style="text-align:center">
     <% @product.paintings.each do |p| %>
-      <%= p.title %>
-      <%= image_tag (p.image_url(:thumb)) %>
-      <%= p.description %>
+      <p><%= image_tag (p.image_url(:standard)) %></br>
+      <%= p.description %></p>
     <% end %>
   </div>
 </div>
