@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    if is_admin?
+      @products = current_user.products.all
+    end
     render
   end
   
