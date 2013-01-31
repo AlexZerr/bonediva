@@ -36,6 +36,3 @@ class PaintingsController < ApplicationController
     redirect_to root, :notice => "#{@painting.title} has been terminated!"
   end
 
- private
-
-end
