@@ -4,7 +4,7 @@ class PaintingsController < ApplicationController
 
   def index
     @paintings = Painting.all
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def new
