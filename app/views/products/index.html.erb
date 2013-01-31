@@ -1,0 +1,17 @@
+
+<h1> products/show </h1>
+<div id="mid_component">
+  <% @products.each do |p| %>
+    <% p.paintings.each do |c| %>
+      <div>
+        <p>
+        Name = <%= p.name %></br>
+        Description = <%= p.description %></br>
+        Size = <%= p.size %></br>
+        <%= link_to (image_tag c.image_url(:thumb)), product_path(p) %></br>
+        Price = $<%= p.price %>
+        </p> 
+      </div>
+    <% end %>
+  <% end %>
+</div>

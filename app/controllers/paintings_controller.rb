@@ -5,6 +5,7 @@ class PaintingsController < ApplicationController
   def index
     @paintings = Painting.all
     @user = User.find(params[:id])
+    @products = @user.products.all
   end
 
   def new
@@ -26,6 +27,7 @@ class PaintingsController < ApplicationController
 
   def show
     @painting = Painting.find(params[:id])
+    @product = Product.where(@painting.paintable_id == @product.id)
     @users = User.all
     @user = current_user
   end
