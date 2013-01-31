@@ -17,6 +17,9 @@
 <div id="mid_component">
   <div style="text-align:center">
     <% @product.paintings.each do |p| %>
+      <% if p.errors.any?%>
+        <%= p.errors.full_message %>
+      <% end %> 
       <p><%= image_tag (p.image_url(:standard)) %></br>
       <%= p.description %></p>
     <% end %>
