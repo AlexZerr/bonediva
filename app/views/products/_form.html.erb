@@ -10,9 +10,8 @@
     <p><%= f.label :size, "Size" %></br>
     <%= f.text_field :size, required: true %></p>
     <%= fields_for :painting do |p| %>
-      <p><%= p.label :description, "painting description" %></br>
-      <%= p.text_field :description %></p>
-    <p><%= p.file_field :image %></p>
+      <p><%= p.label :image, "Add a Painting" %></br>
+      <%= p.file_field :image %></p>
     <% end %> 
   <p><%= f.submit %></p>
 <% end %>
