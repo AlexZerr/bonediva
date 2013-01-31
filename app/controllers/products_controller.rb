@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
+    @painting = Painting.find(params[:id])
   end
 
   def new
