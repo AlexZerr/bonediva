@@ -75,6 +75,9 @@
         <% else %>
           <%= render :partial =>  "sessions/login" %>
         <% end %>
+        <%if is_admin? %>
+          <%= link_to "Add a Product", new_product_path %>
+        <% end %>
         <%= yield :sidebar %>
       </div>
     <% end %>
