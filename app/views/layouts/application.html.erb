@@ -77,7 +77,7 @@
         <% end %>
         <%if is_admin? %>
           <%= link_to "Add a Product", new_product_path %></br>
-          <%= link_to "My Products", products_path %>
+          <%= link_to "#{@user.name.pluralize}' Products", products_path %>
         <% end %>
         <%= yield :sidebar %>
       </div>
