@@ -1,13 +1,13 @@
 <div>
   <h1>Products/show</h1>
   <div>
-    <%= @product.name %>
-    <%= @product.description %>
+    <h1>  <%= @product.name %>
+    <%= @product.description %></h1>
   </div>
   <div>
     <% @product.paintings.each do |p| %>
       <%= p.title %>
-      <%= image_tag(p.image_url(:thumb)) %>
+      <%= image_tag (p.image_url(:thumb)) %>
       <%= p.description %>
     <% end %>
   </div>
