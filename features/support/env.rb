@@ -4,7 +4,7 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-#require "bonediva"
+#require "bondiva_test"
 require 'cucumber/rails'
 require "Capybara"
 require "Capybara/cucumber"
