@@ -8,23 +8,20 @@
 
 <div id="mid_component">
   <% @paintings.each do |p| %>
-    <div>
-      <div>
-        Title: <%= p.title %>
-      </div>
-      <div>
-        <%= link_to image_tag(p.image_url(:thumb)), painting_path(p) %>
-      </div>
-      <% if p.user_id.to_i != 0 # delete this after first few pics are deleted %> 
+      <div id="painting-<%= p.id %>" src="p.image_url">
+        <div>
+          Title: <%= p.title %>
+        </div>
+        <div>
+          <%= link_to image_tag(p.image_url(:thumb)), painting_path(p) %>
+          <% if is_admin? %>
+            <%= link_to 'Delete', p, data: {confirm: 'Really?', method: :delete, remote: true} %>
+          <% end %>
+        </div>
         <div>
           Image Posted by: <%= link_to @user.username, user_path(@user) %>
         </div>
-      <% else %>
-        <div>
-          This Painting has user_id = 0 and needs to be deleted.
-        <div>
-      <% end %>
-    </div>
+      </div>
     </br>
     </br>
     </br>

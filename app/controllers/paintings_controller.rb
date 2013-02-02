@@ -30,10 +30,14 @@ class PaintingsController < ApplicationController
     @user = current_user
   end
 
- def destroy
+  def destroy
     @painting = Painting.find(params[:id])
     @painting.destroy
-    redirect_to root, :notice => "#{@painting.title} has been terminated!"
+
+    respond_to do |format|
+      format.js { render :template => 'paintings/delete.js.erb', :layout => false }
+    end
   end
+
 end
 
