@@ -46,3 +46,9 @@ group :assets do
   gem "jquery-rails",            "~> 2.1.3"
 end
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+  gem "capybara"
+end
