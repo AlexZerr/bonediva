@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one: 1
+  name: Alex
+  password: password
+  email: Al@gmail.com
+  username: Tester
+  age: 21
+
+two: 2
+  name: Zerr
+  password: password
+  email: Zr@gmail.com
+  username: Tester2
+  age: 22
