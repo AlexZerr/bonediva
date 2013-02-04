@@ -10,7 +10,7 @@ require "Capybara"
 require "Capybara/cucumber"
 
 #World do
- # Capybara.app = bonediva
+  #Capybara.app = bonediva
   #include Capybara::DSL
 #end
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In

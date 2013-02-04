@@ -43,6 +43,7 @@ gem "puma", "~> 1.6.3"
 
 group :assets do
   gem 'bootstrap-sass-rails'
+  gem "jquery-rails",            "~> 2.1.3"
 end
 
 group :test do
