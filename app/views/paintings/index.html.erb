@@ -10,9 +10,9 @@
   <% @paintings.each do |p| %>
     <div id="painting-<%= p.id %>">
       Title: <%= p.title %>
-    <div style="display:block; margin:10px">
-      <%= link_to image_tag(p.image_url(:thumb)), painting_path(p) %>
-    </div>
+      <div class="displayImg" >
+        <%= link_to image_tag(p.image_url(:thumb)), painting_path(p) %>
+      </div>
       Image Posted by: <%= link_to @user.username, user_path(@user) %>
       <div>
         <% if is_admin? %>

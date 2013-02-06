@@ -14,12 +14,9 @@
 /* --- Top Bar --- */
 
 #top_bar {
-
   top: 0px;
-
   width: 98.8%;
   position: fixed;
-
   margin:1px auto;
   border-bottom:1px solid #000;
   background:#2D2D2D;
@@ -45,8 +42,6 @@
   right: 60px;
 }
 
-
-
 #top_bar p, #top_bar a {
   font-size:12px;
   color:#fff;
@@ -59,19 +54,18 @@
   font-weight:bold;
 }
 
+#flash_notice {
+  background: #980000;
+  border: 2px solid, white;
+  text-align: center;
+  padding: 5px;
+  color: #0C0C0C;
+  height: 30px;
+  font-size: 20px;
 
-  #flash_notice {
-    background: #980000;
-    border: 2px solid, white;
-    text-align: center;
-    padding: 5px;
-    color: #0C0C0C;
-    height: 30px;
-    font-size: 20px;
+}
 
-  }
-
-  #sidebar {
+#sidebar {
   background: black;
   border: 5px solid red;
   border-radius:25px;
@@ -83,9 +77,9 @@
   height: 190px;
   color: red;
   margin: 2px 2px 2px 2px;
-  }
+}
 
-  #mid_component {
+#mid_component {
   background: black;
   border: 5px solid red;
   border-radius:25px;
@@ -97,44 +91,45 @@
   margin: 0px auto;
   margin-left: 100px;
   
-  }
-
-
-  .login_position {
-    position:absolute;
-    right:190px;
-    top:50px;
-  }
-
-  .poss {
-    position:absolute;
-    right:0px;
-    top:0px;
-  }
-
-  .avatar_img {
-   position: relative;
-   top: -18px;
-   padding:5px;
-   border:1px solid #f00000;
-   border-radius:10px;
-   -moz-border-radius: 10px;
-   background-color: #4C0080;
 }
 
-  .top_image {
-    width: 100%;
-    margin-top:28px;
+.login_position {
+  position:absolute;
+  right:190px;
+  top:50px;
 }
 
+.poss {
+  position:absolute;
+  right:0px;
+  top:0px;
+}
 
-  .button {
-    position: relative;
-    width: 50px;
-    height: 25px;
-    color:red;
-    background-color:black;
+.avatar_img {
+ position: relative;
+ top: -18px;
+ padding:5px;
+ border:1px solid #f00000;
+ border-radius:10px;
+ -moz-border-radius: 10px;
+ background-color: #4C0080;
+}
 
+.top_image {
+  width: 100%;
+  margin-top:28px;
+}
 
+.button {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  color:red;
+  background-color:black;
+}
+
+.displayImg { 
+  display: block; 
+  margin: 5px;
 }
 
