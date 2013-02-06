@@ -14,10 +14,7 @@ require "minitest/spec"
 class MiniTest::Rails::ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   fixtures :all
-<<<<<<< HEAD
   include Capybara::DSL
-=======
->>>>>>> Add mini test spec
 
   # Add more helper methods to be used by all tests here...
 end
