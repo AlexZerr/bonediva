@@ -1,30 +1,28 @@
-
 <div style="color:red">
   <div style="text-align:center">
     <h1>
       Paintings Of All Users
     </h1>
   </div>
+</div>
 
 <div id="mid_component">
   <% @paintings.each do |p| %>
-      <div id="painting-<%= p.id %>" src="p.image_url">
-        <div>
-          Title: <%= p.title %>
-        </div>
-        <div>
-          <%= link_to image_tag(p.image_url(:thumb)), painting_path(p) %>
-          <% if is_admin? %>
-            <%= link_to 'Delete', p, data: {confirm: 'Really?', method: :delete, remote: true} %>
-          <% end %>
-        </div>
-        <div>
-          Image Posted by: <%= link_to @user.username, user_path(@user) %>
-        </div>
+    <div id="painting-<%= p.id %>">
+      Title: <%= p.title %>
+    <div style="display:block; margin:10px">
+      <%= link_to image_tag(p.image_url(:thumb)), painting_path(p) %>
+    </div>
+      Image Posted by: <%= link_to @user.username, user_path(@user) %>
+      <div>
+        <% if is_admin? %>
+          <%= link_to 'Delete', p, data: {confirm: "Are you sure?", method: :delete, remote: true} %>
+        <% end %>
       </div>
-    </br>
-    </br>
-    </br>
+      </br>
+      </br>
+      </br>
+    </div>
   <% end %>
 <div>
   
