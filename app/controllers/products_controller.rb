@@ -57,6 +57,8 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-     @product.destoy
+     if @product.destoy
+       redirect_to products_path :notice => "Product has been deleted"
+     end
   end
 end
