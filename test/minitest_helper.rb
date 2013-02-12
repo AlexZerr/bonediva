@@ -3,7 +3,10 @@ require File.expand_path('../../config/environment', __FILE__)
 
 require "minitest/autorun"
 require "minitest/rails"
+<<<<<<< HEAD
 require "minitest/spec"
+=======
+>>>>>>> Re-do minitests? dont know why that happend.
 
 # Uncomment if you want Capybara in accceptance/integration tests
 # require "minitest/rails/capybara"
