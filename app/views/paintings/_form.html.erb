@@ -15,6 +15,10 @@
         <%= f.label :remote_image_url, "Upload from a url" %></br>
         <%= f.text_field :remote_image_url %>
       </p>
+      <% if is_admin? %>
+        ADMIN - Will this image display on the homepage?:
+        <%= f.check_box :home %>
+      <% end %>
       <p><%= f.submit %></p>
     <% end %>
   </div>

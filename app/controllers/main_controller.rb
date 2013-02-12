@@ -6,6 +6,7 @@ class MainController < ApplicationController
   def index
    # @users = User.all
     @user = current_user
+    @paintings = Painting.all
     @new_picture = Picture.new(params[:picture])
   end
 
