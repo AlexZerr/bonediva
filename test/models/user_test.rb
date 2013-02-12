@@ -11,7 +11,7 @@ describe User do
 
   after do
     @user.destroy
-    @product.destroy 
+    @product.destroy
   end
 
  it " is a valid user" do
@@ -21,4 +21,5 @@ describe User do
    assert @product.valid?, "this product is valid"
    @product.user_id.must_be_same_as @user.id
  end
+
 end
