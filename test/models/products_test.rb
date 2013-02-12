@@ -2,6 +2,7 @@
 require "test_helper"
 require "minitest/spec"
 require "capybara/rails"
+require "minitest/pride"
 
 describe Product do
   
@@ -19,5 +20,6 @@ describe Product do
     @painting = @product.paintings.new( image: ImagesUploader )
     @painting.paintable_id.must_be_same_as @product.id
     @painting.paintable_type.must_equal "Product"
+    @painting.user_id.must_be_same_as @user.id && @product.user_id
   end
 end

@@ -1,6 +1,7 @@
 require "test_helper"
 require "minitest/spec"
 require "capybara/rails"
+require "minitest/pride"
 
 describe User do
   before do
