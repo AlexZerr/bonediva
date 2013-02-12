@@ -22,4 +22,5 @@ describe Product do
     @painting.paintable_type.must_equal "Product"
     @painting.user_id.must_be_same_as @user.id && @product.user_id
   end
+
 end
