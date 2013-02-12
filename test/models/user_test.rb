@@ -1,4 +1,5 @@
-require "minitest_helper"
+require "test_helper"
+require "minitest/spec"
 
 describe User do
  it " is a valid user" do
