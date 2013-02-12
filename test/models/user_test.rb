@@ -11,7 +11,7 @@ describe User do
 
   after do
     @user.destroy
-    @product.destroy
+    @product.destroy 
   end
 
  it " is a valid user" do
