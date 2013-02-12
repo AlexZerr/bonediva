@@ -6,7 +6,8 @@ class MainController < ApplicationController
   def index
    # @users = User.all
     @user = current_user
-    @paintings = Painting.all
+    #@paintings = Painting.all
+    @paintings = Painting.all(:limit => 4, :order => 'created_at DESC')
     @new_picture = Picture.new(params[:picture])
   end
 
