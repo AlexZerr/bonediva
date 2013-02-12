@@ -18,5 +18,6 @@ describe Product do
   it "makes sure product has painting" do
     @painting = @product.paintings.new( image: ImagesUploader )
     @painting.paintable_id.must_be_same_as @product.id
+    @painting.paintable_type.must_equal "Product"
   end
 end
