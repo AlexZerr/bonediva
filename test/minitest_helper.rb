@@ -3,6 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 
 require "minitest/autorun"
 require "minitest/rails"
+require "minitest/spec"
 
 # Uncomment if you want Capybara in accceptance/integration tests
 # require "minitest/rails/capybara"
@@ -13,6 +14,7 @@ require "minitest/rails"
 class MiniTest::Rails::ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   fixtures :all
+  include Capybara::DSL
 
   # Add more helper methods to be used by all tests here...
 end
