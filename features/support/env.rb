@@ -4,13 +4,13 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-#require "bonediva"
+#require "bondiva_test"
 require 'cucumber/rails'
 require "Capybara"
 require "Capybara/cucumber"
 
 #World do
- # Capybara.app = bonediva
+  #Capybara.app = bonediva
   #include Capybara::DSL
 #end
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In

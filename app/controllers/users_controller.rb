@@ -19,7 +19,7 @@ class UsersController < ApplicationController
                  else
                   redirect_to root_path, :notice => "log in"
                  end 
-    #@painting = current_user.paintings
+    @painting = Painting.find(params[:painting][:id])
     #@pictures = Picture.find_by_user_id(params[:user_id])
     #@pictures = @user.pictures.order('id desc').image.limit(10) 
   end
