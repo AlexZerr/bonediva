@@ -10,4 +10,5 @@ class Product < ActiveRecord::Base
   #ensure_admin
 
   belongs_to :user
+  belongs_to :category
 end
