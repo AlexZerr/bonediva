@@ -35,8 +35,6 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @paintings = @product.paintings
-
   end
 
   def update

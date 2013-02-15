@@ -1,13 +1,9 @@
-
-
-<div style="color:red">
+<div style="color: #A00000">
   <div style="text-align:center">
     <h1>
       BoneDiva
     </h1>
   </div>
-
-
 
   <div style="color:black">
     <div style="text-align:center">
@@ -16,4 +12,18 @@
   </div>
 
 </div>
-Home Page
+
+<div id="homeBox">
+<h2>Great New Images!</h2>
+</br>
+<% @paintings.each do |p| %>
+  <% if p.is_home_image?(p) %>
+    <div class="displayHomeImg">
+      <h3><%= link_to p.title, p %></h3>
+      <%= link_to image_tag(p.image_url(:large)), p %>
+    </div>
+    </br>
+  <% end %>
+<% end %>
+</div>
+

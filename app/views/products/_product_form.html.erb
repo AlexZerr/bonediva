@@ -1,0 +1,18 @@
+<%= @product.errors.full_messages if @product.errors.present? %>
+<div id="mid_component">
+  <%= form_for @product, :html => {:multipart => true } do |f| %>
+  <p><%= f.label :name, 'Name' %></br>
+    <%= f.text_field :name, required: true %></p>
+    <p><%= f.label :description, 'Description' %></br>
+      <%= f.text_field :description %></p>
+      <p><%= f.label :price, 'Price' %></br>
+    <%= f.text_field :price, required: true %></p>
+    <p><%= f.label :size, "Size" %></br>
+    <%= f.text_field :size, required: true %></p>
+    <%= fields_for :painting do |p| %>
+      <p><%= p.label :image, "Add a Painting" %></br>
+      <%= p.file_field :image %></p>
+    <% end %> 
+  <p><%= f.submit %></p>
+<% end %>
+</div>
