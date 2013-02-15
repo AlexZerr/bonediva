@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   def new
     @product = current_user.products.new(params[:product])
     @painting = @product.paintings.new(params[:painting])
+    @categories = Category.all
     render
   end
 
