@@ -7,9 +7,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    #@product = Product.find(params[:id])
     @category = Category.find(params[:id])
-    @products = Product.where( @product.category_id == @category.id ).limit(20)
+    #@products = Product.where( @product.category_id == @category.id ).limit(20)
   end
 
   def new

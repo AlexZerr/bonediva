@@ -4,9 +4,10 @@
   <%= @category.name %></br>
   <%= @category.description %>
   <div>
-    <% @products.each do |p| %>
+    <% @category.products.each do |p| %>
       <% p.paintings.each do |x| %>
-        <%= image_tag x.image_url %>
+        <p><%= image_tag x.image_url %></br>
+        <%= link_to "Check out: #{p.name}", product_path(p) %></p>
       <% end %>
     <% end %>
   </div>
