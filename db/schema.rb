@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20130214213902) do
     t.datetime "updated_at"
     t.string   "paintable_type", :limit => 50
     t.integer  "paintable_id"
+    t.boolean  "home"
   end
 
   create_table "pictures", :force => true do |t|
