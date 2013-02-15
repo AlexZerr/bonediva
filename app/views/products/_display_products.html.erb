@@ -1,0 +1,15 @@
+ <% @products.each do |p| %>
+    <% p.paintings.each do |c| %>
+      <div>
+        <p>
+        Name = <%= p.name %></br>
+        Description = <%= p.description %></br>
+        Size = <%= p.size %></br>
+        <%= link_to (image_tag c.image_url(:thumb)), product_path(p) %></br>
+        Price = $<%= p.price %></br>
+      ----------------------------------------------
+        </p> 
+      </div>
+    <% end %>
+  <% end %>
+

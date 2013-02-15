@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    if is_admin?
+      @products = current_user.products.all
+    end
     render
   end
   
@@ -32,6 +34,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @paintings = @product.paintings
   end
 
   def update
@@ -52,6 +55,8 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-     @product.destoy
+     if @product.destoy
+       redirect_to products_path :notice => "Product has been deleted"
+     end
   end
 end

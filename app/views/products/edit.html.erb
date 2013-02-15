@@ -1,1 +1,18 @@
+<h3> Current Info </h3>
+<div id="mid_component">
+  <p>Name:</br><%= @product.name %></p>
+  <p>Description:</br><%= @product.description %></p>
+  <p>Price:</br><%= @product.price %></p>
+  <p>Size:</br><%= @product.size %></p>
+    <% @paintings.each do |p| %>
+      <p>Painting:</br><%= image_tag p.image_url(:standard) %></p>
+    <% end %>
+</div>
+
+<div style="text-align:center">
+  <div style="color:red">
+    <h1>Edit</h1>
+  </div>
+</div>
+
 <%= render :partial => "products/product_form" %>
