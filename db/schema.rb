@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128235847) do
+ActiveRecord::Schema.define(:version => 20130212073916) do
 
   create_table "paintings", :force => true do |t|
     t.string   "title"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130128235847) do
     t.datetime "updated_at"
     t.string   "paintable_type", :limit => 50
     t.integer  "paintable_id"
+    t.boolean  "home"
   end
 
   create_table "pictures", :force => true do |t|
