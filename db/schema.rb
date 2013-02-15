@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212073916) do
+ActiveRecord::Schema.define(:version => 20130214213902) do
+
+  create_table "categories", :force => true do |t|
+    t.string "name"
+    t.string "description"
+  end
 
   create_table "paintings", :force => true do |t|
     t.string   "title"
