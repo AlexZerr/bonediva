@@ -3,4 +3,11 @@
 <div id="mid_component">
   <%= @category.name %></br>
   <%= @category.description %>
+  <div>
+    <% @products.each do |p| %>
+      <% p.paintings.each do |x| %>
+        <%= image_tag x.image_url %>
+      <% end %>
+    <% end %>
+  </div>
 </div>

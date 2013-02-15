@@ -1,7 +1,7 @@
 
 <div id="mid_component">
   <% @categories.each do |c| %>
-    <%= c.name %></br>
+    <%= link_to c.name, category_path(c) %></br>
     <%= c.description %></br>
   <% end %>
 </div>
