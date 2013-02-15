@@ -1,8 +1,5 @@
 
 require "minitest_helper"
-require "minitest/spec"
-require "capybara/rails"
-require "minitest/pride"
 
 describe Category do
 
@@ -22,8 +19,8 @@ describe Category do
     @category.name.must_equal "Category Test"
   end
 
-  it "makes sure a product has category_id " do
-    @product.category_id.must_be_same_as @category.id
+  it "makes sure categoy_id is not nil " do
+    @product.category_id.wont_be_nil
   end
 
   it "checks category id is same as product cat_id" do
