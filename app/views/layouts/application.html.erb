@@ -58,14 +58,11 @@
       <div id="sidebar">
         <% if current_user.present? %>
           <div style="float:right;">
+            Logout
           </div>
           </br>
           <div style="float: right;">
-        <%if is_admin? %>
-          <%= link_to "Add a Product", new_product_path %></br>
-          <%= link_to "#{@user.name.pluralize}' Products", products_path %></br>
-          <%= link_to "Add a Category", new_category_path %>
-        <% end %>
+            Another cool link
             </br>
           </div>
 
@@ -78,6 +75,11 @@
 
         <% else %>
           <%= render :partial =>  "sessions/login" %>
+        <% end %>
+        <%if is_admin? %>
+          <%= link_to "Add a Product", new_product_path %></br>
+          <%= link_to "#{@user.name.pluralize}' Products", products_path %></br>
+          <%= link_to "Add a Category", new_category_path %>
         <% end %>
         <%= yield :sidebar %>
       </div>
