@@ -8,6 +8,7 @@
       <% p.paintings.each do |x| %>
         <p><%= image_tag x.image_url(:standard) %></br>
         <%= link_to "Check out: #{p.name}", product_path(p) %></p>
+      <%= link_to "Add as featured", method: :update_featured_painting %> 
       <% end %>
     <% end %>
   </div>

@@ -6,7 +6,6 @@
   </div>
   <div>
     <% if current_user.admin? %>
-      <%= link_to "make category painting", update_featured_painting %>
       <%= link_to "Delete", @painting, data: { method: :delete, confirm: "Are you sure you want to delete this painting?" } %>
     <% end %>
   </div>
