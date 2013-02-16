@@ -42,8 +42,9 @@ gem "audited-activerecord", "~> 3.0.0"
 gem "puma", "~> 1.6.3"
 
 group :assets do
-  gem 'bootstrap-sass-rails'
+  gem 'twitter-bootstrap-rails'
   gem "jquery-rails",            "~> 2.1.3"
+  gem "less-rails"
 end
 
 group :test, :development do
