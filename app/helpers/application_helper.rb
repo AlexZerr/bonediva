@@ -9,4 +9,12 @@ module ApplicationHelper
     current_user_path = user_path(@user)
   end
 
+  #def select_category_paiting
+   # @painting = Painting.find(params[:id])
+    #if @painting.select? 
+     # @painting.update_attributes[:painting][:category_painting_id]
+
+    #end
+  end
+
 end
