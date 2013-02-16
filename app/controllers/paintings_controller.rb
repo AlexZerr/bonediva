@@ -12,6 +12,7 @@ class PaintingsController < ApplicationController
     @painting = Painting.new(params[:painting])
     @user = current_user
     @users = User.all
+    @categories = Category.all
   end
 
   def create
