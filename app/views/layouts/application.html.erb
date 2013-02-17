@@ -65,7 +65,7 @@
             Another cool link
             </br>
           </div>
-
+<div class="row-fluid">
           <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "avatar_img")  %>
 
           <%= link_to current_user.name, current_user_path %>
@@ -77,10 +77,11 @@
           <%= render :partial =>  "sessions/login" %>
         <% end %>
         <%if is_admin? %>
-          <%= link_to "Add a Product", new_product_path %></br>
-          <%= link_to "#{@user.name.pluralize}' Products", products_path %></br>
-          <%= link_to "Add a Category", new_category_path %>
+          <div class="span3"><%= link_to "Add a Product", new_product_path %></div>
+          <div class="span4"><%= link_to "#{@user.name.pluralize}' Products", products_path %></div>
+          <div class="span3"><%= link_to "Add a Category", new_category_path %></div>
         <% end %>
+</div>
         <%= yield :sidebar %>
       </div>
     <% end %>

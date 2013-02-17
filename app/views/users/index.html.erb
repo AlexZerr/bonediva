@@ -17,7 +17,6 @@
     <br/>
     <div>
       <% @users.each do |u| %>
-        <div style="text-align: center">
           <ul>
             <li> <%= u.name %>: </li> 
             <li> <%= link_to u.username, user_path(u) %> </li>
@@ -25,7 +24,6 @@
               <%= link_to "delete", u, :method => :delete, :confirm => "Are you sure?" %>
             <% end %>
           </ul>
-        </div>
       <% end %>
     </div>
   </div>

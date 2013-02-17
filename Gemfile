@@ -44,6 +44,9 @@ gem "puma", "~> 1.6.3"
 group :assets do
   gem 'bootstrap-sass-rails'
   gem "jquery-rails",            "~> 2.1.3"
+  gem "therubyrhino"
+  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  gem "twitter-bootstrap-rails"  #gem 'twitter-bootstrap-rails' 
 end
 
 group :test, :development do

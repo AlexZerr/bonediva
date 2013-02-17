@@ -7,21 +7,41 @@
 </div>
 
 <div id="mid_component">
-  <% @paintings.each do |p| %>
-    <div id="painting-<%= p.id %>">
-      Title: <%= p.title %>
-      <div class="displayImg" >
-        <%= link_to image_tag(p.image_url(:thumb)), painting_path(p) %>
-      </div>
-      Image Posted by: <%= link_to @user.username, user_path(@user) %>
-      <div>
-        <% if is_admin? %>
-          <%= link_to 'Delete', p, data: {confirm: "Are you sure?", method: :delete, remote: true} %>
-        <% end %>
-      </div>
-      </br>
-      </br>
-      </br>
+  <% @paintings.each_slice(3) do |p| %>
+    <% i = 0 %>
+    <% u = 3 %>
+    <div class="row-fluid">
+
+      <% if p[0] == nil %>
+        <% u = 0 %>
+      <%end%>
+
+      <% if p[0] != nil and p[1] == nil and p[2] == nil %>
+        <% u = 1 %>
+      <%end%>
+
+      <% if p[0] != nil and p[1] != nil and p[2] == nil %>
+        <% u = 2 %>
+      <%end%>
+
+      <% while i < u %>
+        <div id="painting-<%= p[i].id %>">
+          <div class="span4">
+            Title: <%= p[i].title %>
+            <div class="displayImg" >
+              <%= link_to image_tag(p[i].image_url(:thumb)), painting_path(p[i]) %>
+            </div>
+            Image Posted by: <%= link_to @user.username, user_path(@user) %>
+            <div>
+              <% if is_admin? %>
+                <%= link_to 'Delete', p[i], data: {confirm: "Are you sure?", method: :delete, remote: true} %>
+              <% end %>
+            </div>
+            </br>
+          </div>
+        </div>
+        <% i = i+1 %>
+      <% end %>
     </div>
   <% end %>
 </div> 
