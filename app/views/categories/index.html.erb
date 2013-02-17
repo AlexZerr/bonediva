@@ -1,0 +1,8 @@
+
+<div id="mid_component">
+  <% @categories.each do |c| %>
+    <%= link_to c.name, category_path(c) %></br>
+    <%= c.description %></br>
+    <%= image_tag c.painting{|x| x.image_url(:thumb)} %>
+  <% end %>
+</div>

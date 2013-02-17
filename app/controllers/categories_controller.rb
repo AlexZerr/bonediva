@@ -1,13 +1,17 @@
 class CategoriesController < ApplicationController
 
   def index
-    @categories = Catagory.all
+    @categories = Category.all
+    @category = Category.find(:featured_painting_id)
+    #@featured_painting = Painting.find[:featured_painting_id]
     
     render
   end
 
   def show
+    #@product = Product.find(params[:id])
     @category = Category.find(params[:id])
+    #@products = Product.where( @product.category_id == @category.id ).limit(20)
   end
 
   def new

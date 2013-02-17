@@ -1,6 +1,6 @@
 <div style="text-align:center">
   <div style="color:red">
-    <h2> Welcome <%= @user.username %></h2>
+    <h2> Welcome <%= current_user.username %></h2>
   </div>
 </div>
 
@@ -15,7 +15,12 @@
       <p>Name: <%= @user.name %></p>
       <p>Username: <%= @user.username %></p>
       <p>Age: <%= @user.age %>
-      <p>website:<%= link_to @user.user_link, "http://" + @user.user_link %></h2>
+      <% if @user.user_link != nil %>
+        <p>website: <%= link_to @user.user_link, "http://" + @user.user_link %>
+      <% else %>
+        <p>website: <%= link_to @user.name, user_path %>
+      <% end %>
+    </h2>
      <%= link_to "Edit User Info", edit_user_path(@user) %>
  </div>
 </div>

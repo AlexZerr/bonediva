@@ -66,8 +66,8 @@
 }
 
 #sidebar {
-  background: black;
-  border: 5px solid red;
+  background: #151515;
+  border: 5px solid #A00000;
   border-radius:25px;
   -moz-border-radius:25px; 
   float: right;
@@ -75,19 +75,19 @@
   padding: 15px;
   width: 240px;
   height: 190px;
-  color: red;
+  color: #A00000;
   margin: 2px 2px 2px 2px;
 }
 
 #mid_component {
-  background: black;
-  border: 5px solid red;
+  background: #151515;
+  border: 5px solid #A00000;
   border-radius:25px;
   -moz-border-radius: 25px;
   padding: 15px;
   width: 800px;
   height: 0px auto;
-  color: red;
+  color: #A00000;
   margin: 0px auto;
   margin-left: 100px;
   
@@ -132,4 +132,31 @@
   display: block; 
   margin: 5px;
 }
+
+.displayHomeImg { 
+  background: black;
+  border: 2px solid #A00000;
+  border-radius:25px;
+  -moz-border-radius: 25px;
+  display: block; 
+  margin: 10px;
+  text-align: center;
+  padding-bottom: 55px;
+  padding-top: 10px;
+  
+}
+
+#homeBox {
+  background: #151515;
+  border: 5px solid #A00000;
+  border-radius:25px;
+  -moz-border-radius: 25px;
+  padding: 15px;
+  width: 950px;
+  height: 0px auto;
+  color: #A00000;
+  margin: 0px auto;
+  margin-left: 0px;
+  text-align: center;
+  }
 
