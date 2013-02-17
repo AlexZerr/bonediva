@@ -11,11 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130214213902) do
+ActiveRecord::Schema.define(:version => 20130216214415) do
 
   create_table "categories", :force => true do |t|
-    t.string "name"
-    t.string "description"
+    t.string  "name"
+    t.string  "description"
+    t.integer "featured_painting_id"
   end
 
   create_table "paintings", :force => true do |t|
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130214213902) do
     t.string   "paintable_type", :limit => 50
     t.integer  "paintable_id"
     t.boolean  "home"
+    t.integer  "category_id"
   end
 
   create_table "pictures", :force => true do |t|
