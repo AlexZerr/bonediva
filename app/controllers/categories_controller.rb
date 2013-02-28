@@ -2,8 +2,6 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    #@featured_painting = Painting.find[:featured_painting_id]
-    
     render
   end
 
