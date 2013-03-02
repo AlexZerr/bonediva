@@ -16,9 +16,9 @@
 
 #top_bar {
   top: 0px;
-  width: 98.8%;
+  width: 100%;
   position: fixed;
-  margin:1px auto;
+  margin:0px auto;
   border-bottom:1px solid #000;
   background:#2D2D2D;
   display:inline-block;
