@@ -3,6 +3,6 @@
   <% @categories.each do |c| %>
     <%= link_to c.name, category_path(c) %></br>
     <%= c.description %></br>
-    <%= image_tag c.painting.image_url %>
+    <%= image_tag c.painting.try(:image_url, :thumb ) %>
   <% end %>
 </div>
