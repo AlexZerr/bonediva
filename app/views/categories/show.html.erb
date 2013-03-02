@@ -13,3 +13,9 @@
     <% end %>
   </div>
 </div>
+
+<div id="mid_component">
+  <% @cat_paintings.each do |c| %>
+    <%= image_tag c.image_url(:thumb) %>
+  <% end %>
+</div>
