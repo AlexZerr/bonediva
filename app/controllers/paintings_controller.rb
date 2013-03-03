@@ -1,5 +1,5 @@
 class PaintingsController < ApplicationController
-
+  respond_to :html, :js, :json
   before_filter :ensure_admin, only: [:destroy]
 
   def index
@@ -35,10 +35,7 @@ class PaintingsController < ApplicationController
   def destroy
     @painting = Painting.find(params[:id])
     @painting.destroy
-
-    respond_to do |format|
-      format.js { render :template => 'paintings/delete.js.erb', :layout => false }
-    end
+    respond_with @painting
   end
 
 end

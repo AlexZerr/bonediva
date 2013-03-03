@@ -6,8 +6,7 @@
   </div>
   <div>
     <% if current_user.admin? %>
-      <%= link_to "Delete", @painting, data: { method: :delete, confirm: "Are you sure you want to delete this painting?" } %>
+      <%= link_to 'Delete', @painting, data: {confirm: "Are you sure you want to delete this painting?", method: :delete} %>
     <% end %>
   </div>
-  <%= %>
 </div>
