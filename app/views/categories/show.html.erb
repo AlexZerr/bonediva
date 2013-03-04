@@ -11,6 +11,9 @@
       <%= link_to "Add as featured", method: :update_featured_painting %> 
       <% end %>
     <% end %>
+    <% @category.paintings do |c| %>
+      <%= image_tag c.image_url(:thumb) %>
+    <% end %>
   </div>
 </div>
 
