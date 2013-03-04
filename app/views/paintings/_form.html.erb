@@ -1,6 +1,6 @@
 <div id="mid_component">
   <div style="color:#9E2862">
-    <%= form_for Painting.new, :html => {:multipart => true} do |f| %>
+    <%= form_for @painting, :html => {:multipart => true} do |f| %>
         <%= f.label :title %><br />
         <%= f.text_field :title %>
       </p>
@@ -15,7 +15,7 @@
         <%= f.label :remote_image_url, "Upload from a url" %></br>
         <%= f.text_field :remote_image_url %>
       </p>
-      <p><%= collection_select(:painting, :category_id, @categories, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category") %></p>
+      <p><%= collection_select(:painting, :paintable_id, @categories, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category",[:paintable_type] => "Category") %></p>
       <% if is_admin? %>
         ADMIN - Will this image display on the homepage?:
         <%= f.check_box :home %>

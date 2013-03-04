@@ -10,6 +10,9 @@ class PaintingsController < ApplicationController
 
   def new
     @painting = Painting.new(params[:painting])
+      if @painting.save
+        @painting.update_attributes([:paintable_type] => "Category")
+      end
     @user = current_user
     @users = User.all
     @categories = Category.all
