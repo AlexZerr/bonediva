@@ -32,6 +32,17 @@ class PaintingsController < ApplicationController
     @user = current_user
   end
 
+  def edit
+
+  end
+
+  def update
+    @painting = Painting.find(params[:id])
+    @painting.update_attributes(params[:painting])
+     @painting.save
+
+  end
+
   def destroy
     @painting = Painting.find(params[:id])
     @painting.destroy

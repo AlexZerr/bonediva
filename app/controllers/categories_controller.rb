@@ -23,6 +23,22 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    @painting = @category.paintings.find(params[:id])
+                                  if params[:painting][:paintable_id].present?
+                                    @painting.paintable_type = "Category"
+                                  end
+    @painting.update
+    if @category.update_attributes(params[:category])
+      redirect_to category_path(@category), :notice => "updated"
+    end
+  end
+
   def delete
 
   end
