@@ -5,8 +5,12 @@
   <%= @category.description %>
   <div>
     <% @paintings.each do |p| %>
-        <p><%= image_tag p.image_url(:standard) %></br>
-        <%= link_to "Check out: #{p.title}", product_path(p) %></p>
+      <p><%= image_tag p.image_url(:standard) %></br>
+      <% if p.paintable_type == "Product" %>
+        <%= link_to "Check out: #{p.title}", "../products/#{p.paintable_id}" %></p>
+      <% else %>
+        <%= link_to "check out: #{p.title}", painting_path(p)%>
+      <% end %>
       <%= link_to "Add as featured", method: :update_featured_painting %> 
     <% end %>
   </div>
