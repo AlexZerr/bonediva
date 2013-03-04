@@ -10,9 +10,6 @@ class PaintingsController < ApplicationController
 
   def new
     @painting = Painting.new(params[:painting])
-      if @painting.save
-        @painting.update_attributes([:paintable_type] => "Category")
-      end
     @user = current_user
     @users = User.all
     @categories = Category.all
@@ -20,7 +17,8 @@ class PaintingsController < ApplicationController
 
   def create
     if current_user.present?
-    @painting = current_user.paintings.new(params[:painting])
+      @painting = Painting.new(params[:painting].merge(paintable_type: 'Category'))
+      @painting.user_id = current_user.id
     else
       redirect_to new_user_path, :notice => "You must be logged in to add a picture"
     end
