@@ -11,4 +11,15 @@ class Product < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
+
+  # def main_image
+   # self.image_url \ if self.paintings.present?
+  #end
+
+  def main_image
+    @product = Product.find([:id])
+      @product.paintings do |p|
+        main_image = p.image_url if @product.paintings.present?
+      end
+  end
 end
