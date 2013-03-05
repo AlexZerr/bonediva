@@ -7,9 +7,8 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @paintings = Painting.all
-    @product = Product.find(params[:id])
-    @products = Product.all
+    @products = Product.where( :category_id => @category.id).all
+    @paintings = Painting.where(:paintable_id == @category.id).all
   end
 
   def new
