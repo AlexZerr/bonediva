@@ -4,11 +4,6 @@
   <%= @category.name %></br>
   <%= @category.description %>
   <div>
-    <% @category.products.each do |r| %>
-        <%= link_to r.name, product_path(r) %>
-    <% end %>
-  </div>
-  <div>
     <div>
       <% @paintings.each do |p| %>
         <%= p.title %>
