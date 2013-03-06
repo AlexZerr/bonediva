@@ -4,6 +4,15 @@
   <%= @category.name %></br>
   <%= @category.description %>
   <div>
+    <% @products.each do |product| %>
+      <%= product.name %>
+      <%= image_tag product.main_image %>
+      <%= product.description %>
+    <% end %>
+    
+
+  </div>
+  <div>
     <div>
       <% @paintings.each do |p| %>
         <%= p.title %>
