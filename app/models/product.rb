@@ -17,9 +17,6 @@ class Product < ActiveRecord::Base
   #end
 
   def main_image
-    @product = Product.find([:id])
-      @product.paintings do |p|
-        main_image = p.image_url if @product.paintings.present?
-      end
+    self.paintings.first.image_url    
   end
 end
