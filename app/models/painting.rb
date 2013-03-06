@@ -9,5 +9,11 @@ class Painting < ActiveRecord::Base
 def is_home_image?(painting)
   painting.home?
 end
+
+  def category
+    @category = Category.find(:id)
+    self.paintable_type = "Category" && self.paintable_id = @category.id
+  end
+
   
 end
