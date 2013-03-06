@@ -16,7 +16,7 @@ class Product < ActiveRecord::Base
    # self.image_url \ if self.paintings.present?
   #end
 
-  def main_image
-    self.paintings.first.image_url    
+  def main_image(style)
+    self.paintings.first.image_url(style)    
   end
 end
