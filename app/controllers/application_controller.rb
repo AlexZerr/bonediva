@@ -12,7 +12,11 @@ class ApplicationController < ActionController::Base
  # def set_current_user 
   #  Authorization.current_user = current_user
  # end
-
+    def update_featured_painting
+    @painting = Painting.find(params[:id])
+      @painting.category.update_attributes(featured_painting_id: @painting.id)
+      @painting.save
+    end
 
   private
 

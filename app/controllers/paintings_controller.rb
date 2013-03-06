@@ -13,6 +13,7 @@ class PaintingsController < ApplicationController
     @user = current_user
     @users = User.all
     @categories = Category.all
+    
   end
 
   def create
@@ -38,9 +39,12 @@ class PaintingsController < ApplicationController
   end
 
   def update
+    @category = Category.find(params[:id])
     @painting = Painting.find(params[:id])
     @painting.update_attributes(params[:painting])
-     @painting.save
+     if @painting.save
+       @painting.category_id = @category.id
+     end
 
   end
 
