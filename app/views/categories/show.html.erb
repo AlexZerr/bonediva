@@ -8,6 +8,7 @@
       <%= product.name %>
       <%= image_tag product.main_image(:standard) %>
       <%= product.description %>
+      <%= link_to "View this Product", product_path(product) %>
     <% end %>
     
 
