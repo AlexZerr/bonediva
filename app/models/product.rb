@@ -17,6 +17,6 @@ class Product < ActiveRecord::Base
   #end
 
   def main_image(style)
-    self.paintings.first.image_url(style)    
+    self.paintings.first.image_url(style)
   end
 end

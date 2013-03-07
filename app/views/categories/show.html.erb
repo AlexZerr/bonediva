@@ -5,8 +5,10 @@
   <%= @category.description %>
   <div>
     <% @products.each do |product| %>
+      <% product.paintings.each do |painting| %>
       <p>
-        <%= image_tag product.main_image(:standard) %></br>
+      <%= image_tag painting.image_url(:standard) %></br>
+    <% end %>
          <%= link_to "View this Product: #{product.name}", product_path(product) %>
       </p>
     <% end %>
