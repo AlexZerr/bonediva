@@ -14,9 +14,11 @@ class ApplicationController < ActionController::Base
  # end
     def update_featured_painting
     @painting = Painting.find(params[:id])
-      @painting.category.update_attributes(featured_painting_id: @painting.id)
+      @painting.category.featured_painting_id = @painting.id
       @painting.save
     end
+
+    helper_method :update_featured_painting
 
   private
 
@@ -27,7 +29,4 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  def update_featured_painting
-      Painting.category.update_attributes(featured_painting_id: Painting.id)
-  end
 end
