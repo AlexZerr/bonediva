@@ -21,6 +21,11 @@ module ApplicationHelper
     featured_painting = @painting.where(@category.featured_painting_id = @painting.id)
   end
 
+  def update_category
+    @category = Category.find(params[:id])
+    self.update_attributes(category_id: @category.id)
+  end
+
   def complete_row
 
   end

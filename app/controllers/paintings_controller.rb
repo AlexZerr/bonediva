@@ -13,7 +13,6 @@ class PaintingsController < ApplicationController
     @user = current_user
     @users = User.all
     @categories = Category.all
-    
   end
 
   def create
@@ -24,6 +23,7 @@ class PaintingsController < ApplicationController
       redirect_to new_user_path, :notice => "You must be logged in to add a picture"
     end
     if @painting.save
+      @painting.update_attributes(category_id: @painting.paintable_id)
       redirect_to @painting, :notice => "#{@painting.title} was created sucessfully"
     end
   end
@@ -43,8 +43,9 @@ class PaintingsController < ApplicationController
     @painting = Painting.find(params[:id])
     @painting.update_attributes(params[:painting])
      if @painting.save
-       @painting.category_id = @category.id
-     end
+      @category = Category.find_by_id(params[:id])
+      @painting.update_attributes(category_id: @category.id)
+     end 
 
   end
 
