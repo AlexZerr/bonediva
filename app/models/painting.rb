@@ -11,8 +11,12 @@ def is_home_image?(painting)
 end
   
   def update_category
-    @category = Category.find([:id])
-    self.update_attributes(category_id: @category.id)
+    if self.paintable_type = "Category"
+    self.update_attributes(category_id: self.paintable_id)
+    else
+      @product = Product.find[:id]
+    self.update_attributes(category_id: @product.id )
+    end
   end
 
 
