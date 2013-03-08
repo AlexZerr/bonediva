@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @products = Product.where( :category_id => @category.id)
     @paintings = @category.paintings
+    @painting = Painting.find(params[:id])
   end
 
   def new

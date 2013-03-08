@@ -20,7 +20,7 @@
         <p>
         <%= image_tag p.image_url(:standard) %></br>
         <%= link_to "View this painting: #{p.title}", painting_path(p) %></br>
-        <%= link_to "Add as featured", method: :update_featured_painting %>
+        <%= link_to "Add as featured", method: :update_featured_painting(@painting) %>
         </p>
       <% end%>
     </div>
