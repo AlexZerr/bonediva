@@ -12,7 +12,7 @@ module ApplicationHelper
     def update_featured_painting
     @painting = Painting.find(params[:id])
       @cat = @painting.category
-      @cat.featured_painting_id = @painting.id
+      @cat.update
       @cat.save
     end
 
