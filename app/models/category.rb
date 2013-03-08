@@ -7,9 +7,5 @@ class Category < ActiveRecord::Base
   validates :name, presence: true
   
 
-  def update_featured_painting(painting)
-      painting.category.update_attributes(featured_painting_id: painting.id)
-      painting.save
-  end
 
 end

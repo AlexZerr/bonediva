@@ -9,7 +9,6 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @products = Product.where( :category_id => @category.id)
     @paintings = @category.paintings
-    @painting = Painting.find(params[:id])
   end
 
   def new
@@ -48,5 +47,14 @@ class CategoriesController < ApplicationController
 
   def destroy
 
+  end
+  
+
+  def update_featured_painting(paint)
+    @cat = paint.category
+      @cat.update_attributes(featured_painting_id: paint.id)
+    if @cat.save
+      redirect_to category_path(@cat)
+    end
   end
 end
