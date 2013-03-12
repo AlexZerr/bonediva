@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
        @painting.title = @product.name
        @painting.description = @product.description
        @painting.user_id = current_user.id
+       @painting.category_id = @product.category_id
        @painting.save
        @painting.errors.full_messages
        redirect_to product_path(@product)

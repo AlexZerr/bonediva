@@ -11,4 +11,12 @@ class Product < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
+
+  # def main_image
+   # self.image_url \ if self.paintings.present?
+  #end
+
+  def main_image(style)
+    self.paintings.first.image_url(style)
+  end
 end

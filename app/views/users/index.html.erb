@@ -15,15 +15,17 @@
   <div id="mid_component">
     A list of all the users
     <br/>
-    <div>
-      <% @users.each do |u| %>
-          <ul>
-            <li> <%= u.name %>: </li> 
-            <li> <%= link_to u.username, user_path(u) %> </li>
-            <% if is_admin? %>
-              <%= link_to "delete", u, :method => :delete, :confirm => "Are you sure?" %>
-            <% end %>
-          </ul>
-      <% end %>
+    <div class="row-fluid">
+      <div id="user">
+       <% @users.each do |u| %>
+            <ul>
+             <li> <%= u.name %>: </li> 
+             <li> <%= link_to u.username, user_path(u) %> </li>
+              <% if is_admin? %>
+                <%= link_to "delete", u, :method => :delete, :confirm => "Are you sure?" %>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
     </div>
   </div>

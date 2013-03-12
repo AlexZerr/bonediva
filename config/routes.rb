@@ -68,6 +68,7 @@ Bonediva::Application.routes.draw do
   
   get "log_out" => "sessions#destroy", :as => "log_out"
 
+  post '/categories/:id/update_featured_painting/:painting_id', to: 'categories#update_featured_painting', as: 'update_featured_painting'
 #  get "/show" => 'users#show', :as => "users"
 
 #  get "users" => "users#show", :as => "users"
