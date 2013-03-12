@@ -50,9 +50,10 @@ class CategoriesController < ApplicationController
   end
   
 
-  def update_featured_painting(paint)
-    @cat = paint.category
-      @cat.update_attributes(featured_painting_id: paint.id)
+  def update_featured_painting
+    @painting = Painting.find(params[:painting_id])
+      @cat = @painting.category
+      @cat.update_attributes(featured_painting_id: @painting.id)
     if @cat.save
       redirect_to category_path(@cat)
     end

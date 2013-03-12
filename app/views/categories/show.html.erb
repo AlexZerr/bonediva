@@ -9,7 +9,7 @@
       <p>
       <%= image_tag product.main_image(:standard) %></br>
     <% end %>
-         <%= link_to "View this Product: #{product.name}", product_path(product) %>
+    <%= link_to "View this Product: #{product.name}", product_path(product) %>
       </p>
     <% end %>
   </div>
@@ -20,7 +20,7 @@
         <p>
         <%= image_tag paint.image_url(:standard) %></br>
         <%= link_to "View this painting: #{paint.title}", painting_path(paint) %></br>
-        <%= button_to "Add as featured", update_featured_painting_path( paint )  %>
+        <%= button_to "Add as featured", update_featured_painting_path(@category, paint)  %>
         </p>
       <% end%>
     </div>
