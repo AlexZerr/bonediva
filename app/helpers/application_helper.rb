@@ -9,12 +9,6 @@ module ApplicationHelper
     current_user_path = user_path(@user)
   end
 
-    def update_featured_painting
-    @painting = Painting.find(params[:id])
-      @cat = @painting.category
-      @cat.update
-      @cat.save
-    end
 
   def featured_painting
     @category = Category.find(params[:id])
