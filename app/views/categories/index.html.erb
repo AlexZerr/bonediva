@@ -4,8 +4,11 @@
     <p>
     <%= link_to c.name, category_path(c) %></br>
     <%= c.description %></br>
-    <%= image_tag c.featured_painting.try(:image_url, :thumb ) %>
-    <%= link_to "Edit", edit_category_path(c) %>
+    <%= image_tag c.featured_painting.try(:image_url, :thumb ) %></br>
+    <% if is_admin?%>
+      <%= link_to "Edit", edit_category_path(c) %>
+      <%= link_to 'Delete', c, data: {confirm: "Are you sure you want to delete #{c.name}", method: :delete, remote: true } %>
+    <% end %>
     </p>
   <% end %>
 </div>
