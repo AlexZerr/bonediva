@@ -5,6 +5,7 @@
     <%= link_to c.name, category_path(c) %></br>
     <%= c.description %></br>
     <%= image_tag c.featured_painting.try(:image_url, :thumb ) %>
+    <%= link_to "Edit", edit_category_path(c) %>
     </p>
   <% end %>
 </div>
