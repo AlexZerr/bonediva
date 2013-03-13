@@ -17,14 +17,14 @@ class PaintingsController < ApplicationController
 
   def create
     if current_user.present?
-      @painting = Painting.new(params[:painting].merge(paintable_type: 'Category'))
+      @painting = current_user.paintings.new(params[:painting].merge(paintable_type: "Category")) if params[:paintable_type] != "Product"
       @painting.user_id = current_user.id
     else
       redirect_to new_user_path, :notice => "You must be logged in to add a picture"
     end
     if @painting.save
       @painting.update_attributes(category_id: @painting.paintable_id)
-      redirect_to @painting, :notice => "#{@painting.title} was created sucessfully"
+      redirect_to painting_path(@painting), :notice => "#{@painting.title} was created sucessfully"
     end
   end
 
@@ -39,9 +39,13 @@ class PaintingsController < ApplicationController
   end
 
   def update
-    @category = Category.find(params[:id])
     @painting = Painting.find(params[:id])
-    @painting.update_attributes(params[:painting])
+      if params[:painting][:paintable_id] == @painting.category.id
+        @painting.update_attributes(paintable_type: "Category")
+      else
+        @painting.update_attributes(paintable_type: "Product")
+      end
+      @painting.update_attributes(params[:painting])
      if @painting.save
       @category = Category.find_by_id(params[:id])
       @painting.update_attributes(category_id: @category.id)
@@ -55,6 +59,17 @@ class PaintingsController < ApplicationController
 
     respond_to do |format|
       format.js { render :template => 'paintings/delete.js.erb', :layout => false }
+    end
+  end
+
+  def add_product_painting
+    @product = Product.find(params[:product_id])
+    @painting = @product.paintings.build(params[:painting])
+    @painting.paintable_type = "Product"
+    @painting.paintable_id = @product.id
+    @painting.category_id = @product.category_id
+    if @painting.save
+      redirect_to @product
     end
   end
 

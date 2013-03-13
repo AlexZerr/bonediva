@@ -12,7 +12,7 @@
     <%= fields_for :painting do |p| %>
       <p><%= p.label :image, "Add a Painting" %></br>
       <%= p.file_field :image %></p>
-      <p><%= collection_select(:product, :category_id, @categories, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category", null: false) %></p>
+      <p><%= collection_select(:product, :category_id, @categories, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category") %></p>
     <% end %>
   <p><%= f.submit %></p>
 <% end %>

@@ -15,3 +15,7 @@
   </div>
 </div>
 <%= render :partial => "products/product_form" %>
+<%= form_for @painting, :html => {:multipart => true } do |p| %>
+      <p><%= p.label :image, "Add a Painting" %></br>
+      <%= p.file_field :image %></p>
+    <% end %>
