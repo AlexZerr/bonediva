@@ -6,5 +6,7 @@ Add painting
   <%= f.text_field :description %></br>
   <%= f.label :image, "image" %>
   <%= f.file_field :image %></br>
+  <%= f.hidden_field :paintable_type, value: "Product" %>
+  <%= f.hidden_field :paintable_id, value: "#{@product.id}" %>
   <%= f.submit %>
 <% end %>
