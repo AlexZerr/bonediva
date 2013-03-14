@@ -5,12 +5,10 @@
   <%= @category.description %>
   <div>
     <% @products.each do |product| %>
-      <% product.paintings.each do |painting| %>
-      <p>
-      <%= image_tag product.main_image(:standard) %></br>
-      <%= button_to "Add as featured", update_featured_painting_path(@category, painting) %>
-    <% end %>
+        <p>
+        <%= image_tag (product.main_image(:standard)) %></br>
     <%= link_to "View this Product: #{product.name}", product_path(product) %>
+        <%= button_to "Add as featured", update_featured_painting_path(@category, product.paintings.first) %>
       </p>
     <% end %>
   </div>
