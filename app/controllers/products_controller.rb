@@ -3,12 +3,14 @@ class ProductsController < ApplicationController
   def index
     if is_admin?
       @products = current_user.products.all
+      
     end
     render
   end
   
   def show
-    @product = Product.find(params[:id])
+    @product = current_user.products.find(params[:id])
+    @prod_paint = @product.paintings.first
   end
 
   def new
@@ -23,10 +25,10 @@ class ProductsController < ApplicationController
     @product = current_user.products.new(params[:product])
      if@product.save
        @painting = @product.paintings.new(params[:painting])
-       if params[:painting][:title].empty?
+       #if params[:painting][:title].empty?
         @painting.title = @product.name
         @painting.description = @product.description
-       end
+       #end
        @painting.user_id = current_user.id
        @painting.category_id = @product.category_id
        @painting.save
