@@ -20,6 +20,9 @@
 </div>
 <div id="mid_component">
   <div style="text-align:center">
+      <% if is_admin? && @product.user_id = current_user.id %>
+        <%= button_to 'Add painting', add_product_painting_path(@product)%>
+      <% end %>
     <% @product.paintings.each do |p| %>
       <% if p.errors.any?%>
         <%= p.errors.full_message %>
@@ -27,7 +30,6 @@
       <p><%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p) %></br>
       <%= p.description %></p>
       <%= link_to 'Edit', edit_product_path(@product) %>
-      <%= button_to 'Add painting', add_product_painting_path(@product)%>
     <% end %>
   </div>
 </div>
