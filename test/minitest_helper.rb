@@ -4,6 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require "minitest/autorun"
 require "minitest/rails"
 require "minitest/spec"
+require "minitest/pride"
 
 # Uncomment if you want Capybara in accceptance/integration tests
 # require "minitest/rails/capybara"
