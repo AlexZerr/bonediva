@@ -8,11 +8,7 @@
         <p>
         <%= image_tag (product.main_image(:standard)) %></br>
     <%= link_to "View this Product: #{product.name}", product_path(product) %>
-      <% product.paintings.each do |painting| if painting.primary_painting = true %>
-        <%  %>
-        <%= button_to "Add as featured", update_featured_painting_path(@category, painting) %>
-      <% end %>
-    <% end %>
+        <%= button_to "Add as featured", update_featured_painting_path(@category, product.paintings.first) %>
       </p>
     <% end %>
   </div>
