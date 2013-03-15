@@ -1,7 +1,7 @@
 <div>
   <h1>Products/show</h1>
 </div>
-
+<div id="container">
 <div id="mid_component">
   <div style="text-align:center">
     <p><h2><u>Product Name</u> </h2>
@@ -18,18 +18,18 @@
   <% end %>
   </div>
 </div>
-<div id="mid_component">
         <div class="row">
+      <div class="span10">
+<div id="mid_component">
       <% if is_admin? && @product.user_id = current_user.id %>
         <%= button_to 'Add painting', add_product_painting_path(@product)%>
       <% end %>
-      <div class="span10">
         <% @product.paintings.each do |p| %>
         <% if p.errors.any?%>
           <%= p.errors.full_message %>
         <% end %>
           <ul class="thumbnails">
-            <li class="span4">
+            <li class="span3">
             <div class="thumbnail">
               <%= p.title %></br>
               <%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p) %></br>
@@ -42,4 +42,5 @@
 </div>
       </div>
         </div>
+</div>
 </div>
