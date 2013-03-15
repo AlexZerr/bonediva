@@ -19,21 +19,27 @@
   </div>
 </div>
 <div id="mid_component">
-  <div style="text-align:center">
+        <div class="row">
       <% if is_admin? && @product.user_id = current_user.id %>
         <%= button_to 'Add painting', add_product_painting_path(@product)%>
       <% end %>
-      <div class="row-fluid">
+      <div class="span10">
         <% @product.paintings.each do |p| %>
         <% if p.errors.any?%>
           <%= p.errors.full_message %>
-        <% end %> 
-        <div class="span4">
-          <p><%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p) %>
-            <%= p.description %></p>
-          <%= link_to 'Edit', edit_product_path(@product) %>
         <% end %>
+          <ul class="thumbnails">
+            <li class="span4">
+            <div class="thumbnail">
+              <%= p.title %></br>
+              <%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p) %></br>
+              <%= p.description %></br>
+            <%= link_to 'Edit', edit_product_path(@product) %>
+          </div>
+      </li>
+    </ul>
+  <% end %>
+</div>
       </div>
-    </div>
-  </div>
+        </div>
 </div>
