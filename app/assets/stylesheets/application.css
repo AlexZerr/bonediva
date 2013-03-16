@@ -106,10 +106,10 @@
 }
 
 .avatar_img {
- position: relative;
- top: -18px;
- padding:5px;
- border:1px solid #f00000;
+ margin-top: -20px;
+ margin-left: -2px;
+ padding: 4px;
+ border: 2px solid #A00000;
  border-radius:10px;
  -moz-border-radius: 10px;
  background-color: #4C0080;
@@ -166,9 +166,6 @@
 
 .img-with-text {
   text-align: center;
-  width: 115px;
+  width: 100px;
 }
 
-.reduce-top-margin {
-  margin-top:-15px;
-}
