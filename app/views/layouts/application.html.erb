@@ -36,11 +36,6 @@
       </div><!--end #top_bar-->
 
       <%=image_tag("top_image.jpg", :alt => "rss feed", :class => "top_image")  %>
-    <div>
-
-    </div>
-
-
 
     <div style="color:red"> 
       <div style="text-align:center" > 
@@ -63,18 +58,15 @@
             Logout
           </div>
           </br>
-          <div style="float: right;">
-            Another cool link
-            </br>
+          <div class="row-fluid">
+            <div class="img-with-text">
+              <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "avatar_img")  %>
+            <div class="reduce-top-margin">
+              <%= link_to current_user.name, current_user_path %>
+            </div>
           </div>
-<div class="row-fluid">
-          <%=image_tag("default_pic.jpg", :alt => "rss feed" ,:class => "avatar_img")  %>
-
-          <%= link_to current_user.name, current_user_path %>
           <%#= link_to image_tag("default_pic.jpg") + current_user.username, user_path(@user), :class => "avatar_img", :remote => true %>
-
           <br/>
-
         <% else %>
           <%= render :partial =>  "sessions/login" %>
         <% end %>

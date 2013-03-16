@@ -73,7 +73,7 @@
   -moz-border-radius:25px; 
   float: right;
   padding: 15px;
-  width: 240px;
+  width: 220px;
   height: 190px;
   color: #A00000;
   margin: 2px 2px 2px 2px;
@@ -155,13 +155,21 @@
   width: 950px;
   height: 0px auto;
   color: #A00000;
-  margin: 0px auto;
-  margin-left: 0px;
+  margin: 50px auto;
+  margin-left: 30px;
   text-align: center;
-  }
+}
 
 .loginSidebar {
   font-size: 170%;
   font-weight:bold; 
 }
 
+.img-with-text {
+  text-align: center;
+  width: 115px;
+}
+
+.reduce-top-margin {
+  margin-top:-15px;
+}
