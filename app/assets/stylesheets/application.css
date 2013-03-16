@@ -72,10 +72,9 @@
   border-radius:25px;
   -moz-border-radius:25px; 
   float: right;
-  text-shadow: -1px 1px 1px #808080;
   padding: 15px;
-  width: 240px;
-  height: 225px;
+  width: 220px;
+  height: 190px;
   color: #A00000;
   margin: 2px 2px 2px 2px;
 }
@@ -107,10 +106,10 @@
 }
 
 .avatar_img {
- position: relative;
- top: -18px;
- padding:5px;
- border:1px solid #f00000;
+ margin-top: -20px;
+ margin-left: -2px;
+ padding: 4px;
+ border: 2px solid #A00000;
  border-radius:10px;
  -moz-border-radius: 10px;
  background-color: #4C0080;
@@ -139,12 +138,11 @@
   border: 2px solid #A00000;
   border-radius:25px;
   -moz-border-radius: 25px;
+  width: 900px;
   display: block; 
-  margin: 10px;
-  text-align: center;
+  margin: 0px auto;
   padding-bottom: 55px;
   padding-top: 10px;
-  
 }
 
 #homeBox {
@@ -156,13 +154,18 @@
   width: 950px;
   height: 0px auto;
   color: #A00000;
-  margin: 0px auto;
-  margin-left: 0px;
+  margin: 50px auto;
+  margin-left: 25px;
   text-align: center;
-  }
+}
 
 .loginSidebar {
   font-size: 170%;
   font-weight:bold; 
+}
+
+.img-with-text {
+  text-align: center;
+  width: 100px;
 }
 

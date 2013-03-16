@@ -20,7 +20,7 @@
   <% if p.is_home_image?(p) %>
     <div class="displayHomeImg">
       <h3><%= link_to p.title, p %></h3>
-      <%= link_to image_tag(p.image_url(:standard)), p %>
+      <%= link_to image_tag(p.image_url(:large)), p %>
     </div>
     </br>
   <% end %>
