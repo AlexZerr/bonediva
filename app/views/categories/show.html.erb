@@ -6,7 +6,7 @@
   <div>
     <% @products.each do |product| %>
         <p>
-        <%= image_tag (product.main_image(:standard)) %></br>
+        <%=  link_to (image_tag (product.main_image(:standard))), product_path(product) %></br>
     <%= link_to "View this Product: #{product.name}", product_path(product) %>
         <%= button_to "Add as featured", update_featured_painting_path(@category, product.paintings.first) %>
       </p>
