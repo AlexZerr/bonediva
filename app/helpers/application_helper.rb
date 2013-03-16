@@ -9,9 +9,25 @@ module ApplicationHelper
     current_user_path = user_path(@user)
   end
 
-  def update_featured_painting
+
+  def featured_painting
+    @category = Category.find(params[:id])
     @painting = Painting.find(params[:id])
-      @painting.category.update_attributes(featured_painting_id: @painting.id)
+    featured_painting = @painting.where(@category.featured_painting_id = @painting.id)
+  end
+
+  def update_category
+    @painting = Painting.find(params[:id])
+    @product = Product.find(params[:id])
+    if @painting.paintable_type = "Category"
+    @painting.update_attributes(category_id: @painting.paintable_id)
+    elsif @painting.paintable_type = "Product"
+      @painting.update_attributes(category_id: @product.category_id)
+    end
+  end
+
+  def complete_row
+
   end
 
 end

@@ -20,12 +20,20 @@
 </div>
 <div id="mid_component">
   <div style="text-align:center">
-    <% @product.paintings.each do |p| %>
-      <% if p.errors.any?%>
-        <%= p.errors.full_message %>
-      <% end %> 
-      <p><%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p) %></br>
-      <%= p.description %></p>
-    <% end %>
+      <% if is_admin? && @product.user_id = current_user.id %>
+        <%= button_to 'Add painting', add_product_painting_path(@product)%>
+      <% end %>
+      <div class="row-fluid">
+        <% @product.paintings.each do |p| %>
+        <% if p.errors.any?%>
+          <%= p.errors.full_message %>
+        <% end %> 
+        <div class="span4">
+          <p><%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p) %>
+            <%= p.description %></p>
+          <%= link_to 'Edit', edit_product_path(@product) %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

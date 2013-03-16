@@ -4,12 +4,26 @@
   <%= @category.name %></br>
   <%= @category.description %>
   <div>
-    <% @category.products.each do |p| %>
-      <% p.paintings.each do |x| %>
-        <p><%= image_tag x.image_url(:standard) %></br>
-        <%= link_to "Check out: #{p.name}", product_path(p) %></p>
-      <%= link_to "Add as featured", method: :update_featured_painting %> 
-      <% end %>
+    <% @products.each do |product| %>
+        <p>
+        <%= image_tag (product.main_image(:standard)) %></br>
+    <%= link_to "View this Product: #{product.name}", product_path(product) %>
+        <%= button_to "Add as featured", update_featured_painting_path(@category, product.paintings.first) %>
+      </p>
     <% end %>
   </div>
+-------
+  <div>
+    <div>
+      <% @paintings.each do |paint| %>
+        <p>
+        <%= image_tag paint.image_url(:standard) %></br>
+        <%= link_to "View this painting: #{paint.title}", painting_path(paint) %></br>
+        <%= button_to "Add as featured", update_featured_painting_path(@category, paint)  %>
+        </p>
+      <% end%>
+    </div>
+  </div>
 </div>
+
+

@@ -23,7 +23,4 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  def update_featured_painting
-      Painting.category.update_attributes(featured_painting_id: Painting.id)
-  end
 end
