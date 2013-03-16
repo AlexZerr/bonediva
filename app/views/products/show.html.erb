@@ -1,37 +1,44 @@
 <div>
   <h1>Products/show</h1>
 </div>
-
-<div id="mid_component">
-  <div style="text-align:center">
-    <p><h2><u>Product Name</u> </h2>
-    <h3>  <%= @product.name %></h3></p>
-    <p><h2><u> Product Description</u> </h2>
-    <h3><%= @product.description %></h3></p>
-    <p><h2><u> Size</u> </h2>
-    <h3><%= @product.size %></h3></p>
-    <p><h2><u> Price</u> </h2>
-    <h3><%= @product.price %></h3></p>
-  <% if @product.category.present? %>
-    <p><h2><u> Category </u> </h2>
-    <h3><%= @product.category.name %></h3></p>
-  <% end %>
-  </div>
-</div>
-<div id="mid_component">
-  <div style="text-align:center">
-      <% if is_admin? && @product.user_id = current_user.id %>
-        <%= button_to 'Add painting', add_product_painting_path(@product)%>
+<div id="fluid-container">
+  <div id="mid_component">
+    <div style="text-align:center">
+     <p><h2><u>Product Name</u> </h2>
+      <h3>  <%= @product.name %></h3></p>
+      <p><h2><u> Product Description</u> </h2>
+      <h3><%= @product.description %></h3></p>
+      <p><h2><u> Size</u> </h2>
+     <h3><%= @product.size %></h3></p>
+      <p><h2><u> Price</u> </h2>
+      <h3><%= @product.price %></h3></p>
+      <% if @product.category.present?%>
+      <p><h2><u> Category </u> </h2>
+       <h3><%= @product.category.name %></h3></p>
       <% end %>
-      <div class="row-fluid">
+    </div>
+  </div>
+  <div id="mid_component">
+    <div class="row-fluid">
+      <div class="span12">
+        <% if is_admin? && @product.user_id = current_user.id %>
+          <%= button_to 'Add painting', add_product_painting_path(@product)%>
+                <%= button_to 'Delete', @product, data: { confirm: "Do you want to delete #{@product.name}?", method: :delete, remote: true } %>
+        <% end %>
         <% @product.paintings.each do |p| %>
-        <% if p.errors.any?%>
-          <%= p.errors.full_message %>
-        <% end %> 
-        <div class="span4">
-          <p><%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p) %>
-            <%= p.description %></p>
-          <%= link_to 'Edit', edit_product_path(@product) %>
+          <% if p.errors.any?%>
+            <%= p.errors.full_message %>
+          <% end %>
+          <ul class="thumbnails">
+            <li class="span3">
+              <div class="thumbnail">
+                <%= p.title %></br>
+                <%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p) %></br>
+                <%= p.description %></br>
+                <%= link_to 'Edit', edit_product_path(@product) %>
+              </div>
+            </li>
+          </ul>
         <% end %>
       </div>
     </div>

@@ -3,9 +3,10 @@ class PaintingsController < ApplicationController
   before_filter :ensure_admin, only: [:destroy]
 
   def index
-    @paintings = Painting.all
+    @paints = Painting.where(paintable_type: "Category")
+   @prod_paints = Painting.where(paintable_type: "Product", primary_painting: true) 
     @user = current_user
-    @products = @user.products.all
+    @paintings = @prod_paints + @paints
   end
 
   def new
