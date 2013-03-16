@@ -1,7 +1,7 @@
 <div>
   <h1>Products/show</h1>
 </div>
-<div id="container">
+<div id="fluid-container">
   <div id="mid_component">
     <div style="text-align:center">
      <p><h2><u>Product Name</u> </h2>
@@ -19,10 +19,11 @@
     </div>
   </div>
   <div id="mid_component">
-    <div class="row">
+    <div class="row-fluid">
       <div class="span12">
         <% if is_admin? && @product.user_id = current_user.id %>
           <%= button_to 'Add painting', add_product_painting_path(@product)%>
+                <%= button_to 'Delete', @product, data: { confirm: "Do you want to delete #{@product.name}?", method: :delete, remote: true } %>
         <% end %>
         <% @product.paintings.each do |p| %>
           <% if p.errors.any?%>
