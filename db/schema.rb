@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317035934) do
+ActiveRecord::Schema.define(:version => 20130317053103) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image",   :null => false
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(:version => 20130317035934) do
     t.string   "password_digest"
     t.boolean  "admin"
     t.string   "user_link"
-    t.integer  "user_avatar_id"
   end
 
 end

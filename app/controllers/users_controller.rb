@@ -25,12 +25,16 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @paintings = current_user.paintings
+    @avatar = Avatar.where(user_id: @user.id).first
 
   end
 
 
   def update
     @user = User.find(params[:id])
+    @avatar = @user.avatar
+      if @avatar.update_attributes(params[:avatar])
+      end
       if @user.update_attributes(params[:user])
         redirect_to user_path(@user), :notice => "User Succesfully Updated"
       else
@@ -46,7 +50,6 @@ class UsersController < ApplicationController
     @avatar.name = @user.name
     @avatar.user_id = @user.id
     @avatar.save
-      @user.update_attributes(user_avatar_id: @avatar.id)
       redirect_to user_path(@user), :notice => " #{@user.name} was created sucessfully"
     else
      redirect_to new_user_path, :notice => " Fields must be filled out." 
