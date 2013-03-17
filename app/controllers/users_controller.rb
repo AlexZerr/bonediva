@@ -25,7 +25,11 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @paintings = current_user.paintings
-    @avatar = Avatar.where(user_id: @user.id).first
+    if @user.avatar.present?
+      @avatar = @user.avatar
+    else
+      @avatar = Avatar.new(params[:avatar])
+    end
 
   end
 
@@ -33,8 +37,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @avatar = @user.avatar
-      if @avatar.update_attributes(params[:avatar])
-      end
+    if @avatar.present? && @avatar.update
+       @avatar.update_attributes(params[:avatar])
+    end
       if @user.update_attributes(params[:user])
         redirect_to user_path(@user), :notice => "User Succesfully Updated"
       else

@@ -21,9 +21,6 @@ class User < ActiveRecord::Base
     find_by_email(email).try(authenticate: password)
   end
 
-  def avatar
-    self.user_avatar_id
-  end
 
   
 end
