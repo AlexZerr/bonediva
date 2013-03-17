@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   has_many :paintings
   has_many :products
+  has_one :avatar
   #accepts_nested_attributes_for :pictures
 
   def self.authenticate(email, password)
