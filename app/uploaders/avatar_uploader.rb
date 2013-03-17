@@ -1,7 +1,12 @@
 # encoding: utf-8
 
+require 'carrierwave/processing/mini_magick'
 class AvatarUploader < CarrierWave::Uploader::Base
 
+  include CarrierWave::MiniMagick
+  include CarrierWave::MimeTypes
+
+  require 'fog' 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick

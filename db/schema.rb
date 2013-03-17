@@ -11,11 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317030811) do
+ActiveRecord::Schema.define(:version => 20130317035934) do
 
   create_table "avatars", :force => true do |t|
-    t.string "image", :null => false
-    t.string "name"
+    t.string  "image",   :null => false
+    t.string  "name"
+    t.integer "user_id"
   end
 
   create_table "categories", :force => true do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130317030811) do
     t.string   "password_digest"
     t.boolean  "admin"
     t.string   "user_link"
+    t.integer  "user_avatar_id"
   end
 
 end
