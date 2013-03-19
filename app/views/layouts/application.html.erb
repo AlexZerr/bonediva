@@ -60,10 +60,10 @@
           </br>
           <div class="row-fluid">
             <div class="img-with-text">
-              <%=image_tag current_user.avatar{ |a| a.image_url(:thumb)}  %>
+              <%=image_tag  user_avatar(@user).image_url(:thumb) %>
               <%= link_to current_user.name, current_user_path %>
           </div>
-          <%#= link_to image_tag("default_pic.jpg") + current_user.username, user_path(@user), :class => "avatar_img", :remote => true %>
+          <%#= link_to image_tag("#{@user.avatar}") + current_user.username, user_path(@user), :class => "avatar_img", :remote => true %>
           <br/>
         <% else %>
           <%= render :partial =>  "sessions/login" %>

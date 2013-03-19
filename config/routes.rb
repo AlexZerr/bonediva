@@ -5,7 +5,9 @@ Bonediva::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :users
+  resources :users do
+    resources :avatars
+  end
   resources :products do
     resources :paintings
   end

@@ -21,6 +21,11 @@ class User < ActiveRecord::Base
     find_by_email(email).try(authenticate: password)
   end
 
+  def user_avatar(type)
+    
+  end
+  
+
 
   
 end

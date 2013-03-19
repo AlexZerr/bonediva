@@ -5,4 +5,6 @@ class Avatar < ActiveRecord::Base
   attr_accessible :image, :name, :remote_image_url
   
   belongs_to :user
+
+
 end

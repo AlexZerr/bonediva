@@ -10,4 +10,6 @@ class AvatarsController < ApplicationController
     @avatar = @user.avatar.new(params[:avatar])
     @avatar.save
   end
+
+  
 end
