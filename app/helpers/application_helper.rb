@@ -26,6 +26,11 @@ module ApplicationHelper
     end
   end
 
+  def user_avatar(user)
+    @avatar = user.avatar
+
+  end
+
   def complete_row
 
   end

@@ -1,7 +1,7 @@
 <div style="text-align:center">
   <div style="float:center">
     <div style="color:purple">
-      <%= form_for @user do |f| %>
+      <%= form_for @user, html: { multipart: true } do |f| %>
         <% if @user.errors.any? %>
         
           <div class="error_messages">
@@ -27,11 +27,19 @@
       <%= f.text_field :age %></p>
       <p><%= f.label :user_link, "Want to add your website?"%></br>
     <%= f.text_field :user_link %></p>
-      <p><%= f.submit %></p>
+    
+    <%= fields_for @avatar do |a| %>
+      <%= a.hidden_field :name, value: @user.name %>
+      <%= a.label :image, "Avatar Uploader" %></br>
+      <%= a.file_field :image %>
+      <%= a.label :remote_image_url, "Avatar from url" %>
+      <%= a.text_field :remote_image_url %>
+    <% end %>
       <% if is_admin? %>
         <%= "Make and admin?"%>
         <%= f.check_box :admin %>
       <% end %>
+      <p><%= f.submit %></p>
     <% end %>
     </div>
   </div>

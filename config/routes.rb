@@ -5,13 +5,16 @@ Bonediva::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :users
+  resources :users do
+    resources :avatars
+  end
   resources :products do
     resources :paintings
   end
   resources :paintings
   resources :sessions
   resources :categories
+  resources :avatars
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
