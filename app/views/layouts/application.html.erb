@@ -60,7 +60,11 @@
           </br>
           <div class="row-fluid">
             <div class="img-with-text">
-              <%=image_tag  user_avatar(current_user).image_url(:thumb) %>
+              <% if user_avatar(current_user).present? %>
+                <%=image_tag  user_avatar(current_user).image_url(:thumb) %>
+              <% else %>
+                <%= "add an avatar"%>
+              <% end %>
               <%= link_to current_user.name, current_user_path %>
           </div>
           <%#= link_to image_tag("#{@user.avatar}") + current_user.username, user_path(@user), :class => "avatar_img", :remote => true %>

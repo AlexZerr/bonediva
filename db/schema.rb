@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317053103) do
+ActiveRecord::Schema.define(:version => 20130319035532) do
 
   create_table "avatars", :force => true do |t|
-    t.string  "image",   :null => false
+    t.string  "image"
     t.string  "name"
     t.integer "user_id"
   end

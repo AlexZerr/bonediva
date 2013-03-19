@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def new
     @user = current_user
-    @avatar = @user.avatar
+    
 
   end 
 
