@@ -63,4 +63,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+  def default_url
+    filename = [version_name, "missing.png"].compact.join("_")
+    "/assets/attachments_missing/pictures/#{filename}"
+  end
 end

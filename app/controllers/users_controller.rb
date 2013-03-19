@@ -37,9 +37,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @avatar = @user.avatar
-    if @avatar.present? && @avatar.update
+    if @avatar.present?
        @avatar.update_attributes(params[:avatar])
+    else
+      @avatar = Avatar.new(params[:avatar])
     end
+    @avatar.save
       if @user.update_attributes(params[:user])
         redirect_to user_path(@user), :notice => "User Succesfully Updated"
       else
@@ -51,10 +54,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-    @avatar = Avatar.new(params[:avatar])
-    @avatar.name = @user.name
-    @avatar.user_id = @user.id
-    @avatar.save
+      @avatar = Avatar.new(params[:avatar])
+      @avatar.name = @user.name
+      @avatar.user_id = @user.id
+        @avatar.save
       redirect_to user_path(@user), :notice => " #{@user.name} was created sucessfully"
     else
      redirect_to new_user_path, :notice => " Fields must be filled out." 
@@ -76,7 +79,11 @@ class UsersController < ApplicationController
   def new
    if !current_user.present? 
     @user = User.new(params[:user])
-    @avatar = Avatar.new(params[:avatar])
+    if params[:avatar].present?
+      @avatar = Avatar.update_attributes(params[:avatar])
+    else
+      @avatar = Avatar.new(params[:avatar])
+    end
    else
      @user = current_user
    end

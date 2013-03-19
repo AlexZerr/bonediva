@@ -27,7 +27,9 @@ module ApplicationHelper
   end
 
   def user_avatar(user)
-    @avatar = user.avatar
+    if user.avatar.present?
+    @avatar = user.avatar 
+    end
 
   end
 
