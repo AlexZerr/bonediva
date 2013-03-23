@@ -73,8 +73,8 @@
   -moz-border-radius:25px; 
   float: right;
   padding: 15px;
-  width: 220px;
-  height: 190px;
+  width: 200px;
+  height: 180px;
   color: #A00000;
   margin: 2px 2px 2px 2px;
 }
@@ -85,7 +85,7 @@
   border-radius:25px;
   -moz-border-radius: 25px;
   padding: 15px;
-  width: 800px;
+  width: 700px;
   height: 0px auto;
   color: #A00000;
   margin: 0px auto;
@@ -138,7 +138,7 @@
   border: 2px solid #A00000;
   border-radius:25px;
   -moz-border-radius: 25px;
-  width: 900px;
+  width: 800px;
   display: block; 
   margin: 0px auto;
   padding-bottom: 55px;
@@ -151,7 +151,7 @@
   border-radius:25px;
   -moz-border-radius: 25px;
   padding: 15px;
-  width: 950px;
+  width: 800px;
   height: 0px auto;
   color: #A00000;
   margin: 50px auto;
@@ -169,3 +169,22 @@
   width: 100px;
 }
 
+
+
+
+
+.aspectwrapper {
+display: inline-block; /* shrink to fit */
+width: 100%; /* whatever width you like */
+position: relative; /* so .content can use position: absolute */
+}
+.aspectwrapper::after {
+padding-top: 56.25%; /* percentage of containing block _width_ */
+display: block;
+content: '';
+}
+.content {
+position: absolute;
+top: 0; bottom: 0; right: 0; left: 0; /* follow the parent's edges */
+outline: thin dashed green; /* just so you can see the box */
+}

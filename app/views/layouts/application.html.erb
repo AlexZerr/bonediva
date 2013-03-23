@@ -69,11 +69,10 @@
           <%= render :partial =>  "sessions/login" %>
         <% end %>
         <%if is_admin? %>
-          <div class="span3"><%= link_to "Add a Product", new_product_path %></div>
+          <div class="span4"><%= link_to "Add a Product", new_product_path %></div>
           <div class="span4"><%= link_to "#{@user.name.pluralize}' Products", products_path %></div>
           <div class="span3"><%= link_to "Add a Category", new_category_path %></div>
         <% end %>
-</div>
         <%= yield :sidebar %>
       </div>
     <% end %>

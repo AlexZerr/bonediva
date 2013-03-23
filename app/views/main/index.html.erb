@@ -13,17 +13,18 @@
 
 </div>
 
+
 <div id="homeBox">
-<h2>Great New Images!</h2>
-</br>
-<% @paintings.each do |p| %>
-  <% if p.is_home_image?(p) %>
-    <div class="displayHomeImg">
-      <h3><%= link_to p.title, p %></h3>
-      <%= link_to image_tag(p.image_url(:large)), p %>
-    </div>
-    </br>
+  <h2>Great New Images!</h2>
+  </br>
+  <% @paintings.each do |p| %>
+    <% if p.is_home_image?(p) %>
+      <div class="displayHomeImg">
+        <h3><%= link_to p.title, p %></h3>
+        <%= link_to image_tag(p.image_url(:large)), p %>
+      </div>
+      </br>
+    <% end %>
   <% end %>
-<% end %>
 </div>
 
