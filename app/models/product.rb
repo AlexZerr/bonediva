@@ -1,6 +1,6 @@
 
 class Product < ActiveRecord::Base
-  attr_accessible :name, :description, :price, :size, :category_id
+  attr_accessible :name, :description, :price, :size, :category_id, :primary_painting_id
   #accepts_nested_attributes_for :painting
   has_many :paintings, as: :paintable
 

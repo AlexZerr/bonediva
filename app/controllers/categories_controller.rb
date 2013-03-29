@@ -47,7 +47,8 @@ class CategoriesController < ApplicationController
     @category.destroy
   end
   
-
+  #this is probly not necisary any more. in leu products should have a primary_painting_id
+  #better for things to run through the update method.
   def update_featured_painting
     @painting = Painting.find(params[:painting_id])
       @cat = @painting.category
