@@ -20,6 +20,10 @@ end
     end
   end
 
+  def remove_primary_painting_from_product
+    Product.where(primary_painting_id: self.id).update_all(primary_painting_id: nil)
+  end
+
 
   
 end

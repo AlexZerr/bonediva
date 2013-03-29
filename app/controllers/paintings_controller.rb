@@ -41,17 +41,18 @@ class PaintingsController < ApplicationController
 
   def update
     @painting = Painting.find(params[:id])
-      if params[:painting][:paintable_id] == @painting.category.id
-        @painting.update_attributes(paintable_type: "Category")
+      if params[:painting][:paintable_id] == @painting.category_id
+        @painting.pinnble_type = "Category"
       else
-        @painting.update_attributes(paintable_type: "Product")
+        @painting.pinnable_type = "Product"
       end
+      @painting.save
       @painting.update_attributes(params[:painting])
-     if @painting.save
-      @category = Category.find_by_id(params[:id])
-      @painting.update_attributes(category_id: @category.id)
-     end 
-
+      respond_with @painting
+#     if @painting.save
+#      @category = @painting.category
+#      @painting.update_attributes(category_id: @category.id)
+#     end 
   end
 
   def destroy
