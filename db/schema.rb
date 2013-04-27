@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401203954) do
+ActiveRecord::Schema.define(:version => 20130401210233) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(:version => 20130401203954) do
     t.integer "product_id", :null => false
     t.integer "cart_id"
     t.float   "price"
+  end
+
+  create_table "carts", :force => true do |t|
+    t.integer "user_id"
   end
 
   create_table "categories", :force => true do |t|

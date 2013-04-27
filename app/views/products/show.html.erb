@@ -11,7 +11,7 @@
       <p><h2><u> Size</u> </h2>
      <h3><%= @product.size %></h3></p>
       <p><h2><u> Price</u> </h2>
-      <h3><%= @product.price %></h3></p>
+      <h3><%= number_to_currency @product.price %></h3></p>
       <% if @product.category.present?%>
       <p><h2><u> Category </u> </h2>
        <h3><%= @product.category.name %></h3></p>
