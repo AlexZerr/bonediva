@@ -7,6 +7,9 @@ Bonediva::Application.routes.draw do
 
   resources :users do
     resources :avatars
+    resources :carts do
+      resources :cart_items
+    end
   end
   resources :products do
     resources :paintings
@@ -74,6 +77,8 @@ Bonediva::Application.routes.draw do
   post '/categories/:id/update_featured_painting/:painting_id', to: 'categories#update_featured_painting', as: 'update_featured_painting'
   
   match '/products/:product_id/paintings/new', to: 'paintings#add_product_painting', as: 'add_product_painting'
+
+  match '/users/:user_id/carts/:cart_id/cart_items/add_cart_item/:product_id', to: 'cart_items#add_cart_item', as: "add_cart_item'
 
   #match '/products/:product_id/paintings/new', to: 'products#add_product_painting', as: 'add_product_painting'
 #  get "/show" => 'users#show', :as => "users"
