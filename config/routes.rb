@@ -78,9 +78,9 @@ Bonediva::Application.routes.draw do
   
   match '/products/:product_id/paintings/new', to: 'paintings#add_product_painting', as: 'add_product_painting'
 
-  match '/users/:user_id/carts/:cart_id/cart_items/add_cart_item/:product_id', to: 'cart_items#add_cart_item', as: "add_cart_item'
+  post '/users/:user_id/carts/:cart_id/add_cart_item', to: 'cart_items#add_cart_item', as: 'add_cart_item'
 
-  #match '/products/:product_id/paintings/new', to: 'products#add_product_painting', as: 'add_product_painting'
+  match '/products/:product_id/paintings/new', to: 'products#add_product_painting', as: 'add_product_painting'
 #  get "/show" => 'users#show', :as => "users"
 
 #  get "users" => "users#show", :as => "users"

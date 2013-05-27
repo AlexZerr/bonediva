@@ -15,7 +15,8 @@
       <% if @product.category.present?%>
       <p><h2><u> Category </u> </h2>
        <h3><%= @product.category.name %></h3></p>
-      <% end %>
+     <% end %>
+     <%= button_to "Add To Cart", add_cart_item_path(:user_id, :cart_id, @product ) %>
     </div>
   </div>
   <div id="mid_component">

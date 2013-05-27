@@ -9,7 +9,9 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @product = current_user.products.find(params[:id])
+    @user = current_user
+      @cart = @user.carts.last 
+    @product = @user.products.find(params[:id])
     @prod_paint = @product.paintings.first
   end
 
