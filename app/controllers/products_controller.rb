@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
       @products = current_user.products.all
       
     end
+    @user = current_user
+    @cart = @user.carts.last
     render
   end
   
