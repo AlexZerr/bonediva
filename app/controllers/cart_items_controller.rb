@@ -1,4 +1,5 @@
 class CartItemsController < ApplicationController
+  respond_to :html, :js, :json
 
   #before_filter :find_product, only: [:add_cart_item]
   before_filter :initialize_cart, only: [:create]
@@ -23,6 +24,13 @@ class CartItemsController < ApplicationController
   
   end
 
+  def destroy
+    @cart = @cart.find(params[:cart_id])
+    @cart_item = CartItem.find(params[:id])
+    if @cart_item.destroy
+      redirect_to current_cart_url
+    end
+  end
 
   private
 
