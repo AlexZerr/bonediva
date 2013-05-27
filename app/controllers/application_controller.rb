@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_cart
 
-    def initialize_cart
+    def initialize_carts
     if session[:cart_id]
       @cart = Cart.find(session[:cart_id])
     else
