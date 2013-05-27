@@ -1,5 +1,10 @@
-Carts/Show
-
-<% @cart.cart_items.each do |item| %>
-  <%= item.price %>
-<% end %>
+<h3>
+<div class="span4">Name</div>
+<div class="span4">price</div>
+</h3>
+  <% @cart.cart_items.each do |item| %>
+      <h3>
+        <div class="span4"><%= item.name %></div>
+        <div class="span4"><%= item.price %></div>
+      </h3>
+  <% end %>
