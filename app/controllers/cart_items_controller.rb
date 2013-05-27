@@ -1,14 +1,19 @@
 class CartItemsController < ApplicationController
 
   #before_filter :find_product, only: [:add_cart_item]
-  before_filter :initialize_cart, only: [:add_cart_item]
+  before_filter :initialize_cart, only: [:create]
+
+  def new
+
+  end
 
 
-  def add_cart_item(product)
+  def create
+    @product = Product.find(params[:product_id])
     @cart_item = CartItem.new(params[:cart_item])
-    @cart_item.product_id = product.id
+    @cart_item.product_id = @product.id
     @cart_item.cart_id = @cart.id
-    @cart_item.price = product.price
+    @cart_item.price = @product.price
     if @cart_item.save
       redirect_to products_path, notice: "Painting has been added to your cart"
     else
@@ -27,10 +32,10 @@ class CartItemsController < ApplicationController
   def initialize_cart
         @user = User.find(params[:user_id])
     if @user.carts.present?
-      @cart = @user.carts
+      @cart = @user.carts.last
     else
       @cart = @user.carts.new(params[:cart])
+      @cart.save
     end
-    @cart.save
   end
 end 

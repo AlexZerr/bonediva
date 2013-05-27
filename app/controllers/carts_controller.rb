@@ -9,6 +9,7 @@ class CartsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @cart = Cart.find(params[:id])
   end
 end
