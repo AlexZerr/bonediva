@@ -16,6 +16,7 @@ class CartItemsController < ApplicationController
     @cart_item.cart_id = @cart.id
     @cart_item.price = @product.price
     @cart_item.name = @product.name
+    @cart_item.user_id = @user.id
     if @cart_item.save
       redirect_to products_path, notice: "Painting has been added to your cart"
     else

@@ -1,0 +1,11 @@
+<%= form_for Order.new do |o| %>
+  <%= o.label :first_name, "First Name" %>
+  <%= o.text_field :first_name %></br>
+  <%= o.label :last_name, "Last Name" %>
+  <%= o.text_field :last_name %></br>
+  <%= o.label :card_type, "Card Type" %>
+  <%= o.text_field :card_type %></br>
+  <%= o.label :card_expires_on, "Experation Date" %>
+  <%= o.text_field :card_expires_on %>
+  <%= o.submit %>
+<% end %>

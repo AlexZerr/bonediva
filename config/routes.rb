@@ -9,6 +9,7 @@ Bonediva::Application.routes.draw do
     resources :avatars
     resources :carts do
       resources :cart_items
+      resources :orders
     end
   end
   resources :products do
