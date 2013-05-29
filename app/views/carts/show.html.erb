@@ -14,4 +14,4 @@
       </div>
   <% end %>
 
-        <%= button_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last) %>
+        <%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last) %>

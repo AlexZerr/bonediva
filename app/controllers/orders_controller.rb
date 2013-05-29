@@ -6,13 +6,17 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(params[:order])
-    @order.first_name = current_user.first_name
-    @order.last_name = current_user.last_name
     if @order.save
-      redirect_to order_path(@order), notice: "Confirmation"
+      redirect_to user_cart_order_path(current_user,current_user.carts.last, @order), notice: "Confirmation"
     else
       flash "error"
     end
+  end
+
+  def show
+    @user = User.find(params[:user_id])
+    @cart = @user.carts.last
+    @cart_items = @cart.cart_items
   end
 
 end

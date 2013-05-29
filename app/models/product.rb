@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   #accepts_nested_attributes_for :painting
   has_many :paintings, as: :paintable
   has_many :carts, through: :cart_items
-  has_many :cart_items
+  belongs_to :cart_item
 
   validates :name, presence: true
   validates :price, presence: true
