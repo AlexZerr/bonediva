@@ -13,6 +13,7 @@ class CartsController < ApplicationController
     @user = User.find(params[:user_id])
     @cart = Cart.find(params[:id])
     @cart_items = @cart.cart_items
+    @price = CartItem.where(cart_id: @cart.id).sum(:price)
   end
 
   def destroy
