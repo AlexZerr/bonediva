@@ -7,7 +7,7 @@
     <% @products.each do |product| %>
       <p>
         <%=  link_to (image_tag (product.main_image(:standard))), product_path(product) %></br>
-        <%= link_to "View this Product: #{product.name}", product_path(product) %>
+        <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product) %>
         <% if product.paintings.any? %>
           <%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
         <% end %>

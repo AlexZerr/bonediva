@@ -17,12 +17,10 @@
   <% end %>
   <div>
     <h3>
-      <div class="span4">Total:</div>
-      <div class="span5"><%= number_to_currency @price %></div></br>
+      <div class="row-fluid">
+        <div class="span3">Total:</div>
+        <div class="span3"><%= number_to_currency @price %></div>
+        <div class="span3"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last) %></div>
+      </div>
     </h3>
-  </div>
-  <div>
-    <h4>
-      <div class="span9"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last) %></div>
-    </h4>
   </div>
