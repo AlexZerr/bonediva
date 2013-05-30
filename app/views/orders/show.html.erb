@@ -1,19 +1,43 @@
-<% @cart_items.each do |item| %>
-  <div class="row-fluid">
+<div class="row-fluid">
+  <% @cart_items.each do |item| %>
     <h3>
      <div class="span3"><%= item.name %></div>
      <div class="span3"><%= number_to_currency item.price %></div>
      <div class="span3"><%= button_to "Remove", @cart_item, data: { confirm: "Do you want to remove this item?", method: :delete, remote: true } %></div>
    </h3>
-  </div>
-<%end%>
+  <%end%>
+</div>
 <h1>
   <div>
-    <div class="span4">Items:</div>
-    <div class="span5"><%= "#{@cart_items.count} Items"%>
+    <div class="row-fluid">
+      <div class="span4">Items:</div>
+      <div class="span5"><%= "#{@cart_items.count} Items"%>
+    </div>
   </div>
   <div>
-    <div class="span4">Total:</div>
-    <div class="span6"><%= number_to_currency @price %></div>
+    <div class="row-fluid">
+      <div class="span4">Total:</div>
+      <div class="span6"><%= number_to_currency @price %></div>
+    </div>
   </div>
 </h1>
+<div>
+  <div style="color:red">
+    <div class="row-fluid">
+      <h2>
+        <div class="span3">First Name</div>
+        <div class="span3">Last Name</div>
+        <div class="span3">Card Type</div>
+      </h2>
+    </div>
+  </div>
+</div>
+<div>
+  <h3>
+    <div class="row-fluid">
+      <div class="span3"><%= @order.first_name %></div>
+      <div class="span3"><%= @order.last_name %></div>
+      <div class="span3"><%= @order.card_type %></div>
+    </div>
+  </h3>
+</div>

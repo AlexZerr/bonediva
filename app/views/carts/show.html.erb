@@ -18,10 +18,11 @@
   <div>
     <h3>
       <div class="span4">Total:</div>
-      <div class="span5"><%= @price %></div>
+      <div class="span5"><%= number_to_currency @price %></div></br>
     </h3>
   </div>
-
-  <h4>
-    <div class="span10"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last) %></div>
-  </h4>
+  <div>
+    <h4>
+      <div class="span9"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last) %></div>
+    </h4>
+  </div>
