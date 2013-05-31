@@ -1,5 +1,12 @@
 
-<h1>Category/show</h1>
+<div class="row-fluid">
+  <h4>
+    <div>Categories:</div>
+</h4>
+    <% @categories.each do |cat| %>
+      <div class="span1"><%= link_to "> #{cat.name }", category_path(cat) %></div>
+<% end %>
+</div>
 <div id="mid_component">
   <%= @category.name %></br>
   <%= @category.description %>

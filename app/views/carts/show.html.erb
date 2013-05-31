@@ -6,15 +6,15 @@
 </div>
 </div>
 </h3>
+<div class="row-fluid">
   <% @cart_items.each do |item| %>
-      <h3>
-        <div class="row-fluid">
-          <div class="span4"><%= item.name %></div>
-          <div class="span4"><%= number_to_currency item.price %></div>
-          <div class"span1">  <%= button_to 'remove', @cart_item, data: { confirm: "Do you want to delete #{item.name}?", method: :delete, remote: true } %></div>
-        </div>
-      </h3>
+    <h3>
+      <div class="span4"><%= item.name %></div>
+      <div class="span4"><%= number_to_currency item.price %></div>
+      <div class"span1">  <%= button_to 'remove', destroy_cart_item_path(current_user, @cart, item) %></div>
+    </h3>
   <% end %>
+</div>
   <div>
     <h3>
       <div class="row-fluid">

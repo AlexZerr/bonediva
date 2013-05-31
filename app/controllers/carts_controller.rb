@@ -1,6 +1,8 @@
 class CartsController < ApplicationController
   respond_to :html, :js, :json
 
+  before_filter :find_user, only: [:destoy]
+
   def new
     
   end
@@ -10,7 +12,6 @@ class CartsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
     @cart = Cart.find(params[:id])
     @cart_items = @cart.cart_items
     @price = CartItem.where(cart_id: @cart.id).sum(:price)
@@ -18,5 +19,11 @@ class CartsController < ApplicationController
 
   def destroy
     respond_with @cart
+  end
+
+  private
+
+  def find_user
+    @user = User.find(params[:user_id])
   end
 end

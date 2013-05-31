@@ -15,6 +15,7 @@ Bonediva::Application.routes.draw do
   resources :products do
     resources :paintings
   end
+  resources :carts
   resources :paintings
   resources :sessions
   resources :categories
@@ -83,6 +84,8 @@ Bonediva::Application.routes.draw do
   post '/users/:user_id/carts/:cart_id/cart_items/new/:product_id', to: 'cart_items#create', as: 'add_cart_item'
 
   match '/products/:product_id/paintings/new', to: 'products#add_product_painting', as: 'add_product_painting'
+
+  match "users/:user_id/carts/:cart_id/cart_items/:id/destroy" => "cart_items#destroy", as: "destroy_cart_item"
 #  get "/show" => 'users#show', :as => "users"
 
 #  get "users" => "users#show", :as => "users"

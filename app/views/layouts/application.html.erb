@@ -76,7 +76,7 @@
           <div class="span3"><%= link_to "Add a Product", new_product_path %></div>
           <div class="span4"><%= link_to "#{@user.name.pluralize}' Products", products_path %></div>
           <div class="span3"><%= link_to "Add a Category", new_category_path %></div>
-          <div class="span10"><%= link_to "shopping_cart (#{@user.carts.last.cart_items.count}) items", user_cart_path(@user, @user.carts.last) %></div>
+          <div class="span10"><%= link_to "shopping_cart (#{@user.carts.last.cart_items.count}) items", user_cart_path(@user, @user.carts.last) if @user.carts.present? %></div>
         <% end %>
 </div>
         <%= yield :sidebar %>
