@@ -4,7 +4,7 @@
   <%= o.label :last_name, "Last Name" %>
   <%= o.text_field :last_name %></br>
   <%= o.label :card_type, "Card Type" %>
-  <%= o.text_field :card_type %></br>
+  <%= o.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["American Express", "american_express"], ["Discover", "discover"]] %></br>
   <%= o.label :card_number, "Card Number" %>
   <%= o.number_field :card_number %></br>
   <%= o.label :card_verification, "Card Verification" %>

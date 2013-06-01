@@ -58,6 +58,8 @@ class UsersController < ApplicationController
       @avatar.name = @user.name
       @avatar.user_id = @user.id
         @avatar.save
+        @cart = @user.carts.new(params[:cart]) if !@user.carts.present?
+        @cart.save
       redirect_to user_path(@user), :notice => " #{@user.name} was created sucessfully"
     else
      redirect_to new_user_path, :notice => " Fields must be filled out." 

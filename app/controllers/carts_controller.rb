@@ -2,6 +2,7 @@ class CartsController < ApplicationController
   respond_to :html, :js, :json
 
   before_filter :find_user, only: [:destoy]
+  before_filter :cart_total_price, only: [:show, :create, :update]
 
   def new
     
@@ -12,9 +13,13 @@ class CartsController < ApplicationController
   end
 
   def show
-    @cart = Cart.find(params[:id])
     @cart_items = @cart.cart_items
-    @price = CartItem.where(cart_id: @cart.id).sum(:price)
+  end
+
+  def update
+    if @cart.order.new?
+      @cart.total_price = @total_price
+    end
   end
 
   def destroy
@@ -22,6 +27,11 @@ class CartsController < ApplicationController
   end
 
   private
+
+  def cart_total_price
+    @cart = Cart.find(params[:id])
+    @total_price = CartItem.where(cart_id: @cart.id).sum(:price)
+  end
 
   def find_user
     @user = User.find(params[:user_id])

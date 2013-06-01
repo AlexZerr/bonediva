@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
 
+  before_filter :initialize_cart, only: [:show]
   def index
     @categories = Category.all
     render
@@ -58,4 +59,17 @@ class CategoriesController < ApplicationController
       redirect_to category_path(@cat)
     end
   end
+
+  private
+
+    def initialize_cart
+        @user = current_user
+    if @user.carts.present?
+      @cart = @user.carts.last
+    else
+      @cart = @user.carts.new(params[:cart])
+      @cart.save
+    end
+  end
+
 end

@@ -11,7 +11,7 @@
     <h3>
       <div class="row-fluid">
         <div class="span3">Total:</div>
-        <div class="span3"><%= number_to_currency @price %></div>
+        <div class="span3"><%= number_to_currency @total_price %></div>
         <div class="span3"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last) %></div>
       </div>
     </h3>
