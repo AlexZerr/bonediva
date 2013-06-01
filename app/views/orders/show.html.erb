@@ -1,9 +1,8 @@
 <div class="row-fluid">
   <% @cart_items.each do |item| %>
     <h3>
-     <div class="span3"><%= item.name %></div>
-     <div class="span3"><%= number_to_currency item.price %></div>
-     <div class="span3"><%= button_to "Remove", @cart_item, data: { confirm: "Do you want to remove this item?", method: :delete, remote: true } %></div>
+     <div class="span4"><%= item.name %></div>
+     <div class="span4"><%= number_to_currency item.price %></div>
    </h3>
   <%end%>
 </div>
@@ -38,6 +37,26 @@
       <div class="span3"><%= @order.first_name %></div>
       <div class="span3"><%= @order.last_name %></div>
       <div class="span3"><%= @order.card_type %></div>
+    </div>
+  </h3>
+</div>
+<div>
+  <div style="color:red">
+    <div class="row-fluid">
+      <h2>
+        <div class="span3">Card Number</div>
+        <div class="span3">Card Verificaion #</div>
+        <div class="span3">Experation</div>
+      </h2>
+    </div>
+  </div>
+</div>
+<div>
+  <h3>
+    <div class="row-fluid">
+      <div class="span3"><%= @order.card_number %></div>
+      <div class="span3"><%= @order.card_verification %></div>
+      <div class="span3"><%= @order.card_expires_on %></div>
     </div>
   </h3>
 </div>

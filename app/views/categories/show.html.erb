@@ -1,15 +1,19 @@
 
 <div class="row-fluid">
+  <h3>
+    <div class="span3"><%= @category.name %></div>
+    <div class="span5"><%= @category.description %></div>
+  </h3>
+</div>
+<div class="row-fluid">
   <h4>
     <div>Categories:</div>
-</h4>
+  </h4>
     <% @categories.each do |cat| %>
       <div class="span1"><%= link_to "> #{cat.name }", category_path(cat) %></div>
-<% end %>
+    <% end %>
 </div>
 <div id="mid_component">
-  <%= @category.name %></br>
-  <%= @category.description %>
   <div>
     <% @products.each do |product| %>
       <p>
