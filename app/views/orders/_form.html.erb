@@ -5,7 +5,11 @@
   <%= o.text_field :last_name %></br>
   <%= o.label :card_type, "Card Type" %>
   <%= o.text_field :card_type %></br>
+  <%= o.label :card_number, "Card Number" %>
+  <%= o.number_field :card_number %></br>
+  <%= o.label :card_verification, "Card Verification" %>
+  <%= o.number_field :card_number %></br>
   <%= o.label :card_expires_on, "Experation Date" %>
-  <%= o.text_field :card_expires_on %>
+  <%= o.date_select :card_expires_on, discard_day: true, start_year: Date.today.year, end_year: (Date.today.year+10), add_month_numbers: true %></br>
   <%= o.submit %>
 <% end %>

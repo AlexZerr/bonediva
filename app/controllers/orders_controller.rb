@@ -5,7 +5,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(params[:order])
+    @user = current_user
+    @cart = @user.carts.last
+    @order = @cart.build_order(params[:order])
+    @order.ip_address = request.remote_ip
     if @order.save
       redirect_to user_cart_order_path(current_user,current_user.carts.last, @order), notice: "CHECKOUT"
     else
