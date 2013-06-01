@@ -6,6 +6,8 @@ ruby "1.9.3", engine: "jruby", engine_version: "1.7.1"
 gem "rails", "~> 3.2.9"
 gem "strong_parameters", "~> 0.1.5"
 
+#e-comerce
+gem "activemerchant"
 # Database
 gem "activerecord-jdbcpostgresql-adapter", "~> 1.2.2"
 gem "ajaxful_rating", "~> 3.0.0.beta8"
