@@ -7,4 +7,7 @@ has_many :cart_items
   def price_in_cents
     (self.total_price*100).round
   end
+
+  private
+
 end

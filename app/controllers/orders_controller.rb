@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
 
   def new
+    @order = Order.new(params[:order])
   end
 
   def create
@@ -23,5 +24,9 @@ class OrdersController < ApplicationController
     @cart_items = @cart.cart_items
     @price = CartItem.where(cart_id: @cart.id).sum(:price)
   end
+
+  private
+
+
 
 end
