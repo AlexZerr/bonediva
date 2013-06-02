@@ -1,12 +1,14 @@
 <div id="mid_component">
-  <div class="row-fluid">
     <% @cart_items.each do |item| %>
-      <h3>
-       <div class="span4"><%= item.name %></div>
-       <div class="span4"><%= number_to_currency item.price %></div>
-     </h3>
-    <%end%>
+  <div>
+      <div class="row-fluid">
+        <h3>
+          <div class="span4"><%= item.name %></div>
+          <div class="span4"><%= number_to_currency item.price %></div>
+        </h3>
+      </div>
   </div>
+    <%end%>
   <h1>
     <div>
       <div class="row-fluid">
