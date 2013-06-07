@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-
+  
 
   def new
     @order = Order.new(params[:order])
@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
     @order = @cart.build_order(params[:order])
     @order.ip_address = request.remote_ip
     if @order.save
+     # if@order.purchase
       redirect_to user_cart_order_path(current_user,current_user.carts.last, @order), notice: "CHECKOUT"
     else
       flash "error"
@@ -25,8 +26,5 @@ class OrdersController < ApplicationController
     @price = CartItem.where(cart_id: @cart.id).sum(:price)
   end
 
-  private
-
-
-
 end
+

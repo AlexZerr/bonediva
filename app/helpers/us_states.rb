@@ -1,5 +1,5 @@
 def us_states
-    [
+  @us_states =  [
       ['Alabama', 'AL'],
       ['Alaska', 'AK'],
       ['Arizona', 'AZ'],
