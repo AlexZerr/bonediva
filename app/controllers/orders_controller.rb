@@ -10,11 +10,16 @@ class OrdersController < ApplicationController
     @cart = @user.carts.last
     @order = @cart.build_order(params[:order])
     @order.ip_address = request.remote_ip
+    @total_price = CartItem.where(cart_id: @cart.id).sum(:price)
+    @order.total_price = @total_price
     if @order.save
-     # if@order.purchase
-      redirect_to user_cart_order_path(current_user,current_user.carts.last, @order), notice: "CHECKOUT"
+      if @order.purchase
+        render action: "success"
+      else
+        render action: "failure"
+      end
     else
-      flash "error"
+      redirect_to user_cart_path(current_user,current_user.carts.last), notice: "CHECKOUT"
     end
   end
 
