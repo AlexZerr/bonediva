@@ -93,6 +93,13 @@
   
 }
 
+#painting-display {
+  width: 225px;
+  height: 225px;
+  border: 2px solid grey;
+  padding: 4px;
+}
+
 .login_position {
   position:absolute;
   right:190px;
