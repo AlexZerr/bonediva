@@ -35,9 +35,12 @@
         
             <div>
               <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product) %>
+            </div>
+            <div id="admin-function">
               <% if product.paintings.any? %>
                 <% if is_admin? %>
-                  <%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
+                  <div class="span6"><%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %></div>
+                  <div class="span6"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
                 <% end %>
               <% end %>
             </div>

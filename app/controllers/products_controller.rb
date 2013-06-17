@@ -75,14 +75,14 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-     if @product.destoy
+     if @product.destroy
        @product.paintings.destroy
-       redirect_to products_path, notice: "Product has been deleted"
+       redirect_to categories_path
      end
 
-     respond_to do |format|
-       format.js {render :template => 'products/delete.js.erb', :layout => false } 
-     end
+#     respond_to do |format|
+ #      format.js {render :template => 'products/destroy.js.erb', :layout => false } 
+  #   end
   end
 
 end
