@@ -1,6 +1,7 @@
 class PaintingsController < ApplicationController
   respond_to :html, :js, :json
   before_filter :ensure_admin, only: [:destroy]
+  before_filter :find_painting, only:[:show, :update, :destroy]
 
   def index
     @paints = Painting.where(paintable_type: "Category")
@@ -30,7 +31,6 @@ class PaintingsController < ApplicationController
   end
 
   def show
-    @painting = Painting.find(params[:id])
     @users = User.all
     @user = current_user
   end
@@ -40,22 +40,21 @@ class PaintingsController < ApplicationController
   end
 
   def update
-    @painting = Painting.find(params[:id])
-      if params[:painting][:paintable_id] == @painting.category.id
-        @painting.update_attributes(paintable_type: "Category")
+      if params[:painting][:paintable_id] == @painting.category_id
+        @painting.pinnble_type = "Category"
       else
-        @painting.update_attributes(paintable_type: "Product")
+        @painting.pinnable_type = "Product"
       end
+      @painting.save
       @painting.update_attributes(params[:painting])
-     if @painting.save
-      @category = Category.find_by_id(params[:id])
-      @painting.update_attributes(category_id: @category.id)
-     end 
-
+      respond_with @painting
+#     if @painting.save
+#      @category = @painting.category
+#      @painting.update_attributes(category_id: @category.id)
+#     end 
   end
 
   def destroy
-    @painting = Painting.find(params[:id])
     @painting.destroy
     respond_with @painting
   end
@@ -69,6 +68,12 @@ class PaintingsController < ApplicationController
     if @painting.save
       redirect_to @product
     end
+  end
+
+  private
+
+  def find_painting
+    @painting = Painting.find(params[:id])
   end
 
 end

@@ -8,6 +8,7 @@
           <%= link_to (image_tag p.main_image(:thumb)), product_path(p) %></br>
         <% end %>
         Price = $<%= p.price %></br>
+        <%= button_to "Add To Cart", add_cart_item_path(@user, @cart, p) %>
       ----------------------------------------------
         </p> 
       </div>

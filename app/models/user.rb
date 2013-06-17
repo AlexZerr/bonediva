@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :age, :email, :name, :username, :password_confirmation, :password, :image, :admin, :user_link, :user_avatar_id
+  attr_accessible :age, :email, :name, :username, :password_confirmation, :password, :image, :admin, :user_link
   #before_filter :set_current_user
   has_secure_password
 
@@ -14,7 +14,11 @@ class User < ActiveRecord::Base
 
   has_many :paintings
   has_many :products
+  has_many :cart_items
+  has_many :carts
+  has_many :cart_items
   has_one :avatar
+  
   #accepts_nested_attributes_for :pictures
 
   def self.authenticate(email, password)

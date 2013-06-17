@@ -5,11 +5,19 @@ class ProductsController < ApplicationController
       @products = current_user.products.all
       
     end
+    @user = current_user
+    @cart = @user.carts.last
     render
   end
   
   def show
-    @product = current_user.products.find(params[:id])
+    @user = current_user
+    if @user.carts.present?
+      @cart = @user.carts.last
+    else
+     @cart = Cart.create(params[:cart])
+    end 
+    @product = Product.find(params[:id])
     @prod_paint = @product.paintings.first
   end
 
@@ -68,6 +76,8 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
      if @product.destoy
+       @product.paintings.destroy
+       redirect_to products_path, notice: "Product has been deleted"
      end
 
      respond_to do |format|

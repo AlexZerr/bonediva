@@ -7,14 +7,21 @@ Bonediva::Application.routes.draw do
 
   resources :users do
     resources :avatars
+    resources :paintings
+    resources :carts do
+      resources :cart_items
+      resources :orders
+    end
   end
   resources :products do
     resources :paintings
   end
+  resources :carts
   resources :paintings
   resources :sessions
   resources :categories
   resources :avatars
+  resources :orders
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -75,7 +82,11 @@ Bonediva::Application.routes.draw do
   
   match '/products/:product_id/paintings/new', to: 'paintings#add_product_painting', as: 'add_product_painting'
 
-  #match '/products/:product_id/paintings/new', to: 'products#add_product_painting', as: 'add_product_painting'
+  post '/users/:user_id/carts/:cart_id/cart_items/new/:product_id', to: 'cart_items#create', as: 'add_cart_item'
+
+  match '/products/:product_id/paintings/new', to: 'products#add_product_painting', as: 'add_product_painting'
+
+  post "users/:user_id/carts/:cart_id/cart_items/:id" => "cart_items#destroy", as: "destroy_cart_item"
 #  get "/show" => 'users#show', :as => "users"
 
 #  get "users" => "users#show", :as => "users"

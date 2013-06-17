@@ -24,4 +24,19 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def current_cart
+    @current_cart ||= Cart.find(session[:cart_id]) if session[:cart_id]
+  end
+  helper_method :current_cart
+
+    def initialize_carts
+    if session[:cart_id]
+      @cart = Cart.find(session[:cart_id])
+    else
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
+    end
+  end
+
+
 end

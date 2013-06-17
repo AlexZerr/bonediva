@@ -77,6 +77,9 @@
           <div class="span4"><%= link_to "#{@user.name.pluralize}' Products", products_path %></div>
           <div class="span3"><%= link_to "Add a Category", new_category_path %></div>
         <% end %>
+        <% if @user.present?%>
+          <div class="span10"><%= link_to "shopping_cart (#{@user.carts.last.cart_items.count}) items", user_cart_path(@user, @user.carts.last) if @user.carts.present?  %></div>
+        <% end %>
 </div>
         <%= yield :sidebar %>
       </div>
@@ -89,12 +92,12 @@
 
   <div id="user_nav">
     <% if current_user.present? %>
-        Logged in as <%= current_user.email %>
+      <div class="span10">Logged in as <%= current_user.email %></div>
         <br/>
-      <%= link_to "log_out", log_out_path %>
+        <div class="span10"><%= link_to "log_out", log_out_path %></div>
     <% else %>
-      <%= link_to "Sign_up", new_user_path %>
-      <%= link_to "log_in", log_in_path %>
+      <div class="span10"><%= link_to "Sign_up", new_user_path %></div>
+      <div class="span10"><%= link_to "log_in", log_in_path %></div>
     <% end %>
   </div>
 

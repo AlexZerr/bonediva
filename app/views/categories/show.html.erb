@@ -1,14 +1,27 @@
 
-<h1>Category/show</h1>
+<div class="row-fluid">
+  <h3>
+    <div class="span3"><%= @category.name %></div>
+    <div class="span5"><%= @category.description %></div>
+  </h3>
+</div>
+<div class="row-fluid">
+  <h4>
+    <div>Categories:</div>
+  </h4>
+    <% @categories.each do |cat| %>
+      <div class="span1"><%= link_to "> #{cat.name }", category_path(cat) %></div>
+    <% end %>
+</div>
 <div id="mid_component">
-  <%= @category.name %></br>
-  <%= @category.description %>
   <div>
     <% @products.each do |product| %>
-        <p>
+      <p>
         <%=  link_to (image_tag (product.main_image(:standard))), product_path(product) %></br>
-    <%= link_to "View this Product: #{product.name}", product_path(product) %>
-        <%= button_to "Add as featured", update_featured_painting_path(@category, product.paintings.first) %>
+        <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product) %>
+        <% if product.paintings.any? %>
+          <%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
+        <% end %>
       </p>
     <% end %>
   </div>
@@ -19,7 +32,8 @@
         <p>
         <%= link_to (image_tag paint.image_url(:standard)), painting_path(paint) %></br>
         <%= link_to "View this painting: #{paint.title}", painting_path(paint) %></br>
-        <%= button_to "Add as featured", update_featured_painting_path(@category, paint)  %>
+        <%#= button_to "Add as featured", update_featured_painting_path(@category, paint)  %>
+        <%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: paint.id}), data: { method: :put } %>
         </p>
       <% end%>
     </div>

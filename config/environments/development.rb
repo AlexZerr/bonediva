@@ -34,4 +34,14 @@ Bonediva::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.after_initialize do
+  ActiveMerchant::Billing::Base.mode = :test
+  ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+    :login => " v4p0r3d-facilitator_api1.gmail.com ",
+    :password => "1371363997",
+    :signature => "ApOgyhi7anTKe27Adf5olmJL-uxCAMOYGjr9EUBLXOzMVGOTmvOQoWPg"
+  )
+  end
+
 end

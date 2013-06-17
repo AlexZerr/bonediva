@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
 
+  before_filter :initialize_cart, only: [:show]
   def index
     @categories = Category.all
     render
@@ -7,6 +8,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @categories = Category.all
     @products = Product.where( :category_id => @category.id)
     @paintings = @category.paintings
   end
@@ -33,15 +35,9 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.paintings.present?
-    @painting = @category.paintings.find(params[:id])
-                                  if params[:painting][:paintable_id].present?
-                                    @painting.paintable_type = "Category"
-                                  end
-    @painting.update
-    else
-     @category.update_attributes(params[:category])
-      redirect_to category_path(@category), :notice => "updated"
     end
+    @category.update_attributes(params[:category])
+    redirect_to category_path(@category), :notice => "updated"
   end
 
   def delete
@@ -53,7 +49,8 @@ class CategoriesController < ApplicationController
     @category.destroy
   end
   
-
+  #this is probly not necisary any more. in leu products should have a primary_painting_id
+  #better for things to run through the update method.
   def update_featured_painting
     @painting = Painting.find(params[:painting_id])
       @cat = @painting.category
@@ -62,4 +59,17 @@ class CategoriesController < ApplicationController
       redirect_to category_path(@cat)
     end
   end
+
+  private
+
+    def initialize_cart
+        @user = current_user
+    if @user.carts.present?
+      @cart = @user.carts.last
+    else
+      @cart = @user.carts.new(params[:cart])
+      @cart.save
+    end
+  end
+
 end
