@@ -97,7 +97,9 @@
   width: 225px;
   height: 225px;
   border: 2px solid grey;
-  padding: 4px;
+  border-radius:10px;
+  -moz-border-radius: 15px;
+  padding: 6px;
 }
 
 .login_position {

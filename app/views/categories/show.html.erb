@@ -19,16 +19,16 @@
       <div class="span4">
         <div id="painting-display">
           <div class="span6">
-            <%=  link_to (image_tag (product.main_image(:standard))), product_path(product) %></br>
+            <%=  link_to (image_tag (product.main_image(:thumb))), product_path(product) %></br>
           </div>
           <div id="description">
-            <div class="span3">
-              Name</br>
-              Price</br>
+            <div id="name">
+              <div class="span3">Name:</div>
+              <div class="span3"> <%= product.name%></div>
             </div>
-            <div class="span3">
-              <%= product.name%></br>
-              <%= number_to_currency product.price %></br>
+            <div id="price">
+              <div class="span3">Price:</div>
+              <div clas="span3"><%= number_to_currency product.price %></div>
             </div>
           </div>
         
