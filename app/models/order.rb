@@ -4,6 +4,8 @@ belongs_to :cart
 has_many :cart_items
 has_many :transactions, class_name: "OrderTransaction"
 
+before_create :validate_card
+
   def purchase
     response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
 
@@ -34,13 +36,6 @@ has_many :transactions, class_name: "OrderTransaction"
     }
   end
 
-    def validate_card
-    unless credit_card.valid?
-      credit_card.errors.full_messages.each do |message|
-        errors.add_to_base message
-      end
-    end
-  end
 
     def credit_card
     @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
@@ -54,4 +49,11 @@ has_many :transactions, class_name: "OrderTransaction"
     )
   end
 
+  def validate_card
+    unless credit_card.valid?
+      credit_card.errors.full_messages.each do |message|
+        message
+      end
+    end
+  end
 end

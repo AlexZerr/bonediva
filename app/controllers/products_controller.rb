@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
     else
      @cart = Cart.create(params[:cart])
     end 
-    @product = @user.products.find(params[:id])
+    @product = Product.find(params[:id])
     @prod_paint = @product.paintings.first
   end
 

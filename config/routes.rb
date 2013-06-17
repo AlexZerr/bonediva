@@ -7,6 +7,7 @@ Bonediva::Application.routes.draw do
 
   resources :users do
     resources :avatars
+    resources :paintings
     resources :carts do
       resources :cart_items
       resources :orders

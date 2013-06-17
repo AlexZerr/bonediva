@@ -38,9 +38,9 @@ Bonediva::Application.configure do
   config.after_initialize do
   ActiveMerchant::Billing::Base.mode = :test
   ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
-    :login => " thwarts-facilitator_api1.gmail.com ",
-    :password => "1371243552",
-    :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31Ababos5kt96po1SImof18afrkv9J"
+    :login => " v4p0r3d-facilitator_api1.gmail.com ",
+    :password => "1371363997",
+    :signature => "ApOgyhi7anTKe27Adf5olmJL-uxCAMOYGjr9EUBLXOzMVGOTmvOQoWPg"
   )
   end
 
