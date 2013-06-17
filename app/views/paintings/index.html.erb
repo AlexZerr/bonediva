@@ -31,7 +31,7 @@
             <div class="displayImg" >
               <%= link_to image_tag(p[i].image_url(:thumb)), painting_path(p[i]) %>
             </div>
-            Image Posted by: <%= link_to @user.username, user_path(@user) %>
+            Image Posted by: <%= link_to p[i].user.username, user_path(p[i].user) %>
             <div>
               <% if is_admin? %>
                 <%= link_to 'Delete', p[i], data: {confirm: "Are you sure?", method: :delete, remote: true} %>

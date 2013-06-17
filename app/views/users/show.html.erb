@@ -27,22 +27,18 @@
 
 
 <div id="mid_component">
-  <div id="row">
-    <div style="span5">
-        <span>
-          <% @paintings.each do |p| %>
-           <p>
-           <div>
-            <%= p.title %>
-          </div>
+  <div class="row-fluid">
+    <% @paintings.each do |p| %>
+      <div id="painting">
+        <div class="span2">
           <div>
+            <%= p.title %>
             <%= link_to (image_tag p.image_url(:thumb).to_s), painting_path(p) %>
           </div>
-           </p>
-          <% end %>
-        </span>
+        </div>
       </div>
-    </div>
- </div>
+    <% end %>
+  </div>
+</div>
 
     
