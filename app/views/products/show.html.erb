@@ -57,7 +57,7 @@
           <div class="thumbnail">
             <%= p.title %>
             <%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p) %></br>
-            <%= p.description %></br>
+            <%= truncate(p.description, length: 35) %></br>
             <%= link_to 'Edit', edit_product_path(@product) %>
           </div>
       </ul>
