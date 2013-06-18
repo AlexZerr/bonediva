@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
 
   def index
-    if is_admin?
-      @products = current_user.products.all
-      
+    if params[:search].present?
+      @products = Product.where("LOWER(name) ILIKE ?", "%#{params[:search].downcase}%")
+    else
+      @products = Product.all
     end
     @user = current_user
     @cart = @user.carts.last
