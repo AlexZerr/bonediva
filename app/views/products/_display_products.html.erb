@@ -1,16 +1,42 @@
- <% @products.each do |p| %>
+<div class="row-fluid">
+    <% @products.each do |product| %>
       <div>
-        <p>
-        Name = <%= p.name %></br>
-        Description = <%= p.description %></br>
-        Size = <%= p.size %></br>
-        <% if p.paintings.present? %>
-          <%= link_to (image_tag p.main_image(:thumb)), product_path(p) %></br>
-        <% end %>
-        Price = $<%= p.price %></br>
-        <%= button_to "Add To Cart", add_cart_item_path(@user, @cart, p) %>
-      ----------------------------------------------
-        </p> 
-      </div>
-  <% end %>
+        <div class="span4">
+          <div id="painting-display">
+            <div class="span6">
+              <%=  link_to (image_tag (product.main_image(:thumb))), product_path(product) %></br>
+            </div>
+            <div id="description">
+              <div id="name">
+                <div class="span3">Name:</div>
+                <div class="span3"> <%= product.name %></div>
+              </div>
+              <div id="price">
+                <div class="span3">Price:</div>
+                <div clas="span3"><%= number_to_currency product.price %></div>
+              </div>
+            </div>
+        
+            <div>
+              <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product) if current_user.present? %>
+            </div>
+            <div id="admin-function">
+              <% if product.paintings.any? %>
+                <% if is_admin? %>
+                  <%if product.category.present? %>
+                    <div class="span6"><%#= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %></div>
+                <% end %>
+                  <div class="span6"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
+                <% end %>
+              <% end %>
+            </div>
+            <div id="description">
+              <div class="span10">
+                <u><b>Description:</b></u> <%= truncate(product.description, length: 75 ) %></br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    <% end %>
 

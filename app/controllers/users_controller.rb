@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = User.all
     @paintings = if current_user.present? 
-                  current_user.paintings
+                  @user.paintings
                  else
                   redirect_to root_path, :notice => "log in"
                  end 

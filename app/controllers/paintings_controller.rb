@@ -6,7 +6,7 @@ class PaintingsController < ApplicationController
   def index
     @paints = Painting.where(paintable_type: "Category")
    @prod_paints = Painting.where(paintable_type: "Product", primary_painting: true) 
-    @user = current_user
+    
     @paintings = @prod_paints + @paints
   end
 

@@ -9,7 +9,7 @@ class MainController < ApplicationController
       @user = current_user 
     end
     #@paintings = Painting.all
-    @paintings = Painting.all(:limit => 4, :order => 'created_at DESC')
+    @products = Product.all(:limit => 50, :order => 'id DESC')
     @new_picture = Picture.new(params[:picture])
   end
 

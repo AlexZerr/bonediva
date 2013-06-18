@@ -93,6 +93,15 @@
   
 }
 
+#painting-display {
+  width: 225px;
+  height: 225px;
+  border: 2px solid grey;
+  border-radius:10px;
+  -moz-border-radius: 15px;
+  padding: 6px;
+}
+
 .login_position {
   position:absolute;
   right:190px;

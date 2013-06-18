@@ -3,6 +3,7 @@ class Painting < ActiveRecord::Base
   attr_accessible :image, :description, :title, :user_id, :remote_image_url, :id, 
     :paintable_type, :paintable_id, :home, :category_id, :primary_painting
 
+  belongs_to :user
   belongs_to :paintable, polymorphic: true
   belongs_to :category
   validates :title, presence: true

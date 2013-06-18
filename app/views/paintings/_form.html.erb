@@ -3,7 +3,7 @@
     <%= form_for @painting, :html => {:multipart => true} do |f| %>
       <%= f.hidden_field :paintable_type, value: "Category" %>
         <%= f.label :title %><br />
-        <%= f.text_field :title %>
+        <%= f.text_field :title, required: true %>
       </p>
       <p>
         <%= f.label :description, "Description" %></br>

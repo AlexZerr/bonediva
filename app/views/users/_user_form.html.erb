@@ -3,6 +3,7 @@
     <div style="color:purple">
       <%= form_for @user, html: { multipart: true } do |f| %>
         <% if @user.errors.any? %>
+         
         
           <div class="error_messages">
             <h2>Form is Invalid</h2>
