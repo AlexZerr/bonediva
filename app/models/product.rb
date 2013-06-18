@@ -14,10 +14,6 @@ class Product < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
-  searchable do
-    text :name, boost: 5
-    text :description
-  end
 
   def main_image(style)
     self.paintings.first.image_url(style) rescue nil

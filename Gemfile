@@ -42,7 +42,6 @@ gem "audited", github: "effektz/audited", ref: "3f84aa7"
 gem "audited-activerecord", "~> 3.0.0"
 
 #search
-gem "sunspot_rails", "~> 1.3.2" 
 
 gem "puma", "~> 1.6.3"
 
@@ -56,7 +55,6 @@ end
 
 group :test, :development do
   gem 'minitest-rails'
-  gem "sunspot_solr"
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem "capybara"

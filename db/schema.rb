@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614231424) do
+ActiveRecord::Schema.define(:version => 20130618230926) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"
@@ -100,6 +100,10 @@ ActiveRecord::Schema.define(:version => 20130614231424) do
     t.integer "primary_painting_id"
     t.boolean "sold",                :default => false
   end
+
+  add_index "products", ["description"], :name => "index_products_on_description"
+  add_index "products", ["id"], :name => "index_products_on_id"
+  add_index "products", ["name"], :name => "index_products_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "name",                                    :null => false
