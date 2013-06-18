@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
     end 
     @product = Product.find(params[:id])
     @prod_paint = @product.paintings.first
+    @products = Product.all
   end
 
   def new
