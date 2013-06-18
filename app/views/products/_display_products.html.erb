@@ -9,7 +9,7 @@
             <div id="description">
               <div id="name">
                 <div class="span3">Name:</div>
-                <div class="span3"> <%= product.name%></div>
+                <div class="span3"> <%= truncate(product.name, limit: 10) %></div>
               </div>
               <div id="price">
                 <div class="span3">Price:</div>
@@ -32,7 +32,7 @@
             </div>
             <div id="description">
               <div class="span10">
-                <u><b>Description:</b></u> <%= "#{product.description}" %></br>
+                <u><b>Description:</b></u> <%= truncate(product.description, limit: 200 ) %></br>
               </div>
             </div>
           </div>

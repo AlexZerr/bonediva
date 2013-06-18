@@ -3,32 +3,32 @@
   <div class="row-fluid">
     <div id="main-display">
       <div class="main-painting">
-        <div class="span8">
+        <div class="span6">
           <%= image_tag @product.main_image(:standard) %>
         </div>
       </div>
       <h4>
       <div id="name">
         <div class="span2">Name:</div>
-        <div class="span2"><%= @product.name %></div>
+        <div class="span4"><%= @product.name %></div>
       </div>
       <div id="description">
         <div>
           <div class="span2">Description:</div>
-          <div class="span2"><%= @product.description %></div>
+          <div class="span4"><%= @product.description %></div>
         </div>
       </div>
       <div id="price">
         <div class="span2">Price:</div>
-        <div class="span2"><%= number_to_currency @product.price %></div>
+        <div class="span4"><%= number_to_currency @product.price %></div>
       </div>
       <div id="size">
         <div class="span2">Size:</div>
-        <div class="span2"><%= @product.size %></div>
+        <div class="span4"><%= @product.size %></div>
       </div>
       <div id="category">
         <div class="span2">Category:</div>
-        <div class="span2"><%= link_to @product.category.name, category_path(@product.category) %></div>
+        <div class="span4"><%= link_to @product.category.name, category_path(@product.category) %></div>
       </div>
     </h4>
     </div>
