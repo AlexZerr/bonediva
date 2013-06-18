@@ -18,7 +18,7 @@
             </div>
         
             <div>
-              <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product) %>
+              <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product) if current_user.present? %>
             </div>
             <div id="admin-function">
               <% if product.paintings.any? %>
