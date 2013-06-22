@@ -77,8 +77,9 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
+    @paintings = Painting.where(product_id: @product.id)
      if @product.destroy
-       @product.paintings.destroy
+      @paintings.destroy
        redirect_to categories_path
      end
 

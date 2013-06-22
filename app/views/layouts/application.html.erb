@@ -60,7 +60,9 @@
           <div class="row-fluid">
             <div class="img-with-text">
               <% if user_avatar(current_user).present? %>
+              <div class="avatar_img">
                 <%=image_tag  user_avatar(current_user).image_url(:thumb) %>
+              </div>
               <% else %>
                 <%= "add an avatar"%>
               <% end %>

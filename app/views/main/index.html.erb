@@ -4,8 +4,17 @@
       BoneDiva
     </h1>
   </div>
+<%= form_tag products_path, :method => :get do %>
+  <p>
+  <div style="color:red">
+    Search for a product by name.</br>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </div>
+  </p>
+<% end %>
 
-  <div style="color:black">
+  <div style="color:red">
     <div style="text-align:center">
       <%= link_to 'ACEO Web Page', "http://www.lisaluree.com", :target => "_blank"  %>
     </div>
@@ -17,10 +26,10 @@
 <h2>Great New Images!</h2>
 </br>
 <div class="row-fluid">
-    <div class="displayHomeImg">
-      <%= render partial: "products/display_products" %> 
-    </div>
+  <div class="displayHomeImg">
+      <%= render partial: "products/display_products" %>
   </div>
+</div>
     </br>
 </div>
 

@@ -19,7 +19,10 @@ class CartItemsController < ApplicationController
     @cart_item.name = @product.name
     @cart_item.user_id = @user.id
     if @cart_item.save
+      @product.cart_item_id = @cart_item.id
+      if @product.save
       redirect_to :back, notice: "Painting has been added to your cart"
+      end
     else
       flash "error"
     end
