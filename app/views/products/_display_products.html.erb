@@ -17,16 +17,22 @@
               </div>
             </div>
         
-            <div>
-              <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product) if current_user.present? %>
+            <div class="span12">
+              <div id="cart-button">
+                <div style="float:right">
+                  <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product) if current_user.present? %>
+                </div>
+              </div>
             </div>
             <div id="admin-function">
               <% if product.paintings.any? %>
                 <% if is_admin? %>
                   <%if product.category.present? %>
-                    <div class="span6"><%#= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %></div>
+                    <%#= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
                 <% end %>
+                
                   <div class="span6"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
+                  <div class="span6"><%= link_to "Edit_Product", edit_product_path(product)  %></div>
                 <% end %>
               <% end %>
             </div>
