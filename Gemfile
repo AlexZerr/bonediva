@@ -41,6 +41,8 @@ gem "rpm_contrib",    "~> 2.1.11"
 gem "audited", github: "effektz/audited", ref: "3f84aa7"
 gem "audited-activerecord", "~> 3.0.0"
 
+#search
+
 gem "puma", "~> 1.6.3"
 
 group :assets do
