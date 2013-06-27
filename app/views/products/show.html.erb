@@ -36,6 +36,10 @@
       <% if is_admin? && @product.user_id = current_user.id %>
         <div class="span2"><%= button_to 'Add painting', add_product_painting_path(@product)%></div>
         <div class="span2"><%= button_to 'Delete', @product, data: { confirm: "Do you want to delete #{@product.name}?", method: :delete, remote: true } %></div>
+        <h4 style="color:grey">
+          <div class="span2"><a class="btn", <%= link_to 'Edit', edit_product_path(@product)%></a></div>
+      
+      </h4>
       <% end %>
       <div id="cart-button">
         <div class="span4">
