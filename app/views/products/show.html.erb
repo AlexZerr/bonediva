@@ -39,7 +39,11 @@
       <% end %>
       <div id="cart-button">
         <div class="span4">
-          <%= button_to "Add To Cart", add_cart_item_path(@user, @cart, @product) %>
+          <%if current_user.present?%>
+            <%= button_to "Add To Cart", add_cart_item_path(@user, @cart, @product)  %>
+          <%else%>
+            <%= "(Log in, to add to you're cart)" %>
+          <% end %>
         </div>
       </div>
     </div>

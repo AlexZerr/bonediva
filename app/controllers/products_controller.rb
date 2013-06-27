@@ -13,10 +13,12 @@ class ProductsController < ApplicationController
   
   def show
     @user = current_user
-    if @user.carts.present?
-      @cart = @user.carts.last
-    else
-     @cart = Cart.create(params[:cart])
+    if @user.present?
+      if @user.carts.present?
+        @cart = @user.carts.last
+      else
+        @cart = Cart.create(params[:cart])
+      end
     end 
     @product = Product.find(params[:id])
     @prod_paint = @product.paintings.first

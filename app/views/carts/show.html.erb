@@ -1,20 +1,3 @@
 <div id="mid_component">
-  <h3>
-    <div style="color:red">
-      <div class="row-fluid">
-        <div class="span4">Name:</div>
-        <div class="span5">price:</div>
-      </div>
-    </div>
-  </h3>
   <%= render partial: "cart_items" %>
-  <div>
-    <h3>
-      <div class="row-fluid">
-        <div class="span3">Total:</div>
-        <div class="span3"><%= number_to_currency @total_price %></div>
-        <div class="span3"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last) %></div>
-      </div>
-    </h3>
-  </div>
 </div>
