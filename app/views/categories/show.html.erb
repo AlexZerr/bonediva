@@ -5,6 +5,10 @@
     <% @categories.each do |cat| %>
       <div class="span1"><%= link_to "> #{cat.name }", category_path(cat) %></div>
     <% end %>
+
+    <div class="span8">
+      <%= render partial: "products/products_search"%>
+    </div>
 </div>
 <div id="mid_component">
  <div class="row-fluid">

@@ -1,0 +1,31 @@
+<div id="search">
+  <div class="span5">
+    <div id="name-search">
+      <%= form_tag products_path, :method => :get do %>
+        <p>
+        <div style="color:red">
+          Search for a product by name.</br>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Name", :name => nil %>
+        </div>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="span5">
+    <div id="description-search">
+      <%= form_tag products_path, :method => :get do %>
+        <p>
+        <div style="color:red">
+          Search for a product by description.</br>
+          <%= text_field_tag :description_search, params[:description_search] %>
+          <%= submit_tag "description", :description => nil %>
+        </div>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+ 
+
