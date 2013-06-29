@@ -3,20 +3,25 @@ class ProductsController < ApplicationController
   def index
     if params[:search].present?
       @products = Product.where("LOWER(name) ILIKE ?", "%#{params[:search].downcase}%")
+    elsif params[:description_search].present?
+      @products = Product.where("LOWER(description) ILIKE ?", "%#{params[:description_search].downcase}%")
     else
       @products = Product.all
     end
     @user = current_user
     @cart = @user.carts.last
+    @categories = Category.all
     render
   end
   
   def show
     @user = current_user
-    if @user.carts.present?
-      @cart = @user.carts.last
-    else
-     @cart = Cart.create(params[:cart])
+    if @user.present?
+      if @user.carts.present?
+        @cart = @user.carts.last
+      else
+        @cart = Cart.create(params[:cart])
+      end
     end 
     @product = Product.find(params[:id])
     @prod_paint = @product.paintings.first

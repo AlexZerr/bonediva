@@ -54,6 +54,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      UserMailer.registration_confirmation(@user).deliver
       @avatar = Avatar.new(params[:avatar])
       @avatar.name = @user.name
       @avatar.user_id = @user.id

@@ -1,0 +1,25 @@
+<div id="add-painting-form">
+  <div class="row-fluid">
+    <div class="span12">
+      <div id="form">
+        <%= form_for @painting, :html => {:multipart => true} do |f| %>
+          <div id="name">
+            <div class="span6"><%= f.label :title, "Name" %></div>
+            <div class="span6"><%= f.text_field :title %></div>
+          </div>
+          <div id="description">
+            <div class="span6"><%= f.label :description, "Description" %></div>
+            <div class="span6"><%= f.text_field :description %></div>
+          </div>
+          <div id="image">
+            <div class="span6"><%= f.label :image, "image" %></div>
+            <div class="span6"><%= f.file_field :image %></div>
+          </div>
+          <%= f.hidden_field :paintable_type, value: "Product" %>
+          <%= f.hidden_field :paintable_id, value: "#{@product.id}" %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
