@@ -1,21 +1,41 @@
 <h3> Current Info </h3>
 <div id="mid_component">
-  <p>Name:</br><%= @product.name %></p>
-  <p>Description:</br><%= @product.description %></p>
-  <p>Price:</br><%= @product.price %></p>
-  <p>Size:</br><%= @product.size %></p>
-    <% @paintings.each do |p| %>
-      <p>Painting:</br><%= image_tag p.image_url(:standard) %></p>
-    <% end %>
-</div>
-
-<div style="text-align:center">
-  <div style="color:red">
-    <h1>Edit</h1>
+  <div class="row-fluid">
+    <div class="span12">
+      <div id="edit-page">
+        <div class="span6">
+          <div id="left-side">
+            <div id="name">
+              <div class="span6">Name:</div>
+              <div class="span6"><%= @product.name %></div>
+            </div>
+            <div id="description">
+              <div class="span6">Description:</div>
+              <div class="span6"><%= @product.description %></div>
+            </div>
+            <div id="price">
+              <div class="span6">Price:</div>
+              <div class="span6"><%= @product.price %></div>
+            </div>
+            <div id="size">
+              <div class="span6">Size:</div>
+              <div class="span6"><%= @product.size %></div>
+            </div>
+          </div>
+        </div>
+        <div class="span6">
+          <div id="right-side">
+            <% @paintings.each do |p| %>
+              <p>Painting:</br><%= image_tag p.image_url(:standard) %></p>
+            <% end %>
+          </div>
+        </div>
+        <%= render :partial => "products/product_form" %>
+        <%= form_for @painting, :html => {:multipart => true } do |p| %>
+          <p><%= p.label :image, "Add a Painting" %></br>
+          <%= p.file_field :image %></p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-<%= render :partial => "products/product_form" %>
-<%= form_for @painting, :html => {:multipart => true } do |p| %>
-      <p><%= p.label :image, "Add a Painting" %></br>
-      <%= p.file_field :image %></p>
-    <% end %>

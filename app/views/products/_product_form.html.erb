@@ -1,5 +1,4 @@
 <%= @product.errors.full_messages if @product.errors.present? %>
-<div id="mid_component">
   <%= form_for @product, :html => {:multipart => true } do |f| %>
   <p><%= f.label :name, 'Name' %></br>
     <%= f.text_field :name, required: true %></p>
@@ -15,4 +14,3 @@
     <% end %> 
   <p><%= f.submit %></p>
 <% end %>
-</div>
