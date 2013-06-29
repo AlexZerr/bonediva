@@ -25,16 +25,41 @@
         </div>
         <div class="span6">
           <div id="right-side">
-            <% @paintings.each do |p| %>
-              <p>Painting:</br><%= image_tag p.image_url(:standard) %></p>
-            <% end %>
+            <div class="span12">
+              <div id="painting-holder">
+                <% @paintings.each do |p| %>
+                  <div class="span3">
+                    <div id="paintings">
+                      <div class="thumbnails">
+                        <div class="thumbnail"> 
+                          <%= image_tag p.image_url(:thumb) %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
-        <%= render :partial => "products/product_form" %>
-        <%= form_for @painting, :html => {:multipart => true } do |p| %>
-          <p><%= p.label :image, "Add a Painting" %></br>
-          <%= p.file_field :image %></p>
-        <% end %>
+
+        <div class="span12">
+          <div id="edit-form">
+            <%= render :partial => "products/product_form" %>
+          </div>
+        </div>
+        <div id="add_painting_form">
+          <div class="span12">
+            <h5 id="head-description">
+              (Upload Another Painting To You're Product)
+            </h5>
+            <div id="paint-form">
+              <div class="span12">
+                <%= render partial: "paintings/add_painting_form" %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

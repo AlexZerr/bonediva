@@ -1,16 +1,47 @@
-<%= @product.errors.full_messages if @product.errors.present? %>
-  <%= form_for @product, :html => {:multipart => true } do |f| %>
-  <p><%= f.label :name, 'Name' %></br>
-    <%= f.text_field :name, required: true %></p>
-    <p><%= f.label :description, 'Description' %></br>
-      <%= f.text_field :description %></p>
-      <p><%= f.label :price, 'Price' %></br>
-    <%= f.text_field :price, required: true %></p>
-    <p><%= f.label :size, "Size" %></br>
-    <%= f.text_field :size, required: true %></p>
-    <%= fields_for :painting do |p| %>
-      <p><%= p.label :image, "Add a Painting" %></br>
-      <%= p.file_field :image %></p>
-    <% end %> 
-  <p><%= f.submit %></p>
-<% end %>
+
+<div id="form">
+  <div class="row-fluid">
+    <div class="span12">
+      <div id="errors">
+        <div class=span12">
+          <%= @product.errors.full_messages if @product.errors.present? %>
+        </div>
+      </div>
+    </div>
+    <div class="span12">
+      <div id="form-info">
+        <%= form_for @product, :html => {:multipart => true } do |f| %>
+          <div class="span6">
+            <div id="left-side">
+              <div id="name">
+                <div class="span6"><%= f.label :name, 'Name' %></div>
+                <div class="span6"><%= f.text_field :name, required: true %></div>
+              </div>
+              <div id="description">
+                <div class="span6"><%= f.label :description, 'Description' %></div>
+                <div class="span6"><%= f.text_field :description %></div>
+              </div>
+            </div>
+          </div>
+          <div class="span6">
+            <div id="right-side">
+              <div id="price">
+                <div class="span6"><%= f.label :price, 'Price' %></div>
+                <div class="span6"><%= f.text_field :price, required: true %></div>
+              </div>
+              <div id="size">
+                <div class="span6"><%= f.label :size, "Size" %></div>
+                <div class="span6"><%= f.text_field :size, required: true %></div>
+              </div>
+            </div>
+          </div>
+          <div class="span12">
+            <div id="button"> 
+              <div class="span6"><%= f.submit %></div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
