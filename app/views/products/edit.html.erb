@@ -32,7 +32,7 @@
                     <div id="paintings">
                       <div class="thumbnails">
                         <div class="thumbnail"> 
-                          <%= image_tag p.image_url(:thumb) %>
+                          <%= link_to (image_tag p.image_url(:thumb)) %>
                         </div>
                       </div>
                     </div>
@@ -48,14 +48,16 @@
             <%= render :partial => "products/product_form" %>
           </div>
         </div>
-        <div id="add_painting_form">
-          <div class="span12">
-            <h5 id="head-description">
-              (Upload Another Painting To You're Product)
-            </h5>
-            <div id="paint-form">
-              <div class="span12">
-                <%= render partial: "paintings/add_painting_form" %>
+        <div class="span8">
+          <div id="add_painting_form">
+            <div class="span12">
+              <h5 id="head-description">
+                (Upload Another Painting To You're Product)
+              </h5>
+              <div id="paint-form">
+                <div class="span12">
+                  <%= render partial: "paintings/add_painting_form" %>
+                </div>
               </div>
             </div>
           </div>
