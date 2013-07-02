@@ -1,1 +1,25 @@
-<div class ="row-fluid">
+<div class="row-fluid">
+  <div id="blog_posts">
+    <div class="span12">
+      <div id="blog-post">
+        <div class="span12">
+          <div id="blog-title">
+            <div class="span12">
+              <div style="text-align:center">
+                <%= @blog_post.title %>
+              </div>
+              <div style="text-align:right">
+                <%= @blog_post.created_at.time%>
+              </div>
+            </div>
+          </div>
+          <div id="blog-body">
+            <div class="span12">
+              <%= @blog_post.body %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
