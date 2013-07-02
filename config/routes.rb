@@ -22,6 +22,7 @@ Bonediva::Application.routes.draw do
   resources :categories
   resources :avatars
   resources :orders
+  resources :blog_posts
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
