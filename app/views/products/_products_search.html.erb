@@ -6,7 +6,7 @@
         <div style="color:red">
           Search for a product by name.</br>
           <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Name", :name => nil %>
+          <%= submit_tag "Name Search", :name => nil, id: "button1" %>
         </div>
         </p>
       <% end %>
@@ -19,7 +19,7 @@
         <div style="color:red">
           Search for a product by description.</br>
           <%= text_field_tag :description_search, params[:description_search] %>
-          <%= submit_tag "description", :description => nil %>
+          <%= submit_tag "Description search", :description => nil, id: "button1" %>
         </div>
         </p>
       <% end %>
