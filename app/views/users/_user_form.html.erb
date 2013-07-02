@@ -29,18 +29,11 @@
       <p><%= f.label :user_link, "Want to add your website?"%></br>
     <%= f.text_field :user_link %></p>
     
-    <%= fields_for @avatar do |a| %>
-      <%= a.hidden_field :name, value: @user.name %>
-      <%= a.label :image, "Avatar Uploader" %></br>
-      <%= a.file_field :image, default: "public/uploads/avatar/image/2/thumb_*" %>
-      <%= a.label :remote_image_url, "Avatar from url" %>
-      <%= a.text_field :remote_image_url %>
-    <% end %>
       <% if is_admin? %>
         <%= "Make and admin?"%>
         <%= f.check_box :admin %>
       <% end %>
-      <p><%= f.submit %></p>
+      <p><%= f.submit id: "button1"  %></p>
     <% end %>
     </div>
   </div>
