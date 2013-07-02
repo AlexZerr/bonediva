@@ -8,16 +8,14 @@
               <div id="title">
                 <%= f.label :title, "Title" %>
                 <%= f.text_field :title, required: true %>
+                <%= f.submit %>
               </div>
             </div>
             <div class="span6">
               <div id="body">
                 <%= f.label :body, "Blog Body" %>
-                <%= f.text_area :body, rows: 5, cols:5, required: true %>
+                <%= f.text_area :body, rows: 5, required: true %>
               </div>
-            </div>
-            <div id="button">
-              <%= f.submit %>
             </div>
         </div>
       </div>
