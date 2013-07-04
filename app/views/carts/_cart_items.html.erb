@@ -1,14 +1,10 @@
 <div class="row-fluid">
   <div id="list-box">
-    <h4>
-    <div class="span12">
-      <div id="list">
-        <div class="span3">Name:</div>
-        <div class="span3">price:</div>
-        <div class="span3">Image:</div>
-      </div>
+    <div style="text-align:center">
+      <h4>
+        <%= "Here is your cart #{current_user.name}"%>
+      </h4>
     </div>
-  </h4>
   </div>
   <% @cart_items.each do |item| %>
       <div id="cart-items">
@@ -25,13 +21,13 @@
 
         <div class="span3">
           <div id="cart-item-painting">
-            <div class="span8">
+            <div class="span6">
               <div id="thumbnails">
                 <div class="thumbnail">
                   <%= image_tag item.product.main_image(:thumb) %>
                 </div>
               </div>
-            </div>
+            </div>i
           </div>
         </div>
 
@@ -45,11 +41,13 @@
   <% end %>
   <div class="span12">
     <div id="checkout-list">
-      <h3>
-        <div class="span3">Total:</div>
-        <div class="span3"><%= number_to_currency @total_price %></div>
-        <div class="span3"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last) %></div>
-      </h3>
+        <div id="total-box">
+          <h4>
+            <div class="span4">Total:</div>
+            <div class="span4"><%= number_to_currency @total_price %></div>
+            <div class="span4"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last) %></div>
+          </h4>
+        </div>
     </div>
   </div>
 </div>
