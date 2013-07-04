@@ -32,7 +32,7 @@
         </div>
 
         <div id="cart-item-button">
-          <div class"span2">  <%= button_to 'remove', user_cart_cart_item_path(current_user, @cart, item), data: { confirm: "Do you want to delete #{item.name}?", method: :delete, remote: true } %></div>
+          <div class"span2">  <%= button_to 'remove', user_cart_cart_item_path(current_user, @cart, item), id: "button1", data: { confirm: "Do you want to delete #{item.name}?", method: :delete, remote: true } %></div>
         </div>
 
         </div>
@@ -45,7 +45,7 @@
           <h4>
             <div class="span4">Total:</div>
             <div class="span4"><%= number_to_currency @total_price %></div>
-            <div class="span4"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last) %></div>
+            <div class="span4"><%= button_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last), id: "button1" %></div>
           </h4>
         </div>
     </div>
