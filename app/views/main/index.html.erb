@@ -16,7 +16,7 @@
 
   <div style="color:red">
     <div style="text-align:center">
-      <%= link_to 'ACEO Web Page', "http://www.lisaluree.com", :target => "_blank"  %>
+      <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
     </div>
   </div>
 
@@ -27,22 +27,33 @@
       <% @blog_posts.each do |post| %>
           <tr class="<%= cycle('oddrow', 'evenrow') -%>">
             <td>
-            <div id="blog_post">
-              <div class="span12">
-                <div class="blog_title">
-                  <%= post.title%>
-                </div>
-              </div>
-              <div id="blog_body">
+              <div id="blog_post">
                 <div class="span12">
-                  <%= post.body %>
+                  <div class="blog_header">
+                    <div class="title">
+                      <div class="span7">
+                        <%= post.title%>
+                      </div>
+                    </div>
+                    <div class="date">
+                      <div class="span4">
+                        <%= post.created_at%>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="span8">
+                  <div id="blog_body">
+                    <div class="span8">
+                      <%= post.body %>
+                    </div>
+                  </div>
                 </div>
               </div>
-           </div>
-          </td>
-        </tr>
-     <%end%>
-   </table>
+            </td>
+          </tr>
+      <%end%>
+    </table>
   </div>
 </div>
 
