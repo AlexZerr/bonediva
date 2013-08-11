@@ -2,6 +2,10 @@ class BlogPostsController < ApplicationController
 
   before_filter :ensure_admin, only: [:new, :create]
 
+  def index
+    @blog_posts = BlogPost.all
+  end
+
   def new
     @user = current_user if current_user.email = "lisaluree@gmail.com"
     @blog_post = BlogPost.new(params[:blog_post])
