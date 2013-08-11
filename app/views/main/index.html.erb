@@ -30,9 +30,9 @@
               <div id="blog_post">
                 <div class="span12">
                   <div class="blog_header">
-                    <div class="title">
+                    <div class="blog-post-title">
                       <div class="span7">
-                        <%= post.title%>
+                        <%= link_to post.title, blog_post_path(post)%>
                       </div>
                     </div>
                     <div class="date">
