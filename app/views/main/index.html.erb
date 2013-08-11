@@ -21,6 +21,25 @@
   </div>
 
 </div>
+<div id="blog_post_box">
+  <div class="blog_posts">
+    <% @blog_posts.each do |post| %>
+      <div id="blog_post">
+        <div class="blog_title">
+          <div class="span12">
+            <%= post.title%>
+          </div>
+        </div>
+        <div id="blog_body">
+          <div class="span12">
+            <%= post.body %>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
+
 
 <div id="homeBox">
 <h2>Great New Images!</h2>

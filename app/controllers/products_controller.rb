@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     if params[:search].present?
-      @products = Product.where("LOWER(name) ILIKE ?", "%#{params[:search].downcase}%")
+      @products = Product.where("LOWER(name) ILIKE ? OR LOWER(description) ILIKE ?", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
     elsif params[:description_search].present?
       @products = Product.where("LOWER(description) ILIKE ?", "%#{params[:description_search].downcase}%")
     else
