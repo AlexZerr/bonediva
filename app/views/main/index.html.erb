@@ -22,21 +22,25 @@
 
 </div>
 <div id="blog_post_box">
-  <div class="blog_posts">
-    <% @blog_posts.each do |post| %>
-      <div id="blog_post">
-        <div class="blog_title">
-          <div class="span12">
-            <%= post.title%>
-          </div>
-        </div>
-        <div id="blog_body">
-          <div class="span12">
-            <%= post.body %>
-          </div>
-        </div>
-      </div>
-    <%end%>
+  <div id="blog_posts">
+    <table>
+      <% @blog_posts.each do |post| %>
+        <tr class="<%= cycle('oddrow', 'evenrow') -%>">
+          <div id="blog_post">
+            <div class="span12">
+              <div class="blog_title">
+                <tr><%= post.title%></tr>
+              </div>
+            </div>
+            <div id="blog_body">
+              <div class="span12">
+                <tr><%= post.body %></tr>
+              </div>
+            </div>
+         </div>
+       </tr>
+     <%end%>
+   </table>
   </div>
 </div>
 
