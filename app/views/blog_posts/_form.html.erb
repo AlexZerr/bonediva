@@ -1,0 +1,25 @@
+<div class="row-fluid">
+  <div class="span9">
+    <div id="form">
+          <%= form_for @blog_post, html: {multipart: true} do |f| %>
+      <div class="span12">
+        <div id="blog_form">
+            <div class="span6">
+              <div id="title">
+                <%= f.label :title, "Title" %>
+                <%= f.text_field :title, required: true %>
+                  <%= f.submit  id: 'button1' %>
+              </div>
+            </div>
+            <div class="span6">
+              <div id="body">
+                <%= f.label :body, "Blog Body" %>
+                <%= f.text_area :body, rows: 5, required: true %>
+              </div>
+            </div>
+        </div>
+      </div>
+          <% end %>
+    </div>
+  </div>
+</div>

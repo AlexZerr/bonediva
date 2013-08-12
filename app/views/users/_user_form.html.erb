@@ -1,47 +1,89 @@
-<div style="text-align:center">
-  <div style="float:center">
+<div class="row-fluid">
+  <div id="edit-page">
     <div style="color:purple">
-      <%= form_for @user, html: { multipart: true } do |f| %>
-        <% if @user.errors.any? %>
-         
-        
-          <div class="error_messages">
-            <h2>Form is Invalid</h2>
-            <ul>
-              <% for message in @user.errors.full_message %>
-                <%= message %>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      <p><%= f.label :name, 'Name'%></br>
-        <%= f.text_field :name, required: true %></p>
-      <p><%= f.label :username, 'Username' %></br>
-        <%= f.text_field :username, required: true %></p>
-      <p><%= f.label :password, 'Password' %></br>
-        <%= f.password_field :password, required: true %></p>
-      <p><%= f.label :password_confirmation, 'Confirm' %></br>
-        <%= f.password_field :password_confirmation, required: true %></p>
-      <p><%= f.label :email, 'Email Address'%></br>
-        <%= f.text_field :email, required: true %></p>
-      <p><%= f.label :age, 'Age (optional)'%></br>
-      <%= f.text_field :age %></p>
-      <p><%= f.label :user_link, "Want to add your website?"%></br>
-    <%= f.text_field :user_link %></p>
-    
-    <%= fields_for @avatar do |a| %>
-      <%= a.hidden_field :name, value: @user.name %>
-      <%= a.label :image, "Avatar Uploader" %></br>
-      <%= a.file_field :image, default: "public/uploads/avatar/image/2/thumb_*" %>
-      <%= a.label :remote_image_url, "Avatar from url" %>
-      <%= a.text_field :remote_image_url %>
-    <% end %>
-      <% if is_admin? %>
-        <%= "Make and admin?"%>
-        <%= f.check_box :admin %>
-      <% end %>
-      <p><%= f.submit %></p>
-    <% end %>
+      <div class="span12">
+        <div id="form">
+          <%= form_for @user, html: { multipart: true } do |f| %>
+            <% if @user.errors.any? %>
+              <div class="error">
+                <div class="span12">
+                  <h2>Form is Invalid</h2>
+                  <ul>
+                    <% for message in @user.errors.full_message %>
+                      <div class="error_messages">
+                        <div class="span12"><%= message %></div>
+                      </div>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            <% end %>
+            <div id="user-form">
+              <div class="span12">
+                <div id="name">
+                  <div class="span6"><%= f.label :name, 'Name'%>
+                    <%= f.text_field :name, required: true %>
+                  </div>
+                </div>
+                <div id="username">
+                  <div class="span6">
+                    <p><%= f.label :username, 'Username' %></br>
+                    <%= f.text_field :username, required: true %></p>
+                  </div>
+                </div>
+                <div id="password-reminder">
+                  <div class="span12">
+                    Please Re-Enter You're Password
+                  </div>
+                </div>
+                <div id="password_textfield">
+                  <div class="span6">
+                    <p><%= f.label :password, 'Password' %></br>
+                    <%= f.password_field :password, required: true %></p>
+                  </div>
+                </div>
+                <div id="password_textfield">
+                  <div class="span6">
+                    <p><%= f.label :password_confirmation, 'Confirm' %></br>
+                    <%= f.password_field :password_confirmation, required: true %></p>
+                  </div>
+                </div>
+                <div id="email">
+                  <div class="span6">
+                    <p><%= f.label :email, 'Email Address'%></br>
+                    <%= f.text_field :email, required: true %></p>
+                  </div>
+                </div>
+                <div id="age">
+                  <div class="span6">
+                    <p><%= f.label :age, 'Age (optional)'%></br>
+                    <%= f.text_field :age %></p>
+                  </div>
+                </div>
+                <div id="user-link">
+                  <div class="span6">
+                    <p><%= f.label :user_link, "Want to add your website?"%></br>
+                    <%= f.text_field :user_link %></p>
+                  </div>
+                </div>
+                <div id="admin">
+                  <div class="span6">
+                    <% if is_admin? %>
+                      <%= "Make and admin?"%>
+                      <%= f.check_box :admin %>
+                    <% end %>
+                  </div>
+                </div>
+                <div id="button">
+                  <div class="span6">
+                    <p><%= f.submit id: "button1"  %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

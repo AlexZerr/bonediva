@@ -17,7 +17,7 @@
           </div>
           <%= f.hidden_field :paintable_type, value: "Product" %>
           <%= f.hidden_field :paintable_id, value: "#{@product.id}" %>
-          <%= f.submit %>
+          <%= f.submit "Add Painting", id: "button1" %>
         <% end %>
       </div>
     </div>

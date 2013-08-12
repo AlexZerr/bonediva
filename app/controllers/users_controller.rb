@@ -55,9 +55,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       UserMailer.registration_confirmation(@user).deliver
-      @avatar = Avatar.new(params[:avatar])
-      @avatar.name = @user.name
-      @avatar.user_id = @user.id
+        @avatar = Avatar.new(params[:avatar])
+          @avatar.name = @user.name
+          @avatar.user_id = @user.id
         @avatar.save
         @cart = @user.carts.new(params[:cart]) if !@user.carts.present?
         @cart.save

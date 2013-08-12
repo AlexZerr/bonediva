@@ -30,8 +30,8 @@
               </div>
             </div>
         
-            <div>
-              <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product) %>
+            <div style="float:right">
+              <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product), id: "button1" %>
             </div>
             <div id="admin-function">
               <% if product.paintings.any? %>

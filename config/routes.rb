@@ -22,6 +22,7 @@ Bonediva::Application.routes.draw do
   resources :categories
   resources :avatars
   resources :orders
+  resources :blog_posts
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -91,6 +92,7 @@ Bonediva::Application.routes.draw do
   post "products/:id", to: "products#destroy", as: "destoy_product"
 #  get "/show" => 'users#show', :as => "users"
 
+  post "blog_posts/:id", to: "blog_posts#destroy", as: "destroy_blog_post"
 #  get "users" => "users#show", :as => "users"
 
 

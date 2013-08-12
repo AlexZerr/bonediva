@@ -14,7 +14,7 @@
       <%= p.file_field :image, required: true %></p>
       <p><%= collection_select(:product, :category_id, @categories, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category", required: true) %></p>
     <% end %>
-  <p><%= f.submit %></p>
+  <p><%= f.submit "Create Product", id: "button1" %></p>
 <% end %>
 </div>
 
