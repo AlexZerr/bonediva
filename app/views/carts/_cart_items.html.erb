@@ -24,7 +24,12 @@
             <div class="span6">
               <div id="thumbnails">
                 <div class="thumbnail">
-                  <%= image_tag item.product.main_image(:thumb) %>
+                  <% if item.product.present?%>
+                    <%= image_tag item.product.main_image(:thumb) %>
+                  <% else %>
+                    This Product is not avalable
+                  <% end %>
+                  
                 </div>
               </div>
             </div>i
@@ -45,7 +50,7 @@
           <h4>
             <div class="span4">Total:</div>
             <div class="span4"><%= number_to_currency @total_price %></div>
-            <div class="span4"><%= button_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last), id: "button1" %></div>
+            <div class="span4"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last), id: "button1" %></div>
           </h4>
         </div>
     </div>
