@@ -16,7 +16,11 @@
         </div>
 
         <div id="cart-item-price">
+          <% if item.product.present? %>
           <div class="span2"><%= number_to_currency item.price %></div>
+        <% else%>
+          00.00
+        <%end%>
         </div>
 
         <div class="span3">
