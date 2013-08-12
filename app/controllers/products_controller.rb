@@ -84,7 +84,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @paintings = Painting.where(product_id: @product.id)
      if @product.destroy
-      @paintings.destroy
+       @product.cart_item.destroy
+       @paintings.destroy
        redirect_to categories_path
      end
 
