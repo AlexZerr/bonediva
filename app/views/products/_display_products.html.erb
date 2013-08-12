@@ -32,7 +32,7 @@
                 <% end %>
                 
                   <div class="span6"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
-                  <div class="span6"><%= link_to "Edit_Product", edit_product_path(product)  %></div>
+                  <div class="span6"><%= link_to "Edit Product", edit_product_path(product)  %></div>
                 <% end %>
               <% end %>
             </div>

@@ -35,7 +35,7 @@ class BlogPostsController < ApplicationController
   def update
     @blog_post.update_attributes(params[:blog_post])
     if @blog_post.save
-      respond_with @blog_post, notice: "Post Created Successfully" 
+      respond_with @blog_post, notice: "Post updated Successfully" 
     end
   end
 
@@ -45,7 +45,7 @@ class BlogPostsController < ApplicationController
 
   def destroy
     if @blog_post.destroy
-      respond_with @blog_post
+      redirect_to :back, notice: "#{@blog_post.title} was deleted"
     end
   end
 
