@@ -74,9 +74,10 @@
   float: right;
   padding: 15px;
   width: 220px;
-  height: 190px;
+  height: auto;
   color: #A00000;
   margin: 2px 2px 2px 2px;
+
 }
 
 #mid_component {
