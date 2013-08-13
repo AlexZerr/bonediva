@@ -43,67 +43,31 @@
         <%= message %>
       </div>
     <% end if !flash.blank? %>
-    <div class="container-fluid">
+    <div class="container-fluid"> 
       <div class="row-fluid">
-        <div id="main">
-          <div class="span10">
+        <div class="span10">
+          <div id="main">
             <%= yield %>
           </div>
-          <div id="user_nav">
-            <% if current_user.present? %>
-              <div class="span10">Logged in as <%= current_user.email %></div>
-              <div class="span10"><%= link_to "log_out", log_out_path %></div>
-            <% else %>
-              <div class="span10"><%= link_to "Sign_up", new_user_path %></div>
-              <div class="span10"><%= link_to "log_in", log_in_path %></div>
-            <% end %>
-          </div>
         </div>
-      </div>
-      <div class="row-fluid">
-        <div id="side">
+        <% if !@hide_sidebar %>
           <div class="span2">
-            <% if !@hide_sidebar %>
-              <div class="row-fluid">
-                <div id="sidebar">
-                  <% if current_user.present? %>
-                    <div style="float:right;">
-                        Logout
-                    </div>
-                      </br>
-                    <div class="img-with-text">
-                      <% if user_avatar(current_user).present? %>
-                        <div class="avatar_img">
-                          <%=image_tag  user_avatar(current_user).image_url(:thumb) %>
-                        </div>
-                      <% else %>
-                            <%= "add an avatar"%>
-                      <% end %>
-                          <%= link_to current_user.name, current_user_path %>
-                    </div>
-                          <%#= link_to image_tag("#{@user.avatar}") + current_user.username, user_path(@user), :class => "avatar_img", :remote => true %>
-                  <% else %>
-                          <%= render :partial =>  "sessions/login" %>
-                  <% end %>
-                  <%if is_admin? %>
-                        <div class="span12"><%= link_to "Add a Product", new_product_path %></div>
-                        <div class="span12"><%= link_to "#{@user.name.pluralize}' Products", products_path %></div>
-                        <div class="span12"><%= link_to "Add a Category", new_category_path %></div>
-                  <% end %>
-                  <% if @user.present?%>
-                    <div class="cart-link">
-                      <div class="span10">
-                          <%= link_to "shopping_cart (#{@user.carts.last.cart_items.count}) items", user_cart_path(@user, @user.carts.last) if @user.carts.present?  %>
-                      </div>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-                <%= yield :sidebar %>
-            <% end %>
+            <div class="side">
+              <%= render partial: "layouts/sidebar" %>
+              <%= yield :sidebar %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
+      <div id="user_nav">
+        <% if current_user.present? %>
+          <div class="span10">Logged in as <%= current_user.email %></div>
+          <div class="span10"><%= link_to "log_out", log_out_path %></div>
+        <% else %>
+          <div class="span10"><%= link_to "Sign_up", new_user_path %></div>
+          <div class="span10"><%= link_to "log_in", log_in_path %></div>
+        <% end %>
+      </div>
   </body>
 </html>
