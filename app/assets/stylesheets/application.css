@@ -66,19 +66,7 @@
 
 }
 
-#sidebar {
-  background: #151515;
-  border: 5px solid #A00000;
-  border-radius:25px;
-  -moz-border-radius:25px; 
-  float: right;
-  padding: 15px;
-  width: 220px;
-  height: auto;
-  color: #A00000;
-  margin: 2px 2px 2px 2px;
 
-}
 
 #mid_component {
   background: #151515;
@@ -91,7 +79,6 @@
   height: 0px auto;
   color: #A00000;
   margin: 0px auto;
-  margin-left: 100px;
   
 }
 
@@ -111,7 +98,6 @@
 }
 
 .avatar_img {
- margin-top: -20px;
  margin-left: -2px;
  padding: 4px;
  border: 2px solid #A00000;

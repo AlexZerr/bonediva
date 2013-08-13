@@ -1,25 +1,14 @@
-<div style="color: #A00000">
-  <div style="text-align:center">
-    <h1>
-      BoneDiva
-    </h1>
-  </div>
 <%= form_tag products_path, :method => :get do %>
   <p>
-  <div style="color:red">
-    Search for a product by name.</br>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </div>
+    <div style="color:red">
+      Search for a product by name.</br>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </div>
   </p>
 <% end %>
-
-  <div style="color:red">
-    <div style="text-align:center">
-      <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
-    </div>
-  </div>
-
+<div style="text-align:center">
+  <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
 </div>
 <div id="blog_post_box">
   <div id="blog_posts">
@@ -70,11 +59,9 @@
 <div id="homeBox">
 <h2>Great New Images!</h2>
 </br>
-<div class="row-fluid">
   <div class="displayHomeImg">
       <%= render partial: "products/display_products" %>
   </div>
-</div>
     </br>
 </div>
 

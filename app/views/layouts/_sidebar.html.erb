@@ -1,0 +1,43 @@
+            <div id="sidebar">
+              <% if current_user.present? %>
+                <div class="img-with-text">
+                  <% if user_avatar(current_user).present? %>
+                    <div class="span12">
+                      <div class="avatar_img">
+                        <%=image_tag  user_avatar(current_user).image_url(:thumb) %>
+                      </div>
+                     </div>
+                  <% else %>
+                      <%= "add an avatar"%>
+                  <% end %>
+                    <%= link_to current_user.name, current_user_path %>
+                </div>
+                    <%#= link_to image_tag("#{@user.avatar}") + current_user.username, user_path(@user), :class => "avatar_img", :remote => true %>
+                <% if current_user.present? %>
+                  <div>
+                    <div class="span2 offset9">
+                      <div class="log_out_link">
+                        <%= link_to "Logout", log_out_path %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% else %>
+                      <%= render :partial =>  "sessions/login" %>
+              <% end %>
+              <div class="sidebar-links">  
+                <%if is_admin? %>
+                    <div class="span12"><%= link_to "Add a Product", new_product_path %></div>
+                    <div class="span12"><%= link_to "#{@user.name.pluralize}' Products", products_path %></div>
+                    <div class="span12"><%= link_to "Add a Category", new_category_path %></div>
+                <% end %>
+                <% if @user.present?%>
+                  <div class="cart-link">
+                     <div class="span12">
+                          <%= link_to "shopping_cart (#{@user.carts.last.cart_items.count}) items", user_cart_path(@user, @user.carts.last) if @user.carts.present?  %>
+                    </div>
+                   </div>
+                <% end %>
+              </div>
+            </div>
+
