@@ -1,48 +1,48 @@
 <div class="row-fluid">
-    <% @products.each do |product| %>
-      <div>
-        <div class="span4">
-          <div id="painting-display">
-            <div class="span6">
-              <%=  link_to (image_tag (product.main_image(:thumb))), product_path(product) %></br>
+  <% @products.each do |product| %>
+    <div>
+      <div class="span4">
+        <div id="painting-display">
+          <div class="span6">
+             <%=  link_to (image_tag (product.main_image(:thumb))), product_path(product) %></br>
+          </div>
+          <div id="description">
+            <div id="name">
+              <div class="span3">Name:</div>
+              <div class="span3"> <%= product.name %></div>
             </div>
-            <div id="description">
-              <div id="name">
-                <div class="span3">Name:</div>
-                <div class="span3"> <%= product.name %></div>
-              </div>
-              <div id="price">
-                <div class="span3">Price:</div>
-                <div clas="span3"><%= number_to_currency product.price %></div>
-              </div>
+            <div id="price">
+              <div class="span3">Price:</div>
+              <div clas="span3"><%= number_to_currency product.price %></div>
             </div>
+          </div>
         
-            <div class="span12">
-              <div id="cart-button">
-                <div style="float:right">
-                  <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product), id: "button1" if current_user.present? %>
-                </div>
-              </div>
-            </div>
-            <div id="admin-function">
-              <% if product.paintings.any? %>
-                <% if is_admin? %>
-                  <%if product.category.present? %>
-                    <%#= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
-                <% end %>
-                
-                  <div class="span6"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
-                  <div class="span6"><%= link_to "Edit Product", edit_product_path(product)  %></div>
-                <% end %>
-              <% end %>
-            </div>
-            <div id="description">
-              <div class="span10">
-                <u><b>Description:</b></u> <%= truncate(product.description, length: 75 ) %></br>
+          <div class="span12">
+            <div id="cart-button">
+              <div style="float:right">
+                <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product), id: "button1" if current_user.present? %>
               </div>
             </div>
           </div>
+          <div id="admin-function">
+            <% if product.paintings.any? %>
+              <% if is_admin? %>
+                <%if product.category.present? %>
+                  <%#= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
+                <% end %>
+                  <div class="span6"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
+                  <div class="span6"><%= link_to "Edit Product", edit_product_path(product)  %></div>
+              <% end %>
+            <% end %>
+          </div>
+          <div id="description">
+            <div class="span10">
+              <u><b>Description:</b></u> <%= truncate(product.description, length: 75 ) %></br>
+            </div>
+          </div>
         </div>
-      </div> 
-    <% end %>
+      </div>
+    </div> 
+  <% end %>
+</div>
 
