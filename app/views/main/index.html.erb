@@ -1,13 +1,10 @@
-  <div style="text-align:center">
-    <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
-  </div>
+    <div class="scroll_box">
+        <%= render partial: "products/display_products" %>
+    </div>
     <div>
       <%= render partial: "main/new_image"%>
     </div>
 
-    <div class="scroll_box">
-        <%= render partial: "products/display_products" %>
-    </div>
 
     <div>
       <%= render partial: "main/blog_posts" %>
