@@ -1,67 +1,59 @@
-<%= form_tag products_path, :method => :get do %>
-  <p>
+  <%= form_tag products_path, :method => :get do %>
     <div style="color:red">
       Search for a product by name.</br>
       <%= text_field_tag :search, params[:search] %>
       <%= submit_tag "Search", :name => nil %>
     </div>
-  </p>
-<% end %>
-<div style="text-align:center">
-  <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
-</div>
-<div id="blog_post_box">
-  <div id="blog_posts">
-    <table>
-      <% @blog_posts.each do |post| %>
-          <tr class="<%= cycle('oddrow', 'evenrow') -%>">
-            <td>
-              <div id="blog_post">
-                <div class="span12">
-                  <div class="blog_header">
-                    <div class="blog-post-title">
-                      <div class="span7">
-                        <%= link_to post.title, blog_post_path(post)%>
+  <% end %>
+  <div style="text-align:center">
+    <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
+  </div>
+    <div id="blog_post_box">
+      <div id="blog_posts">
+        <table>
+          <% @blog_posts.each do |post| %>
+            <tr class="<%= cycle('oddrow', 'evenrow') -%>">
+              <td>
+                <div id="blog_post">
+                  <div class="span12">
+                    <div class="blog_header">
+                      <div class="blog-post-title">
+                        <div class="span7">
+                          <%= link_to post.title, blog_post_path(post)%>
+                        </div>
                       </div>
-                    </div>
-                    <div class="date">
-                      <div class="span3 offset1">
-                        <div style="float:right">
-                          <%= post.created_at%>
+                      <div class="date">
+                        <div class="span3 offset1">
+                          <div style="float:right">
+                            <%= post.created_at%>
+                          </div>
                         </div>
                       </div>
                     </div>
+                      <div id="blog_body">
+                        <div class="span12">
+                          <%= post.body %>
+                        </div>
+                      </div>
+                    <% if is_admin? %>
+                      <div class="span12">
+                        <div id="delete_link">
+                          <%= link_to "Delete", post, data: {confirm: "Are you sure you want to delete #{post.title }?", method: :delete } %>
+                        </div>
+                      </div>
+                    <% end %>
                   </div>
                 </div>
-                <div class="span8">
-                  <div id="blog_body">
-                    <div class="span12">
-                      <%= post.body %>
-                    </div>
-                  </div>
-                </div>
-                <% if is_admin? %>
-                  <div class="span12">
-                    <div id="delete_link">
-                      <%= link_to "Delete", post, data: {confirm: "Are you sure you want to delete #{post.title }?", method: :delete } %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            </td>
-          </tr>
-      <%end%>
-    </table>
-  </div>
-</div>
+              </td>
+            </tr>
+          <%end%>
+        </table>
+      </div>
+    </div>
 
-
-<div id="homeBox">
-<h2>Great New Images!</h2>
-</br>
-  <div class="displayHomeImg">
-      <%= render partial: "products/display_products" %>
+    <div id="mid_component">
+      <h2>Great New Images!</h2>
+        <%= render partial: "products/display_products" %>
+    </div>
   </div>
-    </br>
-</div>
 
