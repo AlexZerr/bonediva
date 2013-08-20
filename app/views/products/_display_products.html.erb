@@ -9,7 +9,7 @@
           <div id="description">
             <div id="name">
               <div class="span3">Name:</div>
-              <div class="span3"> <%= product.name %></div>
+              <div class="span3"> <%= link_to truncate(product.name, length: 15), product_path(product) %></div>
             </div>
             <div id="price">
               <div class="span3">Price:</div>
@@ -27,11 +27,15 @@
           <div id="admin-function">
             <% if product.paintings.any? %>
               <% if is_admin? %>
-                <%if product.category.present? %>
-                  <%#= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
+                <%if @category.present? %>
+                  <div class="span4">
+                    <%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
+                  </div>
+                <% else %>
+                  <%= nil %>
                 <% end %>
-                  <div class="span6"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
-                  <div class="span6"><%= link_to "Edit Product", edit_product_path(product)  %></div>
+                  <div class="span3"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
+                  <div class="span4 offset1"><%= link_to "Edit Product", edit_product_path(product)  %></div>
               <% end %>
             <% end %>
           </div>
