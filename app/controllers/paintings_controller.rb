@@ -33,7 +33,7 @@ class PaintingsController < ApplicationController
   def show
     @users = User.all
     @user = current_user
-    @product = Product.find_by_id(@painting.paintable_id)
+    @product = Product.find_by_id(@painting.paintable_id) if @painting.paintable_type == "Product"
   end
 
   def edit
