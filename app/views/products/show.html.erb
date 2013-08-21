@@ -32,25 +32,29 @@
           </div>
         </h4>
       </div>
+
+    <div class="span12">
       <div id=" admin-function">
         <% if is_admin? && @product.user_id = current_user.id %>
-          <div class="span2"><%= button_to 'Add painting', add_product_painting_path(@product)%></div>
-          <div class="span2"><%= button_to 'Delete', @product, data: { confirm: "Do you want to delete #{@product.name}?", method: :delete, remote: true } %></div>
+          <div class="span3"><%= button_to 'Add painting', add_product_painting_path(@product), id: "button1"%></div>
+          <div class="span3"><%= button_to 'Delete', @product, data: { confirm: "Do you want to delete #{@product.name}?", method: :delete, remote: true }, id: "button1" %></div>
           <h4 style="color:grey">
-            <div class="span2"><a class="btn", <%= link_to 'Edit', edit_product_path(@product)%></a></div>
+            <div class="span3"><a class="btn", <%= link_to 'Edit', edit_product_path(@product), id: "button1"%></a></div>
       
           </h4>
         <% end %>
         <div id="cart-button">
-          <div class="span4">
+          <div class="span3">
             <%if current_user.present?%>
-              <%= button_to "Add To Cart", add_cart_item_path(@user, @cart, @product)  %>
+              <%= button_to "Add To Cart", add_cart_item_path(@user, @cart, @product), id: "button1"  %>
             <%else%>
               <%= "(Log in, to add to you're cart)" %>
             <% end %>
           </div>
         </div>
       </div>
+    </div>
+
     </div>
     <div class="row-fluid">
       <div class="span12">
