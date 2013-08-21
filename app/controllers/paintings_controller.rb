@@ -33,6 +33,7 @@ class PaintingsController < ApplicationController
   def show
     @users = User.all
     @user = current_user
+    @product = Product.find_by_id(@painting.paintable_id)
   end
 
   def edit
