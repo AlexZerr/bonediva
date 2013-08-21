@@ -1,5 +1,5 @@
   <div id="mid_component">
-    <div style="color:#9E2862">
+<div class="row-fluid">
       <div class="span10">
         <div class="form-header">
           <div class="span6">
@@ -14,9 +14,7 @@
           </div>
         </div>
       </div>
-      <div>
       <%= form_for @painting, :html => {:multipart => true} do |f| %>
-        <div class="row-fluid">
           <div class="span10">
             <div class="form-container">
               <div class="span6">
@@ -40,17 +38,11 @@
                     <%= f.text_field :remote_image_url %>
                   </p>
                   <p><%= collection_select(:painting, :paintable_id, @categories, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category" ) %></p>
-                  <% if is_admin? %>
-                    ADMIN - Will this image display on the homepage?:
-                    <%= f.check_box :home %>
-                  <% end %>
                 </div>
               </div>
                   <p><%= f.submit "Add Painting", id: "button1" %></p>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-    </div>
+        <% end %>
   </div>
+</div>
