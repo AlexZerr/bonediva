@@ -26,10 +26,13 @@
                       <%= render :partial =>  "sessions/login" %>
               <% end %>
               <div class="sidebar-links">  
-                <%if is_admin? %>
-                    <div class="span12"><%= link_to "Add a Product", new_product_path %></div>
                     <div class="span12"><%= link_to "#{@user.name.pluralize}' Products", products_path %></div>
+                <%if is_admin? %>
+                    <div class="span12">Admin Links</div>
+                    <div class="span12"><%= link_to "Add a Product", new_product_path %></div>
+                    <div class="span12"><%= link_to "Add a Painting", new_painting_path %></div>
                     <div class="span12"><%= link_to "Add a Category", new_category_path %></div>
+                    <div class="span12"><%= link_to "Add a recent event", new_blog_post_path %></div>
                 <% end %>
                 <% if @user.present?%>
                   <div class="cart-link">
