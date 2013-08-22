@@ -1,32 +1,32 @@
 <div id="mid_component">
   <div class="row-fluid">
-      <div class="span12">
-        <div class="paintings-holder"> 
-          <% @paintings.each do |paint| %>
-            <div class="span2">
-              <div class="painting">
-                <div class="span12">
-                  <div class="image">
+    <div class="span12">
+      <div class="paintings-holder"> 
+        <% @paintings.each do |paint| %>
+          <div class="span2">
+            <div class="painting">
+              <div class="span12">
+                <div class="image">
                     <%= link_to image_tag(paint.image_url(:thumb)), painting_path(paint) %>
-                  </div>
                 </div>
-                <div class="span12">
-                  <div class="user-link">
-                      Image Posted by: <%= link_to paint.user.username, user_path(paint.user) %>
-                  </div>
-                </div>
-                <div class="span12">
-                  <div class="admin-links">
+              </div>
+              <div class="span12">
+                 <div class="user-link">
+                      Image Posted by: <%= link_to truncate(paint.user.username, length: 9), user_path(paint.user) %>
+                 </div>
+              </div>
+              <div class="span12">
+                <div class="admin-links">
                   
-                    <% if is_admin? %>
-                      <%= link_to 'Delete', paint, data: {confirm: "Are you sure?", method: :delete, remote: true} %>
-                    <% end %>
-                  </div>
+                  <% if is_admin? %>
+                     <%= link_to 'Delete', paint, data: {confirm: "Are you sure?", method: :delete, remote: true} %>
+                  <% end %>
                 </div>
               </div>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
+    </div>
   </div>
 </div> 
