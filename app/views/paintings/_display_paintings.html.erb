@@ -1,0 +1,15 @@
+
+  <div>
+    <div>
+      <% @paintings.each do |paint| %>
+        <p>
+        <%= link_to (image_tag paint.image_url(:standard)), painting_path(paint) %></br>
+        <%= link_to "View this painting: #{paint.title}", painting_path(paint) %></br>
+        <%#= button_to "Add as featured", update_featured_painting_path(@category, paint)  %>
+        <%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: paint.id}), data: { method: :put } %>
+        </p>
+      <% end%>
+    </div>
+  </div>
+</div>
+

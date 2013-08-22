@@ -1,47 +1,32 @@
-<div style="color: #A00000">
-  <div style="text-align:center">
-    <h1>
-      <%= ""%>
-    </h1>
-  </div>
-</div>
-
 <div id="mid_component">
-  <% @paintings.each_slice(3) do |p| %>
-    <% i = 0 %>
-    <% u = 3 %>
-    <div class="row-fluid">
-
-      <% if p[0] == nil %>
-        <% u = 0 %>
-      <%end%>
-
-      <% if p[0] != nil and p[1] == nil and p[2] == nil %>
-        <% u = 1 %>
-      <%end%>
-
-      <% if p[0] != nil and p[1] != nil and p[2] == nil %>
-        <% u = 2 %>
-      <%end%>
-
-      <% while i < u %>
-        <div id="painting-<%= p[i].id %>">
-          <div class="span4">
-            Title: <%= p[i].title %>
-            <div class="displayImg" >
-              <%= link_to image_tag(p[i].image_url(:thumb)), painting_path(p[i]) %>
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="paintings-holder"> 
+        <% @paintings.each do |paint| %>
+          <div class="span2">
+            <div class="painting">
+              <div class="span12">
+                <div class="image">
+                    <%= link_to image_tag(paint.image_url(:thumb)), painting_path(paint) %>
+                </div>
+              </div>
+              <div class="span12">
+                 <div class="user-link">
+                      Image Posted by: <%= link_to truncate(paint.user.username, length: 9), user_path(paint.user) %>
+                 </div>
+              </div>
+              <div class="span12">
+                <div class="admin-links">
+                  
+                  <% if is_admin? %>
+                     <%= link_to 'Delete', paint, data: {confirm: "Are you sure?", method: :delete, remote: true} %>
+                  <% end %>
+                </div>
+              </div>
             </div>
-            Image Posted by: <%= link_to p[i].user.username, user_path(p[i].user) %>
-            <div>
-              <% if is_admin? %>
-                <%= link_to 'Delete', p[i], data: {confirm: "Are you sure?", method: :delete, remote: true} %>
-              <% end %>
-            </div>
-            </br>
           </div>
-        </div>
-        <% i = i+1 %>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  <% end %>
+  </div>
 </div> 

@@ -1,69 +1,34 @@
-<div class="row-fluid">
-  <h4>
-    <div>Categories:</div>
-  </h4>
-    <% @categories.each do |cat| %>
-      <div class="span1"><%= link_to "> #{cat.name }", category_path(cat) %></div>
-    <% end %>
-
-    <div class="span8">
-      <%= render partial: "products/products_search"%>
+  <div class="span10 offset2">
+    <div class="categories">
+      <h4>
+        <div>Categories:</div>
+      </h4>
     </div>
-</div>
-<div id="mid_component">
- <div class="row-fluid">
-    <% @products.each do |product| %>
-      <div>
-        <div class="span4">
-          <div id="painting-display">
-            <div class="span6">
-              <%=  link_to (image_tag (product.main_image(:thumb))), product_path(product) %></br>
-            </div>
-            <div id="description">
-              <div id="name">
-                <div class="span3">Name:</div>
-                <div class="span3"> <%= product.name%></div>
-              </div>
-              <div id="price">
-                <div class="span3">Price:</div>
-                <div clas="span3"><%= number_to_currency product.price %></div>
-              </div>
-            </div>
-        
-            <div style="float:right">
-              <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product), id: "button1" %>
-            </div>
-            <div id="admin-function">
-              <% if product.paintings.any? %>
-                <% if is_admin? %>
-                  <div class="span6"><%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %></div>
-                  <div class="span6"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
-                <% end %>
-              <% end %>
-            </div>
-            <div id="description">
-              <div class="span10">
-                <u><b>Description:</b></u> <%= "#{product.description}" %></br>
-              </div>
-            </div>
+  </div>
+  <div class="span10 offset2">
+    <div class="category_nav">
+      <% @categories.each do |cat| %>
+        <div class="span2 offset1">
+          <div class="category_list">
+            <div class="span12"><%= link_to "> #{cat.name }", category_path(cat) %></div>
           </div>
         </div>
-      </div> 
-    <% end %>
-  </div>
-</div>
--------
-  <div>
-    <div>
-      <% @paintings.each do |paint| %>
-        <p>
-        <%= link_to (image_tag paint.image_url(:standard)), painting_path(paint) %></br>
-        <%= link_to "View this painting: #{paint.title}", painting_path(paint) %></br>
-        <%#= button_to "Add as featured", update_featured_painting_path(@category, paint)  %>
-        <%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: paint.id}), data: { method: :put } %>
-        </p>
-      <% end%>
+      <% end %>
     </div>
   </div>
 
+  <div class="span10 offset2">
+    <div class="prod_search">
+      <%= render partial: "products/products_search"%>
+    </div>
+  </div>
+  <div class="span12">
+    <div id="mid_component">
+      <% if @products.present?%>
+        <%= render partial: "products/display_products" %>
+      <% else %>
+        Sorry, there are no products here.
+      <% end %>
+    </div>
+  </div>
 

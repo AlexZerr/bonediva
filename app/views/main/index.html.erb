@@ -1,78 +1,15 @@
-<div style="color: #A00000">
-  <div style="text-align:center">
-    <h1>
-      BoneDiva
-    </h1>
-  </div>
-<%= form_tag products_path, :method => :get do %>
-  <p>
-  <div style="color:red">
-    Search for a product by name.</br>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </div>
-  </p>
-<% end %>
-
-  <div style="color:red">
-    <div style="text-align:center">
-      <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
+    <div>
+      <%= render partial: "main/new_image"%>
     </div>
-  </div>
-
-</div>
-<div id="blog_post_box">
-  <div id="blog_posts">
-    <table>
-      <% @blog_posts.each do |post| %>
-          <tr class="<%= cycle('oddrow', 'evenrow') -%>">
-            <td>
-              <div id="blog_post">
-                <div class="span12">
-                  <div class="blog_header">
-                    <div class="blog-post-title">
-                      <div class="span7">
-                        <%= link_to post.title, blog_post_path(post)%>
-                      </div>
-                    </div>
-                    <div class="date">
-                      <div class="span4">
-                        <%= post.created_at%>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="span8">
-                  <div id="blog_body">
-                    <div class="span8">
-                      <%= post.body %>
-                    </div>
-                  </div>
-                </div>
-                <% if is_admin? %>
-                  <div class="span12">
-                    <div id="delete_link">
-                      <%= link_to "Delete", post, data: {confirm: "Are you sure you want to delete #{post.title }?", method: :delete } %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            </td>
-          </tr>
-      <%end%>
-    </table>
-  </div>
-</div>
+    <div class="span7 offset5">
+      <%= link_to "Lisa's for sale artwork", products_path%>
+    </div>
+    <div class="scroll_box">
+        <%= render partial: "products/display_products" %>
+    </div>
 
 
-<div id="homeBox">
-<h2>Great New Images!</h2>
-</br>
-<div class="row-fluid">
-  <div class="displayHomeImg">
-      <%= render partial: "products/display_products" %>
-  </div>
-</div>
-    </br>
-</div>
+    <div>
+      <%= render partial: "main/blog_posts" %>
+    </div>
 

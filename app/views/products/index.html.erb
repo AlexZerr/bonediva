@@ -1,24 +1,24 @@
-<div class="row-fluid">
-  <div class="span8">
-    <div id="category-nav">
-      <h4>
-        <div>Categories: (select a category)</div>
-      </h4>
-      <div class="span12">
-        <div id="nav">
-          <% @categories.each do |cat| %>
-            <div class="span2"><%= link_to "> #{cat.name }", category_path(cat) %></div>
-          <% end %>
-        </div>
+<div>
+  <div id="category-nav">
+    <h4 class="span12 offset2">
+      Categories: (select a category)
+    </h4>
+    <div class="span12 offset2">
+      <div id="nav">
+        <% @categories.each do |cat| %>
+          <div class="span2"><%= link_to "> #{cat.name }", category_path(cat) %></div>
+        <% end %>
       </div>
     </div>
   </div>
 
-  <div class="span8">
+  <div class="span12 offset2">
     <%= render partial: "products/products_search" %>
   </div>
 
-</div>
-<div id="mid_component">
- <%= render :partial => "products/display_products" %>
+  <div class="span12">
+    <div id="mid_component">
+      <%= render :partial => "products/display_products" %>
+    </div>
+  </div>
 </div>

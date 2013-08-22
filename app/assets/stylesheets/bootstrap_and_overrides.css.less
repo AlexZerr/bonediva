@@ -30,6 +30,26 @@
 // Example:
 // @linkColor: #ff0000;
 
+#sidebar {
+  background: #151515;
+  border: 5px solid #A00000;
+  border-radius:25px;
+  -moz-border-radius:25px; 
+  float: right;
+  padding: 15px;
+  width: 220px;
+  height: auto;
+  color: #A00000;
+  margin: 2px, 2px, 2px, 2px;
+  margin-top: 20px;
+  a:link {text-decoration: underline; color: grey;}
+  a:visited {color: #765E5E;}
+  a:hover { background: black; color: white;}
+  a:active { color: black;}
+
+}
+
+
 .login_textfield input[type="text"] {
   height: 13px;
   font-size: 14px;
@@ -49,14 +69,17 @@
   border-radius:10px;
   -moz-border-radius: 15px;
   padding: 6px;
+  margin-bottom: 10px;
   background-color: black;
+  overflow: hidden;
   a:link { color: grey; }
   a:visited {color: #444141;}
 }
 
 
 #blog_post_box {
-  width: 940px;
+  width: 878px;
+  margin-left: 145px;
 }
 
 .blog-post-title {
@@ -69,7 +92,6 @@
 }
 
 .blog-title {
-  width: 780px;
   height: 40px;
   border: 4px solid grey;
   border-radius:10px;
@@ -82,7 +104,6 @@
 }
 
 #blog-body {
-  width: 770px;
   height: 150px;
   border: 4px solid grey;
   padding: 8px;
@@ -93,22 +114,21 @@
 }
 
 #blog_post {
-  width: 935px;
   height: auto;
   text: 10px;
+  padding-left: 5px;
 }
 
-#blog_posts {
+.blog_posts {
   border: 4px solid #312F33;
-  width: 939px;
-  height: auto;
   margin-left: 40px;
   padding-left: -1px;
    
 }
 
 table {
-  width: 900px;
+  overflow: scroll;
+  height: 300px;
 }
 
 table tr.oddrow {
@@ -153,6 +173,7 @@ table tr.evenrow {
   border: 2px solid grey;
   border-radius:25px;
   -moz-border-radius: 25px;
+  background: #444344;
   padding: 15px;
   width: 760px;
   height: 25px auto;
@@ -173,7 +194,7 @@ table tr.evenrow {
   padding-left: 50px;
   border-radius:25px;
   -moz-border-radius: 25px;
-  margin-left: -10px;
+  margin-left: -5px;
 }
 
 .form-container {
@@ -184,7 +205,65 @@ table tr.evenrow {
   border: 2px solid grey;
   padding-left: 60px;
   padding-top: 50px;
-  margin-top: -125px;
-  margin-left: -10px;
+  margin-top: -45px;
+  margin-left: -26px;
   label {color: grey;}
 }
+
+.sidebar-links {
+  margin-top: 50px;
+}
+
+.scroll_box {
+  background: #151515;
+  border: 5px solid #A00000;
+  border-radius:25px;
+  -moz-border-radius: 25px;
+  padding: 15px;
+  padding-left: 62px;
+  width: 800px;
+  height: 230px;
+  color: #A00000;
+  margin: 0px auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  overflow: scroll;
+  
+}
+
+.new_image_holder {
+  border: 5px solid red;
+  background: #151515;
+  border-radius:25px;
+  -moz-border-radius: 25px;
+  height: auto;
+  width: 860px;
+  margin-left: 150px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+
+  
+}
+
+.new_image_title {
+  color: red;
+  
+}
+
+.new_image {
+  border: 3px solid #444344;
+  width: auto;
+  height: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: black;
+  
+
+}
+
