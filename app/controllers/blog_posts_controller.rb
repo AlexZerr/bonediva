@@ -15,7 +15,7 @@ class BlogPostsController < ApplicationController
 
   def create
     #bah User.where(email: "lisaluree@gmail.com") not working
-    @user = User.find(11)
+    @user = User.find(params[:user_id]) if is_admin?
     @blog_post = @user.blog_posts.new(params[:blog_post])
     @blog_post.user_id = @user.id
     if @blog_post.save
