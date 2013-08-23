@@ -12,7 +12,7 @@ class MainController < ApplicationController
     @products = Product.all(:limit => 50, :order => 'id DESC')
     @new_picture = Picture.new(params[:picture])
     @blog_posts = BlogPost.where( "created_at >= ? AND created_at <= ?", 1.month.ago, Time.now).order( "created_at DESC" ) 
-    @new_painting = User.find_by_email("lisaluree@gmail.com").paintings.last if User.present?
+    @new_painting = User.find_by_email("lisaluree@gmail.com").paintings.last if @new_painting.present?
   end
 
   def about
