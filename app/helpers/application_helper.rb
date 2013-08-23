@@ -37,4 +37,8 @@ module ApplicationHelper
 
   end
 
+  def image_tag(source, options = {})
+   super(source, options) unless source.to_s.blank?
+  end
+
 end
