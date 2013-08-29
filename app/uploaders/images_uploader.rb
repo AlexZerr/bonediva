@@ -50,7 +50,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
    end
 
    version :large do
-     process :resize_to_fit => [800,800]
+     process :resize_to_fit => [500,500]
    end
 
     version :standard do
@@ -58,7 +58,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
     end
 
     version :home do
-      process :resize_to_fit => [600,600]
+      process :resize_to_fit => [500,500]
     end
 
      version :thumb do
