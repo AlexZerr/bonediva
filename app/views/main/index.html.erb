@@ -1,6 +1,8 @@
+  <% if @new_painting.present? %>
     <div>
       <%= render partial: "main/new_image"%>
     </div>
+  <% end %>
     <div class="span7 offset5">
       <%= link_to "Lisa's for sale artwork", products_path%>
     </div>
