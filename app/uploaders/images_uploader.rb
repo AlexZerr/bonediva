@@ -15,7 +15,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   #storage :s3
-   storage :file
+   storage :fog
 
   #uploader = ImagesUploader.new
   #uploader.store!(my_file)
@@ -29,11 +29,8 @@ class ImagesUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-   def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-    "/app/public/uploads/missing_img.jpg"
-   end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
@@ -50,7 +47,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
    end
 
    version :large do
-     process :resize_to_fit => [800,800]
+     process :resize_to_fit => [500,500]
    end
 
     version :standard do
@@ -58,7 +55,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
     end
 
     version :home do
-      process :resize_to_fit => [600,600]
+      process :resize_to_fit => [500,500]
     end
 
      version :thumb do
