@@ -4,28 +4,29 @@
   </div>
   <div class="span12">
     <div id="blog_post_box">
-      <div id="blog_posts">
-        <table>
-          <% @blog_posts.each do |post| %>
-            <tr class="<%= cycle('oddrow', 'evenrow') -%>">
-              <td class="span12">
-                <div id="blog_post">
-                  <div class="span12">
-                    <div class="blog_header">
-                      <div class="blog-post-title">
-                        <div class="span7">
-                          <%= link_to post.title, blog_post_path(post)%>
+      <div class="span12">
+        <div id="blog_posts">
+          <table>
+            <% @blog_posts.each do |post| %>
+              <tr class="<%= cycle('oddrow', 'evenrow') -%>">
+                <td class="span12">
+                  <div id="blog_post">
+                    <div class="span12">
+                      <div class="blog_header">
+                        <div class="blog-post-title">
+                          <div class="span7">
+                            <%= link_to post.title, blog_post_path(post)%>
+                          </div>
                         </div>
-                      </div>
-                      <div class="date">
-                        <div class="span3 offset1">
-                          <div style="float:right">
-                            <%= post.created_at%>
+                        <div class="date">
+                          <div class="span3 offset1">
+                            <div style="float:right">
+                              <%= post.created_at%>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                     <div class="span12">
                       <div id="blog_body">
                         <div class="span12">
@@ -40,11 +41,12 @@
                         </div>
                       </div>
                     <% end %>
-                </div>
-              </td>
-            </tr>
-          <%end%>
-        </table>
+                  </div>
+                </td>
+              </tr>
+            <%end%>
+          </table>
+        </div>
       </div>
     </div>
   </div>
