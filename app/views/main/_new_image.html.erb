@@ -5,12 +5,20 @@
         <div class="new_image_title">
           Lisa lurees' latest work:</br>
           <div class="new_title">
-            <%= link_to @new_painting.title, painting_path(@new_painting) %>
+            <% if @new_painting.present? %>
+              <%= link_to @new_painting.title, painting_path(@new_painting) %>
+            <% else %>
+              Sorry no painting available
+            <% end %>
           </div>
         </div>
       </div>
       <div class="new_image">
-        <%= link_to (image_tag @new_painting.image_url(:large)), painting_path(@new_painting) %>
+        <% if @new_painting.present? %>
+          <%= link_to (image_tag @new_painting.image_url(:large)), painting_path(@new_painting) %>
+        <% else %>
+          Sorry no painting avalable
+        <% end %>
       </div>
     </div>
   </div>
