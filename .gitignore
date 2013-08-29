@@ -19,3 +19,4 @@ config/initializers/fog.rb
 config/s3_credentials.yml
 public/uploads/
 public/.DS_Store
+lib/carrierwave/storage/fog.rb
