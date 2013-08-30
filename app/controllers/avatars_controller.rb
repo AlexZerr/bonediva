@@ -11,5 +11,20 @@ class AvatarsController < ApplicationController
     @avatar.save
   end
 
+  def update
+    @user = current_user
+    if @user.avatar.present?
+     @avatar = @user.avatar
+    else 
+      @avatar = Avatar.new(params[:avatar])
+    end
+    @avatar.update_attributes(params[:avatar])
+    if @avatar.save
+      redirect_to :back, notice: "Avatar Updated"
+
+    end
+
+  end
+
   
 end
