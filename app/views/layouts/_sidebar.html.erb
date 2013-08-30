@@ -26,7 +26,7 @@
                       <%= render :partial =>  "sessions/login" %>
               <% end %>
               <div class="sidebar-links">  
-                    <div class="span12"><%= link_to "#{@user.name.pluralize}' Products", products_path if @user.present?%></div>
+                    <div class="span12"><%= link_to "#{current_user.name.pluralize}' Products", products_path if current_user.present?%></div>
                 <%if is_admin? %>
                     <div class="span12">Admin Links</div>
                     <div class="span12"><%= link_to "Add a Product", new_product_path %></div>
