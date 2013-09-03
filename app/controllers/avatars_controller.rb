@@ -6,10 +6,12 @@ class AvatarsController < ApplicationController
   end
 
   def create
-    #@user = User.find(session[:user_id])
-    @avatar = current_user.avatar.new(params[:avatar])
+    @user = User.find(params[:user_id])
+    @avatar = @user.avatar.new(params[:avatar])
     if @avatar.save
-      redirect_to :back, notice: "Avatar Uploaded"
+      redirect_to :back, notice: "Avatar created"
+    else
+      redirect_to :back, notice: "#{ @avatar.errors.full_message}"
     end
   end
 
