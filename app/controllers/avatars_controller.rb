@@ -6,7 +6,7 @@ class AvatarsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = current_user
     @avatar = @user.avatar.new(params[:avatar])
     @avatar.save
   end
