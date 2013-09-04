@@ -20,6 +20,7 @@ Bonediva::Application.routes.draw do
   resources :paintings
   resources :sessions
   resources :categories
+  resources :avatars
   resources :orders
   resources :blog_posts
   # Sample of regular route:
