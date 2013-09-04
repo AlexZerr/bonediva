@@ -1,4 +1,4 @@
-<%= form_for @user, @avatar, html: { multipart: true } do |f| %>
+<%= form_for @avatar, html: { multipart: true } do |f| %>
   <%= f.hidden_field :name, value: current_user.name if current_user.present? %>
   <p><%= f.label :image, "Avatar Uploader" %></br>
   <%= f.file_field :image %></p>
