@@ -7,7 +7,7 @@ class AvatarsController < ApplicationController
 
   def create
     @user = current_user
-      @avatar = Avatar.new(params[:avatar]i)
+      @avatar = Avatar.new(params[:avatar])
     if @avatar.save
       redirect_to :back, notice: "Avatar created"
     else
