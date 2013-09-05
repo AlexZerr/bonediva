@@ -12,7 +12,12 @@ class MainController < ApplicationController
     @products = Product.all(:limit => 50, :order => 'id DESC')
     @new_picture = Picture.new(params[:picture])
     @blog_posts = BlogPost.where( "created_at >= ? AND created_at <= ?", 1.month.ago, Time.now).order( "created_at DESC" ) 
-    @new_painting = User.find_by_email("lisaluree@gmail.com").paintings.last
+    @bone_user = User.find_by_email("lisaluree@gmail.com")
+    if @bone_user.paintings.last.paintable_type = "Product"
+      @new_painting = @bone_user.paintings.where(primary_painting: true).last
+    else
+      @new_painting = @bone_user.paintings.last
+    end
   end
 
   def about
