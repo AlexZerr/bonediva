@@ -19,7 +19,6 @@
             <div class="form-container">
               <div class="span6">
                 <div class="left">
-                  <%= f.hidden_field :paintable_type, value: "Category" %>
                   <%= f.label :title %><br />
                   <%= f.text_field :title, required: true %>
                   <p>
@@ -37,10 +36,10 @@
                     <%= f.label :remote_image_url, "Upload from a url" %></br>
                     <%= f.text_field :remote_image_url %>
                   </p>
-                  <p><%= collection_select(:painting, :paintable_id, @user_cat, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category" ) %></p>
+                  <p><%= collection_select(:painting, :user_category_id, @user_cats, :id, :name, options ={:prompt => "-Select a category"}, :class =>"user_category" ) %></p>
                   <% if current_user.admin? %>
                     Lisa's Categories
-                  <p><%= collection_select(:painting, :paintable_id, @categories, :id, :name, options ={:prompt => "Bonediva Category"}, :class =>"category" ) %></p>
+                  <p><%= collection_select(:painting, :category_id, @categories, :id, :name, options ={:prompt => "Bonediva Category"}, :class =>"category" ) %></p>
                   <% end %>
                 </div>
               </div>

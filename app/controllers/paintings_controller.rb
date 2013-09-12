@@ -15,7 +15,11 @@ class PaintingsController < ApplicationController
     @user = current_user
     @users = User.all
     @categories = Category.all
-    @user_cat = @user.user_categories
+      #if @user.user_categories.present?
+        @user_cats = @user.user_categories
+      #else
+        #@user_cats = "none"
+      #end 
   end
 
   def create
@@ -26,7 +30,14 @@ class PaintingsController < ApplicationController
       redirect_to new_user_path, :notice => "You must be logged in to add a picture"
     end
     if @painting.save
-      @painting.update_attributes(category_id: @painting.paintable_id)
+      if params[:painting][:user_category_id].present?
+        @painting.paintable_type = "UserCategory"
+        @painting.paintable_id = @painting.user_category_id
+      elsif params[:painting][:category_id].present?
+        @painting.paintable_type = "Category"
+        @painting.paintable_id = @painting.category_id
+      end
+        @painting.update_attributes(params[:painting])
       redirect_to painting_path(@painting), :notice => "#{@painting.title} was created sucessfully"
     end
   end
@@ -43,9 +54,12 @@ class PaintingsController < ApplicationController
 
   def update
       if params[:painting][:paintable_id] == @painting.category_id
-        @painting.pinnble_type = "Category"
+        @painting.paintable_type = "Category"
+      elsif params[:painting][:user_category_id] == @painting.user_category_id
+        @painting.paintable_type = "UserCategory"
+        @painting.paintable_id = @painting.user_category_id
       else
-        @painting.pinnable_type = "Product"
+        @painting.paintable_type = "Product"
       end
       @painting.save
       @painting.update_attributes(params[:painting])

@@ -1,23 +1,32 @@
-<div class="row-fluid">
-<div class="span12">
-  <div class="form">
-    <%= form_for new_user_user_category_path(@user), :html => { :multipart => true } do |f| %>
-      <div id="name">
-        <div class="span6">
-          <div class="span12"><%= f.label :name, "Category Name" %></div>
-          <div class="span12"><%= f.text_field :name, required: true %></div>
-        </div>
+<div class="form">
+  <div class="span12">
+    <div class="form-header">
+      <div style="text-align:center">
+        <h4>Add Some Categories for You're Paintings</h4>
       </div>
-      <div id="description">
-        <div class="span6">
-          <div class="span12"><%= f.label :description, "Description" %></div>
-          <div class="span12"><%= f.text_area :description, rows: 5 %></div>
+    </div>
+    <%= form_for ([@user, @user_cat]), :html => { :multipart => true } do |f| %>
+      <div class="span10">
+        <div class="form-container">
+          <div class="row-fluid">
+            <div class="span6">
+              <div id="left">
+                <div class="span12"><%= f.label :name, "Category Name" %></div>
+                <div class="span12"><%= f.text_field :name, required: true %></div>
+              </div>
+            </div>
+            <div class="span6">
+              <div id="description">
+                <div class="span12"><%= f.label :description, "Description" %></div>
+                <div class="span12"><%= f.text_area :description, rows: 5 %></div>
+              </div>
+            </div>
+            <div id="submit">
+              <div class="span12"><%= f.submit "Create Category", id: "button1" %></div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div id="submit">
-        <div class="span12"><%= f.submit "Create Category", id: "button1" %></div>
       </div>
     <% end %>
   </div>
-</div>
 </div>
