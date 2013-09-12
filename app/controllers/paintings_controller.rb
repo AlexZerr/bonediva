@@ -15,6 +15,7 @@ class PaintingsController < ApplicationController
     @user = current_user
     @users = User.all
     @categories = Category.all
+    @user_cat = @user.user_categories
   end
 
   def create

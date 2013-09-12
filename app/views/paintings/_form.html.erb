@@ -37,7 +37,11 @@
                     <%= f.label :remote_image_url, "Upload from a url" %></br>
                     <%= f.text_field :remote_image_url %>
                   </p>
-                  <p><%= collection_select(:painting, :paintable_id, @categories, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category" ) %></p>
+                  <p><%= collection_select(:painting, :paintable_id, @user_cat, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category" ) %></p>
+                  <% if current_user.admin? %>
+                    Lisa's Categories
+                  <p><%= collection_select(:painting, :paintable_id, @categories, :id, :name, options ={:prompt => "Bonediva Category"}, :class =>"category" ) %></p>
+                  <% end %>
                 </div>
               </div>
                   <p><%= f.submit "Add Painting", id: "button1" %></p>
