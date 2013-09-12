@@ -1,4 +1,5 @@
 class UserCategoriesController < ApplicationController
+  respond_to :html, :js
 
   before_filter :find_user
   
