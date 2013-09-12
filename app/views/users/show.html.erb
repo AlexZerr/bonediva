@@ -26,7 +26,41 @@
 </div>
 <div>
   <% @user_cats.each do |u| %>
-   <%= u.name %>
+    <div style="text-align:center">
+      <h4>
+        <%= link_to u.name, user_user_category_path(@user, u) %>
+      </h4>
+    </div>
+      <div class="categories">
+        <div class="span12">
+        </div>
+        <div class="category_container">
+          <div class="row-fluid">
+            <div class="span12">
+              <% u.paintings.each do |paint| %>
+                <div class="paintings">
+                  <div class="span3">
+                    <div class="painting_container">
+                      <div class="paint-title">
+                        <div class="span12">
+                          <%= paint.title %>
+                        </div>
+                      </div>
+                      <div class="paint-image">
+                        <div class="span10">
+                          <div class="painting">
+                            <%= link_to (image_tag paint.image_url(:thumb)), painting_path(paint) %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
   <% end %>
 </div>
 
@@ -39,7 +73,7 @@
                <div class="span12"><%= truncate(p.title, length: 18) %></div>
                <div class="span12"><%= link_to (image_tag p.image_url(:thumb).to_s), painting_path(p) %></div>
                <% if @user.user_categories.present? %>
-                 <%= link_to "Add as featured", user_user_category_path( [p.user_category], user_category: { featured_painting_id: p.id}), data: { method: :put } %>
+                 <%= link_to "Add as featured", user_user_category_path( ([@user, p.user_category_id]), user_category: { featured_painting_id: p.id}), data: { method: :put } %>
                <% end %>
             </div>
         </li>
