@@ -29,7 +29,6 @@ class PaintingsController < ApplicationController
     else
       redirect_to new_user_path, :notice => "You must be logged in to add a picture"
     end
-    if @painting.save
       if params[:painting][:user_category_id].present?
         @painting.paintable_type = "UserCategory"
         @painting.paintable_id = @painting.user_category_id
@@ -37,7 +36,9 @@ class PaintingsController < ApplicationController
         @painting.paintable_type = "Category"
         @painting.paintable_id = @painting.category_id
       end
-        @painting.update_attributes(params[:painting])
+    if @painting.save
+
+        #@painting.update_attributes(params[:painting])
       redirect_to painting_path(@painting), :notice => "#{@painting.title} was created sucessfully"
     end
   end
