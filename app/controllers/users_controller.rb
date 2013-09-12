@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_cat = 
+    @user_cats = @user.user_categories 
     @users = User.all
     @paintings = if current_user.present? 
                   @user.paintings

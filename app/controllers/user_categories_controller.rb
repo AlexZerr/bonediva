@@ -21,7 +21,7 @@ class UserCategoriesController < ApplicationController
   end
 
   def update
-    @user_cat = @user.user_categories.find(params[:id])
+    @user_cat = @user.user_categories.find(params[:user_category_id])
     @user_cat.update_attributes(params[:user_category])
     if @user_cat.save
       redirect_to user_path(@user), notice: "Category Updated!"

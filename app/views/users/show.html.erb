@@ -24,7 +24,11 @@
      <%= link_to "Edit User Info", edit_user_path(@user) %>
  </div>
 </div>
-
+<div>
+  <% @user_cats.each do |u| %>
+   <%= u.name %>
+  <% end %>
+</div>
 
 <div id="mid_component">
   <div class="row-fluid">
@@ -34,6 +38,9 @@
             <div>
                <div class="span12"><%= truncate(p.title, length: 18) %></div>
                <div class="span12"><%= link_to (image_tag p.image_url(:thumb).to_s), painting_path(p) %></div>
+               <% if @user.user_categories.present? %>
+                 <%= link_to "Add as featured", user_user_category_path( [p.user_category], user_category: { featured_painting_id: p.id}), data: { method: :put } %>
+               <% end %>
             </div>
         </li>
       </ul>
