@@ -13,9 +13,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_cats = @user.user_categories 
     @users = User.all
     @paintings = if current_user.present? 
-                  @user.paintings
+                  @user.paintings.where(user_category_id: nil)
                  else
                   redirect_to root_path, :notice => "log in"
                  end 
