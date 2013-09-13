@@ -28,6 +28,7 @@
               <div class="sidebar-links">  
                     <div class="span12"><%= link_to "Products", products_path if current_user.present?%></div>
                     <div class="span12"><%= link_to "Add a Painting", new_painting_path %></div>
+                    <div class="span12"><%= link_to "Create a Category", new_user_user_category_path(current_user)%>
                 <%if is_admin? %>
                     <div class="span12">Admin Links</div>
                     <div class="span12"><%= link_to "Add a Product", new_product_path %></div>

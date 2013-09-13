@@ -21,7 +21,8 @@
         <p>website: <%= link_to @user.name, user_path %>
       <% end %>
     </h2>
-     <%= link_to "Edit User Info", edit_user_path(@user) %>
+     <%= link_to "Edit User Info", edit_user_path(@user) %>,
+     <%= link_to "Create a Category", new_user_user_category_path(@user)%>
  </div>
 </div>
 <div>
