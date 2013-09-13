@@ -1,0 +1,19 @@
+
+<div class="row-fluid">
+  <div class="categories-list">
+    <div class="span12">
+      <div class="categories">
+        <% @user_cats.each do |cat| %>
+          <div class="category">
+            <div class="span6">
+              <%= cat.name %>
+            </div>
+            <div class="span3">
+              <%= link_to "Delete", user_user_category_path(@user, cat), method: :delete %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

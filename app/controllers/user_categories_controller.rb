@@ -5,7 +5,7 @@ class UserCategoriesController < ApplicationController
   
   def new
     @user = current_user
-    @user_cat = @user.user_categories.new
+    @user_cat = ([@user, @user.user_categories.new])
   end
 
   def create
@@ -18,11 +18,12 @@ class UserCategoriesController < ApplicationController
   end
 
   def edit
-
+    @cat = @user.user_categories.find(params[:id])
+    @user_cat = ([@user, @cat])
   end
 
   def update
-    @user_cat = @user.user_categories.find(params[:user_category_id])
+    @user_cat = @user.user_categories.find(params[:id])
     @user_cat.update_attributes(params[:user_category])
     if @user_cat.save
       redirect_to user_path(@user), notice: "Category Updated!"
@@ -31,7 +32,9 @@ class UserCategoriesController < ApplicationController
 
   def destroy
     @user_cat = @user.user_categories.find(params[:id])
-    @user_cat.destroy 
+    if @user_cat.destroy
+      redirect_to :back, notice: "Category Deleted!"
+    end 
   end
 
   private
