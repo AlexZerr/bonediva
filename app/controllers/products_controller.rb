@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  respond_to :js, :html
+  
 
   def index
     if params[:search].present?
@@ -11,7 +13,7 @@ class ProductsController < ApplicationController
     @user = current_user
     @cart = @user.carts.last
     @categories = Category.all
-    render
+    respond_with @products
   end
   
   def show
