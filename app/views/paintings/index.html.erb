@@ -12,7 +12,7 @@
               </div>
               <div class="span12">
                  <div class="user-link">
-                      Image Posted by: <%= link_to truncate(paint.user.username, length: 9), user_path(paint.user) %>
+                      Image Posted by: <%= link_to truncate(paint.user.username, length: 9), user_path(paint.user) if paint.user.present? %>
                  </div>
               </div>
               <div class="span12">

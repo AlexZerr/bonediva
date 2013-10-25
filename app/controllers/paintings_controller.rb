@@ -90,7 +90,7 @@ class PaintingsController < ApplicationController
   private
 
   def find_painting
-    @painting = Painting.find(params[:id])
+    @painting = Painting.find(params[:id]) if params[:id].present?
   end
 
 end
