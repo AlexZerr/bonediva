@@ -2,7 +2,7 @@
  function bigImg(x)
   {
     $(x).css('height','225px');
-    $(x).css('width', '225px');
+    $(x).css('width', '220px');
   };
   
   function normalImg(x){
