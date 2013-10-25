@@ -1,7 +1,7 @@
 class PaintingsController < ApplicationController
   respond_to :html, :js, :json
   before_filter :ensure_admin, only: [:destroy]
-  before_filter :find_painting, only:[:show, :update, :destroy]
+  before_filter :find_painting, only:[:show, :update, :destroy, :index]
 
   def index
     @paints = Painting.where(paintable_type: "Category")

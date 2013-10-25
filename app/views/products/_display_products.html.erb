@@ -3,19 +3,23 @@
   <% @products.each do |product| %>
     <div id="product-list">
       <div class="span4">
-        <div id="painting-display">
+        <div class="painting-display">
           <div class="span6">
-             <%=  link_to (image_tag (product.main_image(:thumb))), product_path(product) %></br>
+            <div class="painting1">
+              <%=  link_to (image_tag (product.main_image(:standard))), product_path(product) %></br>
+            </div>
           </div>
+          <div>
           <div id="description">
             <div id="name">
               <div class="span3">Name:</div>
               <div class="span3"> <%= link_to truncate(product.name, length: 15), product_path(product) %></div>
             </div>
-            <div id="price">
+            <div class="price">
               <div class="span3">Price:</div>
-              <div clas="span3"><%= number_to_currency product.price %></div>
+              <div class="span3"><%= number_to_currency product.price %></div>
             </div>
+          </div>
           </div>
         
           <div class="span12">
