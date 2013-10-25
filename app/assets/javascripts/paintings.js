@@ -26,7 +26,6 @@
 $(function() {
   $('.painting1').hover( function(){
       bigImg($(this));
-      ('.price').css('opacity','0.6')
   }, 
       function(){
         normalImg($(this));
