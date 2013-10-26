@@ -84,11 +84,16 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @paintings = Painting.where(product_id: @product.id)
+    @paintings = @product.paintings
+    @cart_item = CartItem.where( id: @product.cart_item_id)
      if @product.destroy
-       @product.cart_item.destroy
-       @paintings.destroy
-       redirect_to categories_path
+       if @cart_item.present?
+         @cart_item.destroy
+       end 
+       if @paintings.present?
+         @paintings.destroy
+       end
+       redirect_to products_path
      end
 
 #     respond_to do |format|

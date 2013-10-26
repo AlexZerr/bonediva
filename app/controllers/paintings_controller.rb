@@ -72,8 +72,9 @@ class PaintingsController < ApplicationController
   end
 
   def destroy
-    @painting.destroy
+   if @painting.destroy
     respond_with @painting
+   end
   end
 
   def add_product_painting

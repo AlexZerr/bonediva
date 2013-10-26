@@ -54,7 +54,10 @@
                     <div class="paint-image">
                       <div class="span10">
                         <div class="painting">
-                          <%= link_to (image_tag paint.image_url(:thumb)), painting_path(paint) %>
+                          <% if paint.paintable_type == "Product" %>
+                            <%= link_to (image_tag paint.image_url(:thumb)), product_path(paint.paintable_id) %>
+                          <% else %>
+                          <% end %>
                         </div>
                       </div>
                     </div>
