@@ -30,7 +30,7 @@ $(function() {
   },
   function(){
     normalImg($(this));
-  });
+  }).show('slow');
 });
 
         
