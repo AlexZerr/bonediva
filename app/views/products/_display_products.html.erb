@@ -1,27 +1,32 @@
 <div class="row-fluid">
 <div id="products"> 
   <% @products.each do |product| %>
-    <div id="product-list">
+    <div class="product-list">
       <div class="span4">
         <div class="painting-display">
-          <div class="span6">
-            <div class="painting1">
-              <%=  link_to (image_tag (product.main_image(:standard))), product_path(product) %></br>
+          <div class="span12">
+            <div class="top">
+              <div class="span6">
+                <div class="painting1">
+                  <%=  link_to (image_tag (product.main_image(:standard))), product_path(product) %></br>
+                </div>
+              </div>
+              <div class="span6">
+                <div class="info">
+                  <div class="span12">
+                    <div class="name">
+                        Name: <%= link_to truncate(product.name, length: 15), product_path(product) %>
+                    </div>
+                  </div>
+                  <div class="span12">
+                    <div id="price">
+                      <div class="span10">Price: <%= number_to_currency product.price %></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div>
-          <div id="description">
-            <div id="name">
-              <div class="span3">Name:</div>
-              <div class="span3"> <%= link_to truncate(product.name, length: 15), product_path(product) %></div>
-            </div>
-            <div class="price">
-              <div class="span3">Price:</div>
-              <div class="span3"><%= number_to_currency product.price %></div>
-            </div>
-          </div>
-          </div>
-        
           <div class="span12">
             <div id="cart-button">
               <div style="float:right">

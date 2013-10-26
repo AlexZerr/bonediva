@@ -70,10 +70,12 @@
   -moz-border-radius: 15px;
   padding: 6px;
   margin-bottom: 10px;
+  margin-right: 0px;
   background-color: black;
   overflow: hidden;
   a:link { color: grey; }
   a:visited {color: #444141;}
+  z-index: 2;
 }
 
 .painting-big {
@@ -167,6 +169,7 @@ table tr.evenrow {
   background-color: #312F33;
   border-radius:10px;
   -moz-border-radius: 15px;
+  z-index: 3;
 }
 
 #total-box {
@@ -322,7 +325,15 @@ table tr.evenrow {
   margin: 1px;
   border: 2px solid #242324;
   margin-right: 10px;
+  position: relative;
+  background: black; 
+  z-index: 5;
 }
+
+.info {
+  z-index: 4;
+}
+
 
 .user-cat-link {
   a:link {text-decoration: underline; color: #F82B2B;}
@@ -332,3 +343,6 @@ table tr.evenrow {
  
 }
 
+.clear-text {
+  opacity: 0; 
+}

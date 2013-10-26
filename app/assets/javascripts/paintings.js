@@ -3,6 +3,7 @@
   {
     $(x).css('height','225px');
     $(x).css('width', '220px');
+      
   };
   
   function normalImg(x){
@@ -25,12 +26,14 @@
     });*/
 $(function() {
   $('.painting1').hover( function(){
-      bigImg($(this));
-  }, 
-      function(){
-        normalImg($(this));
-     });
+    bigImg($(this));
+  },
+  function(){
+    normalImg($(this));
+  });
 });
+
+        
 
 /*$(function() {
    $('#painting-display').hover( function(){
