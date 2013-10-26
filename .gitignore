@@ -20,3 +20,8 @@ config/s3_credentials.yml
 public/uploads/
 public/.DS_Store
 lib/carrierwave/storage/fog.rb
+public/assets/application-*
+public/assets/application-*
+public/assets/fontawesome-*
+public/assets/twitter/bootstrap/glyphicons-*
+
