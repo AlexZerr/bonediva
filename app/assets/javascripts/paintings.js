@@ -1,14 +1,14 @@
 
  function bigImg(x)
   {
-    $(x).css('height','225px');
-    $(x).css('width', '220px');
+    $(x).css('height','225%');
+    $(x).css('width', '201%');
       
   };
   
   function normalImg(x){
-    $(x).css('height','100px');
-    $(x).css('width', '100px');
+    $(x).css('height','100%');
+    $(x).css('width', '100%');
 
   };
 
