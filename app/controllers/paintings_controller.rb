@@ -36,6 +36,16 @@ class PaintingsController < ApplicationController
         @painting.paintable_type = "Category"
         @painting.paintable_id = @painting.category_id
       end
+      if @painting.paintable_type = "Product"
+        @product = Product.find(@painting.paintable_id)
+
+        if !params[:name].present?
+          @painting.title = @product.name
+        end
+        if !params[:description].present?
+          @painting.description = @product.description
+        end
+      end
     if @painting.save
 
         #@painting.update_attributes(params[:painting])
@@ -72,8 +82,9 @@ class PaintingsController < ApplicationController
   end
 
   def destroy
-    @painting.destroy
+   if @painting.destroy
     respond_with @painting
+   end
   end
 
   def add_product_painting
@@ -83,7 +94,7 @@ class PaintingsController < ApplicationController
     @painting.paintable_id = @product.id
     @painting.category_id = @product.category_id
     if @painting.save
-      redirect_to @product
+              redirect_to product_path(@product)
     end
   end
 
