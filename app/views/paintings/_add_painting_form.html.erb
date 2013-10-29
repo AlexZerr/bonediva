@@ -5,7 +5,7 @@
         <%= form_for @painting, :html => {:multipart => true} do |f| %>
           <div id="name">
             <div class="span6"><%= f.label :title, "Name" %></div>
-            <div class="span6"><%= f.text_field :title %></div>
+            <div class="span6"><%= f.text_field :title, default: "#{@product.name}" %></div>
           </div>
           <div id="description">
             <div class="span6"><%= f.label :description, "Description" %></div>

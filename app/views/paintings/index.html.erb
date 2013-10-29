@@ -17,7 +17,7 @@
                 <div class="admin-links">
                   
                   <% if is_admin? %>
-                     <%= link_to 'Delete', paint, data: {confirm: "Are you sure?", method: :delete, remote: true} %>
+                     <%= button_to 'Delete', paint, data: {confirm: "Are you sure?", method: :delete, remote: true, class: "button1"}  %>
                   <% end %>
                 </div>
               </div>
