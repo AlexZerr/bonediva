@@ -45,7 +45,15 @@
                           </div>
                         </div>
                       <% end %>
-                      
+
+                      <div class="span4 offset8">
+                        <div class="posted-by">
+                          <div class="span12">
+                            <%= "Posted by: #{post.user.username}" %>
+                          </div>
+                        </div>
+                      </div>
+
                       <% if is_admin? %>
                         <div class="span12">
                           <div id="delete_link">
