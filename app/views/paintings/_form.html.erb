@@ -23,15 +23,17 @@
                   <%= f.text_field :title, required: true %>
                   <p>
                     <%= f.label :description, "Description" %></br>
-                    <%= f.text_field :description %>
+                    <%= f.text_area :description, rows: 5 %>
                   </p>
                 </div>
               </div>
               <div class="span6">
                 <div class="right">
                   <p>
+                  <%= f.label :image, "Browse Files"%>
                   <%= f.file_field :image %>
                   </p>
+                  Or
                   <p>
                     <%= f.label :remote_image_url, "Upload from a url" %></br>
                     <%= f.text_field :remote_image_url %>
