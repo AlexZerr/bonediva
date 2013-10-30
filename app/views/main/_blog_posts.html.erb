@@ -28,13 +28,24 @@
                           </div>
                         </div>
                       </div>
-                      <div class="span12">
+                      <div class="span6">
                         <div id="blog_body">
                           <div class="span12">
                             <%= post.body %>
                           </div>
                         </div>
                       </div>
+
+                      <% if post.image_url.present? %>
+                        <div class="span6">
+                          <div class="blog-image">
+                            <div class="span12">
+                              <%= image_tag post.image_url(:small)%>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                      
                       <% if is_admin? %>
                         <div class="span12">
                           <div id="delete_link">
