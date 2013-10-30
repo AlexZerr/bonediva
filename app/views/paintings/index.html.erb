@@ -3,10 +3,10 @@
     <div class="span12">
       <div class="paintings-holder"> 
         <% @paintings.each do |paint| %>
-            <div class="image">
+            <div class="images-holder">
           <div class="span3">
               <div class="span12">
-                <%= link_to image_tag(paint.image_url(:thumb), class: "painting1"), painting_path(paint) %>
+                <%= link_to image_tag(paint.image_url(:standard), class: "painting1"), painting_path(paint) %>
               </div>
               <div class="span6">
                  <div class="user-link">
@@ -17,7 +17,7 @@
                 <div class="admin-links">
                   
                   <% if is_admin? %>
-                     <%= button_to 'Delete', paint, data: {confirm: "Are you sure?", method: :delete, remote: true, class: "button1"}  %>
+                     <%= link_to 'Delete', paint, data: {confirm: "Are you sure?", method: :delete, remote: true, class: "button1"}  %>
                   <% end %>
                 </div>
               </div>

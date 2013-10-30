@@ -8,7 +8,6 @@
               <div id="title">
                 <%= f.label :title, "Title" %>
                 <%= f.text_field :title, required: true %>
-                  <%= f.submit  id: 'button1' %>
               </div>
             </div>
             <div class="span6">
@@ -16,6 +15,25 @@
                 <%= f.label :body, "Blog Body" %>
                 <%= f.text_area :body, rows: 5, required: true %>
               </div>
+            </div>
+            <div class="span12">
+              <div class="uploader-set">
+                <div class="span6">
+                  <div class="uploader">
+                    <%= f.label :image, "Browse Files" %>
+                    <%= f.file_field :image %></br>
+                  </div>
+                </div>
+                <div class="span6">
+                  <div class="url_uploader">
+                    <%= f.label :remote_image_url, "Upload from the Web" %>
+                    <%= f.text_field :remote_image_url %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <%= f.submit  id: 'button1' %>
             </div>
         </div>
       </div>
