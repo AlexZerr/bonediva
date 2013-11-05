@@ -83,7 +83,9 @@ class PaintingsController < ApplicationController
 
   def destroy
    if @painting.destroy
-    respond_with @painting
+    respond_to do |format|
+      format.js
+    end
    end
   end
 

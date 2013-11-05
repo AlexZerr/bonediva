@@ -1,25 +1,19 @@
-  <div class="span10 offset2">
-    <div class="categories">
-      <h4>
-        <div>Categories:</div>
-      </h4>
+  <div class="cat-search">
+    <div class="span4 offset2">
+      <div id="cat2">
+        <%= link_to "Search by Category", '#' %>
+      </div>
+      <div>
+        <%= render partial: "categories/search_drop_down"%>
+      </div>
     </div>
-  </div>
-  <div class="span10 offset2">
-    <div class="category_nav">
-      <% @categories.each do |cat| %>
-        <div class="span2 offset1">
-          <div class="category_list">
-            <div class="span12"><%= link_to "> #{cat.name }", category_path(cat) %></div>
-          </div>
-        </div>
-      <% end %>
+    <div class="span2">
+      <h3>Or</h3>
     </div>
-  </div>
-
-  <div class="span10 offset2">
-    <div class="prod_search">
-      <%= render partial: "products/products_search"%>
+    <div class="span4">
+      <div class="prod_search">
+        <%= render partial: "products/products_search"%>
+      </div>
     </div>
   </div>
   <div class="span12">

@@ -1,1 +1,2 @@
-($("#painting-<%=@painting.id%>").remove()); 
+$("#painting-<%=@painting.id%>").remove(); 
+$("#paintings-row").html('<%= j(render (partial: "paintings/paintings", :locals => {paintings: @paintings}))  %>');

@@ -33,15 +33,7 @@
           </p>
         <% end %>
       </p>
-             <div class="span12">
-               <div id="drop-down" >
-                 <% Category.all.each do |cat| %>
-                   <div class="name">
-                     <h6><%= link_to cat.name, category_path(cat) %></h6>
-                  </div>
-                 <% end %>
-               </div>
-             </div>
+      <%= render partial: "categories/drop_down"%>
     </div><!--end #top_bar-->
     <%=image_tag("top_image2.jpg", :alt => "rss feed", :class => "top_image")  %>
     <div style="color:red"> 

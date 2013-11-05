@@ -1,0 +1,10 @@
+
+             <div class="span12">
+               <div id="bottom" >
+                 <% Category.all.each do |cat| %>
+                   <div class="name">
+                     <h6><%= link_to cat.name, category_path(cat) %></h6>
+                  </div>
+                 <% end %>
+               </div>
+             </div>
