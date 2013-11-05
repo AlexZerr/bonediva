@@ -1,29 +1,26 @@
-<div>
-
-  <div class="span6 offset2">
-    <%= render partial: "products/products_search" %>
-  </div>
-  <div class="span4">
-
-  <div id="category-nav">
-    <div class="span12">
-      <div id="nav">
-    <h5>
-      Or by Category
-    </h5>
-    <div>
-      <%= select_tag 'category', options_from_collection_for_select(Category.all, :id, :name), multiple: true, class: "category"%>
-    <%= submit_tag "search", class: "category", method: :get%>
-  </div>
-             
+  <div class="cat-search">
+    <div class="span4 offset2">
+      <div id="cat2">
+        <%= link_to "Search by Category", '#' %>
+      </div>
+      <div>
+        <%= render partial: "categories/search_drop_down"%>
+      </div>
+    </div>
+    <div class="span2">
+      <h3>Or</h3>
+    </div>
+    <div class="span4">
+      <div class="prod_search">
+        <%= render partial: "products/products_search"%>
       </div>
     </div>
   </div>
-  </div>
+
+
 
   <div class="span12">
     <div id="mid_component">
       <%= render :partial => "products/display_products" %>
     </div>
   </div>
-</div>
