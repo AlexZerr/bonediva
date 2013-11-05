@@ -18,6 +18,7 @@ class MainController < ApplicationController
     elsif @bone_user.paintings.last.paintable_type == "Category"
       @new_painting = @bone_user.paintings.where(paintable_type: "Category").last
     end
+    @categories = Category.all
   end
 
   def about

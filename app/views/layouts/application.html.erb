@@ -23,7 +23,9 @@
           <p class="left">
              <a href="/paintings/new/">Add a Painting</a>
              <a href="/paintings/">All Paintings</a>
-             <a href="/categories/">Bonediva Originals</a>
+             <%= content_tag "a#cat", id: "cat", data:{ url: categories_url }  do %>
+               <a href="#">Categories</a>
+             <% end %>
           </p>
 
           <p class="right">
@@ -31,6 +33,15 @@
           </p>
         <% end %>
       </p>
+             <div class="span12">
+               <div id="drop-down" >
+                 <% Category.all.each do |cat| %>
+                   <div class="name">
+                     <h6><%= link_to cat.name, category_path(cat) %></h6>
+                  </div>
+                 <% end %>
+               </div>
+             </div>
     </div><!--end #top_bar-->
     <%=image_tag("top_image2.jpg", :alt => "rss feed", :class => "top_image")  %>
     <div style="color:red"> 
