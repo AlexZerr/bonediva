@@ -37,12 +37,14 @@ function displaydiv(e,divid){
     div.style.left = left;
     div.style.top = top;
 
-    $("#"+divid).toggle();
+    $("#"+divid).toggle(
+    600);
     return false;
 
 }
     $(function() {
-      $('#cat').click( function() {
+      var cat = $('#cat')
+      cat.click( function() {
         displaydiv('#drop-down', 'drop-down')
       });
     });
