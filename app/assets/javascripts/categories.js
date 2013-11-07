@@ -28,8 +28,8 @@ $(function() {
 }); */
 function displaydiv(e,divid){
 
-    var left  = e.clientX  + "px";
-    var top  = e.clientY  + "px";
+    var left  = (e.clientX  + "px");
+    var top  = (e.clientY  + "px");
 
     var div = document.getElementById(divid);
 
