@@ -1,10 +1,11 @@
-
-             <div class="span12">
-               <div id="drop-down" >
-                 <% Category.all.each do |cat| %>
-                   <div class="name">
-                     <h6><%= link_to cat.name, category_path(cat) %></h6>
+          <div>
+                <div class="span12">
+                  <div id="drop-down" >
+                    <% Category.all.each do |cat| %>
+                      <ul class="name">
+                        <%= link_to cat.name, category_path(cat), class: 'name-cat' %>
+                      </ul>
+                    <% end %>
                   </div>
-                 <% end %>
-               </div>
-             </div>
+                </div>
+          </div>

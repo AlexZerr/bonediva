@@ -32,9 +32,11 @@
              <a href="/log_out">Sign Out</a>
           </p>
         <% end %>
-      </p>
-      <%= render partial: "categories/drop_down"%>
+        </p>
     </div><!--end #top_bar-->
+        <div class="the-drop">
+          <%= render partial: "categories/drop_down"%>
+        </div>
     <%=image_tag("top_image2.jpg", :alt => "rss feed", :class => "top_image")  %>
     <div style="color:red"> 
       <div style="text-align:center" > 
@@ -53,14 +55,14 @@
             <%= yield %>
           </div>
         </div>
-          <div class="span2">
         <% if !@hide_sidebar %>
+          <div class="span2">
             <div class="side">
               <%= render partial: "layouts/sidebar" %>
               <%= yield :sidebar %>
             </div>
-        <% end %>
           </div>
+        <% end %>
       </div>
     </div>
       <div id="user_nav">

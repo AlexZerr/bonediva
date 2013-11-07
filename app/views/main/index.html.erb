@@ -1,17 +1,30 @@
+<div>
   <% if @new_painting.present? %>
-    <div>
-      <%= render partial: "main/new_image"%>
+    <div class="span12">
+      <div id="home_image">
+        <%= render partial: "main/new_image"%>
+      </div>
     </div>
   <% end %>
-    <div class="span7 offset5">
-      <%= link_to "Lisa's for sale artwork", products_path%>
+</div>
+<div>
+  <div class="span12">
+    <div id="second-box">
+      <div class="span7 offset5">
+        <%= link_to "Lisa's for sale artwork", products_path%>
+      </div>
+      <div class="span12">
+        <div class="scroll_box">
+          <%= render partial: "products/display_products" %>
+        </div>
+      </div>
     </div>
-    <div class="scroll_box">
-        <%= render partial: "products/display_products" %>
-    </div>
-
-
-    <div class="span12">
+  </div>
+</div>
+<div>
+  <div class="span12">
+    <div id="blogs-box">
       <%= render partial: "main/blog_posts" %>
     </div>
-
+  </div>
+</div>

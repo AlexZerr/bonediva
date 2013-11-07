@@ -43,9 +43,11 @@ function displaydiv(e,divid){
 
 }
     $(function() {
-      var cat = $('#cat')
+      var cat = $('#cat'),
+          dropDown = $('#drop-down')
       cat.click( function() {
-        displaydiv('#drop-down', 'drop-down')
+        displaydiv('#drop-down', 'drop-down');
+        $('.top_image').on('mouseover', function() {dropDown.hide(600)}); 
       });
     });
 

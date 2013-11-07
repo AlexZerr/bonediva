@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
       @products = Product.all
     end
     @user = current_user
-    @cart = @user.carts.last
+    @cart = @user.carts.last if @user.present?
     @categories = Category.all
     respond_with @products
   end
