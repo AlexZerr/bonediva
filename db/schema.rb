@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131030055356) do
+ActiveRecord::Schema.define(:version => 20131108040043) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20131030055356) do
     t.integer  "category_id"
     t.boolean  "primary_painting",               :default => false
     t.integer  "user_category_id"
+    t.boolean  "aceo",                           :default => false
   end
 
   create_table "pictures", :force => true do |t|
@@ -111,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20131030055356) do
     t.integer "primary_painting_id"
     t.boolean "sold",                :default => false
     t.integer "cart_item_id"
+    t.boolean "aceo",                :default => false
   end
 
   add_index "products", ["description"], :name => "index_products_on_description"

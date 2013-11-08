@@ -35,8 +35,7 @@ class PaintingsController < ApplicationController
       elsif params[:painting][:category_id].present?
         @painting.paintable_type = "Category"
         @painting.paintable_id = @painting.category_id
-      end
-      if @painting.paintable_type = "Product"
+      elsif @painting.paintable_type = "Product"
         @product = Product.find(@painting.paintable_id)
 
         if !params[:name].present?

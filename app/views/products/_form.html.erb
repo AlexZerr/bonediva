@@ -15,7 +15,13 @@
       <%= p.hidden_field :primary_painting, value: true %>
       <p><%= collection_select(:product, :category_id, @categories, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category", required: true) %></p>
     <% end %>
-  <p><%= f.submit "Create Product", id: "button1" %></p>
+    <p>
+    Is this an ACEO?
+    <%= f.check_box :aceo %></br>
+    <div>
+      <%= f.submit "Create Product", id: "button1" %>
+    </div>
+    </p>
 <% end %>
 </div>
 
