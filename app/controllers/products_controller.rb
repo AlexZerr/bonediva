@@ -28,6 +28,15 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @prod_paint = @product.paintings.first
     @products = Product.all
+    @aceos = Product.where(aceo: true)
+  end
+
+  def aceo
+    @products = Product.where(aceo: true)
+  end
+
+  def about_aceo
+    render
   end
 
   def new
@@ -48,7 +57,10 @@ class ProductsController < ApplicationController
        #end
        @painting.user_id = current_user.id
        @painting.category_id = @product.category_id
-       @painting.save
+       if @product.aceo = true
+         @painting.aceo = true
+       end
+        @painting.save
        @painting.errors.full_messages
        redirect_to product_path(@product)
      else

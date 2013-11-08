@@ -96,8 +96,9 @@ Bonediva::Application.routes.draw do
 
   post "blog_posts/:id", to: "blog_posts#destroy", as: "destroy_blog_post"
 #  get "users" => "users#show", :as => "users"
+  get "/aceo", to: "products#aceo", as: "aceo_products"
 
-
+  get "/aceo/about", to: "products#about_aceo", as: "about_aceo"
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

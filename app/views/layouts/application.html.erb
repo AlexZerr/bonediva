@@ -21,6 +21,9 @@
           </p>
         <% else %>
           <p class="left">
+             <%= content_tag "a#acs", id: "acs"  do %>
+               <a href="#">ACEO's</a>
+             <% end%>
              <a href="/paintings/new/">Add a Painting</a>
              <a href="/paintings/">All Paintings</a>
              <%= content_tag "a#cat", id: "cat", data:{ url: categories_url }  do %>
@@ -36,6 +39,9 @@
     </div><!--end #top_bar-->
         <div class="the-drop">
           <%= render partial: "categories/drop_down"%>
+        </div>
+        <div class="aceo">
+          <%= render partial: "layouts/aceo_link"%>
         </div>
     <%=image_tag("top_image2.jpg", :alt => "rss feed", :class => "top_image")  %>
     <div style="color:red"> 
