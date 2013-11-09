@@ -46,6 +46,11 @@
     <div class="span12">
       <div id=" admin-function">
         <% if is_admin? && @product.user_id = current_user.id %>
+          <div class="span12">
+            <div class="sold">
+              <%= link_to "Update to Sold", sold_product_path(@product), id: "button1"%>
+            </div>
+          </div>
             <div class="span3"><%= button_to 'Add painting', add_product_painting_path(@product), id: "button1"%></div>
             <div class="span3"><%= button_to 'Delete', @product, id: "button1" %></div>
           <h4 style="color:grey">

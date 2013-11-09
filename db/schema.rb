@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131109020947) do
+ActiveRecord::Schema.define(:version => 20131109041242) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20131109020947) do
     t.boolean  "primary_painting",               :default => false
     t.integer  "user_category_id"
     t.boolean  "aceo",                           :default => false
+    t.integer  "sold_product_id"
   end
 
   create_table "pictures", :force => true do |t|

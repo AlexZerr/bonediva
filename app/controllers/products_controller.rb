@@ -31,6 +31,27 @@ class ProductsController < ApplicationController
     @aceos = Product.where(aceo: true)
   end
 
+  def update_to_sold
+    @product = Product.find(params[:product_id])
+    @sold_product = SoldProduct.new(params[:sold_product])
+    @sold_product.name = @product.name
+    @sold_product.description = @product.name
+    @sold_product.size = @product.size
+    @sold_product.price = @product.price
+    @sold_product.user_id = @product.user_id
+    @sold_product.sold_at = Time.now
+    
+    if @product.category_id.present?
+      @sold_product.category_id = @product.category_id
+    end
+    if @sold_product.save
+      @product.sold = true
+      @product.paintings.map{|e| e.update_attributes(sold_product_id: @sold_product.id, paintable_type: "Sold", paintable_id: @sold_product.id)}
+      @product.destroy
+      redirect_to :root, notice: "Product has been sold"
+    end
+  end
+
   def aceo
     @products = Product.where(aceo: true)
   end

@@ -3,5 +3,5 @@ class SoldProduct < ActiveRecord::Base
 
  belongs_to :user
  belongs_to :category
- has_many :paintings 
+ has_many :paintings, as: :paintable 
 end

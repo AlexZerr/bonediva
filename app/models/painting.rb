@@ -2,12 +2,13 @@ class Painting < ActiveRecord::Base
   mount_uploader :image, ImagesUploader
   attr_accessible :image, :description, :title, :user_id, :remote_image_url, :id, 
     :paintable_type, :paintable_id, :home, :category_id, :primary_painting, :user_category_id,
-    :aceo
+    :aceo, :sold_product_id
 
  # before_create :set_polymorphism
 
   belongs_to :user
   belongs_to :paintable, polymorphic: true
+  belongs_to :sold_product
   belongs_to :category
   belongs_to :user_category
   validates :title, presence: true
