@@ -1,3 +1,7 @@
 <div id="mid_component">
+  <% if @products.present? %>
   <%= render partial: "products/display_products"%>
+<% else %>
+  <h5> Sorry There are no ACEO's available</h5>
+<% end %>
 </div>
