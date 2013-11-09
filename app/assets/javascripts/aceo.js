@@ -17,5 +17,6 @@ function displaydiv(e, divid){
       aceo.click( function() {
         displaydiv('#aceo-drop', 'aceo-drop');
         $('.top_image').on('mouseover', function() {dropDown.hide(600)}); 
+        $('#cat').on('mouseover', function() {dropDown.hide(600)}); 
       });
     });

@@ -48,6 +48,7 @@ function displaydiv(e,divid){
       cat.click( function() {
         displaydiv('#drop-down', 'drop-down');
         $('.top_image').on('mouseover', function() {dropDown.hide(600)}); 
+        $('#acs').on('mouseover', function() {dropDown.hide(600)}); 
       });
     });
 
