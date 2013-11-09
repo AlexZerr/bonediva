@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :cart_items
   has_many :blog_posts
   has_many :user_categories
+  has_many :sold_products
   has_one :avatar
   
   #accepts_nested_attributes_for :pictures
