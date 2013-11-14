@@ -24,6 +24,7 @@ Bonediva::Application.routes.draw do
   resources :avatars
   resources :orders
   resources :blog_posts
+  resources :sold_products
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
