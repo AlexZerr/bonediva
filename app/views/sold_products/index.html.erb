@@ -1,3 +1,7 @@
 <div id="mid_component">
-  <%= render partial: "sold_products/display_sold_products"%>
+  <% if @sold_products.present?%>
+    <%= render partial: "sold_products/display_sold_products"%>
+  <% else %>
+    <h4> Sorry no Available Products</h4>
+  <% end%>
 </div>
