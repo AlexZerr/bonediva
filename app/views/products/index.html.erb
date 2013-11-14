@@ -18,9 +18,13 @@
   </div>
 
 
-
   <div class="span12">
     <div id="mid_component">
+<% if @products.present? %>
       <%= render :partial => "products/display_products" %>
+<% end %>
+<% if @sold_products.present?%>
+      <%= render :partial => "sold_products/display_sold_products" %>
+<% end %>
     </div>
   </div>
