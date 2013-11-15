@@ -1,25 +1,25 @@
 $(function() {
   $('.category_container').mouseenter( function() {
-    $(this).find('.paintings').css('display', 'block');
+    $(this).find('.paintings').show(400);
   });
 });
 
  $(function() {
     $('.category_container').on('mouseleave',( function() {
-      $('.paintings').css('display', 'none');
+      $('.paintings').hide(400);
     })); 
 });
 
 
 $(function() {
   $('#second_component').mouseenter( function() {
-    $(this).find('.paintings').css('display', 'block');
+    $(this).find('.paintings').show(400);
   });
 });
 
  $(function() {
     $('#second_component').on('mouseleave',( function() {
-      $('.paintings').css('display', 'none');
+      $('.paintings').hide(400);
     })); 
 });
 
