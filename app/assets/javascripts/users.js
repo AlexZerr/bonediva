@@ -6,7 +6,7 @@ $(function() {
 
  $(function() {
     $('.category_container').on('mouseleave',( function() {
-      $('.paintings').hide(250);
+      $('.paintings').hide();
     })); 
 });
 
@@ -19,7 +19,7 @@ $(function() {
 
  $(function() {
     $('#second_component').on('mouseleave',( function() {
-      $('.paintings').hide(250);
+      $('.paintings').hide();
     })); 
 });
 
