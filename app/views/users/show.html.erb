@@ -1,101 +1,129 @@
-<div style="text-align:center">
-  <div style="color:red">
-    <h2> <%= " Welcome To #{@user.username.pluralize} Gallery" %></h2>
-  </div>
-</div>
-
-<%= content_for :sidebar do %>
-  
-<% end%>
-
-<div style="color:#808080">
-  <div style="text-align:left">
-    <h4>Info</h4>
-    <h2><p>Email: <%= @user.email %></p>
-      <p>Name: <%= @user.name %></p>
-      <p>Username: <%= @user.username %></p>
-      <p>Age: <%= number_to_human @user.age %>
-      <% if @user.user_link != nil %>
-        <p> <%= link_to @user.user_link, "'Website:' http://" + @user.user_link %>
-      <% else %>
-        <p>website: <%= link_to @user.name, user_path %>
-      <% end %>
-    </h2>
-     <%= link_to "Edit User Info", edit_user_path(@user) %>,
-     <%= link_to "Create a Category", new_user_user_category_path(@user)%>
- </div>
-</div>
-<div>
-  <% @user_cats.each do |u| %>
+<div class="users-main">
+  <div>
+  <div class="span12">
     <div style="text-align:center">
-      <div class="user-cat-link">
-        <div class="span12">
-          <h4>
-            <%= link_to u.name, user_user_category_path(@user, u) %>
-          </h4>
+      <div style="color:red">
+        <h2> <%= " Welcome To #{@user.username.pluralize} Gallery" %></h2>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <%= content_for :sidebar do %>
+    
+  <% end%>
+
+  <div class="span12">
+    <div class="user-info">
+      <div style="color:#808080">
+        <div style="text-align:left">
+          <div class="info">
+            <h4>Info</h4>
+            <h2><p>Email: <%= @user.email %></p>
+              <p>Name: <%= @user.name %></p>
+              <p>Username: <%= @user.username %></p>
+              <p>Age: <%= number_to_human @user.age %>
+              <% if @user.user_link != nil %>
+                <p> <%= link_to @user.user_link, "'Website:' http://" + @user.user_link %>
+              <% else %>
+                <p>website: <%= link_to @user.name, user_path %>
+              <% end %>
+            </h2>
+            <div class="span12">
+              <div class="user-links">
+                <%= link_to "Edit User Info", edit_user_path(@user) %>,
+                <%= link_to "Create a Category", new_user_user_category_path(@user)%>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="categories">
-      <div class="span12">
-      </div>
-      <div class="category_container">
-        <div class="row-fluid">
-          <div class="span12">
-            <% u.paintings.each do  |paint| %>
-              <div class="paintings">
-                <div class="span3">
-                  <div class="painting_container">
-                    <div class="paint-title">
+  </div>
+  <% @user_cats.each do |u| %>
+    <div class="span12">
+      <div class="categories2">
+        <div class="span12">
+          <div class="category_container">
+            <div class="row-fluid">
+              <div class="span12">
+                <div style="text-align:center">
+                  <div class="user-cat-link">
+                    <h4>
+                      <%= link_to u.name, user_user_category_path(@user, u) %>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <% u.paintings.each do  |paint| %>
+                <div class="paintings">
+                  <div class="span3">
+                    <div class="painting_container">
                       <div class="span12">
-                        <%= paint.title %>
+                        <div class="paint-title">
+                          <%= paint.title %>
+                        </div>
                       </div>
-                    </div>
-                    <div class="paint-image">
-                      <div class="span10">
-                        <div class="painting">
-                          <% if paint.paintable_type == "Product" %>
-                            <%= link_to (image_tag paint.image_url(:thumb)), product_path(paint.paintable_id) %>
-                          <% else %>
-                          <% end %>
+                      <div class="span12">
+                        <div class="paint-image">
+                          <div class="span10">
+                            <div class="painting">
+                              <% if paint.paintable_type == "Product" %>
+                                <%= link_to (image_tag paint.image_url(:thumb)), product_path(paint.paintable_id) %>
+                              <% else %>
+                              <% end %>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   <% end %>
-</div>
- 
-<div class="category_container">
-  <div class="row-fluid">
-    <div class="span12">
-      <% @paintings.each do |p| %>
+  <% if @paintings.present?%>
+  <div class="span12">
+    <div id="second_component">
+      <div class="row-fluid">
+          <div class="span12">
+            <div class="the-head">
+              <div style="text-align:center">
+                <h4>Un-Categorized Paintings</h4>
+              </div>
+            </div>
+          </div>
+        <% @paintings.each do |paint|%>
         <div class="paintings">
           <div class="span3">
             <div class="painting_container">
-              <div class="paint-title">
-                <div class="span12">
-                  <%= p.title %>
+              <div class="span12">
+                <div class="paint-title">
+                  <%= paint.title %>
                 </div>
               </div>
-              <div class="paint-image">
-                <div class="span10">
-                  <div class="painting">
-                    <%= link_to (image_tag p.image_url(:thumb)), painting_path(p) %>
+              <div class="span12">
+                <div class="paint-image">
+                  <div class="span10">
+                    <div class="painting">
+                      <% if paint.paintable_type == "Product" %>
+                        <%= link_to (image_tag paint.image_url(:thumb)), product_path(paint.paintable_id) %>
+                      <% else %>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
+      </div>
+        <% end %> 
+      </div>
     </div>
   </div>
+<% end %>
 </div>
-
