@@ -36,6 +36,10 @@
                       <div class="span6"><%= @product.description %></div>
                     </div>
                   </div>
+                  <div id="user-posted">
+                    <div class="span6">Posted By:</div>
+                    <div class="span6"><%= link_to "#{@product.user.name}", user_path(@product.user)%></div>
+                  </div>
                 </div>
               </div>
             </h4>

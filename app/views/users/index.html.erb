@@ -12,13 +12,30 @@
 
 
 
-  <div id="mid_component">
-    A list of all the users
-    <br/>
+<div id="mid_component">
+  A list of all the users
+  <br/>
     <div class="row-fluid">
       <div id="user">
-              <% if @users.present?%>
-       <% @users.each do |u| %>
+        <% if @users.present?%>
+          <% @users.each do |u| %>
+            <ul>
+              <li> <%= u.name %>: </li> 
+              <li> <%= link_to u.username, user_path(u) %> </li>
+                <% if is_admin? %>
+                  <%= link_to "delete", u, :method => :delete, :confirm => "Are you sure?", remote: true %>
+                <% end %>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div>
+        Admins
+      </div>
+      <div id="user">
+        <% if @sup_users.present?%>
+          <% @sup_users.each do |u| %>
             <ul>
                 <li> <%= u.name %>: </li> 
                 <li> <%= link_to u.username, user_path(u) %> </li>
@@ -29,5 +46,6 @@
           <% end %>
         <% end %>
       </div>
+
     </div>
   </div>

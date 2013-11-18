@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
    @user = User.find_by_email(params[:email])
    if @user.authenticate(params[:password])
      session[:user_id] = @user.id
-     redirect_to :back, :notice => "Logged In"
+     redirect_to :root, :notice => "Logged In"
    else 
      flash.now.alert = "Invalid Email or Password"
      render "new"

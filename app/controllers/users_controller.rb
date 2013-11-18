@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.all
+    @users = User.where(admin: nil)
+    @sup_users = User.where(admin: true)
    # @user = User.find(params[:id])
     render
   end
