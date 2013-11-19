@@ -8,6 +8,7 @@
           <%= image_tag @product.main_image(:large) %>
         </div>
       </div>
+
       <div class="rcontainer">
         <div class="span6">
           <div class="prod-info">
@@ -40,6 +41,8 @@
                     <div class="span6">Posted By:</div>
                     <div class="span6"><%= link_to "#{@product.user.name}", user_path(@product.user)%></div>
                   </div>
+
+                  
                 </div>
               </div>
             </h4>
@@ -70,6 +73,14 @@
             <% end %>
           </div>
         </div>
+
+        <% if current_user.email == "lisaluree@gmail.com"%>
+          <div id="eby-url">
+            <div class="span12"><div style="text-align:center"><h4>Ebay Url</h4></div></div>
+            <div class="span12"><%=raw @product.main_image(:home )%></div>
+          </div>
+        <% end %>
+
       </div>
     </div>
     </div>

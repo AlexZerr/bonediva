@@ -38,19 +38,23 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @avatar = @user.avatar
-    if @avatar.present?
-       @avatar.update_attributes(params[:avatar])
-    else
-      @avatar = Avatar.new(params[:avatar])
-    end
-    @avatar.save
-      if @user.update_attributes(params[:user])
-        redirect_to user_path(@user), :notice => "User Succesfully Updated"
+    if @user = current_user || current_user.admin? 
+      @avatar = @user.avatar
+      if @avatar.present?
+         @avatar.update_attributes(params[:avatar])
       else
-        redirect_to :back, :notice => "There was an error updating #{@user.name}"
+        @avatar = Avatar.new(params[:avatar])
       end
+      @avatar.save
+        if @user.update_attributes(params[:user])
+          redirect_to user_path(@user), :notice => "User Succesfully Updated"
+        else
+          redirect_to :back, :notice => "There was an error updating #{@user.name}"
+        end
+    else
+      redirect_to :back, notice: "Sorry"
     end
+  end
 
 
   def create
