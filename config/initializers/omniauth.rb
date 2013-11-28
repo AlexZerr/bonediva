@@ -1,3 +1,3 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, 'CONSUMER_KEY', 'CONSUMER_SECRET'
+  provider :facebook, '161006087321169', '9d85d898382e2918ebda024be392b1b3'
 end
