@@ -21,4 +21,4 @@ public/uploads/
 public/.DS_Store
 lib/carrierwave/storage/fog.rb
 public/assets/*
-
+config/initializers/omniauth.rb
