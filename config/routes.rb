@@ -103,6 +103,8 @@ Bonediva::Application.routes.draw do
   # See how all your routes lay out with "rake routes"
   match "/products/:product_id/update_to_sold", to: "products#update_to_sold", as: "sold_product"
 
+  match '/auth/:provider/callback' => 'authentications#create'
+
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
