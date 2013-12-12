@@ -4,7 +4,6 @@ ruby "2.0.0"
 
 # Rails
 gem 'rails', github: 'rails/rails', branch: '4-0-stable'
-gem "strong_parameters"
 
 #e-comerce
 gem "activemerchant", require: "active_merchant"
@@ -15,11 +14,12 @@ gem "ajaxful_rating", "~> 3.0.0.beta8"
 gem "ancestry",    "~> 1.3.0"
 gem "friendly_id", "~> 4.0.9"
 gem "kaminari",    "~> 0.14.1"
-gem "acts_as_paranoid"
+gem 'paper_trail', '~> 3.0.0'
 gem "enum_accessor", "~> 0.2.0"
 gem "protected_attributes"
-
-gem "rails_12factor", "~> 0.0.2"
+group :producton do
+  gem "rails_12factor", "~> 0.0.2"
+end
 # Authentication
 gem "devise"
 gem "bcrypt-ruby", :require => "bcrypt"
