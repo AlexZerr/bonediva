@@ -19,6 +19,7 @@ gem "acts_as_paranoid"
 gem "enum_accessor", "~> 0.2.0"
 gem "protected_attributes"
 
+gem "rails_12factor", "~> 0.0.2"
 # Authentication
 gem "devise"
 gem "bcrypt-ruby", :require => "bcrypt"
