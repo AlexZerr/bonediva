@@ -20,7 +20,7 @@ gem "enum_accessor", "~> 0.2.0"
 # Authentication
 gem "devise", "~> 2.1.2"
 gem "bcrypt-ruby", :require => "bcrypt"
-gem 'omniauth'
+gem 'omniauth-facebook'
 # Authorization
 gem "pundit", "~> 0.1.0"
 
