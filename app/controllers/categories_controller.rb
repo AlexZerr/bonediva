@@ -63,13 +63,15 @@ class CategoriesController < ApplicationController
   private
 
     def initialize_cart
-        @user = current_user
-    if @user.carts.present?
-      @cart = @user.carts.last
-    else
-      @cart = @user.carts.new(params[:cart])
-      @cart.save
-    end
+      @user = current_user
+      if @user.present?
+        if @user.carts.present?
+          @cart = @user.carts.last
+        else
+          @cart = @user.carts.new(params[:cart])
+          @cart.save
+        end
+      end
   end
 
 end

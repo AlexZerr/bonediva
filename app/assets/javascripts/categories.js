@@ -26,7 +26,10 @@ $(function() {
    $(document).bind('click', function(){ $("#drop-down").css('display', 'none') });
     });
 }); */
-function displaydiv(e,divid){
+
+// functional begin
+
+ function displaydiv(e,divid){
 
     var left  = (e.clientX  + "px");
     var top  = (e.clientY  + "px");
@@ -37,7 +40,7 @@ function displaydiv(e,divid){
     div.style.left = left;
     div.style.top = top;
 
-    $("#"+divid).toggle(
+    $("#"+divid).show(
     600);
     return false;
 
@@ -57,6 +60,9 @@ function displaydiv(e,divid){
         displaydiv('#bottom', 'bottom')
       });
     });
+
+ //funtional end <--
+
 /*$(function() {
     $(document).on('click', '#cat', function() {
       $('#drop-down').css('display', 'block');
