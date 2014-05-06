@@ -11,13 +11,17 @@ class SessionsController < ApplicationController
 
  def create
    @user = User.find_by_email(params[:email])
-   if @user.authenticate(params[:password])
-     session[:user_id] = @user.id
-     redirect_to :root, :notice => "Logged In"
-   else 
-     flash.now.alert = "Invalid Email or Password"
-     redirect_to :root, notice: "Invalid Email or Password"
-    end
+   if @user.present?
+     if @user.authenticate(params[:password])
+       session[:user_id] = @user.id
+       redirect_to :back, :notice => "Logged In"
+     else 
+       flash.now.alert = "Invalid Email or Password"
+       redirect_to :root, notice: "Invalid Email or Password"
+      end
+   else
+     redirect_to :back, notice: "That User Does Not Exist"
+   end
   end
 
  def destroy
