@@ -6,13 +6,13 @@
 <div class="login_textfield">
   <%= label_tag :email %>
   <br/>
-  <%= text_field_tag :email %>
+  <%= text_field_tag :email, nil, required: true %>
 </div>
 
 <div class="password_textfield">
   <%= label_tag :password %>
   <br/>
-  <%= password_field_tag :password %>
+  <%= password_field_tag :password, nil, required: true %>
 </div>
   <%= submit_tag "Log In", class: 'btn btn-primary', style: 'background:green' %>
 <% end %>
