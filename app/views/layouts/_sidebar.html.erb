@@ -24,6 +24,8 @@
                 <% end %>
               <% else %>
                       <%= render :partial =>  "sessions/login" %>
+                      <p><h5>-OR-</h3></p>
+                      <div class='btn btn-primary'><a href="/users/new" style='color:white'>Signup</a></div>
               <% end %>
               <div class="sidebar-links">  
                     <div class="span12"><%= link_to "Products", products_path %></div>
