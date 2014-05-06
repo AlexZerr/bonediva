@@ -9,6 +9,7 @@ gem "rails", "~> 3.2.9"
 gem "activemerchant", '~> 1.38.0'
 # Database
 gem "activerecord", "~> 3.2.9"
+gem "pg"
 gem "ajaxful_rating", "~> 3.0.0.beta8"
 gem "ancestry",    "~> 1.3.0"
 gem "friendly_id", "~> 4.0.9"
@@ -56,7 +57,6 @@ end
 
 group :test, :development do
   gem 'minitest-rails'
-  gem "pg"
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
 end
