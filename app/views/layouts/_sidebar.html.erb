@@ -26,9 +26,11 @@
                       <%= render :partial =>  "sessions/login" %>
               <% end %>
               <div class="sidebar-links">  
-                    <div class="span12"><%= link_to "Products", products_path if current_user.present?%></div>
+                    <div class="span12"><%= link_to "Products", products_path %></div>
+              <% if current_user.present? %>
                     <div class="span12"><%= link_to "Add a Painting", new_painting_path %></div>
-                    <div class="span12"><%= link_to "Create a Category", new_user_user_category_path(current_user) if current_user.present? %></div>
+                    <div class="span12"><%= link_to "Create a Category", new_user_user_category_path(current_user)%></div>
+              <% end %>
                     <div class="span12"><%= link_to "Archive", sold_products_path %></div>
                     <div class="span12"><%= link_to "Artists", users_path%></div>
                 <%if is_admin? %>
