@@ -1,27 +1,35 @@
 <%= @product.errors.full_messages if @product.errors.present? %>
 <div id="mid_component">
-  <%= form_for @product, :html => {:multipart => true } do |f| %>
-  <p><%= f.label :name, 'Name' %></br>
-    <%= f.text_field :name, required: true %></p>
-    <p><%= f.label :description, 'Description' %></br>
-      <%= f.text_area :description, rows: 5, cols: 5 %></p>
-      <p><%= f.label :price, 'Price' %></br>
-    <%= f.text_field :price, required: true %></p>
-    <p><%= f.label :size, "Size" %></br>
-    <%= f.text_field :size, required: true %></p>
-    <%= fields_for :painting do |p| %>
-      <p><%= p.label :image, "Add a Painting" %></br>
-      <%= p.file_field :image, required: true %></p>
-      <%= p.hidden_field :primary_painting, value: true %>
-      <p><%= collection_select(:product, :category_id, @categories, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category", required: true) %></p>
-    <% end %>
-    <p>
-    Is this an ACEO?
-    <%= f.check_box :aceo %></br>
-    <div>
-      <%= f.submit "Create Product", id: "button1" %>
+  <div class='row-fluid'>
+    <div class="span6">
+      <%= form_for @product, :html => {:multipart => true } do |f| %>
+        <p><%= f.label :name, 'Name' %></br>
+          <%= f.text_field :name, required: true %></p>
+          <p><%= f.label :description, 'Description' %></br>
+            <%= f.text_area :description, rows: 5, cols: 5 %></p>
+            <p><%= f.label :price, 'Price' %></br>
+          <%= f.text_field :price, required: true %></p>
+          <p><%= f.label :size, "Size" %></br>
+          <%= f.text_field :size, required: true %></p>
+          <%= fields_for :painting do |p| %>
+            <p><%= p.label :image, "Add a Painting" %></br>
+            <%= p.file_field :image, required: true %></p>
+            <%= p.hidden_field :primary_painting, value: true %>
+            <p><%= collection_select(:product, :category_id, @categories, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category", required: true) %></p>
+          <% end %>
+        <p>
+        Is this an ACEO?
+        <%= f.check_box :aceo %></br>
+        <div>
+          <%= f.submit "Create Product", id: "button1" %>
+        </div>
+        </p>
+      <% end %>
     </div>
-    </p>
-<% end %>
+    <div class="span6">
+      <p><h5>Why dont you take a look at the dogs while you upload some products! -love you</h5></p>
+      <%= image_tag 'lipso.jpg'%>
+    </div>
+  </div>
 </div>
 
