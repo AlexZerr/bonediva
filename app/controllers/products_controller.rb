@@ -41,12 +41,14 @@ class ProductsController < ApplicationController
   def update_to_sold
     @product = Product.find(params[:product_id])
     @sold_product = SoldProduct.new(params[:sold_product])
+    @primary_painting = Painting.find(@product.primary_painting_id) if @product.primary_painting_id.present?
     @sold_product.name = @product.name
     @sold_product.description = @product.name
     @sold_product.size = @product.size
     @sold_product.price = @product.price
     @sold_product.user_id = @product.user_id
     @sold_product.sold_at = Time.now
+    @sold_product.primary_painting_id = @primary_painting.id if @primary_painting
     
     if @product.category_id.present?
       @sold_product.category_id = @product.category_id
