@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
     end
     if @sold_product.save
       @product.sold = true
-      @product.paintings.map{|e| e.update_attributes(sold_product_id: @sold_product.id, paintable_type: "Sold", paintable_id: @sold_product.id)}
+      @product.paintings.map{|e| e.update_attributes(sold_product_id: @sold_product.id, paintable_type: "SoldProduct", paintable_id: @sold_product.id)}
       @product.destroy
       redirect_to :root, notice: "Product has been sold"
     end

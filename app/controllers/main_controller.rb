@@ -18,8 +18,8 @@ class MainController < ApplicationController
         @new_painting = @bone_user.paintings.where(primary_painting: true).last
       elsif @bone_user.paintings.last.paintable_type == "Category"
         @new_painting = @bone_user.paintings.where(paintable_type: "Category").last
-      elsif @bone_user.paintings.last.paintable_type == 'Sold'
-        @new_painting = @bone_user.paintings.where(primary_painting: true).where("paintable_type <> ?", "Sold").last
+      elsif @bone_user.paintings.last.paintable_type == 'SoldProduct'
+        @new_painting = @bone_user.paintings.where(primary_painting: true).where("paintable_type <> ?", "SoldProduct").last
       end
     end
     @categories = Category.all
