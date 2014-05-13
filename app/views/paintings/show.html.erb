@@ -9,7 +9,7 @@
 
   <div style="text-align:center">
     <p><h2><%= "#{@painting.title}" %></h2></p>
-    <%= image_tag @painting.image_url(:home) %>
+    <%= render partial: "paintings/painting" %>
     <p><h4><%= "#{@painting.description}" %></h4></p>
   </div>
     <div>
