@@ -70,12 +70,12 @@
           <h4>admin functions-------></h4>
           <div class="row-fluid">
             <div class="sold span6">
-              <%= button_to "Update to Sold", sold_product_path(@product), id: "button1"%>
+              <%= button_to "Update to Sold", sold_product_path(@product), id: "button1", confirm: "Are you sure? This product will be lost." %>
             </div>
             <div class="span6"><%= button_to 'Add painting', add_product_painting_path(@product), id: "button1"%></div>
           </div>
           <div class="row-fluid">
-            <div class="span6"><%= button_to 'Delete', @product, id: "button1" %></div>
+            <div class="span6"><%= button_to 'Delete', @product, id: "button1", confirm: "Are you sure? This product will be lost." %></div>
             <div class="span6"> <%= button_to 'Edit', edit_product_path(@product), id: "button1", method: :get%></div>
           </div>
           <h4><-------------</h4>
