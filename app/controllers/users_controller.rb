@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   respond_to :html, :js
-  force_ssl
   # before_filter :ensure_authorized, only: [ :edit, :update, :delete ] 
 
 
@@ -26,7 +25,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @paintings = current_user.paintings
+    @paintings = current_user.paintings if current_user.present?
     if @user.avatar.present?
       @avatar = @user.avatar
     else
