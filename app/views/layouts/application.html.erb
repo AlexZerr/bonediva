@@ -12,7 +12,14 @@
     <div id="top_bar">
       <p class="left">
         <a href="/">Home</a>
+        <%= content_tag "a#acs", id: "acs"  do %>
+          <a href="#">ACEO's</a>
+        <% end%>
         <a href="/products">Products</a>
+        <a href="/paintings/">All Paintings</a>
+        <%= content_tag "a#cat", id: "cat", data:{ url: categories_url }  do %>
+          <a href="#">Categories</a>
+        <% end %>
       </p>
       <p id="top-bar-actions">
         <% if !current_user.present? %>
@@ -21,17 +28,6 @@
             <a href="/users/new">Signup</a>
           </p>
         <% else %>
-          <p class="left">
-             <%= content_tag "a#acs", id: "acs"  do %>
-               <a href="#">ACEO's</a>
-             <% end%>
-             <a href="/paintings/new/">Add a Painting</a>
-             <a href="/paintings/">All Paintings</a>
-             <%= content_tag "a#cat", id: "cat", data:{ url: categories_url }  do %>
-               <a href="#">Categories</a>
-             <% end %>
-          </p>
-
           <p class="right">
              <a href="/log_out">Sign Out</a>
           </p>
