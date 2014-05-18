@@ -14,8 +14,8 @@ class BlogPostsController < ApplicationController
   end
 
   def create
-    if current_user.email == "lisaluree@gmail.com"
-    @user = User.find_by_email( "lisaluree@gmail.com")
+    if current_user.email == "bonediva@gmail.com"
+    @user = User.find_by_email( "bonediva@gmail.com")
     elsif current_user.email == "thwarts@gmail.com" 
     @user = User.find_by_email( "thwarts@gmail.com")
     end
