@@ -36,6 +36,7 @@
   padding: 15px;
   padding-left: 62px;
   width: 75%;
+  min-width: 729px;
   height: 0px auto;
   color: #A00000;
   margin: 0px auto;
@@ -59,14 +60,28 @@
 
 }
 
-#sidebar {
+.hcont {
+  max-width: 90%;
+  padding: 15px;
+  margin-left: 30px;
+}
+
+#side{
+  position: relative;
+  min-height: 1000px;
+  margin-right: 20px;
+  padding-right: 30px;
+  width: 120%;
+}
+
+.sidebar {
   background: #151515;
   border: 5px solid #A00000;
   border-radius:25px;
   -moz-border-radius:25px; 
   float: right;
   padding: 15px;
-  width: 100%;
+  width: 80%;
   height: auto;
   color: #A00000;
   margin: 2px, 2px, 2px, 2px;
@@ -296,35 +311,37 @@ table tr.evenrow {
   margin-top: 50px;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    .scroll_box {
-      margin-left: 50%;
-    }
-  }
 
-
+.scroll_box {
+  background: #151515;
+  border: 5px solid #A00000;
+  border-radius:25px;
+  -moz-border-radius: 25px;
+  padding: 15px;
+  padding-left: 62px;
+  height: 230px;
+  color: #A00000;
+  margin-top: 10px;
+  overflow: scroll;
+  
+}
 #sc_box {
   background: #151515;
   border: 5px solid #A00000;
   border-radius:25px;
   -moz-border-radius: 25px;
-  width: 75%;
-  position: relative;
-  left: 125px;
+  width: 69.5%;
+  max-width: 729px;
+  height: 230px;
+  position: inherit;
+  margin-left: 116px;
+  overflow: scroll;
+  color: #A00000;
+  padding-left: 62px;
 }
 
 
 .new_image_holder {
-  border: 5px solid red;
-  background: #151515;
-  border-radius:25px;
-  -moz-border-radius: 25px;
-  height: auto;
-  width: 75%;
-  margin-left: 146px;
-  margin-bottom: 10px;
-  margin-top: 20px;
-
   
 }
 
