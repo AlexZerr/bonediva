@@ -1,35 +1,43 @@
 <div class="row-fluid rock">
-<div class="span12">
-<div style="text-align:center">
-  <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
-</div>
-<% @blog_posts.each do |post| %>
-    <div class="<%= cycle('oddrow', 'evenrow') -%>">
+  <div class="span12">
+    <div style="text-align:center">
+      <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
+    </div>
+    <% @blog_posts.each do |post| %>
+      <div class="<%= cycle('oddrow', 'evenrow') -%>">
 
-          <%= post.body %>
-        <div class="row-fluid">
-          <div class="blog-post-title">
-              <%= link_to post.title, blog_post_path(post)%>
+            <div class="row-fluid">
+              <div class="row-fluid">
+                <div class="blog-post-title span6">
+                  <%= link_to post.title, blog_post_path(post)%>
+                </div>
+                <div class="pull-right">
+                  <%= post.created_at%>
+                </div>
+              </div>
+
+
+              <div class="row-fluid">
+                <%= post.body %>
+              </div>
+
+              <% if post.image_url.present? %>
+                      <%= image_tag post.image_url(:small)%>
+              <% end %>
+
+
+              <div class="row-fluid blog-use">
+              <legend class="black"></legend>
+                <%= "Posted by: #{post.user.username}" %>
+              </div>
+
+              <% if is_admin? %>
+                  <%= link_to "Delete", post, data: {confirm: "Are you sure you want to delete #{post.title }?", method: :delete } %>
+              <% end %>
             </div>
-            <div class="pull-right">
-              <%= post.created_at%>
-            </div>
-
-
-
-          <% if post.image_url.present? %>
-                  <%= image_tag post.image_url(:small)%>
-          <% end %>
-
-            <%= "Posted by: #{post.user.username}" %>
-
-          <% if is_admin? %>
-              <%= link_to "Delete", post, data: {confirm: "Are you sure you want to delete #{post.title }?", method: :delete } %>
-          <% end %>
         </div>
-    </div>
-  <%end%>
-    </div>
+      <%end%>
+      </div>
     </div>
 
 
