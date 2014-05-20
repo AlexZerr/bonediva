@@ -1,75 +1,35 @@
+<div class="row-fluid rock">
+<div class="span12">
+<div style="text-align:center">
+  <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
+</div>
+<% @blog_posts.each do |post| %>
+    <div class="<%= cycle('oddrow', 'evenrow') -%>">
 
-  <div style="text-align:center">
-    <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
-  </div>
-  <div class="span12">
-    <div id="blog_post_box">
-      <div class="span12">
-        <div id="blog_posts">
-          <div class="span12">
-            <table>
-              <% @blog_posts.each do |post| %>
-                <tr class="<%= cycle('oddrow', 'evenrow') -%>">
-                  <td class="span12">
-                    <div id="blog_post">
-                      <div class="span12">
-                        <div class="blog_header">
-                          <div class="blog-post-title">
-                            <div class="span7">
-                              <%= link_to post.title, blog_post_path(post)%>
-                            </div>
-                          </div>
-                          <div class="date">
-                            <div class="span3 offset1">
-                              <div style="float:right">
-                                <%= post.created_at%>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="span12">
-                        <div id="blog_body">
-                          <div class="span10">
-                            <%= post.body %>
-                          </div>
-                        </div>
-                      </div>
+          <%= post.body %>
+        <div class="row-fluid">
+          <div class="blog-post-title">
+              <%= link_to post.title, blog_post_path(post)%>
+            </div>
+            <div class="pull-right">
+              <%= post.created_at%>
+            </div>
 
-                      <% if post.image_url.present? %>
-                        <div class="span6">
-                          <div class="blog-image">
-                            <div class="span12">
-                              <%= image_tag post.image_url(:small)%>
-                            </div>
-                          </div>
-                        </div>
-                      <% end %>
 
-                      <div class="span4 offset8">
-                        <div class="posted-by">
-                          <div class="span12">
-                            <%= "Posted by: #{post.user.username}" %>
-                          </div>
-                        </div>
-                      </div>
 
-                      <% if is_admin? %>
-                        <div class="span12">
-                          <div id="delete_link">
-                            <%= link_to "Delete", post, data: {confirm: "Are you sure you want to delete #{post.title }?", method: :delete } %>
-                          </div>
-                        </div>
-                      <% end %>
-                    </div>
-                  </td>
-                </tr>
-              <%end%>
-            </table>
-          </div>
+          <% if post.image_url.present? %>
+                  <%= image_tag post.image_url(:small)%>
+          <% end %>
+
+            <%= "Posted by: #{post.user.username}" %>
+
+          <% if is_admin? %>
+              <%= link_to "Delete", post, data: {confirm: "Are you sure you want to delete #{post.title }?", method: :delete } %>
+          <% end %>
         </div>
-      </div>
     </div>
-  </div>
+  <%end%>
+    </div>
+    </div>
 
 
