@@ -4,18 +4,17 @@ class ProductsController < ApplicationController
 
   def index
     if params[:search].present?
-      @products = Product.where("LOWER(name) ILIKE ? OR LOWER(description) ILIKE ?", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
-    elsif params[:description_search].present?
-      @products = Product.where("LOWER(description) ILIKE ?", "%#{params[:description_search].downcase}%")
-    else
-      @products = Product.all.reverse
-    end
-    if params[:search].present?
+      @pros = Product.where("LOWER(name) ILIKE ? OR LOWER(description) ILIKE ?", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
       @sold_products = SoldProduct.where("LOWER(name) ILIKE ? OR LOWER(description) ILIKE ?", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
+      @products = @pros + @sold_products
     elsif params[:description_search].present?
+      @pros = Product.where("LOWER(description) ILIKE ?", "%#{params[:description_search].downcase}%")
       @sold_products = SoldProduct.where("LOWER(description) ILIKE ?", "%#{params[:description_search].downcase}%")
+      @products = @pros + @sold_products
     else
+      @pros = Product.all.reverse
       @sold_products = SoldProduct.all.reverse
+      @products = @pros + @sold_products
     end
     @user = current_user
     @cart = @user.carts.last if @user.present?
