@@ -8,7 +8,11 @@
               <div class="top">
                 <div class="span6">
                   <div class="painting1">
-                    <%=  link_to (image_tag (product.main_image(:standard))), product_path(product) %></br>
+                    <% if product.class.name == "Product"%>
+                      <%=  link_to (image_tag (product.main_image(:standard))), product_path(product) %></br>
+                    <% elsif product.class.name == "SoldProduct" %>
+                      <%=  link_to (image_tag (product.main_image(:standard))), sold_product_path(product) %></br>
+                    <% end %>
                   </div>
                 </div>
                 <div class="span6">
