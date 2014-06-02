@@ -7,4 +7,8 @@ class SoldProductsController < ApplicationController
   def create
     @sold_product = SoldProduct.new(params[:sold_product])
   end
+
+  def show
+    @sold_product = SoldProduct.find(params[:id])
+  end
 end
