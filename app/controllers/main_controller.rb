@@ -9,8 +9,9 @@ class MainController < ApplicationController
       @user = current_user 
     end
     #@paintings = Painting.all
-    @products = Product.all(:limit => 50, :order => 'id DESC')
+    @pros = Product.all(:limit => 50, :order => 'id DESC')
     @sold_products = SoldProduct.all(:limit => 50, :order => 'id DESC')
+    @products = @pros + @sold_products
     @new_picture = Picture.new(params[:picture])
     @blog_posts = BlogPost.where( "created_at >= ? AND created_at <= ?", 1.month.ago, Time.now).order( "created_at DESC" ) 
     @bone_user = User.find_by_email("bonediva@gmail.com")
