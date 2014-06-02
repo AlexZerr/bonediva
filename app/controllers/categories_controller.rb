@@ -9,8 +9,9 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @categories = Category.all
-    @products = Product.where( :category_id => @category.id).order('id DESC')
+    @pros = Product.where( :category_id => @category.id).order('id DESC')
     @sold_products = SoldProduct.where( :category_id => @category.id).order('id DESC')
+    @products = @pros + @sold_products
     @paintings = @category.paintings
   end
 
