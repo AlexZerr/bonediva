@@ -8,14 +8,14 @@ class ProductsController < ApplicationController
     elsif params[:description_search].present?
       @products = Product.where("LOWER(description) ILIKE ?", "%#{params[:description_search].downcase}%")
     else
-      @products = Product.all
+      @products = Product.all.reverse
     end
     if params[:search].present?
       @sold_products = SoldProduct.where("LOWER(name) ILIKE ? OR LOWER(description) ILIKE ?", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
     elsif params[:description_search].present?
       @sold_products = SoldProduct.where("LOWER(description) ILIKE ?", "%#{params[:description_search].downcase}%")
     else
-      @sold_products = SoldProduct.all
+      @sold_products = SoldProduct.all.reverse
     end
     @user = current_user
     @cart = @user.carts.last if @user.present?
