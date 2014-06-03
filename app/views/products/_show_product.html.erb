@@ -84,7 +84,7 @@
               <%if current_user.present? %>
                 <%= button_to "Add To Cart", add_cart_item_path(@user, @cart, product), id: "button1"  %>
               <%else%>
-                <%= "(Log in, to add to you're cart)" %>
+                <strong>Please log in, to add this to a shopping cart.</strong>
               <% end %>
             <% else %>
               <strong>Sold-</strong><%= product.created_at.strftime("%m/%d/%Y") %>
