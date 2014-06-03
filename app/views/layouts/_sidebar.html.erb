@@ -5,11 +5,11 @@
                   <% if user_avatar(current_user).present? %>
                     <div class="span12">
                       <div class="avatar_img">
-                        <%=image_tag  user_avatar(current_user).image_url(:thumb) %>
+                        <%= link_to (image_tag  user_avatar(current_user).image_url(:thumb)), edit_user_path(current_user) %>
                       </div>
                      </div>
                   <% else %>
-                      <%= "add an avatar"%>
+                      <%= link_to "Add an Avatar", edit_user_path(current_user.id) %>
                   <% end %>
                     <%= link_to current_user.name, current_user_path %>
                 </div>

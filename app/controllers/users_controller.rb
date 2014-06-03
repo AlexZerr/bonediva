@@ -94,6 +94,7 @@ class UsersController < ApplicationController
     end
    else
      @user = current_user
+     @avatar = current_user.avatar if current_user.avatar
    end
     @new_picture = Picture.new(params[:picture])
   end
