@@ -36,18 +36,20 @@
               <% end %>
                     <div class="span12"><%= link_to "Archive", sold_products_path %></div>
                     <div class="span12"><%= link_to "Artists", users_path%></div>
-                <%if is_admin? %>
-                    <div class="span12">Admin Links</div>
-                    <div class="span12"><%= link_to "Add a Product", new_product_path %></div>
-                    <div class="span12"><%= link_to "Add a Category", new_category_path %></div>
-                    <div class="span12"><%= link_to "Add a recent event", new_blog_post_path %></div>
-                <% end %>
                 <% if @user.present?%>
                   <div class="cart-link">
                      <div class="span12">
                           <%= link_to "shopping_cart (#{@user.carts.last.cart_items.count}) items", user_cart_path(@user, @user.carts.last) if @user.carts.present?  %>
                     </div>
                    </div>
+                <% end %>
+                <%if is_admin? %>
+                  <div id="admin-links">
+                    <div class="span12">Admin Links</div>
+                    <div class="span12"><%= link_to "Add a Product", new_product_path %></div>
+                    <div class="span12"><%= link_to "Add a Category", new_category_path %></div>
+                    <div class="span12"><%= link_to "Add a recent event", new_blog_post_path %></div>
+                  </div>
                 <% end %>
               </div>
             </div>
