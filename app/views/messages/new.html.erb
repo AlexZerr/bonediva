@@ -1,0 +1,11 @@
+<%= form_for @message do |m| %>
+  <p>
+    <%= f.label :title, "Subject" %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body, "Message" %>
+    <%= f.text_area :body, size: "4x10" %>
+  </p>
+
+<% end %>
