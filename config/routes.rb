@@ -9,6 +9,7 @@ Bonediva::Application.routes.draw do
     resources :user_categories
     resources :avatars
     resources :paintings
+    resources :messages
     resources :carts do
       resources :cart_items
       resources :orders
@@ -25,6 +26,7 @@ Bonediva::Application.routes.draw do
   resources :orders
   resources :blog_posts
   resources :sold_products
+  resources :messages, only: [:new, :create, :destroy]
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
