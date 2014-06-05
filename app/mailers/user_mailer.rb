@@ -6,4 +6,10 @@ class UserMailer < ActionMailer::Base
    mail(:to => "#{user.name} <#{user.email}>", :subject => "Registered")
   end
 
+  def contact_bonediva(user, message)
+  @user = user 
+  @message = message
+   mail(:to => "thwarts@gmail.com", :subject => "#{@message.title}", from: "#{@user.name}-#{@user.email}")
+  end
+
 end
