@@ -55,6 +55,7 @@ group :assets do
   gem 'sass-rails'
 end
 
+gem "letter_opener", :group => :development
 group :test, :development do
   gem 'minitest-rails'
   # database_cleaner is not required, but highly recommended
