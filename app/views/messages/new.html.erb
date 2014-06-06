@@ -1,14 +1,20 @@
-<%= form_for @message do |f| %>
-  <p>
-    <%= f.label :title, "Subject" %>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :body, "Message" %>
-    <%= f.text_area :body, size: "4x10" %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
+<div id="mid_component">
+<h4 style="text-align:center">Contact Lisa Luree</h4>
+  <%= form_for @message do |f| %>
 
-<% end %>
+    <div class="message-form">
+      <p>
+        <%= f.label :title, "Subject" %>
+        <%= f.text_field :title, class: "row-fluid", placeholder: 'No Subject' %>
+      </p>
+      <p>
+        <%= f.label :body, "Message" %>
+        <%= f.text_area :body, size: "4x10", class: "row-fluid", placeholder: "Enter Message Here..." %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+
+    </div>
+  <% end %>
+</div>
