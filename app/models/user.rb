@@ -41,7 +41,12 @@ class User < ActiveRecord::Base
     create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
-      user.name = auth["info"]["nickname"]
+      user.username = auth["info"]["nickname"]
+      first = auth["info"]["first_name"]
+      user.name = first
+      user.email = auth["info"]["email"]
+      user.password = "password"
+      user.password_confirmation = "password"
     end
   end
 
