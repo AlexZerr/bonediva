@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   end 
 
 
- def create
+  def create
    @user = User.find_by_email(params[:email])
    if @user.present?
      if @user.authenticate(params[:password])
@@ -26,6 +26,12 @@ class SessionsController < ApplicationController
    else
      redirect_to :back, notice: "That User Does Not Exist"
    end
+  end
+
+  def facebook
+    user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = user.id
+    redirect_to root_url, notice: "Signed in!"
   end
 
  def destroy

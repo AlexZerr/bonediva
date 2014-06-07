@@ -18,6 +18,7 @@ config/database.yml
 config/initializers/fog.rb
 config/initializers/carrierwave.rb
 config/initializers/setup_mail.rb
+config/initializers/omniauth.rb
 config/s3_credentials.yml
 public/uploads/
 public/.DS_Store
