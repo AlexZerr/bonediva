@@ -9,6 +9,8 @@
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
   </head>
   <body>
+
+    
     <div id="top_bar">
       <p class="left">
         <a href="/">Home</a>
@@ -25,6 +27,7 @@
         <% if !current_user.present? %>
           <p class="right">
             <a href="/messages/new" class="icon-pencil">Contact</a>
+            <a href="/auth/facebook">Sign in With Facebook</a>
             <a href="/sessions/new">Log_in</a>
             <a href="/users/new">Signup</a>
           </p>

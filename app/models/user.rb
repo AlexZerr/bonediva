@@ -32,8 +32,33 @@ class User < ActiveRecord::Base
   def user_avatar(type)
     
   end
-  
 
+  def self.from_omniauth(auth)
+    where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
+  end
 
-  
+  def self.create_from_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.username = auth["info"]["nickname"]
+      first = auth["info"]["first_name"]
+      last = auth["info"]["last_name"]
+      user.name = "#{first} #{last}"
+      user.oauth_token = auth["credentials"]["token"]
+      user.oauth_expires_at = Time.at(auth["credentials"]["expires_at"])
+      user.email = auth["info"]["email"]
+      user.password = "password"
+      user.password_confirmation = "password"
+    end
+  end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+    block_given? ? yield(@facebook) : @facebook
+      rescue Koala::Facebook::APIError => e
+      logger.info e.to_s
+    nil # or consider a custom null object
+  end
+
 end
