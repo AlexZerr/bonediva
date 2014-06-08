@@ -92,7 +92,7 @@
             <% if product.class.name == "Product" %>
               <%if current_user.present? %>
                 <%= button_to "Add To Cart", add_cart_item_path(@user, @cart, product), id: "button1"  %>
-                <div class="fb-share-button" data-href="http://www.lisaluree.com/products/<%= product.id %>" data-type="button_count"></div>
+                <div class="fb-share-button" data-href="http://www.bone-diva.com/products/<%= product.id %>" data-type="button_count"></div>
               <%else%>
                 <strong>Please log in, to add this to a shopping cart.</strong>
               <% end %>
