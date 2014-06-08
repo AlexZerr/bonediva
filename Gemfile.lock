@@ -110,6 +110,10 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    koala (1.9.0)
+      addressable
+      faraday
+      multi_json
     launchy (2.4.2)
       addressable (~> 2.3)
     less (2.4.0)
@@ -273,6 +277,7 @@ DEPENDENCIES
   friendly_id (~> 4.0.9)
   jquery-rails (~> 3.1.0)
   kaminari (~> 0.14.1)
+  koala
   less-rails
   letter_opener
   mini_magick (~> 3.4)

@@ -17,6 +17,7 @@ gem "kaminari",    "~> 0.14.1"
 gem 'paper_trail', '~> 3.0.0'
 gem "enum_accessor", "~> 0.2.0"
 gem 'omniauth-facebook'
+gem 'koala'
 group :producton do
   gem "rails_12factor", "~> 0.0.2"
 end

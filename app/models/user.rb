@@ -43,11 +43,20 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.username = auth["info"]["nickname"]
       first = auth["info"]["first_name"]
-      user.name = first
+      last = auth["info"]["last_name"]
+      user.name = first + last
       user.email = auth["info"]["email"]
       user.password = "password"
       user.password_confirmation = "password"
     end
+  end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+    block_given? ? yield(@facebook) : @facebook
+      rescue Koala::Facebook::APIError => e
+      logger.info e.to_s
+    nil # or consider a custom null object
   end
 
 end
