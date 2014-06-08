@@ -29,10 +29,13 @@ class SessionsController < ApplicationController
   end
 
   def facebook
-   # user = User.from_omniauth(env["omniauth.auth"])
-    #session[:user_id] = user.id
-    #redirect_to root_url, notice: "Signed in!"
-    raise env["omniauth.auth"].to_yaml
+    user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = user.id
+       if !user.carts.present?
+          c = user.carts.build
+          c.save
+       end 
+    redirect_to root_url, notice: "Signed in!"
   end
 
  def destroy
