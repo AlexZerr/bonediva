@@ -47,11 +47,7 @@ class User < ActiveRecord::Base
       user.name = "#{first} #{last}"
       user.oauth_token = auth["credentials"]["token"]
       user.oauth_expires_at = Time.at(auth["credentials"]["expires_at"])
-      if auth.info.email.present?
-        user.email = auth["info"]["email"]
-      else
-        user.email = "#{first}@#{last}.com"
-      end
+      user.email = auth["info"]["email"]
       user.password = "password"
       user.password_confirmation = "password"
     end
