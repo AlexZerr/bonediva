@@ -1,1 +1,10 @@
+<% content_for :head do %>
+  <%= tag :meta, property: "fb:app_id", content: ENV["FACEBOOK_APP_ID"] %>
+  <%= tag :meta, property: "og:site_name", content: "Lisa Luree -Bonediva" %>
+  <%= tag :meta, property: "og:type", content: "bonediva:product" %>
+  <%= tag :meta, property: "og:title", content: @product.name %>
+  <%= tag :meta, property: "og:url", content: product_url(@product) %>
+  <%= tag :meta, property: "og:image", content: request.protocol + request.host_with_port + image_path(@product.paintings.first.image_url(:standard)) %>
+<% end %>
+
 <%= render partial: "products/show_product", locals: {product: @product} %>
