@@ -96,7 +96,7 @@
                     <%= button_to "Add To Cart", add_cart_item_path(@user, @cart, product), id: "button1"  %>
                   </div>
                   <div class="span6">
-                    <div class="fb-share-button" data-href="http://www.bone-diva.com/products/<%= product.id %>" data-type="button_count"></div>
+                      <div class="fb-share-button" data-href="http://www.bone-diva.com/products/<%= product.id %>" data-type="button_count"></div>
                   </div>
                 </div>
               <%else%>
@@ -104,6 +104,7 @@
               <% end %>
             <% else %>
               <strong>Sold-</strong><%= product.created_at.strftime("%m/%d/%Y") %>
+              <div class="fb-share-button" data-href="http://www.bone-diva.com/sold_products/<%= product.id %>" data-type="button_count"></div>
             <% end %>
           </div>
         </div>
