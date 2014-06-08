@@ -41,13 +41,17 @@ class User < ActiveRecord::Base
     create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
-      user.username = auth["info"]["nickname"]
+      user.username = auth["info"]["name"]
       first = auth["info"]["first_name"]
       last = auth["info"]["last_name"]
       user.name = "#{first} #{last}"
       user.oauth_token = auth["credentials"]["token"]
       user.oauth_expires_at = Time.at(auth["credentials"]["expires_at"])
-      user.email = auth["info"]["email"]
+      if auth.info.email.present?
+        user.email = auth["info"]["email"]
+      else
+        user.email = "#{first}@#{last}.com"
+      end
       user.password = "password"
       user.password_confirmation = "password"
     end
