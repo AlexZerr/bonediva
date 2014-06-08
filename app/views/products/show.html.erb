@@ -4,7 +4,7 @@
   <%= tag :meta, property: "og:type", content: "bonediva:product" %>
   <%= tag :meta, property: "og:title", content: @product.name %>
   <%= tag :meta, property: "og:url", content: product_url(@product) %>
-  <%= tag :meta, property: "og:description", content: "#{@product.description} \n $#{@product.price} #{@product.size}" %>
+  <%= tag :meta, property: "og:description", content: "#{@product.description} \n Price: $#{@product.price} \n Size: #{@product.size}" %>
   <%= tag :meta, property: "og:image", content: request.protocol + request.host_with_port + image_path(@product.main_image(:standard)) %>
 <% end %>
 
