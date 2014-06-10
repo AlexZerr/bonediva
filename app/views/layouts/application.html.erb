@@ -35,9 +35,9 @@
         <% if !current_user.present? %>
           <p class="right">
             <a href="/messages/new" class="icon-pencil">Contact</a>
-            <a href="/auth/facebook">Sign in With Facebook</a>
-            <a href="/sessions/new">Log_in</a>
             <a href="/users/new">Signup</a>
+            <a href="/sessions/new">Log_in</a>
+            <a href="/auth/facebook">Log in With<%= image_tag "Facebook-logo-29.png" %></a>
           </p>
         <% else %>
           <p class="right">
