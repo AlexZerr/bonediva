@@ -90,21 +90,25 @@
         <div class="span12">
           <div id="cart-button">
             <% if product.class.name == "Product" %>
+                <div class="row-fluid">
+                  <div class="span6">
+                      <div class="fb-share-button" data-href="http://www.bone-diva.com/products/<%= product.id %>" data-type="button_count"></div>
+                  </div>
+                </div>
               <%if current_user.present? %>
                 <div class="row-fluid">
                   <div class="span6">
                     <%= button_to "Add To Cart", add_cart_item_path(@user, @cart, product), id: "button1"  %>
                   </div>
-                  <div class="span6">
-                      <div class="fb-share-button" data-href="http://www.bone-diva.com/products/<%= product.id %>" data-type="button_count"></div>
-                  </div>
                 </div>
               <%else%>
-                <strong>Please log in, to add this to a shopping cart.</strong>
+                <strong>Please, log in to add this to a shopping cart.</strong>
               <% end %>
             <% else %>
+              <div class="span6">
+                <div class="fb-share-button" data-href="http://www.bone-diva.com/sold_products/<%= product.id %>" data-type="button_count"></div>
+              </div>
               <strong>Sold-</strong><%= product.created_at.strftime("%m/%d/%Y") %>
-              <div class="fb-share-button" data-href="http://www.bone-diva.com/sold_products/<%= product.id %>" data-type="button_count"></div>
             <% end %>
           </div>
         </div>

@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
     @sold_product = SoldProduct.new(params[:sold_product])
     @primary_painting = Painting.find(@product.primary_painting_id) if @product.primary_painting_id.present?
     @sold_product.name = @product.name
-    @sold_product.description = @product.name
+    @sold_product.description = @product.description
     @sold_product.size = @product.size
     @sold_product.price = @product.price
     @sold_product.user_id = @product.user_id
