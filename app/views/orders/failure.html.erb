@@ -5,11 +5,11 @@
     </h3>
   </div>
 </div>
-<div class="span12">
+<div class="span12" style="color:white">
   We are sorry, the order transaction did not go through. We are gratefull for you're intrest
   in purchasing this painting. Please Email 
-  <div style="color:red">
-    <%= link_to "bonediva@gmail.com", "#", style: 'color:red'%>
-  </div>
+    <%= link_to "bonediva@gmail.com", new_user_message_path(current_user), style: 'color:red'%>
+    or
+    <%= link_to "Click Here", new_user_message_path(current_user), style: 'color:red'%>
 </div>
 
