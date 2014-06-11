@@ -39,7 +39,7 @@ before_create :validate_card
 
     def credit_card
     @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
-      :type               => card_type,
+      :brand               => card_brand,
       :number             => card_number,
       :verification_value => card_verification,
       :month              => card_expires_on.month,
