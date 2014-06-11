@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140608042204) do
+ActiveRecord::Schema.define(:version => 20140611031941) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(:version => 20140608042204) do
     t.string   "ip_address"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "card_type"
+    t.string   "brand"
     t.date     "card_expires_on"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
