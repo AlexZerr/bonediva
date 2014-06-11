@@ -29,8 +29,8 @@
     </div>
     <div>
       <div class="row-fluid">
-         <div class="span4"><%= o.label :brand, "Card Type" %>
-        <%= o.select :brand, [["Visa", "visa"], ["MasterCard", "master"], ["American Express", "american_express"], ["Discover", "discover"]], required: true %></div>
+         <div class="span4"><%= o.label :card_type, "Card Type" %>
+        <%= o.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["American Express", "american_express"], ["Discover", "discover"]], required: true %></div>
         <div class="span4 offset2"><%= o.label :state, "State" %>
         <%= o.text_field :state, required: true %></div>
       </div>
