@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
 
   def new
     @user = current_user
-    @message = @user.messages.new
+    @message = @user.messages.new if current_user.present?
   end
 
   def create
@@ -11,12 +11,10 @@ class MessagesController < ApplicationController
     @message = @user.messages.new(params[:message])
     @message.user_email = @user.email
     if @message.save
-      if UserMailer.contact_bonediva(@user, @message).deliver
-        redirect_to :root, notice: "Message has been sent!"
-      else
-        redirect_to :root, notice: "#{@message.errors.full_messages}"
-      end
-
+      UserMailer.contact_bonediva(@user, @message).deliver
+      redirect_to :root, notice: "Message has been sent!"
+    else
+      redirect_to :back, notice: "#{@message.errors.full_messages}"
     end
   end
 

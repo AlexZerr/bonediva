@@ -9,7 +9,8 @@ class UserMailer < ActionMailer::Base
   def contact_bonediva(user, message)
   @user = user 
   @message = message
-   mail(:to => ["bonediva@gmail.com", "zerr@twinsoftech.com"], :subject => "#{@message.title}", from: "#{@user.name}-#{@user.email}")
+  @emailed_users = "bonediva@gmail.com, zerr@twinsoftech.com"
+   mail(:to => @emailed_users, :subject => "#{@message.title}", from: "#{@user.name}-#{@user.email}")
   end
 
 end
