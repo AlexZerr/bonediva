@@ -10,8 +10,11 @@ class MessagesController < ApplicationController
     @message = @user.messages.new(params[:message])
     @message.user_email = @user.email
     if @message.save
-      UserMailer.contact_bonediva(@user, @message).deliver
-      redirect_to :root, notice: "Message has been sent!"
+      if UserMailer.contact_bonediva(@user, @message).deliver
+        redirect_to :root, notice: "Message has been sent!"
+      else
+        redirect_to :root, notice: "Error! This message was not sent!!!!!"
+      end
 
     end
   end
