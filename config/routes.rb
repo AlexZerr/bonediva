@@ -9,7 +9,7 @@ Bonediva::Application.routes.draw do
     resources :user_categories
     resources :avatars
     resources :paintings
-    resources :messages
+    resources :messages, only: [:new, :create]
     resources :carts do
       resources :cart_items
       resources :orders

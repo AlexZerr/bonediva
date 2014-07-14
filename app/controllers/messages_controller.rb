@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
       if UserMailer.contact_bonediva(@user, @message).deliver
         redirect_to :root, notice: "Message has been sent!"
       else
-        redirect_to :root, notice: "Error! This message was not sent!!!!!"
+        redirect_to :root, notice: "#{@message.errors.full_messages}"
       end
 
     end
