@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  respond_to :html, :js, :json
 
   def new
     @user = current_user
