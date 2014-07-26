@@ -29,6 +29,7 @@ gem "pundit"
 
 # File Upload
 gem "carrierwave-aws"
+gem "aws-sdk"
 gem "fog",         "~> 1.7.0"
 gem "mini_magick", "~> 3.4"
 #gem "rmagick", "~> 2.13.1"
