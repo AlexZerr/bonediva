@@ -16,7 +16,7 @@ class BlogPostsController < ApplicationController
   def create
     if current_user.email == "bonediva@gmail.com"
     @user = User.find_by_email( "bonediva@gmail.com")
-    elsif current_user.email.in?( "Thwarts@gmail.com", "akmclan@hotmail.com") 
+    elsif current_user.email.in?( "Thwarts@gmail.com") 
     @user = User.find_by_email( "Thwarts@gmail.com")
     end
     @blog_post = @user.blog_posts.new(params[:blog_post])
