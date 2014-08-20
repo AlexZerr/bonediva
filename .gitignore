@@ -20,6 +20,7 @@ config/initializers/carrierwave.rb
 config/initializers/setup_mail.rb
 config/initializers/omniauth.rb
 config/initializers/secret_token.rb
+config/initializers/setup_mail.rb
 config/s3_credentials.yml
 config/omniauth_creds.yml
 public/uploads/
