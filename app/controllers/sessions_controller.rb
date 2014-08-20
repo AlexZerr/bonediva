@@ -4,8 +4,6 @@ class SessionsController < ApplicationController
 
   def new
     @user = current_user
-    
-
   end 
 
 
@@ -15,9 +13,9 @@ class SessionsController < ApplicationController
      if @user.authenticate(params[:password])
        session[:user_id] = @user.id
        if !@user.carts.present?
-          c =@user.carts.build
+          c = @user.carts.build
           c.save
-       end 
+       end
        redirect_to :back, :notice => "Logged In"
      else 
        flash.now.alert = "Invalid Email or Password"
