@@ -1,15 +1,55 @@
 
-<%= content_for :sidebar do %>
-  <div style="color:red">
-    <%= link_to 'BoneDivas Website', 'http://www.lisaluree.com'%>
-  </div>
-<% end %>
+  <%= content_for :sidebar do %>
+  <% end %>
 
-<div>
-  <div style=text-align:center>
-    <div style=color:green>
-      <h1>
-        This is the about page for bonediva
-      </h1>
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="about-header">
+      About Lisa Luree
+    </h1>
+  </div>
+</div>
+<div id="mid_component">
+  <div class="row">
+      <h5 class="about-body">
+        <div class="row">
+          <div class="span8 center-top">
+            <em></em>Watercolor artist and Denver native, Lisa Luree has been immersed in the arts since she was able to hold a brush.
+            Her mother recognized her daughter’s talents and actively participated in getting her not only instruction
+            but the support that made her the artist she is today.<br></br>
+          </div>
+          <div class="span4">
+            <%= image_tag "mom_painting.jpg", class: "mom-photo" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span4">
+            <%= image_tag "mom_sunflower.jpg", class: "mom-photo" %>
+          </div>
+          <div class="span8 center-top">
+            <em></em>Lisa’s painting range from her trademark skeletons, to fantasy creatures and nudes. 
+            She lightens darker subject matters with vibrant colors and iridescent pigments that catch the light in a playful way. 
+            Sometimes pieces are carefully planned out but Luree also embraces the impromptu process – letting images form as she goes. 
+            She believes that letting creativity flow unobstructed allows an artist to tap the collective unconscious and draw archetypal symbolism into the art.<br></br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span6 center-top">
+            <em></em>It is no surprise that her biggest influence come from her family and friends.
+            Besides the encouragement from her mother, 
+            she had a superstitious china painting teacher who opened up Lisa’s mind to fantasy and exploration of the imagination; 
+            and her husband -whose mechanical ingenuity and keen sense of the obvious has helped her hone the final product.<br></br>
+          </div>
+          <div class="span6">
+            <%= image_tag "mom_skid.jpg", class: "mom-photo" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span12">
+            Lisa Luree is also the founder of the ACEO (Art Cards Editions and Originals) movement which led to her winning eBay’s Community Hall of Fame Award.
+          </div>
+        </div>
+      </h5>
+
   </div>
 </div>
