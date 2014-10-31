@@ -24,7 +24,8 @@ config/secrets.yml
 config/s3_credentials.yml
 config/omniauth_creds.yml
 public/uploads/
-public/.DS_Store
+.DS_Store
 lib/carrierwave/storage/fog.rb
 public/assets/*
+*.tar.gz
 
