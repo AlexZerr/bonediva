@@ -93,3 +93,117 @@
       </div>
   </body>
 </html>
+
+
+ <script type="text/javascript">
+                  
+      
+      
+      
+                  $('#record').click(function(){
+                    
+                      console.log($.jRecorder); 
+                      $.jRecorder.record(30);
+                      
+                      
+                      
+                    
+                    
+                  })
+                  
+                  
+                  $('#stop').click(function(){
+                    
+                    
+                    
+                     $.jRecorder.stop();
+                    
+                    
+                  })
+                  
+                  
+                   $('#send').click(function(){
+                    
+                    
+                    
+                     $.jRecorder.sendData();
+                    
+                    
+                  })
+                  
+                  function callback_finished()
+                  {
+      
+                      $('#status').html('Recording is finished');
+                    
+                  }
+                  
+                  function callback_started()
+                  {
+      
+                      $('#status').html('Recording is started');
+                    
+                  }
+                  
+                  
+                  
+                  
+                  function callback_error(code)
+                  {
+                      $('#status').html('Error, code:' + code);
+                  }
+                  
+                  
+                  function callback_stopped()
+                  {
+                      $('#status').html('Stop request is accepted');
+                  }
+                  function callback_finished_recording()
+                  {
+                    
+                      $('#status').html('Recording event is finished');
+                    
+                    
+                  }
+                  
+                  function callback_finished_sending()
+                  {
+                    
+                      $('#status').html('File has been sent to server mentioned as host parameter');
+                      
+                      
+                  }
+                  
+                  function callback_activityLevel(level)
+                  {
+                    
+                    $('#level').html(level);
+                    
+                    if(level == -1)
+                    {
+                      $('#levelbar').css("width",  "2px");
+                    }
+                    else
+                    {
+                      $('#levelbar').css("width", (level * 2)+ "px");
+                    }
+                    
+                    
+                  }
+                  
+                  function callback_activityTime(time)
+                  {
+                   
+                   //$('.flrecorder').css("width", "1px"); 
+                   //$('.flrecorder').css("height", "1px"); 
+                    $('#time').html(time);
+                    
+                  }
+                  
+                  
+		   
+		   
+		              
+           
+        </script>
+

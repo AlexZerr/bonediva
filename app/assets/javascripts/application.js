@@ -11,6 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.min
+//= require jRecorder
 //= require jquery_ujs
 //= require_tree .
 //= require twitter/bootstrap
