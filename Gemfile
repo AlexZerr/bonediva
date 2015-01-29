@@ -46,6 +46,9 @@ gem "audited", github: "effektz/audited", ref: "3f84aa7"
 
 gem "puma", "~> 1.2.1"
 
+#analytics
+gem 'piwik_analytics', '~> 1.0.1'
+
 group :assets do
   gem 'bootstrap-sass-rails'
   gem "jquery-rails", "~> 3.1.0"

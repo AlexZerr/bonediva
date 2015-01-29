@@ -23,6 +23,7 @@ config/initializers/secret_token.rb
 config/secrets.yml
 config/s3_credentials.yml
 config/omniauth_creds.yml
+config/piwik.yml
 public/uploads/
 .DS_Store
 lib/carrierwave/storage/fog.rb
