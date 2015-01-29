@@ -1,4 +1,4 @@
-<p>From: <%= @user.email %>---<%= @user.name %></p>
+<p>From: <%= @user_email %>---<%= @user.name if @user.present? %></p>
 <p>Subject: <%= @message.title %></p>
 </br></br>
 <div>
