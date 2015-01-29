@@ -7,8 +7,7 @@ class Message < ActiveRecord::Base
 
   private
   def send_bone_diva_message
-    user = self.user
-    UserMailer.contact_bonediva(user, self).deliver
+    UserMailer.contact_bonediva(user_email, self).deliver
   end
 
 end

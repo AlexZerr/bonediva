@@ -2,14 +2,22 @@ class MessagesController < ApplicationController
   respond_to :html, :js, :json
 
   def new
-    @user = current_user
-    @message = @user.messages.new if current_user.present?
+    if current_user
+      @user = current_user
+      @message = @user.messages.new if current_user.present?
+    else
+      @message = Message.new
+    end
   end
 
   def create
-    @user = current_user
-    @message = @user.messages.new(params[:message])
-    @message.user_email = @user.email
+    if current_user
+      @user = current_user
+      @message = @user.messages.new(params[:message])
+      @message.user_email = @user.email
+    else
+      build_message_with_no_user
+    end
     if @message.save
       #UserMailer.contact_bonediva(@user, @message).deliver
       redirect_to :root, notice: "Message has been sent!"
@@ -25,5 +33,11 @@ class MessagesController < ApplicationController
   def destroy
     @message = Message.find(params[:id])
     @mesage.destroy
+  end
+
+  private
+
+  def build_message_with_no_user
+    @message = Message.new(params[:message])
   end
 end

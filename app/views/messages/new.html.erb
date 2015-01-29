@@ -3,6 +3,13 @@
   <%= form_for @message do |f| %>
 
     <div class="message-form">
+      <% if current_user %>
+        <%= f.label :user_email, "Email" %>
+      <%= f.email_field :user_email, placeholder: "#{@user.email}", readonly: true %><%= link_to "Edit", edit_user_path(@user) %>
+      <% else %>
+        <%= f.label :user_email, "Email" %>
+        <%= f.email_field :user_email %>
+      <% end %>
       <p>
         <%= f.label :title, "Subject" %>
         <%= f.text_field :title, class: "row-fluid", placeholder: 'No Subject' %>
