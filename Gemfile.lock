@@ -166,6 +166,10 @@ GEM
       activerecord (>= 3.0, < 5.0)
       activesupport (>= 3.0, < 5.0)
     pg (0.17.0)
+    piwik_analytics (1.0.2)
+      actionpack
+      activesupport
+      rails (>= 3.0.0)
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.4)
@@ -285,6 +289,7 @@ DEPENDENCIES
   omniauth-facebook
   paper_trail (~> 3.0.0)
   pg
+  piwik_analytics (~> 1.0.1)
   pry-debugger
   pry-rails
   puma (~> 1.2.1)
