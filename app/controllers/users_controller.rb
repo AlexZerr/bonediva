@@ -68,7 +68,7 @@ class UsersController < ApplicationController
         @cart.save
       redirect_to user_path(@user), :notice => " #{@user.name} was created sucessfully"
     else
-     redirect_to new_user_path, :notice => " Fields must be filled out." 
+     redirect_to new_user_path, :notice => " #{@user.errors.full_messages} " 
     end
   end
 
