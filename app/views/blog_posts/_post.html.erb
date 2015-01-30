@@ -9,7 +9,7 @@
           <div class="span12">
             <div id="blog-body">
               <p><%= @blog_post.body %></p>
-              <%= image_tag @blog_post.image_url(:standard) %> 
+              <%= link_to (image_tag @blog_post.image_url(:standard)), bp_image_path(@blog_post) %> 
             </div>
           </div>
 </div>
