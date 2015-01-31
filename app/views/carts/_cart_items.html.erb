@@ -7,43 +7,42 @@
     </div>
   </div>
   <% @cart_items.each do |item| %>
-    <div class="row-fluid">
-      <div class="span9">
-        <div class="cart-item">
+      <div id="cart-items">
+        <div class="span12">
+          <div class="cart-item">
 
-          <div id="cart-item-name">
-            <div class="span4"><%= item.name %></div>
-          </div>
+        <div id="cart-item-name">
+          <div class="span4"><%= item.name %></div>
+        </div>
 
-          <div id="cart-item-price">
-            <% if item.product.present? %>
-              <div class="span2"><%= number_to_currency item.price %></div>
-            <% else%>
-            00.00
-            <%end%>
-          </div>
+        <div id="cart-item-price">
+          <% if item.product.present? %>
+          <div class="span2"><%= number_to_currency item.price %></div>
+        <% else%>
+          00.00
+        <%end%>
+        </div>
 
-          <div class="span3">
-            <div id="cart-item-painting">
-              <div class="span6">
-                <div id="thumbnails">
-                  <div class="thumbnail">
-
-                    <% if item.product.present?%>
-                      <%= image_tag item.product.main_image(:thumb) %>
-                    <% else %>
-                      This Product is not avalable
-                    <% end %>
-                
-                  </div>
+        <div class="span3">
+          <div id="cart-item-painting">
+            <div class="span6">
+              <div id="thumbnails">
+                <div class="thumbnail">
+                  <% if item.product.present?%>
+                    <%= image_tag item.product.main_image(:thumb) %>
+                  <% else %>
+                    This Product is not avalable
+                  <% end %>
+                  
                 </div>
               </div>
-            </div>
+            </div>i
           </div>
+        </div>
 
-          <div id="cart-item-button">
-            <div class"span2">  <%= button_to 'remove', user_cart_cart_item_path(current_user, @cart, item), id: "button1", data: { confirm: "Do you want to delete #{item.name}?", method: :delete, remote: true } %></div>
-          </div>
+        <div id="cart-item-button">
+          <div class"span2">  <%= button_to 'remove', user_cart_cart_item_path(current_user, @cart, item), id: "button1", data: { confirm: "Do you want to delete #{item.name}?", method: :delete, remote: true } %></div>
+        </div>
 
         </div>
       </div>
@@ -51,15 +50,14 @@
   <% end %>
   <div class="span12">
     <div id="checkout-list">
-      <div id="total-box">
-        <h4>
-          <div class="span4">Total:</div>
-          <div class="span4"><%= number_to_currency @total_price %></div>
-          <div class="span4"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last), id: "button1" %></div>
-        </h4>
-      </div>
+        <div id="total-box">
+          <h4>
+            <div class="span4">Total:</div>
+            <div class="span4"><%= number_to_currency @total_price %></div>
+            <div class="span4"><%= link_to "Checkout", new_user_cart_order_path(current_user, current_user.carts.last), id: "button1" %></div>
+          </h4>
+        </div>
     </div>
   </div>
-
 </div>
 

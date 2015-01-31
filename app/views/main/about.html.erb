@@ -2,8 +2,7 @@
   <%= content_for :sidebar do %>
   <% end %>
 
-<div class="row-fluid">
-<div id="second_component">
+<div id="mid_component">
   <div class="row">
     <div class="col-sm-12">
       <h1 class="about-header">
@@ -19,10 +18,14 @@
             Her mother recognized her daughter’s talents and actively participated in getting her not only instruction
             but the support that made her the artist she is today.<br></br>
           </div>
-            <%= image_tag "mom_painting.jpg", class: "mom-photo span4" %>
+          <div class="span4">
+            <%= image_tag "mom_painting.jpg", class: "mom-photo" %>
+          </div>
         </div>
         <div class="row">
-            <%= image_tag "mom_sunflower.jpg", class: "mom-photo span4" %>
+          <div class="span4">
+            <%= image_tag "mom_sunflower.jpg", class: "mom-photo" %>
+          </div>
           <div class="span8 center-top">
             <em></em>Lisa’s painting range from her trademark skeletons, to fantasy creatures and nudes. 
             She lightens darker subject matters with vibrant colors and iridescent pigments that catch the light in a playful way.
@@ -37,7 +40,9 @@
             Besides the encouragement from her mother, she had a superstitious china painting teacher who opened up Lisa’s mind to fantasy and exploration of the imagination; 
             and her husband -whose mechanical ingenuity and keen sense of the obvious has helped her hone the final product.<br>
           </div>
-            <%= image_tag "mom_skid.jpg", class: "mom-photo span4" %>
+          <div class="span6">
+            <%= image_tag "mom_skid.jpg", class: "mom-photo" %>
+          </div>
         </div>
         <br>
         <div class="row">
@@ -49,5 +54,3 @@
 
   </div>
 </div>
-</div>
-
