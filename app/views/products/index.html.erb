@@ -1,29 +1,25 @@
-<div class="row-fluid">
-  <div class="span10">
-    <div class="cat-search">
-      <div class="span4 offset2">
-        <div id="cat2">
-          <%= link_to "Search by Category", '#' %>
-        </div>
-        <div>
-          <%= render partial: "categories/search_drop_down"%>
-        </div>
+  <div class="cat-search">
+    <div class="span4 offset2">
+      <div id="cat2">
+        <%= link_to "Search by Category", '#' %>
       </div>
-      <div class="span1">
-        <h3>Or</h3>
+      <div>
+        <%= render partial: "categories/search_drop_down"%>
       </div>
-      <div class="span5">
-        <div class="prod_search">
-          <%= render partial: "products/products_search"%>
-        </div>
+    </div>
+    <div class="span2">
+      <h3>Or</h3>
+    </div>
+    <div class="span4">
+      <div class="prod_search">
+        <%= render partial: "products/products_search"%>
       </div>
     </div>
   </div>
-</div>
 
 
   <div class="span12">
-    <div id="second_component">
+    <div id="mid_component">
 <% if @products.present? %>
       <%= render :partial => "products/display_products" %>
 <% end %>

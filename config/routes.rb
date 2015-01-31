@@ -99,8 +99,6 @@ Bonediva::Application.routes.draw do
 #  get "/show" => 'users#show', :as => "users"
 
   post "blog_posts/:id", to: "blog_posts#destroy", as: "destroy_blog_post"
-
-  get "blog_posts/:id/bp_image", to: "blog_posts#bp_image", as: "bp_image"
 #  get "users" => "users#show", :as => "users"
   get "/aceo", to: "products#aceo", as: "aceo_products"
 

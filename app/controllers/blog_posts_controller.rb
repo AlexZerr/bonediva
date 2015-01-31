@@ -52,10 +52,6 @@ class BlogPostsController < ApplicationController
     end
   end
 
-  def bp_image
-    @blog_post = BlogPost.find(params[:id])
-  end
-
   private
 
   def find_blog_post

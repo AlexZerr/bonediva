@@ -1,10 +1,14 @@
+<h1>
+  Edit
+</h1>
+
 <% content_for :sidebar do %>
   <% if current_user.admin? %>
-    <p><%= link_to "Delete #{@user.name}", @user, :method => :delete, :confirm => "Are you sure?" %></p>
+    <p><%= link_to "Delete", @user, :method => :delete, :confirm => "Are you sure?" %></p>
   <% end %>
 <% end %>
 
-<div id="second_component">
+<div id="mid_component">
   <%= render :partial => "users/user_form" %>
   <h4> update your avatar </h4>
   <%= render partial: "avatars/form"%>
