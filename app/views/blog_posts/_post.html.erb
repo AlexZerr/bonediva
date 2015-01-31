@@ -1,15 +1,19 @@
 <div class="row-fluid">
-        <div class="span12">
-          <div class="blog-title">
-            <%= @blog_post.title %>
-            <div style="float:right"><%= @blog_post.created_at.time%></div>
-          </div>
+  <div class="blog-contain span12">
+    <div class="row-fluid">
+        <div class="b-title">
+          <%= @blog_post.title %>
+          <div style="float:right"><%= @blog_post.created_at.time%></div>
         </div>
+    </div>
 
-          <div class="span12">
-            <div id="blog-body">
-              <p><%= @blog_post.body %></p>
-              <%= image_tag @blog_post.image_url(:standard) %> 
-            </div>
-          </div>
+    <div class="span12">
+      <div id="blog-body">
+        <p><%= @blog_post.body %></p>
+        <div class="row-fluid">
+          <%= link_to (image_tag @blog_post.image_url(:standard), class: "span6 offset3"), bp_image_path(@blog_post) %> 
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
