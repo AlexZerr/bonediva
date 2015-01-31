@@ -20,61 +20,63 @@
 </script>
   </head>
   <body>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=161006087321169&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=161006087321169&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
     
-    <div id="top_bar">
-      <p class="left">
-        <a href="/">Home</a>
-        <%= content_tag "a#acs", id: "acs"  do %>
-          <a href="#">ACEO's</a>
-        <% end%>
-        <a href="/products">Products</a>
-        <a href="/paintings/">All Paintings</a>
-        <%= content_tag "a#cat", id: "cat", data:{ url: categories_url }  do %>
-          <a href="#">Categories</a>
-        <% end %>
-        <a href="/about">About Lisa</a>
-      </p>
-      <p id="top-bar-actions">
-        <% if !current_user.present? %>
-          <p class="right">
-            <a href="/messages/new" class="icon-pencil">Contact</a>
-            <a href="/users/new">Signup</a>
-            <a href="/sessions/new">Log_in</a>
-            <a href="/auth/facebook">Log in With<%= image_tag "Facebook-logo-29.png" %></a>
+      <div class="row-fluid"> 
+        <div id="top_bar">
+          <p class="left">
+            <a href="/">Home</a>
+            <%= content_tag "a#acs", id: "acs"  do %>
+              <a href="#">ACEO's</a>
+            <% end%>
+            <a href="/products">Lisa's Art</a>
+            <a href="/paintings/">All Paintings</a>
+            <%= content_tag "a#cat", id: "cat", data:{ url: categories_url }  do %>
+              <a href="#">Categories</a>
+            <% end %>
+            <a href="/about">About Lisa</a>
           </p>
-        <% else %>
-          <p class="right">
-             <a href="/messages/new" class="icon-pencil"> Contact</a>
-             <a href="/log_out">Sign Out</a>
-          </p>
-        <% end %>
-        </p>
-    </div><!--end #top_bar-->
-        <div class="the-drop">
+          <p id="top-bar-actions">
+            <% if !current_user.present? %>
+              <p class="right">
+                <a href="/messages/new" class="icon-pencil">Contact</a>
+                <a href="/users/new">Signup</a>
+                <a href="/sessions/new">Log_in</a>
+                <a href="/auth/facebook">Log in With<%= image_tag "Facebook-logo-29.png" %></a>
+              </p>
+            <% else %>
+              <p class="right">
+                 <a href="/messages/new" class="icon-pencil"> Contact</a>
+                 <a href="/log_out">Sign Out</a>
+              </p>
+            <% end %>
+            </p>
+        </div><!--end #top_bar-->
+      </div>
+      <div class="the-drop">
           <%= render partial: "categories/drop_down"%>
-        </div>
-        <div class="aceo">
+      </div>
+      <div class="aceo">
           <%= render partial: "layouts/aceo_link"%>
-        </div>
-    <%=image_tag("top_image2.jpg", :alt => "rss feed", :class => "top_image")  %>
-    <div style="color:red"> 
-      <div style="text-align:center" > 
-          <%= yield :header %>
       </div>
-    </div>
-    <% flash.each do |name, message| %>
-      <div id="flash_<%= name %>">
-        <%= message %>
+
+      <%=image_tag("top_image2.jpg", :alt => "rss feed", :class => "top_image")  %>
+
+      <div class="row-fluid">
+        <% flash.each do |name, message| %>
+          <div id="flash_<%= name %>">
+            <%= message %>
+          </div>
+        <% end if !flash.blank? %>
       </div>
-    <% end if !flash.blank? %>
+
     <div class="container-fluid"> 
       <div class="row-fluid">
         <div class="span10">
@@ -92,6 +94,7 @@
         <% end %>
       </div>
     </div>
+    <div class="row-fluid">
       <div id="user_nav">
         <% if current_user.present? %>
           <div class="span10">Logged in as <%= current_user.email %></div>
@@ -101,5 +104,6 @@
           <div class="span10"><%= link_to "log_in", log_in_path %></div>
         <% end %>
       </div>
+    </div>
   </body>
 </html>
