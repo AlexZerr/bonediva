@@ -52,6 +52,10 @@ class BlogPostsController < ApplicationController
     end
   end
 
+  def bp_image
+    
+  end
+
   private
 
   def find_blog_post
