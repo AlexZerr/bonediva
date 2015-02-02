@@ -1,12 +1,9 @@
 <div class="row-fluid">
   <div class="od-contain">
     <h3>
-      <div class="order-header">
         <div class="span4">Card Info</div>
         <div class="span4 offset2">Billing Address</div>
-      </div>
     </h3>
-    <div class="order-container">
       <%= form_for @order do |o| %>
         <div style="color:grey">
           <div class="row-fluid">
@@ -62,6 +59,5 @@
         
         <%= o.submit %>
       <% end %>
-    </div>
   </div>
 </div>

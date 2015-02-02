@@ -7,15 +7,15 @@
     </div>
   </div>
   <% @cart_items.each do |item| %>
-      <div id="cart-items">
+      <div class="cart-items">
         <div class="span12">
           <div class="cart-item">
 
-        <div id="cart-item-name">
+        <div class="cart-item-name">
           <div class="span4"><%= item.name %></div>
         </div>
 
-        <div id="cart-item-price">
+        <div class="cart-item-price">
           <% if item.product.present? %>
           <div class="span2"><%= number_to_currency item.price %></div>
         <% else%>
@@ -24,9 +24,9 @@
         </div>
 
         <div class="span3">
-          <div id="cart-item-painting">
+          <div class="cart-item-painting">
             <div class="span6">
-              <div id="thumbnails">
+              <div class="thumbnails">
                 <div class="thumbnail">
                   <% if item.product.present?%>
                     <%= image_tag item.product.main_image(:thumb) %>
@@ -40,7 +40,7 @@
           </div>
         </div>
 
-        <div id="cart-item-button">
+        <div class="cart-item-button">
           <div class"span2">  <%= button_to 'remove', user_cart_cart_item_path(current_user, @cart, item), id: "button1", data: { confirm: "Do you want to delete #{item.name}?", method: :delete, remote: true } %></div>
         </div>
 
