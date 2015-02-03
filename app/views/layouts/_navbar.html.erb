@@ -11,18 +11,36 @@
             <ul class="nav navbar-nav navbar-left">
               <li class="active">
                 <a href="./index.html">Home</a>
+
               </li>
               <li>
-                <a href="#">Get started</a>
+                  <a href="#">ACEO's</a>
+                </li>
+              <li>
+                <a href="/products">Lisa's Paintings</a>
               </li>
               <li>
-                <a href="./customize.html">Customize</a>
+                <a href="/paintings/">All Paintings</a>
+              </li>
+              <li>
+                <a href="#">Categories</a>
+              </li>
+              <li>
+                <a href="/about">About Lisa</a>
               </li>
             </ul>
             <ul class="nav pull-right">
-              <li><a href="../navbar/">Default</a></li>
-              <li><a href="../navbar-static-top/">Static top</a></li>
-              <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+              <% if !current_user.present? %>
+                <li><a href="/messages/new"><div class="icon-pencil"></div>Contact Lisa</a></li>
+                <li><a href="/users/new">Signup</a></li>
+                <li><a href="/sessions/new">Log_in</a></li>
+                <li><a href="/auth/facebook">Log in With<%= image_tag "Facebook-logo-29.png" %></a></li>
+            <% else %>
+              <li><a href="/messages/new"><div class="icon-pencil"></div>Contact</a></li>
+                <li><a href="/log_out">Sign Out</a></li>
+            <% end %>
+
+            <!-- <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li> -->
             </ul>
 
         </div>
