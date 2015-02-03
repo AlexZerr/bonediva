@@ -41,7 +41,8 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
     
-    <div id="top_bar">
+  <%= render "layouts/navbar" %>
+ <!--   <div id="top_bar">
       <p class="left">
         <a href="/">Home</a>
         <%= content_tag "a#acs", id: "acs"  do %>
@@ -69,7 +70,11 @@
           </p>
         <% end %>
         </p>
-    </div><!--end #top_bar-->
+
+    </div>
+   --> 
+<!--end #top_bar-->
+    
         <div class="the-drop">
           <%= render partial: "categories/drop_down"%>
         </div>
