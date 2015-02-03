@@ -9,9 +9,9 @@
                 <div class="span6">
                   <div class="painting1">
                     <% if product.class.name == "Product"%>
-                      <%=  link_to (image_tag (product.main_image(:standard))), product_path(product) %></br>
+                      <%=  link_to (image_tag (product.main_image(:standard)), alt: product.name, title: product.name), product_path(product) %></br>
                     <% elsif product.class.name == "SoldProduct" %>
-                      <%=  link_to (image_tag (product.main_image(:standard))), sold_product_path(product) %></br>
+                      <%=  link_to (image_tag (product.main_image(:standard)), alt: "'#{product.name}' by Lisa Luree", title: "'#{product.name} by Lisa Luree"), sold_product_path(product) %></br>
                     <% end %>
                   </div>
                 </div>

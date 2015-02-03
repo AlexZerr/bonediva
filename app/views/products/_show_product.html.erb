@@ -15,7 +15,7 @@
 
       <div class="span6">
         <div class="main-painting">
-          <%= link_to (image_tag product.main_image(:home)), painting_path(product.paintings.first.id) %>
+          <%= link_to (image_tag product.main_image(:home), alt: "'#{product.name}' by Lisa Luree", title: "'#{product.name}' by Lisa Luree"), painting_path(product.paintings.first.id) %>
         </div>
         <div class="row-fluid th">
           <% product.paintings.each do |p| %>
