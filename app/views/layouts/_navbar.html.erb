@@ -12,8 +12,12 @@
                 <a href="./index.html">Home</a>
 
               </li>
-              <li>
-                  <a href="#">ACEO's</a>
+              <li class="dropdown">
+                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">ACEO's</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/aceo/about">About ACEO's</a></li>
+                    <li><a href="/aceo">ACEO's for sale</a></li>
+                  </ul>
               </li>
               <li>
                 <a href="/products">Lisa's Paintings</a>
@@ -21,8 +25,15 @@
               <li>
                 <a href="/paintings/">All Paintings</a>
               </li>
-              <li>
-                <a href="#">Categories</a>
+              <li class="dropdown">
+                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">Categories</a>
+                  <ul class="dropdown-menu">
+                    <% Category.all.each do |cat| %>
+                      <ul class="name">
+                        <%= link_to cat.name, category_path(cat), class: 'name-cat' %>
+                      </ul>
+                    <% end %>
+                  </ul>
               </li>
               <li>
                 <a href="/about">About Lisa</a>
