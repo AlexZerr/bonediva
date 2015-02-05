@@ -109,13 +109,16 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @painting = @product.paintings.find(params[:paintable_id])
-    if params[:painting][:paintable_id] == @product.id
-      @painting.paintable_type = "Product"
-      @painting.update
+    if params[:paintable_id]
+      @painting = @product.paintings.find(params[:paintable_id]) 
+      if params[:painting][:paintable_id] == @product.id
+        @painting.paintable_type = "Product"
+        @painting.update
+      end
     end
     if @product.update_attributes(params[:product])
-      redirect_to product_path(@product), :notice => "your painting has been updated"
+        @product.paintings.map{|e| e.update_attributes(title: @product.name, description: @product.description)}
+        redirect_to product_path(@product), :notice => "your painting has been updated"
     end
   end
 
@@ -140,6 +143,14 @@ class ProductsController < ApplicationController
 #     respond_to do |format|
  #      format.js {render :template => 'products/destroy.js.erb', :layout => false } 
   #   end
+     private
+
+     def product_painting_sync(product)
+      paintings = product.paintings
+      
+      
+     end
+
   end
 
 end
