@@ -58,10 +58,11 @@
                   </div>
                   <div id="description">
                     <div>
-                      <div class="span6">Description:</div>
-                      <div class="span6"><%= product.description %></div>
+                      <div class="span12">Description:</div>
+                      <div class="span12"><%= product.description %></div>
                     </div>
                   </div>
+                  <legend>
                   <div id="user-posted">
                     <div class="span6">Posted By:</div>
                     <div class="span6"><%= link_to "#{product.user.name}", user_path(product.user)%></div>
