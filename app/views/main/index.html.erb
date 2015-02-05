@@ -1,20 +1,22 @@
 <div class="row-fluid hcont">
   <% if @new_painting.present? %>
-    <div class="span12">
+    <div class="row">
+      <div class="span12">
         <%= render partial: "main/new_image"%>
+      </div>
     </div>
   <% end %>
-  <div>
-    <div class="row-fluid">
-        <div class="span12" style="text-align:center">
-          <%= link_to "Lisa's for sale artwork", products_path, style: "color: red"%>
-        </div>
-        <div class="row-fluid">
-          <div id="sc_box">
-            <%= render partial: "products/display_products" %>
-          </div>
-        </div>
+  <div class="row-fluid">
+    <div class="span12" style="text-align:center">
+      <%= link_to "Lisa's for sale artwork", products_path, style: "color: red"%>
     </div>
+  </div>
+  <div class="row-fluid">
+          <div class="span12">
+            <div id="sc_box">
+              <%= render partial: "products/display_products" %>
+            </div>
+          </div>
   </div>
 
       <%= render partial: "main/blog_posts" %>
