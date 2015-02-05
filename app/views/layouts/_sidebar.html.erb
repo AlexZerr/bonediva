@@ -1,4 +1,4 @@
-
+          <div class="row">
             <div class="sidebar">
               <% if current_user.present? %>
                 <div class="img-with-text">
@@ -16,11 +16,9 @@
                     <%#= link_to image_tag("#{@user.avatar}") + current_user.username, user_path(@user), :class => "avatar_img", :remote => true %>
                 <% if current_user.present? %>
                   <div>
-                    <div class="span2 offset9">
-                      <div class="log_out_link">
+                      <div class="log_out_link pull-right">
                         <%= link_to "Logout", log_out_path %>
                       </div>
-                    </div>
                   </div>
                 <% end %>
               <% else %>
@@ -53,4 +51,5 @@
                 <% end %>
               </div>
             </div>
+          </div>
 
