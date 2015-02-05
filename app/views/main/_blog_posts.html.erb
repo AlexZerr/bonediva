@@ -1,8 +1,5 @@
 <div class="row-fluid rock">
   <div class="span12">
-    <div style="text-align:center">
-      <%= link_to 'Current News', blog_posts_path, :target => "_blank"  %>
-    </div>
     <% @blog_posts.each do |post| %>
       <div class="<%= cycle('oddrow', 'evenrow') -%>">
 
