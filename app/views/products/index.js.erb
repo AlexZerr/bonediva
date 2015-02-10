@@ -1,1 +1,1 @@
-$("#products").html("<%= j(render(:partial => 'products/display_products', :locals => {products: @products})) %>");
+$(".main").html("<div class='mid_component'><%= j(render(:partial => 'products/display_products', :locals => {products: @products})) %></div>");
