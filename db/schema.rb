@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150128221335) do
+ActiveRecord::Schema.define(:version => 20150210040917) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20150128221335) do
 
   create_table "categories", :force => true do |t|
     t.string  "name"
-    t.string  "description"
+    t.text    "description"
     t.integer "featured_painting_id"
   end
 
