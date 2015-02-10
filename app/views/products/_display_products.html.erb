@@ -19,7 +19,11 @@
                   <div class="info">
                     <div class="span12">
                       <div class="name">
-                          Name: <%= link_to truncate(product.name, length: 15), product_path(product) %>
+                        <% if product.class.name == "Product"%>
+                            Name: <%= link_to truncate(product.name, length: 15), product_path(product) %>
+                        <% elsif product.class.name == "SoldProduct" %>
+                            Name: <%= link_to truncate(product.name, length: 15), sold_product_path(product) %>
+                        <% end %>
                       </div>
                     </div>
                     <div class="span12">
