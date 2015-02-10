@@ -130,6 +130,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @paintings = @product.paintings
     @cart_item = CartItem.where( id: @product.cart_item_id)
+    if current_user.admin?
      if @product.destroy
        if @cart_item.present?
          @cart_item.destroy
@@ -139,6 +140,7 @@ class ProductsController < ApplicationController
        end
        redirect_to products_path
      end
+    end
 
 #     respond_to do |format|
  #      format.js {render :template => 'products/destroy.js.erb', :layout => false } 
