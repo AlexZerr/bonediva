@@ -38,7 +38,19 @@
               <li>
                 <a href="/about">About Lisa</a>
               </li>
+              <li class="navbar-form prod_search">
+                <div class="form-group">
+                  <%= render partial: "products/products_search"%>
+                </div>
+              </li>
             </ul>
+
+      <!--      <div class="navbar-form navbar-left" role="search">
+              <div class="prod_search">
+                <%= render partial: "products/products_search"%>
+              </div>
+            </div> -->
+
             <ul class="nav pull-right">
               <% if !current_user.present? %>
                 <li><a href="/messages/new"><div class="icon-pencil"></div>Contact Lisa</a></li>

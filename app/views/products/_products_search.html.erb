@@ -1,10 +1,7 @@
   <div id="search">
     <%= form_tag products_path, :method => :get, remote: true do %>
-      <div style="color:red">
-        Search by name, or description</br>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil %>
-      </div>
+        <%= text_field_tag :search, params[:search], placeholder: "Search 'Name' or 'Description'", class: "span2 head-search-form form-control", role: "search" %>
+        <%= submit_tag "Search", class: "btn btn-black", :name => nil %>
     <% end %>
   </div>
  
