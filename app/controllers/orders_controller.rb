@@ -13,11 +13,12 @@ class OrdersController < ApplicationController
     @total_price = CartItem.where(cart_id: @cart.id).sum(:price)
     @order.total_price = @total_price
     if @order.save
-     # if @order.purchase
-      #  render action: "success"
-    #  else
+        binding.pry
+      if @order.purchase
+        render action: "success"
+      else
         render action: "failure"
-     # end
+      end
     else
       redirect_to user_cart_path(current_user,current_user.carts.last), notice: "CHECKOUT"
     end

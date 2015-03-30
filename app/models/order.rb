@@ -52,7 +52,7 @@ before_create :validate_card
   def validate_card
     unless credit_card.valid?
       credit_card.errors.full_messages.each do |message|
-        message
+       errors.add_to_base message
       end
     end
   end
