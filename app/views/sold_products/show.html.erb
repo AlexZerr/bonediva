@@ -5,7 +5,7 @@
   <%= tag :meta, property: "og:title", content: @sold_product.name %>
   <%= tag :meta, property: "og:url", content: sold_product_url(@sold_product) %>
   <%= tag :meta, property: "og:description", content: "#{@sold_product.description} \n Sold Date: #{@sold_product.created_at} \n Size: #{@sold_product.size}" %>
-  <%= tag :meta, property: "og:image", content: request.protocol + request.host_with_port + image_path(@sold_product.main_image(:standard)) %>
+  <%= tag :meta, property: "og:image", content: image_path(@sold_product.main_image(:home)) %>
 <% end %>
 
 <%= render partial: "products/show_product", locals: {product: @sold_product}%>
