@@ -24,28 +24,30 @@
             <%= o.text_field :city, required: true %></div>
           </div>
         </div>
-        <div>
-          <div class="row-fluid">
-             <div class="span4"><%= o.label :brand, "Card Type" %>
-            <%= o.select :brand, [["Visa", "visa"], ["MasterCard", "master"], ["American Express", "american_express"], ["Discover", "discover"]], required: true %></div>
+
             <div class="span4 offset2"><%= o.label :state, "State" %>
             <%= o.text_field :state, required: true %></div>
+            <div class="span4 offset2"><%= o.label :zip_code, "Zip Code" %>
+            <%= o.number_field :zip_code, required: true %></div>
+            <div class="span4 offset2"><%= o.label :country, "Country" %>
+            <%= o.text_field :country, default: "United States", required: true %></div>
+
+<!--        <div>
+          <div class="row-fluid">
+            <div class="span4"><%= o.label :brand, "Card Type" %>
+            <%= o.select :brand, [["Visa", "visa"], ["MasterCard", "master"], ["American Express", "american_express"], ["Discover", "discover"]], required: true %></div>
           </div>
         </div>
         <div>
           <div class="row-fluid">
             <div class="span4"><%= o.label :card_number, "Card Number" %>
             <%= o.number_field :card_number, required: true %></div>
-            <div class="span4 offset2"><%= o.label :zip_code, "Zip Code" %>
-            <%= o.number_field :zip_code, required: true %></div>
           </div>
         </div>
         <div>
           <div class="row-fluid">
             <div class="span4"><%= o.label :card_verification, "Card Verification" %>
             <%= o.number_field :card_verification, required: true %></div>
-            <div class="span4 offset2"><%= o.label :country, "Country" %>
-            <%= o.text_field :country, default: "United States", required: true %></div>
           </div>
         </div>
         <div>
@@ -54,7 +56,10 @@
               <%= o.date_select :card_expires_on, discard_day: true, start_year: Date.today.year, end_year: (Date.today.year+10), add_month_numbers: true, required: true %>
             </div>
           </div>
-        </div>
+        </div> -->
+
+
+
       </div>
         
         <%= o.submit %>

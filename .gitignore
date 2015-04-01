@@ -25,6 +25,7 @@ config/secrets.yml
 config/s3_credentials.yml
 config/omniauth_creds.yml
 config/piwik.yml
+config/initializers/stripe.rb
 public/uploads/
 .DS_Store
 lib/carrierwave/storage/fog.rb

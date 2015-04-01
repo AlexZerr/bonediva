@@ -23,7 +23,9 @@ Bonediva::Application.routes.draw do
   resources :sessions
   resources :categories
   resources :avatars
-  resources :orders
+  resources :orders do
+    resources :charges
+  end
   resources :blog_posts
   resources :sold_products
   resources :messages, only: [:new, :create, :destroy]

@@ -1,6 +1,6 @@
 class SoldProduct < ActiveRecord::Base
- attr_accessible :name, :description, :price, :sold_at, :image, :category_id, 
-                  :primary_painting_id, :size
+ attr_accessible :name, :description, :price, :sold_at, :image, :category_id, :size,
+                 :user_id, :primary_painting_id
 
  belongs_to :user
  belongs_to :category

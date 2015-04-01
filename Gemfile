@@ -7,6 +7,7 @@ gem "rails", "~> 3.2.9"
 
 #e-comerce
 gem "activemerchant", '~> 1.38.0'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 # Database
 gem "activerecord", "~> 3.2.9"
 gem "pg"

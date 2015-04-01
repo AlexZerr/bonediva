@@ -1,0 +1,38 @@
+    <% @cart_items.each do |item| %>
+  <div>
+      <div class="row-fluid">
+        <h3>
+          <div class="span4"><%= item.name %></div>
+          <div class="span4"><%= number_to_currency item.price %></div>
+        </h3>
+      </div>
+  </div>
+    <%end%>
+  <h1>
+    <div>
+      <div class="row-fluid">
+        <div class="span4">Items:</div>
+        <div class="span5"><%= "#{@cart_items.count} Items"%>
+      </div>
+    </div>
+    <div>
+      <div class="row-fluid">
+        <div class="span4">Total:</div>
+        <div class="span6"><%= number_to_currency @order.total_price %></div>
+      </div>
+    </div>
+  </h1>
+
+
+<%= form_tag order_charges_path(@order) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: $<%= @order.total_price %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount=<%= @order.price_in_cents %>></script>
+<% end %>
