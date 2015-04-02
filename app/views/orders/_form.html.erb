@@ -1,68 +1,87 @@
-<div class="row-fluid">
   <div class="od-contain">
-    <h3>
-        <div class="span4">Card Info</div>
-        <div class="span4 offset2">Billing Address</div>
-    </h3>
-      <%= form_for @order do |o| %>
-        <div style="color:grey">
-          <div class="row-fluid">
-            <div class="span4">
-              <%= o.label :first_name, "First Name" %>
-              <%= o.text_field :first_name, required: true %>
-            </div>
-            <div class="span4 offset2">
-              <%= o.label :address, "Address" %>
-              <%= o.text_field :address, required: true %>
-            </div>
+    <div class="row">
+      <h1 class="span4 offset3">
+        Billing Info
+      </h1>
+    </div>
+    <%= form_for @order do |o| %>
+      <div style="color:grey">
+        <div class="row">
+          <div class="span4">
+            <%= o.label :first_name, "First Name" %>
+            <%= o.text_field :first_name, required: true %>
           </div>
-        <div>
-          <div class="row-fluid">
-            <div class="span4"><%= o.label :last_name, "Last Name" %>
-            <%= o.text_field :last_name, required: true %></div>
-            <div class="span4 offset2"><%= o.label :city, "City" %>
-            <%= o.text_field :city, required: true %></div>
+          <div class="span4 offset2">
+            <%= o.label :last_name, "Last Name" %>
+            <%= o.text_field :last_name, required: true %>
+          </div>
+        </div>
+      </div>
+
+        <div class="row">
+          <div class="span4">
+            <%= o.label :address, "Address" %>
+            <%= o.text_field :address, required: true %>
+          </div>
+          <div class="span4 offset2">
+            <%= o.label :city, "City" %>
+            <%= o.text_field :city, required: true %>
           </div>
         </div>
 
-            <div class="span4 offset2"><%= o.label :state, "State" %>
-            <%= o.text_field :state, required: true %></div>
-            <div class="span4 offset2"><%= o.label :zip_code, "Zip Code" %>
-            <%= o.number_field :zip_code, required: true %></div>
-            <div class="span4 offset2"><%= o.label :country, "Country" %>
-            <%= o.text_field :country, default: "United States", required: true %></div>
+      <div class="row">
+        <div class="span4">
+          <%= o.label :state, "State" %>
+          <%= o.text_field :state, required: true %>
+        </div>
+        <div class="span4 offset2">
+          <%= o.label :zip_code, "Zip Code" %>
+          <%= o.number_field :zip_code, required: true %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span4"><%= o.label :country, "Country" %>
+          <%= o.text_field :country, default: "United States", required: true %>
+        </div>
+        <div class="span4 offset2">
+          <%= o.submit "Checkout and Pay", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
+
+
+
 
 <!--        <div>
           <div class="row-fluid">
-            <div class="span4"><%= o.label :brand, "Card Type" %>
-            <%= o.select :brand, [["Visa", "visa"], ["MasterCard", "master"], ["American Express", "american_express"], ["Discover", "discover"]], required: true %></div>
+            <div class="span4"><%#= o.label :brand, "Card Type" %>
+            <%#= o.select :brand, [["Visa", "visa"], ["MasterCard", "master"], ["American Express", "american_express"], ["Discover", "discover"]], required: true %></div>
           </div>
         </div>
         <div>
           <div class="row-fluid">
-            <div class="span4"><%= o.label :card_number, "Card Number" %>
-            <%= o.number_field :card_number, required: true %></div>
+            <div class="span4"><%#= o.label :card_number, "Card Number" %>
+            <%#= o.number_field :card_number, required: true %></div>
           </div>
         </div>
         <div>
           <div class="row-fluid">
-            <div class="span4"><%= o.label :card_verification, "Card Verification" %>
-            <%= o.number_field :card_verification, required: true %></div>
+            <div class="span4"><%#= o.label :card_verification, "Card Verification" %>
+            <%#= o.number_field :card_verification, required: true %></div>
           </div>
         </div>
         <div>
           <div class="row-fluid">
-            <div class="span4"><%= o.label :card_expires_on, "Experation Date" %>
-              <%= o.date_select :card_expires_on, discard_day: true, start_year: Date.today.year, end_year: (Date.today.year+10), add_month_numbers: true, required: true %>
+            <div class="span4"><%#= o.label :card_expires_on, "Experation Date" %>
+              <%#= o.date_select :card_expires_on, discard_day: true, start_year: Date.today.year, end_year: (Date.today.year+10), add_month_numbers: true, required: true %>
             </div>
           </div>
         </div> -->
 
 
 
-      </div>
-        
-        <%= o.submit %>
-      <% end %>
-  </div>
-</div>
+     

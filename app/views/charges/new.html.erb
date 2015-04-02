@@ -2,10 +2,12 @@
   <div>
       <div class="row-fluid">
         <h3>
+          <div class="span2"><%= image_tag item.product.main_image(:thumb) %></div>
           <div class="span4"><%= item.name %></div>
           <div class="span4"><%= number_to_currency item.price %></div>
         </h3>
       </div>
+      <legend style="border: 1px solid darkred"></legend>
   </div>
     <%end%>
   <h1>
@@ -33,6 +35,6 @@
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount=<%= @order.price_in_cents %>></script>
+          data-description="<%= @cart_items.count %> Item(s)-<%= @product_names%>"
+          data-amount="<%= @order.price_in_cents %>"></script>
 <% end %>

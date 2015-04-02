@@ -1,1 +1,21 @@
-Thank you for your purchase.
+<div id="mid_component">
+  <div class="row">
+    Thank you for your purchase of <%= @order.total_price %>
+    <div class="row">
+      <% @cart_products.each do |item| %>
+        <div class="row">
+          <div class="span3">
+            <%= image_tag item.paintings.first.image_url(:thumb) %>
+          </div>
+          <div class="span3">
+            <%= item.name %>
+          </div>
+          <div class="span3">
+            <%= item.price %>
+          </div>
+        </div>
+        <legend></legend>
+      <% end %>
+    </div>
+  </div>
+</div>

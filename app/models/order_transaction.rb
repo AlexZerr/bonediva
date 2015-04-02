@@ -1,5 +1,6 @@
 class OrderTransaction < ActiveRecord::Base
   belongs_to :order
+  after_create :send_transaction_notification
 
    serialize :params
   
@@ -13,6 +14,11 @@ class OrderTransaction < ActiveRecord::Base
     self.authorization = nil
     self.message       = e.message
     self.params        = {}
+  end
+
+  def send_transaction_notification
+    UserMailer.send_transaction_email(self).deliver
+    UserMailer.notify_of_transaction(self).deliver
   end
 
 end

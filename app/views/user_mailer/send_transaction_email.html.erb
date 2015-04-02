@@ -1,0 +1,36 @@
+<p>Thank you for your purchase!</p>
+<p>Order Details:</p>
+<ul>
+  <li>
+    <% if @order_transaction.success == true %>
+      <h3>Your Transaction was Successfull!</h3>
+    <% else %>
+      <h3> Your Transaction has Failed!</h3>
+    <% end %>
+  </li>
+        <li>
+      Total:<%= number_to_currency @order.total_price %>
+    </li>
+    <li>
+      Shipping Info:
+    </li>
+    <li>
+      Street: <%= @order.address %>
+    </li>
+    <li>
+      City: <%= @order.city %>
+    </li>
+    <li>
+      State: <%= @order.state %>
+    </li>
+    <li>
+      Zip: <%= @order.zip_code %>
+    </li>
+    <li>
+      Order Placed At: <%= @order_transaction.created_at %>
+    </li>
+    <li>
+
+      Transaction: <%= @order_transaction.message %>
+    </li>
+</ul>

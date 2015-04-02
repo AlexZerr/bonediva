@@ -28,9 +28,9 @@ class Product < ActiveRecord::Base
       price: price,
       sold_at: Time.now,
       primary_painting_id: primary_painting_id,
-      category_id: category_id
-      #product_relation_id: id,
-     # order_id: order.id
+      category_id: category_id,
+      product_relation_id: id,
+      order_id: order
     )
     if sold_product.save
       paintings.map{|e| e.update_attributes(sold_product_id: sold_product.id, paintable_type: "SoldProduct", paintable_id: sold_product.id)}

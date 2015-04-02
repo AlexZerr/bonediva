@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   attr_accessor :card_number, :card_verification
 belongs_to :cart
 has_many :cart_items
+has_many :sold_products
 has_many :transactions, class_name: "OrderTransaction"
 
 #before_create :validate_card

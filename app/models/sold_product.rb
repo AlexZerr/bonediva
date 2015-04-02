@@ -1,9 +1,10 @@
 class SoldProduct < ActiveRecord::Base
  attr_accessible :name, :description, :price, :sold_at, :image, :category_id, :size,
-                 :user_id, :primary_painting_id
+                 :user_id, :primary_painting_id, :product_relation_id, :order_id
 
  belongs_to :user
  belongs_to :category
+ belongs_to :order
  has_many :paintings, as: :paintable 
 
 

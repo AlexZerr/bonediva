@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150406003532) do
+ActiveRecord::Schema.define(:version => 20150401153954) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"

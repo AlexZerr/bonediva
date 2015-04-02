@@ -7,6 +7,7 @@ class ChargesController < ApplicationController
   def create
     @order = Order.find(params[:order_id])
     @cart = @order.cart
+    @cart_products = SoldProduct.where( product_relation_id: ( @order.cart.cart_items.map{ |e| e.product.id } ) )
     # Amount in cents
     @amount = @order.price_in_cents
 
@@ -33,16 +34,16 @@ private
 
   def finish_transaction
     if @charge.status == "succeeded"
-      @order.transactions.create!(
+      @transaction = @order.transactions.create!(
         stripe_customer_id: @charge.customer,
         stripe_charge_id: @charge.id,
         created_at: Time.now,
         success: true,
-        message: "Successfull Transaction for $#{@order.total_price}",
+        message: "Successfull Transaction for $#{@order.total_price} Products: #{@order.cart.cart_items.map{ |e| e.product.name }}",
         action: "purchase",
         amount: @order.total_price,
       )
-      @cart.cart_items.map{ |e| e.product.update_product_to_sold_product }
+      @cart.cart_items.map{ |e| e.product.update_product_to_sold_product(@order) }
       @cart.cart_items.map{ |o| o.destroy }
       
     else
