@@ -1,4 +1,5 @@
 class SoldProduct < ActiveRecord::Base
+  paginates_per 25
  attr_accessible :name, :description, :price, :sold_at, :image, :category_id, :size,
                  :user_id, :primary_painting_id, :product_relation_id, :order_id
 

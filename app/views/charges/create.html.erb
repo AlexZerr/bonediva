@@ -5,7 +5,7 @@
       <% @cart_products.each do |item| %>
         <div class="row">
           <div class="span3">
-            <%= image_tag item.paintings.first.image_url(:thumb) %>
+            <%= image_tag item.paintings.first.image_url(:thumb) if item.paintings.present? %>
           </div>
           <div class="span3">
             <%= item.name %>

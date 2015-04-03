@@ -10,7 +10,7 @@ class Product < ActiveRecord::Base
   validates :price, presence: true
   validates :size, presence: true
   #ensure_admin
-
+  paginates_per 50
   belongs_to :user
   belongs_to :category
 
@@ -30,7 +30,7 @@ class Product < ActiveRecord::Base
       primary_painting_id: primary_painting_id,
       category_id: category_id,
       product_relation_id: id,
-      order_id: order
+      order_id: order.id
     )
     if sold_product.save
       paintings.map{|e| e.update_attributes(sold_product_id: sold_product.id, paintable_type: "SoldProduct", paintable_id: sold_product.id)}
