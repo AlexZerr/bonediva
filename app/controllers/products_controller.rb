@@ -57,6 +57,8 @@ class ProductsController < ApplicationController
       @product.paintings.map{|e| e.update_attributes(sold_product_id: @sold_product.id, paintable_type: "SoldProduct", paintable_id: @sold_product.id)}
       @product.destroy
       redirect_to :root, notice: "Product has been sold"
+    else
+      redirect_to :back, notice: "#{@sold_product.errors.full_messages}"
     end
   end
 
