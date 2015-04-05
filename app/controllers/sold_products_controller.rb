@@ -7,7 +7,7 @@ class SoldProductsController < ApplicationController
   def create
     @sold_product = SoldProduct.new(params[:sold_product])
     if @sold_product.save
-      redirect_to sold_product_path(@sold_product)
+      redirect_to :root, notice: "Updated to Sold"
     else
       redirect_to :back, notice: "#{@sold_product.errors.full_messages}"
     end
