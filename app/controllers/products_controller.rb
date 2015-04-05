@@ -39,27 +39,30 @@ class ProductsController < ApplicationController
 
   def update_to_sold
     @product = Product.find(params[:product_id])
-    @sold_product = SoldProduct.new(params[:sold_product])
-    @primary_painting = Painting.find(@product.primary_painting_id) if @product.primary_painting_id.present?
-    @sold_product.name = @product.name
-    @sold_product.description = @product.description
-    @sold_product.size = @product.size
-    @sold_product.price = @product.price
-    @sold_product.user_id = @product.user_id
-    @sold_product.sold_at = Time.now
-    @sold_product.primary_painting_id = @primary_painting.id if @primary_painting
-    
-    if @product.category_id.present?
-      @sold_product.category_id = @product.category_id
-    end
-    if @sold_product.save
-      @product.sold = true
-      @product.paintings.map{|e| e.update_attributes(sold_product_id: @sold_product.id, paintable_type: "SoldProduct", paintable_id: @sold_product.id)}
-      @product.destroy
-      redirect_to :root, notice: "Product has been sold"
+    if @product.update_product_to_sold_product
+      redirect_to :root, notice: "#{@product.name} has been updated to sold!"
     else
-      redirect_to :back, notice: "#{@sold_product.errors.full_messages}"
+      redirect_to :back, notice: "#{@product.errors.full_messages}"
     end
+#    @sold_product = SoldProduct.new(params[:sold_product])
+#    @primary_painting = Painting.find(@product.primary_painting_id) if @product.primary_painting_id.present?
+#    @sold_product.name = @product.name
+#    @sold_product.description = @product.description
+#    @sold_product.size = @product.size
+#    @sold_product.price = @product.price
+#    @sold_product.user_id = @product.user_id
+#    @sold_product.sold_at = Time.now
+#    @sold_product.primary_painting_id = @primary_painting.id if @primary_painting
+    
+#    if @product.category_id.present?
+#      @sold_product.category_id = @product.category_id
+#    end
+#    if @sold_product.save
+#      @product.sold = true
+#      @product.paintings.map{|e| e.update_attributes(sold_product_id: @sold_product.id, paintable_type: "SoldProduct", paintable_id: @sold_product.id)}
+#      @product.destroy
+#      redirect_to :root, notice: "Product has been sold"
+#    end
   end
 
   def aceo
