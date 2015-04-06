@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
       @sold_products = SoldProduct.order("id DESC")
     end
     products = @pros + @sold_products
-    @products = Kaminari.paginate_array(products).page(params[:page]).per(25)
+    @products = Kaminari.paginate_array(products).page(params[:page]).per(15)
     @user = current_user
     @cart = @user.carts.last if @user.present?
     @categories = Category.all
@@ -65,7 +65,7 @@ class ProductsController < ApplicationController
   end
 
   def aceo
-    @products = Product.where(aceo: true).order("id DESC").page(params[:page]).per(25)
+    @products = Product.where(aceo: true).order("id DESC").page(params[:page]).per(15)
   end
 
   def about_aceo
