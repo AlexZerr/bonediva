@@ -11,7 +11,8 @@ class MainController < ApplicationController
     #@paintings = Painting.all
     @pros = Product.all(:limit => 50, :order => 'id DESC')
     @sold_products = SoldProduct.all(:limit => 50, :order => 'id DESC')
-    @products = @pros + @sold_products
+    products = @pros + @sold_products
+    @products = Kaminari.paginate_array(products).page(params[:page]).per(25)
     @new_picture = Picture.new(params[:picture])
     @blog_posts = BlogPost.where( "created_at >= ? AND created_at <= ?", 1.month.ago, Time.now).order( "created_at DESC" ) 
     @bone_user = User.find_by_email("bonediva@gmail.com")

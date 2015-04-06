@@ -6,16 +6,15 @@ class ProductsController < ApplicationController
     if params[:search].present?
       @pros = Product.where("LOWER(name) ILIKE ? OR LOWER(description) ILIKE ?", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%").order("id DESC")
       @sold_products = SoldProduct.where("LOWER(name) ILIKE ? OR LOWER(description) ILIKE ?", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%").order("id DESC")
-      @products = @pros + @sold_products
     elsif params[:description_search].present?
       @pros = Product.where("LOWER(description) ILIKE ?", "%#{params[:description_search].downcase}%").order("id DESC")
       @sold_products = SoldProduct.where("LOWER(description) ILIKE ?", "%#{params[:description_search].downcase}%").order("id DESC")
-      @products = @pros + @sold_products
     else
       @pros = Product.order("id DESC")
       @sold_products = SoldProduct.order("id DESC")
-      @products = @pros + @sold_products
     end
+    products = @pros + @sold_products
+    @products = Kaminari.paginate_array(products).page(params[:page]).per(25)
     @user = current_user
     @cart = @user.carts.last if @user.present?
     @categories = Category.all
@@ -66,7 +65,7 @@ class ProductsController < ApplicationController
   end
 
   def aceo
-    @products = Product.where(aceo: true)
+    @products = Product.where(aceo: true).order("id DESC").page(params[:page]).per(25)
   end
 
   def about_aceo

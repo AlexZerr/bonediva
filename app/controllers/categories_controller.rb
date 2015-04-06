@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 
   before_filter :initialize_cart, only: [:show]
   def index
-    @categories = Category.all
+    @categories = Category.order("id DESC").page(params[:page]).per(25)
     render
   end
 
@@ -11,7 +11,8 @@ class CategoriesController < ApplicationController
     @categories = Category.all
     @pros = Product.where( :category_id => @category.id).order('id DESC')
     @sold_products = SoldProduct.where( :category_id => @category.id).order('id DESC')
-    @products = @pros + @sold_products
+    products = @pros + @sold_products
+    @products = Kaminari.paginate_array(products).page(params[:page]).per(25)
     @paintings = @category.paintings
   end
 
