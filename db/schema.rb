@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150210145831) do
+ActiveRecord::Schema.define(:version => 20150406003532) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"
@@ -59,15 +59,17 @@ ActiveRecord::Schema.define(:version => 20150210145831) do
   end
 
   create_table "order_transactions", :force => true do |t|
-    t.integer  "order_id",      :null => false
+    t.integer  "order_id",           :null => false
     t.string   "action"
     t.integer  "amount"
     t.boolean  "success"
     t.string   "authorization"
     t.string   "message"
     t.text     "params"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "stripe_customer_id"
+    t.string   "stripe_charge_id"
   end
 
   create_table "orders", :force => true do |t|
@@ -132,7 +134,7 @@ ActiveRecord::Schema.define(:version => 20150210145831) do
 
   create_table "sold_products", :force => true do |t|
     t.string   "name",                                   :null => false
-    t.string   "description"
+    t.text     "description"
     t.float    "price"
     t.datetime "sold_at",                                :null => false
     t.string   "image"
@@ -144,6 +146,8 @@ ActiveRecord::Schema.define(:version => 20150210145831) do
     t.integer  "cart_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "product_relation_id"
+    t.integer  "order_id"
   end
 
   create_table "user_categories", :force => true do |t|
