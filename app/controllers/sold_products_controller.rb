@@ -1,7 +1,7 @@
 class SoldProductsController < ApplicationController
 
   def index
-    @sold_products = SoldProduct.all
+    @sold_products = SoldProduct.order("id DESC").page(params[:page]).per(25)
   end
 
   def create
