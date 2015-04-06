@@ -64,6 +64,10 @@ class ProductsController < ApplicationController
 #    end
   end
 
+  def for_sale_paintings
+    @products = Product.order("id DESC").page(params[:page]).per(15)
+  end
+
   def aceo
     @products = Product.where(aceo: true).order("id DESC").page(params[:page]).per(15)
   end

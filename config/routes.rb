@@ -92,6 +92,8 @@ Bonediva::Application.routes.draw do
   post '/users/:user_id/carts/:cart_id/cart_items/new/:product_id', to: 'cart_items#create', as: 'add_cart_item'
 
   match '/products/:product_id/paintings/new', to: 'products#add_product_painting', as: 'add_product_painting'
+  
+  get  '/for_sale_paintings', to: 'products#for_sale_paintings', as: 'for_sale_products'
 
   post "users/:user_id/carts/:cart_id/cart_items/:id" => "cart_items#destroy", as: "destroy_cart_item"
 
