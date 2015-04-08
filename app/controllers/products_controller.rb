@@ -39,6 +39,7 @@ class ProductsController < ApplicationController
   def update_to_sold
     @product = Product.find(params[:product_id])
     if @product.update_product_to_sold_product
+      @product.remove_product_from_cart
       redirect_to :root, notice: "#{@product.name} has been updated to sold!"
     else
       redirect_to :back, notice: "#{@product.errors.full_messages}"
@@ -157,9 +158,8 @@ class ProductsController < ApplicationController
 
      def product_painting_sync(product)
       paintings = product.paintings
-      
-      
      end
+
 
   end
 

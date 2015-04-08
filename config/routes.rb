@@ -110,6 +110,8 @@ Bonediva::Application.routes.draw do
   # See how all your routes lay out with "rake routes"
   match "/products/:product_id/update_to_sold", to: "products#update_to_sold", as: "sell_product"
 
+  match "/sold_products/:sold_product_id/revert_to_product", to: "sold_products#revert_to_product", as: "revert_to_product"
+
   match 'auth/:facebook/callback', to: 'sessions#facebook'
 
   match 'auth/failure', to: redirect('/')
