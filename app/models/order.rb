@@ -1,11 +1,15 @@
 class Order < ActiveRecord::Base
   attr_accessor :card_number, :card_verification
+  serialize :product_ids
+
 belongs_to :cart
+belongs_to :user
 has_many :cart_items
 has_many :sold_products
 has_many :transactions, class_name: "OrderTransaction"
 
 #before_create :validate_card
+before_create :set_user
 
   def purchase
     response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
@@ -24,7 +28,16 @@ has_many :transactions, class_name: "OrderTransaction"
     (self.total_price * 100).round
   end
 
+  def civil_created
+    created_at.strftime("%m/%d/%Y %I:%M %p")
+  end
+
   private
+
+  def set_user
+    usr = cart.user
+    self.user_id = usr.id
+  end
 
 #  def purchase_options
 #    {

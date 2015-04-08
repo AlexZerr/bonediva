@@ -20,7 +20,7 @@ class Product < ActiveRecord::Base
     #Painting.find(self.primary_painting_id)
   end
 
-    def update_product_to_sold_product
+    def update_product_to_sold_product(order)
     sold_product = user.sold_products.new(
       name: name,
       description: description,

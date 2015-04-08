@@ -1,6 +1,6 @@
 class OrderTransaction < ActiveRecord::Base
   belongs_to :order
-  after_create :send_transaction_notification
+  #after_create :send_transaction_notification
 
    serialize :params
   

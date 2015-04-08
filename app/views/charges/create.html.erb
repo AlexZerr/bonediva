@@ -1,21 +1,12 @@
-<div id="mid_component">
-  <div class="row">
-    Thank you for your purchase of <%= @order.total_price %>
+<div class="row">
+  <div class="mid_component">
+    <%= render "show_order"%>
+    <%= render "orders/shipping_info" %>
     <div class="row">
-      <% @cart_products.each do |item| %>
-        <div class="row">
-          <div class="span3">
-            <%= image_tag item.paintings.first.image_url(:thumb) if item.paintings.present? %>
-          </div>
-          <div class="span3">
-            <%= item.name %>
-          </div>
-          <div class="span3">
-            <%= item.price %>
-          </div>
-        </div>
-        <legend></legend>
-      <% end %>
+      <div class="span10 offset2">
+        A receipt has been sent to <%= @order.cart.user.email %>
+      </div>
     </div>
+
   </div>
 </div>

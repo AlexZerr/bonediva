@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150401153954) do
+ActiveRecord::Schema.define(:version => 20150407235258) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"
@@ -88,6 +88,8 @@ ActiveRecord::Schema.define(:version => 20150401153954) do
     t.string   "state"
     t.string   "country"
     t.integer  "zip_code"
+    t.integer  "user_id"
+    t.text     "product_ids"
   end
 
   create_table "paintings", :force => true do |t|

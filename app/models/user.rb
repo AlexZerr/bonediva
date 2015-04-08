@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :user_categories
   has_many :sold_products
   has_many :messages
+  has_many :orders
   has_one :avatar
   
   #accepts_nested_attributes_for :pictures

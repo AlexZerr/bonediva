@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
   
+  def index
+    @orders = current_user.orders.all
+  end
 
   def new
     @order = Order.new(params[:order])
@@ -12,6 +15,9 @@ class OrdersController < ApplicationController
     @order.ip_address = request.remote_ip
     @total_price = CartItem.where(cart_id: @cart.id).sum(:price)
     @order.total_price = @total_price
+    @order.cart_id = @cart.id
+    products = @cart.cart_items.map{ |e| e.product }
+    @order.product_ids = products.map{ |e| e.id }
     if @order.save
      # if @order.purchase
       #  render action: "success"
@@ -27,10 +33,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @user = User.find(params[:user_id])
-    @cart = Cart.find(params[:cart_id])
-    @cart_items = @cart.cart_items
-    @price = CartItem.where(cart_id: @cart.id).sum(:price)
+    @user = current_user
+    @cart = @order.cart
+    @cart_products = SoldProduct.where( product_relation_id: ( @order.product_ids ) )
   end
 
 end

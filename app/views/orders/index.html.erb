@@ -1,0 +1,37 @@
+<div class="mid_component">
+  <div class="order-container">
+    <% @orders.each do |order| %>
+      <%= link_to(order) do %>
+        <div class="row">
+          <% if order.transactions.present? %>
+            <div class="span2">
+              <%= order.civil_created %>
+            </div>
+            <div class="span4">
+              <%= order.transactions.first.message %>
+            </div>
+            <div class="span3">
+              <% if order.transactions.first.success == true %>
+                Charge Status: Success!
+              <% else %>
+                Charge Status: Failed!
+              <% end %>
+            </div>
+            <div class="span3">
+              Total: <%= number_to_currency order.total_price %>
+            </div>
+          <% else %>
+            <div class="row">
+              <div class="span2 offset1">
+                <%= order.civil_created %>
+              </div>
+              <div class="span9">
+                <%= "Charge never submitted for $#{ order.total_price }.00" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
