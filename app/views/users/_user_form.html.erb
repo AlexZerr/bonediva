@@ -25,12 +25,20 @@
                     <%= f.text_field :name, required: true %>
                   </div>
                 </div>
-                <div id="username">
+
+                <div id="email">
+                  <div class="span6">
+                    <%= f.label :email, 'Email Address'%>
+                    <%= f.email_field :email, required: true %>
+                  </div>
+                </div>
+              <!--  <div id="username">
                   <div class="span6">
                     <p><%= f.label :username, 'Username' %></br>
                     <%= f.text_field :username, required: true %></p>
                   </div>
                 </div>
+                  -->
                 <div id="password-reminder">
                   <div class="span12">
                     Please Re-Enter You're Password
@@ -48,18 +56,16 @@
                     <%= f.password_field :password_confirmation, required: true %></p>
                   </div>
                 </div>
-                <div id="email">
-                  <div class="span6">
-                    <p><%= f.label :email, 'Email Address'%></br>
-                    <%= f.email_field :email, required: true %></p>
-                  </div>
-                </div>
+
+                <!--
                 <div id="age">
                   <div class="span6">
                     <p><%= f.label :age, 'Age (optional)'%></br>
                     <%= f.text_field :age %></p>
                   </div>
                 </div>
+                -->
+
                 <div id="user-link">
                   <div class="span6">
                     <p><%= f.label :user_link, "Want to add your website?"%></br>
