@@ -37,4 +37,11 @@ class Product < ActiveRecord::Base
       destroy
     end
   end
+
+
+  def remove_product_from_cart
+    cart_items = CartItem.where(product_id: id)
+    cart_items.map{ |e| e.destroy }
+  end
+
 end

@@ -16,4 +16,14 @@ class SoldProductsController < ApplicationController
   def show
     @sold_product = SoldProduct.find(params[:id])
   end
+
+  def revert_to_product
+    @sold_product = SoldProduct.find(params[:sold_product_id])
+    if @sold_product.update_sold_product_to_product
+      redirect_to :root, notice: "#{@sold_product.name} has been reverted back to a product."
+    else
+      redirect_to :back, notice: "#{@sold_product.errors.full_messages}"
+    end
+  end
+
 end
