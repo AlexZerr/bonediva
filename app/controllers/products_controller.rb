@@ -98,7 +98,9 @@ class ProductsController < ApplicationController
        if @product.aceo = true
          @painting.aceo = true
        end
-        @painting.save
+        if @painting.save
+          @product.update_attributes(primary_painting_id: @painting.id)
+        end
        @painting.errors.full_messages
        redirect_to product_path(@product)
      else
@@ -150,6 +152,7 @@ class ProductsController < ApplicationController
        redirect_to products_path
      end
     end
+  end
 
 #     respond_to do |format|
  #      format.js {render :template => 'products/destroy.js.erb', :layout => false } 
@@ -159,8 +162,5 @@ class ProductsController < ApplicationController
      def product_painting_sync(product)
       paintings = product.paintings
      end
-
-
-  end
 
 end

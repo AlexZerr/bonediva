@@ -16,8 +16,9 @@ class Product < ActiveRecord::Base
 
 
   def main_image(style)
-    self.paintings.first.image_url(style) rescue nil
-    #Painting.find(self.primary_painting_id)
+  #  self.paintings.first.image_url(style) rescue nil
+    painting = Painting.find(primary_painting_id)
+    painting.image_url(style)
   end
 
     def update_product_to_sold_product
