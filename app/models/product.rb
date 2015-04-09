@@ -39,6 +39,10 @@ class Product < ActiveRecord::Base
     end
   end
 
+    def update_to_main_image(painting)
+      update_attributes(primary_painting_id: painting.id)
+    end
+
 
   def remove_product_from_cart
     cart_items = CartItem.where(product_id: id)

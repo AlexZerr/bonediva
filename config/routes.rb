@@ -112,6 +112,12 @@ Bonediva::Application.routes.draw do
 
   match "/sold_products/:sold_product_id/revert_to_product", to: "sold_products#revert_to_product", as: "revert_to_product"
 
+  # update product main_image
+  match "products/:product_id/set_main_image/:painting_id", to: "products#set_main_image", as: "set_main_image"
+
+  match "sold_products/:sold_product_id/set_sold_main_image/:painting_id", to: "sold_products#set_sold_main_image", as: "set_sold_main_image"
+  #
+
   match 'auth/:facebook/callback', to: 'sessions#facebook'
 
   match 'auth/failure', to: redirect('/')

@@ -26,4 +26,12 @@ class SoldProductsController < ApplicationController
     end
   end
 
+  def set_sold_main_image
+    @sold_product = SoldProduct.find(params[:sold_product_id])
+    painting = Painting.find(params[:painting_id])
+    if @sold_product.update_to_main_image(painting)
+      redirect_to :back, notice: "This painting is now the main image for this product"
+    end
+  end
+
 end

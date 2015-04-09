@@ -29,7 +29,12 @@
               <ul class="thumbnails">
                 <div class="thumbnail-<%= p.id %>">
                   <%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p), method: :get, remote: true %></br>
-                  <%= link_to 'Edit', edit_product_path(product) if current_user.present? && current_user.admin == true %>
+                  <%= link_to 'Edit', edit_product_path(product) if current_user.present? && current_user.admin == true %> --
+                  <% if product.class.to_s == "Product" %>
+                    <%= link_to 'Update to Main Image', set_main_image_path(@product, p) if current_user.present? && current_user.admin == true %>
+                  <% elsif product.class.to_s == "SoldProduct" %>
+                    <%= link_to 'Update to Main Image', set_sold_main_image_path(@sold_product, p) if current_user.present? && current_user.admin == true %>
+                  <% end %>
                 </div>
               </ul>
             </div>
@@ -65,10 +70,10 @@
                       <div class="span12"><%= product.description %></div>
                     </div>
                   </div>
-                  <legend>
+                  <legend></legend>
                   <div id="user-posted">
-                    <div class="span6">Posted By:</div>
-                    <div class="span6"><%= link_to "#{product.user.name}", user_path(product.user)%></div>
+                    <div class="span5">Posted By:</div>
+                    <div class="span3"><%= link_to "#{product.user.name}", user_path(product.user)%></div>
                   </div>
                 </div>
               </div>

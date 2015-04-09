@@ -30,5 +30,8 @@ class SoldProduct < ActiveRecord::Base
     end
   end
 
+  def update_to_main_image(painting)
+      update_attributes(primary_painting_id: painting.id)
+  end
 
 end

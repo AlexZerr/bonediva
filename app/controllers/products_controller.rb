@@ -44,25 +44,14 @@ class ProductsController < ApplicationController
     else
       redirect_to :back, notice: "#{@product.errors.full_messages}"
     end
-#    @sold_product = SoldProduct.new(params[:sold_product])
-#    @primary_painting = Painting.find(@product.primary_painting_id) if @product.primary_painting_id.present?
-#    @sold_product.name = @product.name
-#    @sold_product.description = @product.description
-#    @sold_product.size = @product.size
-#    @sold_product.price = @product.price
-#    @sold_product.user_id = @product.user_id
-#    @sold_product.sold_at = Time.now
-#    @sold_product.primary_painting_id = @primary_painting.id if @primary_painting
-    
-#    if @product.category_id.present?
-#      @sold_product.category_id = @product.category_id
-#    end
-#    if @sold_product.save
-#      @product.sold = true
-#      @product.paintings.map{|e| e.update_attributes(sold_product_id: @sold_product.id, paintable_type: "SoldProduct", paintable_id: @sold_product.id)}
-#      @product.destroy
-#      redirect_to :root, notice: "Product has been sold"
-#    end
+  end
+
+  def set_main_image
+    @product = Product.find(params[:product_id])
+    painting = Painting.find(params[:painting_id])
+    if @product.update_to_main_image(painting)
+      redirect_to :back, notice: "This painting is now the main image for this product"
+    end
   end
 
   def for_sale_paintings
