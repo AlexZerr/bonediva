@@ -5,7 +5,7 @@
   <%= tag :meta, property: "og:title", content: @product.name %>
   <%= tag :meta, property: "og:url", content: product_url(@product) %>
   <%= tag :meta, property: "og:description", content: "#{@product.description} \n Price: $#{@product.price} \n Size: #{@product.size}" %>
-  <%= tag :meta, property: "og:image", content: image_path(@product.main_image(:home)) %>
+  <%= tag :meta, property: "og:image", content: image_path(@product.main_image(:home)) if @product.main_image(:home).present? %>
 <% end %>
 
 <%= render partial: "products/show_product", locals: {product: @product} %>

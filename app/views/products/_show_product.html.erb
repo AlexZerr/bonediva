@@ -20,26 +20,29 @@
         <div class="main-painting">
           <%= link_to (image_tag product.main_image(:home), alt: "'#{product.name}' by Lisa Luree", title: "'#{product.name}' by Lisa Luree"), painting_path(product.paintings.first.id) if product.main_image(:home).present? %>
         </div>
-        <div class="row-fluid th">
-          <% product.paintings.each do |p| %>
-            <% if p.errors.any?%>
-              <%= p.errors.full_message %>
+        <% if product.paintings.present? %>
+          <div class="row-fluid th">
+            <% product.paintings.each do |p| %>
+              <% if p.errors.any?%>
+                <%= p.errors.full_message %>
+              <% end %>
+              <div class="span4">
+                <ul class="thumbnails">
+                  <div class="thumbnail-<%= p.id %>">
+                    <%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p), method: :get, remote: true %></br>
+                    <%= link_to 'Edit', edit_product_path(product) if current_user.present? && current_user.admin == true %> --
+                    <% if product.class.to_s == "Product" %>
+                      <%= link_to 'Update to Main Image', set_main_image_path(@product, p) if current_user.present? && current_user.admin == true %>
+                    <% elsif product.class.to_s == "SoldProduct" %>
+                      <%= link_to 'Update to Main Image', set_sold_main_image_path(@sold_product, p) if current_user.present? && current_user.admin == true %>
+                    <% end %>
+                    <%= link_to 'Delete', painting_path(p), id: "delete_painting", data: { method: :delete } if current_user.present? && current_user.admin == true %>
+                  </div>
+                </ul>
+              </div>
             <% end %>
-            <div class="span4">
-              <ul class="thumbnails">
-                <div class="thumbnail-<%= p.id %>">
-                  <%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p), method: :get, remote: true %></br>
-                  <%= link_to 'Edit', edit_product_path(product) if current_user.present? && current_user.admin == true %> --
-                  <% if product.class.to_s == "Product" %>
-                    <%= link_to 'Update to Main Image', set_main_image_path(@product, p) if current_user.present? && current_user.admin == true %>
-                  <% elsif product.class.to_s == "SoldProduct" %>
-                    <%= link_to 'Update to Main Image', set_sold_main_image_path(@sold_product, p) if current_user.present? && current_user.admin == true %>
-                  <% end %>
-                </div>
-              </ul>
-            </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
 
       <div class="rcontainer">

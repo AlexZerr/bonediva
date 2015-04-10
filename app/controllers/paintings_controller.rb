@@ -80,12 +80,27 @@ class PaintingsController < ApplicationController
 #     end 
   end
 
+  def delete
+
+  end
+
   def destroy
-   if @painting.destroy
-    respond_to do |format|
-      format.js
+    if @painting.paintable_type == "Product"
+      product = Product.find(@painting.paintable_id)
+    elsif @painting.paintable_type == "SoldProduct"
+      product = SoldProduct.find(@painting.paintable_id)
     end
-   end
+    if product.paintings.count > 1
+      if product.primary_painting_id != @painting.id
+       if @painting.destroy
+         redirect_to product
+       end
+      else
+        redirect_to :back, notice: "This is the primary painting for the product. Change to primary painting and try again."
+      end
+    else
+      redirect_to :back, notice: "There must be at least one painting for a product."
+    end
   end
 
   def add_product_painting
