@@ -1,9 +1,9 @@
 class SoldProduct < ActiveRecord::Base
  attr_accessible :name, :description, :price, :sold_at, :image, :category_id, 
-                  :primary_painting_id, :size
+                  :primary_painting_id, :size, :categories
 
  belongs_to :user
- belongs_to :category
+ has_and_belongs_to_many :categories
  has_many :paintings, as: :paintable 
 
 
@@ -25,7 +25,7 @@ class SoldProduct < ActiveRecord::Base
       size: size,
       price: price,
       primary_painting_id: primary_painting_id,
-      category_id: category_id
+      categories: categories
       #product_relation_id: id,
    # order_id: order.id
     )

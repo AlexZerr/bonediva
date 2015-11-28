@@ -34,7 +34,7 @@ class Product < ActiveRecord::Base
       price: price,
       sold_at: Time.now,
       primary_painting_id: primary_painting_id,
-      category_id: category_id
+      categories: categories
       #product_relation_id: id,
      # order_id: order.id
     )
