@@ -34,6 +34,18 @@
                 <div class="span6"><%= f.text_field :size, required: true %></div>
               </div>
             </div>
+            <div>
+              <div class="row-fluid">
+                <% @categories.to_a.each do |x| %>
+                  <div class="span1">
+                    <input id="categories" name="categories[category_id][]" type="checkbox" value="<%= x.id%>" <%= x.id.in?(@pcats.map{|e| e.id}) ? "checked" : "" %> />
+                  </div>
+                  <div class="span3">
+                    <label for="categories"><%= x.name %></label>
+                  </div>
+                <% end%>
+              </div>
+            </div>
           </div>
           <div class="span12">
             <div id="button"> 

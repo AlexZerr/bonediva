@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @categories = Category.all
     @pros = @category.products.order('id DESC')
-    @sold_products = SoldProduct.where( :category_id => @category.id).order('id DESC')
+    @sold_products = @category.sold_products.order('id DESC')
     products = @pros + @sold_products
     @products = Kaminari.paginate_array(products).page(params[:page]).per(15)
     @paintings = @category.paintings
