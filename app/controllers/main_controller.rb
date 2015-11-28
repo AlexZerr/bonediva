@@ -16,12 +16,17 @@ class MainController < ApplicationController
     @blog_posts = BlogPost.where( "created_at >= ? AND created_at <= ?", 1.month.ago, Time.now).order( "created_at DESC" ) 
     @bone_user = User.find_by_email("bonediva@gmail.com")
     if @bone_user.paintings.present?
-      if @bone_user.paintings.last.paintable_type == "Product"
-        @new_painting = @bone_user.paintings.where(primary_painting: true).last
-      elsif @bone_user.paintings.last.paintable_type == "Category"
-        @new_painting = @bone_user.paintings.where(paintable_type: "Category").last
-      elsif @bone_user.paintings.last.paintable_type == 'SoldProduct'
-        @new_painting = @bone_user.paintings.where(primary_painting: true).where("paintable_type <> ?", "SoldProduct").last
+    fe_paint = @bone_user.paintings.where(home: true).last
+      if fe_paint.present?
+        @new_painting = fe_paint
+      else
+        if @bone_user.paintings.last.paintable_type == "Product"
+          @new_painting = @bone_user.paintings.where(primary_painting: true).last
+        elsif @bone_user.paintings.last.paintable_type == "Category"
+          @new_painting = @bone_user.paintings.where(paintable_type: "Category").last
+        elsif @bone_user.paintings.last.paintable_type == 'SoldProduct'
+          @new_painting = @bone_user.paintings.where(primary_painting: true).where("paintable_type <> ?", "SoldProduct").last
+        end
       end
     end
     @categories = Category.all

@@ -20,6 +20,7 @@ gem 'omniauth-facebook'
 gem 'koala'
 group :producton do
   gem "rails_12factor", "~> 0.0.2"
+  #backup
 end
 # Authentication
 gem "devise", "~> 2.2.4"

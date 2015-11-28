@@ -2,7 +2,7 @@ class Painting < ActiveRecord::Base
   mount_uploader :image, ImagesUploader
   attr_accessible :image, :description, :title, :user_id, :remote_image_url, :id, 
     :paintable_type, :paintable_id, :home, :category_id, :primary_painting, :user_category_id,
-    :aceo, :sold_product_id
+    :aceo, :sold_product_id, :home_image_id
 
  # before_create :set_polymorphism
 
@@ -34,6 +34,16 @@ end
       @product = Product.find[:id]
     self.update_attributes(category_id: @product.id )
     end
+  end
+
+  def make_home_image
+    deselect_home_image
+    update_attributes(home: true)
+  end
+
+  def deselect_home_image
+    p = Painting.where(home: true)
+    p.map{ |e| e.update_attributes(home: false)}
   end
 
   def remove_primary_painting_from_product

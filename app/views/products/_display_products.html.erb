@@ -3,69 +3,75 @@
     <% @products.each do |product| %>
       <div class="product-list">
         <div class="span4">
-          <div class="painting-display" data-product-id=<%= product.id %> itemscope itemtype="http://schema.org/Product">
-            <div class="span12">
-              <div class="top">
-                <div class="span6">
-                  <div class="painting1">
-                    <% if product.paintings.present? %>
-                      <% if product.class.name == "Product"%>
-                        <%=  link_to (image_tag (product.main_image(:standard)), alt: product.name, title: product.name, itemprop: "image"), product_path(product) %></br>
-                      <% elsif product.class.name == "SoldProduct" %>
-                        <%=  link_to (image_tag (product.main_image(:standard)), alt: "'#{product.name}' by Lisa Luree", title: "'#{product.name} by Lisa Luree", itemprop: "image"), sold_product_path(product) %></br>
+          <% if product.class.name == "Product"%>
+            <div class="prod-disp" data-product-id=<%= product.id %>>
+          <% elsif product.class.name == "SoldProduct" %>
+            <div class="sold-prod-disp" data-product-id=<%= product.id %>>
+          <% end %>
+            <div class="painting-display" itemscope itemtype="http://schema.org/Product">
+              <div class="span12">
+                <div class="top">
+                  <div class="span6">
+                    <div class="painting1">
+                      <% if product.paintings.present? %>
+                        <% if product.class.name == "Product"%>
+                          <%=  link_to (image_tag (product.main_image(:standard)), alt: product.name, title: product.name, itemprop: "image"), product_path(product) %></br>
+                        <% elsif product.class.name == "SoldProduct" %>
+                          <%=  link_to (image_tag (product.main_image(:standard)), alt: "'#{product.name}' by Lisa Luree", title: "'#{product.name} by Lisa Luree", itemprop: "image"), sold_product_path(product) %></br>
+                        <% end %>
                       <% end %>
+                    </div>
+                  </div>
+                  <div class="span6">
+                    <div class="info">
+                      <div class="span12">
+                        <div class="name">
+                          <% if product.class.name == "Product"%>
+                              Name: <%= link_to truncate(product.name, length: 15), product_path(product), itemprop: "name" %>
+                          <% elsif product.class.name == "SoldProduct" %>
+                              Name: <%= link_to truncate(product.name, length: 15), sold_product_path(product), itemprop: "name" %>
+                          <% end %>
+                        </div>
+                      </div>
+                      <div class="span12">
+                        <div id="price">
+                          <div class="span10">Price: <%= number_to_currency product.price %></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="span12">
+                <div id="cart-button">
+                  <div style="float:right">
+                    <% if product.class.name == "Product" %>
+                      <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product), id: "button1" if current_user.present? %>
+                    <% else %>
+                      <strong>Sold-</strong><%= product.created_at.strftime("%m/%d/%Y") %>
                     <% end %>
                   </div>
                 </div>
-                <div class="span6">
-                  <div class="info">
-                    <div class="span12">
-                      <div class="name">
-                        <% if product.class.name == "Product"%>
-                            Name: <%= link_to truncate(product.name, length: 15), product_path(product), itemprop: "name" %>
-                        <% elsif product.class.name == "SoldProduct" %>
-                            Name: <%= link_to truncate(product.name, length: 15), sold_product_path(product), itemprop: "name" %>
-                        <% end %>
-                      </div>
-                    </div>
-                    <div class="span12">
-                      <div id="price">
-                        <div class="span10">Price: <%= number_to_currency product.price %></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
-            </div>
-            <div class="span12">
-              <div id="cart-button">
-                <div style="float:right">
-                  <% if product.class.name == "Product" %>
-                    <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product), id: "button1" if current_user.present? %>
-                  <% else %>
-                    <strong>Sold-</strong><%= product.created_at.strftime("%m/%d/%Y") %>
+              <div id="admin-function">
+                <% if product.paintings.any? %>
+                  <% if is_admin? %>
+                    <%if @category.present? %>
+                      <div class="span4">
+                        <%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
+                      </div>
+                    <% else %>
+                      <%= nil %>
+                    <% end %>
+                      <div class="span3"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
+                      <div class="span4 offset1"><%= link_to "Edit Product", edit_product_path(product)  %></div>
                   <% end %>
-                </div>
-              </div>
-            </div>
-            <div id="admin-function">
-              <% if product.paintings.any? %>
-                <% if is_admin? %>
-                  <%if @category.present? %>
-                    <div class="span4">
-                      <%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
-                    </div>
-                  <% else %>
-                    <%= nil %>
-                  <% end %>
-                    <div class="span3"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
-                    <div class="span4 offset1"><%= link_to "Edit Product", edit_product_path(product)  %></div>
                 <% end %>
-              <% end %>
-            </div>
-            <div id="description">
-              <div class="span10">
-                <u><b>Description:</b></u><p itemprop="description"><%= truncate(product.description, length: 75 ) %></p></br>
+              </div>
+              <div id="description">
+                <div class="span10">
+                  <u><b>Description:</b></u><p itemprop="description"><%= truncate(product.description, length: 75 ) %></p></br>
+                </div>
               </div>
             </div>
           </div>

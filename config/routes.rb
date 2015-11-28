@@ -117,6 +117,9 @@ Bonediva::Application.routes.draw do
 
   match "sold_products/:sold_product_id/set_sold_main_image/:painting_id", to: "sold_products#set_sold_main_image", as: "set_sold_main_image"
   #
+  post "paintings/:id/set_as_home_image", to: "paintings#set_as_home_image", as: "set_as_home_image"
+
+  post "paintings/:id/remove_home_image", to: "paintings#remove_home_image", as: "remove_home_image"
 
   match 'auth/:facebook/callback', to: 'sessions#facebook'
 
