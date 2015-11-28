@@ -102,7 +102,7 @@
           </div>
           <% if product.paintings.present? %>
             <div class="row-fluid">
-              <div class="span6"><%= (button_to "Featured Image", set_as_home_image_path(product.primary_painting), id: "button1") if product.primary_painting.home == false %></div>
+              <div class="span6"><%= (button_to "Featured Image", set_as_home_image_path(product.primary_painting), id: "button1") if product.primary_painting.home == false || product.primary_painting.home == nil %></div>
               <div class="span6"><%= (button_to "Remove Featured", remove_home_image_path(product.primary_painting), id: "button1") if product.primary_painting.home == true %></div>
             </div>
           <% end %>
