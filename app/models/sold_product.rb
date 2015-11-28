@@ -13,6 +13,11 @@ class SoldProduct < ActiveRecord::Base
     painting.image_url(style)
   end
 
+  def primary_painting
+    painting = Painting.find(primary_painting_id)
+  end
+
+
   def update_sold_product_to_product
     product = user.products.new(
       name: name,

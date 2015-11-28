@@ -31,12 +31,13 @@
                   <div class="thumbnail-<%= p.id %>">
                     <%= link_to (image_tag p.image_url(:standard).to_s), painting_path(p), method: :get, remote: true %></br>
                     <%= link_to 'Edit', edit_product_path(product) if current_user.present? && current_user.admin == true %> --
+                    <%= link_to 'Delete', painting_path(p), id: "delete_painting", data: { method: :delete } if current_user.present? && current_user.admin == true %> </br>
                     <% if product.class.to_s == "Product" %>
-                      <%= link_to 'Update to Main Image', set_main_image_path(@product, p) if current_user.present? && current_user.admin == true %>
+                     -- <%= link_to 'Update Main Image for Product', set_main_image_path(@product, p) if current_user.present? && current_user.admin == true %> </br>
                     <% elsif product.class.to_s == "SoldProduct" %>
-                      <%= link_to 'Update to Main Image', set_sold_main_image_path(@sold_product, p) if current_user.present? && current_user.admin == true %>
+                     -- <%= link_to 'Update to Main Image for Product', set_sold_main_image_path(@sold_product, p) if current_user.present? && current_user.admin == true %> </br>
                     <% end %>
-                    <%= link_to 'Delete', painting_path(p), id: "delete_painting", data: { method: :delete } if current_user.present? && current_user.admin == true %>
+                   -- <%= link_to "Set As main Image on Home Page", set_as_home_image_path(p), method: :post %>
                   </div>
                 </ul>
               </div>
@@ -100,6 +101,7 @@
           <div class="row-fluid">
             <div class="span6"><%= button_to 'Delete', product, id: "button1", confirm: "Are you sure? This product will be lost." %></div>
             <div class="span6"> <%= button_to 'Edit', edit_product_path(product), id: "button1", method: :get%></div>
+            <div class="span6"><%= button_to "Set As Home Image", set_as_home_image_path(product.primary_painting), id: "button1" %></div>
           </div>
           <h4><-------------</h4>
         <% end %>
