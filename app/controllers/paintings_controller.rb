@@ -120,6 +120,12 @@ class PaintingsController < ApplicationController
     redirect_to :back, notice: "Painting has been set as the Main Image on the Homepage"
   end
 
+  def remove_home_image
+    find_painting
+    @painting.deselect_home_image
+    redirect_to :back, notice: "This Will No Longer Be A Featured Painting"
+  end
+
   private
 
   def find_painting

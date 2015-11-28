@@ -119,6 +119,8 @@ Bonediva::Application.routes.draw do
   #
   post "paintings/:id/set_as_home_image", to: "paintings#set_as_home_image", as: "set_as_home_image"
 
+  post "paintings/:id/remove_home_image", to: "paintings#remove_home_image", as: "remove_home_image"
+
   match 'auth/:facebook/callback', to: 'sessions#facebook'
 
   match 'auth/failure', to: redirect('/')
