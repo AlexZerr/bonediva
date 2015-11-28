@@ -114,6 +114,12 @@ class PaintingsController < ApplicationController
     end
   end
 
+  def set_as_home_image
+    @painting = Painting.find(params[:id])
+    @painting.make_home_image
+    redirect_to :back, notice: "Painting has been set as the Main Image on the Homepage"
+  end
+
   private
 
   def find_painting
