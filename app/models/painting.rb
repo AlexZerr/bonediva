@@ -36,6 +36,12 @@ end
     end
   end
 
+  def make_home_painting
+    p = Paiting.where(home_image_id.present?).last
+    p.update_attributes(home_image_id: nil)
+    update_attributes(home_image_id: id)
+  end
+
   def remove_primary_painting_from_product
     Product.where(primary_painting_id: self.id).update_all(primary_painting_id: nil)
   end
