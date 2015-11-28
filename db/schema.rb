@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150408150827) do
+ActiveRecord::Schema.define(:version => 20151017213549) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(:version => 20150408150827) do
 
   create_table "paintings", :force => true do |t|
     t.string   "title"
-    t.string   "image"
+    t.text     "image"
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
