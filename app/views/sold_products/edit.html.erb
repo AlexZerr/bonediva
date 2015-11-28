@@ -1,0 +1,68 @@
+<h3> Current Info </h3>
+<div id="mid_component">
+  <div class="row-fluid">
+    <div class="span12">
+      <div id="edit-page">
+        <div class="span6">
+          <div id="left-side">
+            <div id="name">
+              <div class="span6">Name:</div>
+              <div class="span6"><%= @product.name %></div>
+            </div>
+            <div id="description">
+              <div class="span6">Description:</div>
+              <div class="span6"><%= @product.description %></div>
+            </div>
+            <div id="price">
+              <div class="span6">Price:</div>
+              <div class="span6"><%= @product.price %></div>
+            </div>
+            <div id="size">
+              <div class="span6">Size:</div>
+              <div class="span6"><%= @product.size %></div>
+            </div>
+          </div>
+        </div>
+        <div class="span6">
+          <div id="right-side">
+            <div class="span12">
+              <div id="painting-holder">
+                <% @paintings.each do |p| %>
+                  <div class="span3">
+                    <div id="paintings">
+                      <div class="thumbnails">
+                        <div class="thumbnail"> 
+                          <%= link_to (image_tag p.image_url(:thumb)) %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="span12">
+          <div id="edit-form">
+            <%= render :partial => "products/product_form" %>
+          </div>
+        </div>
+        <div class="span8">
+          <div id="add_painting_form">
+            <div class="span12">
+              <h5 id="head-description">
+                (Upload Another Painting To You're Product)
+              </h5>
+              <div id="paint-form">
+                <div class="span12">
+                  <%= render partial: "paintings/add_painting_form" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
