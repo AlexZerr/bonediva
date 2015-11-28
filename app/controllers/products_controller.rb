@@ -76,6 +76,7 @@ class ProductsController < ApplicationController
   def create
     @categories = Category.all
     @product = current_user.products.new(params[:product])
+    @product.categories<< Category.where(id: params[:categories][:category_id])
      if@product.save
        @painting = @product.paintings.new(params[:painting])
        #if params[:painting][:title].empty?
@@ -83,7 +84,7 @@ class ProductsController < ApplicationController
         @painting.description = @product.description
        #end
        @painting.user_id = current_user.id
-       @painting.category_id = @product.category_id
+ #      @painting.categories = @product.category_id
        if @product.aceo = true
          @painting.aceo = true
        end

@@ -63,8 +63,10 @@
                     <div class="span6"><%= product.size %></div>
                   </div>
                   <div id="category">
-                    <div class="span6">Category:</div>
-                    <div class="span6"><%= link_to product.category.name, category_path(product.category) %></div>
+                    <div class="span6">Categories:</div>
+                    <% product.categories.each do |cat| %>
+                      <div class="span6"><%= link_to cat.name, category_path(cat) %></div>
+                    <% end %>
                   </div>
                   <div id="description">
                     <div>
