@@ -21,7 +21,6 @@ gem 'koala'
 group :producton do
   gem "rails_12factor", "~> 0.0.2"
   #backup
-  gem 'seed_dump', "~> 0.4.3"
 end
 # Authentication
 gem "devise", "~> 2.2.4"
