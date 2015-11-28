@@ -16,8 +16,18 @@
             <%= p.file_field :image %></p>
             <%= p.text_field :remote_image_url %></p>
             <%= p.hidden_field :primary_painting, value: true %>
-            <p><%= collection_select(:product, :category_id, @categories, :id, :name, options ={:prompt => "-Select a category"}, :class =>"category", required: true) %></p>
+            <p><%#= options_from_collection_for_select(@categories, :id, :name) %></p>
           <% end %>
+            <div class="row-fluid">
+          <% @categories.to_a.each do |x| %>
+              <div class="span1">
+                <input id="categories" name="categories[category_id][]" type="checkbox" value="<%= x.id%>" />
+              </div>
+              <div class="span3 float:left">
+                <label for="categories"><%= x.name %></label>
+              </div>
+          <% end%>
+            </div>
         <p>
         Is this an ACEO?
         <%= f.check_box :aceo %></br>
