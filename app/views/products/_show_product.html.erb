@@ -100,10 +100,12 @@
             <div class="span6"><%= button_to 'Delete', product, id: "button1", confirm: "Are you sure? This product will be lost." %></div>
             <div class="span6"> <%= button_to 'Edit', edit_product_path(product), id: "button1", method: :get%></div>
           </div>
-          <div class="row-fluid">
-            <div class="span6"><%= (button_to "Featured Image", set_as_home_image_path(product.primary_painting), id: "button1") if product.primary_painting.home == false %></div>
-            <div class="span6"><%= (button_to "Remove Featured", remove_home_image_path(product.primary_painting), id: "button1") if product.primary_painting.home == true %></div>
-          </div>
+          <% if product.paintings.present? %>
+            <div class="row-fluid">
+              <div class="span6"><%= (button_to "Featured Image", set_as_home_image_path(product.primary_painting), id: "button1") if product.primary_painting.home == false %></div>
+              <div class="span6"><%= (button_to "Remove Featured", remove_home_image_path(product.primary_painting), id: "button1") if product.primary_painting.home == true %></div>
+            </div>
+          <% end %>
           <h4><-------------</h4>
         <% end %>
         <div class="span12">

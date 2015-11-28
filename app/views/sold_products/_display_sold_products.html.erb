@@ -3,61 +3,64 @@
     <% @sold_products.each do |product| %>
       <div class="product-list">
         <div class="span4">
-          <div class="painting-display">
-            <div class="span12">
-              <div class="top">
-                <div class="span6">
-                  <div class="painting1">
-                    <%=  link_to (image_tag (product.main_image(:standard))), sold_product_path(product) %></br>
-                  </div>
-                </div>
-                <div class="span6">
-                  <div class="info">
-                    <div class="span12">
-                      <div class="name">
-                        Name: <%= link_to truncate(product.name, length: 15), product_path(product) %>
-                      </div>
+          <div class="sold-prod-disp" data-product-id=<%= product.id %>>
+            <div class="painting-display">
+              <div class="span12">
+                <div class="top">
+                  <div class="span6">
+                    <div class="painting1">
+                      <%=  link_to (image_tag (product.main_image(:standard))), sold_product_path(product) %></br>
                     </div>
-                    <div class="span12">
-                      <div id="price">
-                        <div class="span10">Price: <%= number_to_currency product.price %></div>
+                  </div>
+                  <div class="span6">
+                    <div class="info">
+                      <div class="span12">
+                        <div class="name">
+                          Name: <%= link_to truncate(product.name, length: 15), product_path(product) %>
+                        </div>
+                      </div>
+                      <div class="span12">
+                        <div id="price">
+                          <div class="span10">Price: <%= number_to_currency product.price %></div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="span12">
-              <div id="cart-button">
-                <div style="float:right">
-                  <%= "Sold: #{product.sold_at.month}/#{product.sold_at.day}/#{product.sold_at.year}" %>
+              <div class="span12">
+                <div id="cart-button">
+                  <div style="float:right">
+                    <%= "Sold: #{product.sold_at.month}/#{product.sold_at.day}/#{product.sold_at.year}" %>
+                  </div>
                 </div>
               </div>
-            </div>
-          <div id="admin-function">
-            <% if product.paintings.any? %>
-              <% if is_admin? %>
-                <%if @category.present? %>
-                  <div class="span4">
-                    <%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
-                  </div>
-                <% else %>
-                  <%= nil %>
+              <div id="admin-function">
+                <% if product.paintings.any? %>
+                  <% if is_admin? %>
+                    <%if @category.present? %>
+                      <div class="span4">
+                        <%= link_to "Add as featured", category_path(@category, category: { featured_painting_id: product.paintings.first.id}), data: { method: :put } %>
+                      </div>
+                    <% else %>
+                      <%= nil %>
+                    <% end %>
+                    <div class="span3"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
+                    <div class="span4 offset1"><%= link_to "Edit Product", edit_product_path(product)  %></div>
+                  <% end %>
                 <% end %>
-                  <div class="span3"><%= link_to "Delete", product, data: {confirm: "Are you sure you want to delete #{ product.name }?", method: :delete, remote: true } %></div>
-                  <div class="span4 offset1"><%= link_to "Edit Product", edit_product_path(product)  %></div>
-              <% end %>
-            <% end %>
-          </div>
-          <div id="description">
-            <div class="span10">
-              <u><b>Description:</b></u> <%= truncate(product.description, length: 75 ) %></br>
+                </div>
+                <div id="description">
+                  <div class="span10">
+                    <u><b>Description:</b></u> <%= truncate(product.description, length: 75 ) %></br>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div> 
-  <% end %>
-</div>
+      </div> 
+    <% end %>
+  </div>
 </div>
 <%= paginate @sold_products %>
