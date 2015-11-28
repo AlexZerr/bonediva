@@ -41,7 +41,7 @@ gem "amistad", "~> 0.9.2"
 gem "rpm_contrib",    "~> 2.1.11"
 
 # Activity Logging
-gem "audited", github: "effektz/audited", ref: "3f84aa7"
+#gem "audited", github: "effektz/audited", ref: "3f84aa7"
 
 #search
 
