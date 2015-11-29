@@ -1,7 +1,10 @@
-<div class="mid_component">
-  <% if @sold_products.present?%>
-    <%= render partial: "sold_products/display_sold_products"%>
-  <% else %>
-    <h4> Sorry no Available Products</h4>
-  <% end%>
+<h2 class="span6 offset4 h-head">Lisa Luree's Artwork</h2>
+<div class="span12">
+  <div class="mid_component">
+    <% if @sold_products.present?%>
+      <%= render partial: "sold_products/display_sold_products"%>
+    <% else %>
+      <h4> Sorry no Available Products</h4>
+    <% end%>
+  </div>
 </div>

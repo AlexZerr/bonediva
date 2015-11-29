@@ -1,11 +1,10 @@
-  <h2 class="span6 offset4 h-head">Lisa Luree's Artwork</h2>
-
-  <div class="span12">
-    <div class="mid_component">
-<% if @products.present? %>
+<h2 class="span6 offset4 h-head">Lisa Luree's Artwork</h2>
+<div class="span12">
+  <div class="mid_component">
+    <% if @products.present? %>
       <%= render :partial => "products/display_products" %>
-<% end %>
-<% if @sold_products.present?%>
-<% end %>
-    </div>
+    <% end %>
+    <% if @sold_products.present?%>
+    <% end %>
   </div>
+</div>
