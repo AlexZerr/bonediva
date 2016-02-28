@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160228222922) do
+ActiveRecord::Schema.define(:version => 20160228230030) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"
@@ -153,6 +153,7 @@ ActiveRecord::Schema.define(:version => 20160228222922) do
     t.boolean "sold",                :default => false
     t.integer "cart_item_id"
     t.boolean "aceo",                :default => false
+    t.boolean "print",               :default => false
   end
 
   add_index "products", ["description"], :name => "index_products_on_description"
