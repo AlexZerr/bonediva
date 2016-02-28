@@ -154,6 +154,8 @@ ActiveRecord::Schema.define(:version => 20160228230030) do
     t.integer "cart_item_id"
     t.boolean "aceo",                :default => false
     t.boolean "print",               :default => false
+    t.string  "print_price"
+    t.string  "print_size"
   end
 
   add_index "products", ["description"], :name => "index_products_on_description"
