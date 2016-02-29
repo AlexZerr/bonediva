@@ -28,6 +28,8 @@ Bonediva::Application.routes.draw do
   resources :sold_products
   resources :messages, only: [:new, :create, :destroy]
   resources :recorders, only: [ :new ]
+  resources :print_categories
+  resources :prints
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

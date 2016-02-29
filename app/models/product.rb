@@ -45,7 +45,7 @@ class Product < ActiveRecord::Base
     end
   end
 
-  def add_print_to_cart(user)
+  def add_print_to_cart(user, print_category)
     print = initialize_print(user)
     CartItem.create(
       product_id: id,
@@ -58,13 +58,14 @@ class Product < ActiveRecord::Base
     )
   end
 
-  def initialize_print(user)
+  def initialize_print(user, print_category)
     prints.create(
       name: name,
       price: print_price,
       size: print_size,
       primary_painting_id: primary_painting_id,
-      user_id: user.id
+      user_id: user.id,
+      print_category_id: print_category.id
     )
   end
 

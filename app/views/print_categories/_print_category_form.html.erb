@@ -1,0 +1,28 @@
+<div class="row-fluid">
+  <% @print_categories.each do |pc| %>
+    <div class="span6">
+      <div style="color:red">
+        <div class="row">
+          <div class="span4 offset4">
+            <%= check_box_tag pc.id, pc.id %>
+            <%= h pc.name %>
+            <!-- <input id="print_categories" name=<%= pc.name %> type="checkbox" value="<%= pc.id%>" /> -->
+          </div>
+        </div>
+        <%= form_for pc.prints.new do |pcf| %>
+          <div class="row">
+            <div class="span6">
+              <%= pcf.label :price %>
+              <%= pcf.text_field :price, class: "span12" %>
+            </div>
+            <div class="span6">
+              <%= pcf.label :size %>
+              <%= pcf.text_field :size, class: "span11" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %> 
+</div>
+

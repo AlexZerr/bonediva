@@ -28,7 +28,8 @@ class CartItemsController < ApplicationController
   end
 
   def create_print
-   if @product.add_print_to_cart(@user)
+    @print_category = PrintCategory.find(params[:print_category_id])
+   if @product.add_print_to_cart(@user, @print_category)
      redirect_to :back, notice: "A print of #{@product.name} has been added to your cart"
    else
      redirect_to :back, notice: "#{@product.errors.full_messages}"
