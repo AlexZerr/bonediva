@@ -43,18 +43,29 @@
                 </div>
               </div>
               <div class="span12">
-                <div id="cart-button">
-                  <div style="float:right">
-                    <% if product.class.name == "Product" %>
-                      <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product), id: "button1" if current_user.present? %>
-                      <% if product.print == true %>
-                        <%= button_to "Buy Print for #{product.print_price}", print_to_cart_path(current_user, product), id: "button1" if current_user.present? %>
-                      <% end %> 
-                    <% else %>
-                      <strong>Sold-</strong><%= product.created_at.strftime("%m/%d/%Y") %>
-                    <% end %>
+                <% if product.class.name == "Product" %>
+                  <div class="row-fluid">
+                    <div class="span4 offset4">
+                      Purchase
+                    </div>
                   </div>
-                </div>
+                  <% if product.print == true %>
+                    <div class="span6">
+                      <%= button_to "Prints", print_to_cart_path(current_user, product), id: "button1" if current_user.present? %>
+                    </div>
+                  <% end %> 
+                  <div style="float:right">
+                    <div class="span6">
+                      <%= button_to "Original", add_cart_item_path(current_user, current_user.carts.last, product), id: "button1" if current_user.present? %>
+                    </div>
+                  </div>
+                <% else %>
+                  <div style="float:right">
+                    <div class="span6">
+                      <strong>Sold-</strong><%= product.created_at.strftime("%m/%d/%Y") %>
+                    </div>
+                  </div>
+                <% end %>
               </div>
               <div id="admin-function">
                 <% if product.paintings.any? %>
