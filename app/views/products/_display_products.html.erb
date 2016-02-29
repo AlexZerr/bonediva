@@ -48,7 +48,7 @@
                     <% if product.class.name == "Product" %>
                       <%= button_to "Add To Cart", add_cart_item_path(current_user, current_user.carts.last, product), id: "button1" if current_user.present? %>
                       <% if product.print == true %>
-                        <%= button_to "Buy Print for #{product.print_price}", add_cart_item_path(current_user, current_user.carts.last, product), id: "button1" if current_user.present? %>
+                        <%= button_to "Buy Print for #{product.print_price}", print_to_cart_path(current_user, product), id: "button1" if current_user.present? %>
                       <% end %> 
                     <% else %>
                       <strong>Sold-</strong><%= product.created_at.strftime("%m/%d/%Y") %>

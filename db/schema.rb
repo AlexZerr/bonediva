@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20160229004741) do
     t.string  "name"
     t.integer "user_id"
     t.string  "product_type", :default => "Original", :null => false
+    t.integer "print_id"
   end
 
   create_table "carts", :force => true do |t|

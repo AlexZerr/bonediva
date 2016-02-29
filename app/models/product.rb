@@ -45,6 +45,19 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def add_print_to_cart(user)
+    print = initialize_print(user)
+    CartItem.create(
+      product_id: id,
+      product_type: "Print",
+      print_id: print.id,
+      cart_id: user.carts.last.id,
+      price: print_price,
+      name: name,
+      user_id: user.id
+    )
+  end
+
   def initialize_print(user)
     prints.create(
       name: name,

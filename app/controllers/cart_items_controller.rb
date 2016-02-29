@@ -1,9 +1,9 @@
 class CartItemsController < ApplicationController
   respond_to :html, :js, :json
 
-  #before_filter :find_product, only: [:add_cart_item]
-  before_filter :find_user, only: [:destoy]
-  before_filter :initialize_cart, only: [:create]
+  before_filter :find_product, only: [:create_print]
+  before_filter :find_user, only: [:destoy, :create_print]
+  before_filter :initialize_cart, only: [:create, :create_print]
 
   def new
 
@@ -19,14 +19,20 @@ class CartItemsController < ApplicationController
     @cart_item.name = @product.name
     @cart_item.user_id = @user.id
     if @cart_item.save
-      @product.cart_item_id = @cart_item.id
       if @product.save
       redirect_to :back, notice: "Painting has been added to your cart"
       end
     else
-      flash "error"
+      flash "error" 
     end
-  
+  end
+
+  def create_print
+   if @product.add_print_to_cart(@user)
+     redirect_to :back, notice: "A print of #{@product.name} has been added to your cart"
+   else
+     redirect_to :back, notice: "#{@product.errors.full_messages}"
+   end
   end
 
   def destroy
