@@ -4,6 +4,7 @@ class Cart < ActiveRecord::Base
 
   has_many :cart_items
   has_many :products, through: :cart_items
+  has_many :prints, through: :cart_items
   has_many :sold_products
   has_one :order
   belongs_to :user
