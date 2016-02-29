@@ -1,6 +1,6 @@
 
 class Product < ActiveRecord::Base
-  attr_accessible :name, :description, :price, :size, :category_id, :primary_painting_id, :aceo, :categories, :print
+  attr_accessible :name, :description, :price, :size, :category_id, :primary_painting_id, :aceo, :categories, :print, :print_price, :print_size
   #accepts_nested_attributes_for :painting
   has_many :paintings, as: :paintable
   has_many :carts, through: :cart_items
@@ -27,7 +27,7 @@ class Product < ActiveRecord::Base
     painting = Painting.find(primary_painting_id)
   end
 
-    def update_product_to_sold_product
+  def update_product_to_sold_product
     sold_product = user.sold_products.new(
       name: name,
       description: description,
@@ -43,6 +43,16 @@ class Product < ActiveRecord::Base
       paintings.map{|e| e.update_attributes(sold_product_id: sold_product.id, paintable_type: "SoldProduct", paintable_id: sold_product.id)}
       destroy
     end
+  end
+
+  def initialize_print(user)
+    prints.create(
+      name: name,
+      price: print_price,
+      size: print_size,
+      primary_painting_id: primary_painting_id,
+      user_id: user.id
+    )
   end
 
     def update_to_main_image(painting)
