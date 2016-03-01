@@ -100,6 +100,7 @@ class ProductsController < ApplicationController
 
   def edit
     @categories = Category.all
+    @print = Print.new
     @print_categories = PrintCategory.all
     @product = Product.find(params[:id])
     @pcats = @product.categories

@@ -17,6 +17,7 @@ Bonediva::Application.routes.draw do
   end
   resources :products do
     resources :paintings
+    resources :prints
   end
   resources :carts
   resources :paintings
@@ -29,7 +30,6 @@ Bonediva::Application.routes.draw do
   resources :messages, only: [:new, :create, :destroy]
   resources :recorders, only: [ :new ]
   resources :print_categories
-  resources :prints
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

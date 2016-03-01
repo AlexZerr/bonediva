@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160229040904) do
+ActiveRecord::Schema.define(:version => 20160301044937) do
 
   create_table "avatars", :force => true do |t|
     t.string  "image"
@@ -134,10 +134,14 @@ ActiveRecord::Schema.define(:version => 20160229040904) do
   end
 
   create_table "print_categories", :force => true do |t|
-    t.string   "name",        :null => false
+    t.string   "type",                           :null => false
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.string   "price"
+    t.boolean  "giclee",      :default => false
+    t.boolean  "photo",       :default => false
+    t.integer  "product_id",                     :null => false
   end
 
   create_table "prints", :force => true do |t|
