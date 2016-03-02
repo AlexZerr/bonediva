@@ -1,0 +1,21 @@
+<div id="pform">
+  <div class="row">
+    <div class="span10 offset2">
+      <%= form_for [@product, @print_category] do |f| %>
+        <div class="row">
+          <div class="span6">
+            <%= f.label :description %>
+            <%= f.text_field :description, class: "span8" %>
+          </div>
+          <div class="span6">
+            <%= f.label :price %>
+            <%= f.text_field :price, class: "span8" %>
+          </div>
+        </div>
+        <div class="row">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

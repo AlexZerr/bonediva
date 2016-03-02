@@ -6,7 +6,7 @@ $(function() {
     var pcName= clkr.data('pcname');
     console.log(pcProd);
     $.ajax({
-      url: '/products/' + pcProd + '/prints/new',
+      url: '/products/' + pcProd + '/print_categories/new',
       dataType: "html",
       success: function fBox(data) {
         var sizeBox = $(data).find('#pform');

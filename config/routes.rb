@@ -18,6 +18,7 @@ Bonediva::Application.routes.draw do
   resources :products do
     resources :paintings
     resources :prints
+    resources :print_categories
   end
   resources :carts
   resources :paintings

@@ -5,5 +5,6 @@ class AddPurchaseInfoToPrintCategories < ActiveRecord::Migration
     add_column :print_categories, :giclee, :boolean, default: false
     add_column :print_categories, :photo, :boolean, default: false
     add_column :print_categories, :product_id, :integer, null: false
+    add_column :print_categories, :size, :string, null: false
   end
 end

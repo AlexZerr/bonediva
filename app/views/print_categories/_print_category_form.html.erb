@@ -1,23 +1,22 @@
+<!--
 <div class="row-fluid">
-  <% @print_categories.each do |pc| %>
-    <div class="span6">
-      <div style="color:red">
-        <div id="dta", data-pc="<%= pc.id %>", data-prod="<%= @product.id %>">
-          <div class="row">
-            <div class="span4 offset4">
-              <div id="pc-click<%= pc.id %>", data-pcname="<%= pc.name.downcase %>", data-pc="<%= pc.id %>">
-                  <%= check_box_tag pc.id, pc.id, checked = false, options = {id: "pc-#{pc.name.downcase}", data: { name: "#{pc.name}", pc: "#{pc.id}"} } %>
-                  <%= h pc.name %>
-              </div>
-              <!-- <input id="print_categories" name=<%= pc.name %> type="checkbox" value="<%= pc.id%>" /> -->
+  <div class="span6">
+    <div style="color:red">
+      <div id="dta", data-pc="<%= pc.id %>", data-prod="<%= @product.id %>">
+        <div class="row">
+          <div class="span4 offset4">
+            <div id="pc-click<%= pc.id %>", data-pcname="<%= pc.name.downcase %>", data-pc="<%= pc.id %>">
+                <%= check_box_tag pc.id, pc.id, checked = false, options = {id: "pc-#{pc.name.downcase}", data: { name: "#{pc.name}", pc: "#{pc.id}"} } %>
+                <%= h pc.name %>
             </div>
+            <!-- <input id="print_categories" name=<%= pc.name %> type="checkbox" value="<%= pc.id%>" /> -->
           </div>
         </div>
-        <div id="print-form-<%= pc.id %>">
-            <%#= render "prints/print_form" %>
-        </div>
+      </div>
+      <div id="print-form-<%= pc.id %>">
+          <%#= render "prints/print_form" %>
       </div>
     </div>
-  <% end %> 
+  </div>
 </div>
-
+-->

@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   has_many :paintings, as: :paintable
   has_many :carts, through: :cart_items
   has_many :prints
+  has_many :print_categories
   belongs_to :cart_item
 
   validates :name, presence: true

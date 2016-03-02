@@ -1,11 +1,14 @@
 class PrintCategoriesController < ApplicationController
 
   def new
-    @print_categories = PrintCategory.all
-    @print = Print.new
+    @product = Product.find(params[:product_id])
+    @print_category = @product.print_categories.new
+    @print_type = ["Gicle", "Photo"]
   end
 
   def create
+    @print_category = PrintCategory.new(params[:print_category])
+    @print_category.save
 
   end
 

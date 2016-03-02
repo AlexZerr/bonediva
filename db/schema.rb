@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(:version => 20160301044937) do
     t.boolean  "giclee",      :default => false
     t.boolean  "photo",       :default => false
     t.integer  "product_id",                     :null => false
+    t.string   "size",                           :null => false
   end
 
   create_table "prints", :force => true do |t|
