@@ -15,9 +15,9 @@
                     <div class="painting1">
                       <% if product.paintings.present? %>
                         <% if product.class.name == "Product"%>
-                          <%=  link_to (image_tag (product.main_image(:standard)), alt: product.name, title: product.name, itemprop: "image"), product_path(product) %></br>
+                          <%=  link_to (image_tag (product.main_image(:home)), id: "allImages", alt: product.name, title: product.name, itemprop: "image"), product_path(product) %></br>
                         <% elsif product.class.name == "SoldProduct" %>
-                          <%=  link_to (image_tag (product.main_image(:standard)), alt: "'#{product.name}' by Lisa Luree", title: "'#{product.name} by Lisa Luree", itemprop: "image"), sold_product_path(product) %></br>
+                          <%=  link_to (image_tag (product.main_image(:home)), id: "allImages", alt: "'#{product.name}' by Lisa Luree", title: "'#{product.name} by Lisa Luree", itemprop: "image"), sold_product_path(product) %></br>
                         <% end %>
                       <% end %>
                     </div>
@@ -25,7 +25,7 @@
                   <div class="span6">
                     <div class="info">
                       <div class="span12">
-                        <div class="name">
+                          <div class="name">
                           <% if product.class.name == "Product"%>
                               Name: <%= link_to truncate(product.name, length: 15), product_path(product), itemprop: "name" %>
                           <% elsif product.class.name == "SoldProduct" %>
