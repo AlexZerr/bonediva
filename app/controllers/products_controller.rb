@@ -114,6 +114,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    @product.print_price = (params[:product][:print_price])
     if params[:paintable_id]
       @painting = @product.paintings.find(params[:paintable_id]) 
       if params[:painting][:paintable_id] == @product.id

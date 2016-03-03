@@ -1,0 +1,30 @@
+  <div class="print-category">
+    <div class="row-fluid">
+      <% ["Gicle", "Photo"].each do |x| %>
+        <div class="span6">
+          <div id="dta", data-pc="<%= x %>", data-prod="<%= @product.id %>">
+            <div class="row-fluid">
+              <div class="span6">
+                <div id="<%= x %>" >
+                  <%= check_box_tag :pc_type, x, false, id: "pc-click#{x}" %>
+                  <%= x %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row-fluid">
+            <div id="print-form-<%= x %>">
+              <div class="pc-price">
+                <%=f.label :print_price %>
+                <%=f.text_field :print_price %>
+              </div>
+              <div class="pc-size">
+                <%=f.label :print_size %>
+                <%=f.text_field :print_size %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>

@@ -1,4 +1,3 @@
-
       <div id="errors">
           <%= @product.errors.full_messages if @product.errors.present? %>
       </div>
@@ -33,12 +32,12 @@
                 <% end%>
               </div>
 
-
+              <%= render 'print_categories/print_select', f: f %>
 
             <div id="button"> 
               <div class="span6"><%= f.submit "Update Product", id: "button1" %></div>
             </div>
         <% end %>
       </div>
-</div>
+
 
