@@ -2,18 +2,18 @@
     <div class="row-fluid">
       <% ["Gicle", "Photo"].each do |x| %>
         <div class="span6">
-          <div id="dta", data-pc="<%= x %>", data-prod="<%= @product.id %>">
+          <div class="dta-container" id="dta-#{x}", data-pc="<%= x %>", data-prod="<%= @product.id %>">
             <div class="row-fluid">
               <div class="span6">
-                <div id="<%= x %>" >
-                  <%= check_box_tag :pc_type, x, false, id: "pc-click#{x}" %>
+                <div class="<%= x %>" >
+                  <%= check_box_tag :pc_type, x, false, id: "pc-click-#{x}", class: 'pc-click' %>
                   <%= x %>
                 </div>
               </div>
             </div>
           </div>
           <div class="row-fluid">
-            <div id="print-form-<%= x %>">
+            <div class="print-form" id="print-form-<%= x %>">
               <div class="pc-price">
                 <%=f.label :print_price %>
                 <%=f.text_field :print_price %>

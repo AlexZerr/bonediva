@@ -1,9 +1,25 @@
 $(function() {
-  var pcId = $("#dta").data('pc'); 
-  $('#print-form-' + pcId).hide();
-  $('#pc-click' + pcId).click(function() {
-    $("#print-form-" + pcId).show().append('<input type="hidden" name="print[id]" value="' + pcId + '">');
-  });
+  //var pcId = $(".dta").data('pc'); 
+  //$('#print-form-' + pcId).hide();
+  
+  //var conts = $(".dta-container")
+  //for(var i=0;i<conts.length;i++){
+    //console.log('circling', i);
+    //var thing = $(conts[i]);
+    //var pcId = thing.data('pc'); 
+    $('.print-form').hide();
+
+    $('.pc-click').click(function() {
+      var pcId =$(this).attr('id').split('pc-click-')[1];
+      console.log(pcId);
+      $("#print-form-" + pcId).show().append('<input type="hidden" name="print[id]" value="' + pcId + '">');
+    });
+
+  //}
+  //$('#pc-click' + pcId).click(function() {
+    //console.log(pcId);
+    //$("#print-form-" + pcId).show().append('<input type="hidden" name="print[id]" value="' + pcId + '">');
+  //});
 });
 
 
