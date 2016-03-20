@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(:version => 20160301044937) do
   end
 
   create_table "print_categories", :force => true do |t|
-    t.string   "type",                           :null => false
+    t.string   "print_type",                     :null => false
     t.text     "description"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false

@@ -7,12 +7,29 @@ $(function() {
     //console.log('circling', i);
     //var thing = $(conts[i]);
     //var pcId = thing.data('pc'); 
-    $('.print-form').hide();
+    //$('.print-form').hide();
 
     $('.pc-click').click(function() {
       var pcId =$(this).attr('id').split('pc-click-')[1];
-      console.log(pcId);
-      $("#print-form-" + pcId).show().append('<input type="hidden" name="print[id]" value="' + pcId + '">');
+      var pcProd =$(this).attr('product');
+      $.ajax({
+        url: '/products/' + pcProd + '/print_categories/new',
+        dataType: "html",
+        success: function () {
+         console.log('wahhhhhh');
+          console.log(pcProd);
+        },
+        complete: function fBox(data) {
+        var sizeBox = $(data).find('#ello');
+          console.log(sizeBox);
+          var pf = $("#print-form-" + pcId)
+          pf.show()
+          pf.append('<input type="hidden" name="print_category[print_type]" value="' + pcId + '">');
+          console.log('complete');
+        }
+
+      });
+//      $("#print-form-" + pcId).show().append('<input type="hidden" name="print[id]" value="' + pcId + '">');
     });
 
   //}

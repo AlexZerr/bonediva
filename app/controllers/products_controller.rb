@@ -99,10 +99,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
     @categories = Category.all
     @print = Print.new
+    @print_category = @product.print_categories.new
     @print_categories = PrintCategory.all
-    @product = Product.find(params[:id])
     @pcats = @product.categories
     @paintings = @product.paintings
     @painting = @product.paintings.new(params[:painting])
@@ -114,7 +115,10 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.print_price = (params[:product][:print_price])
+    if params[:print_category]
+      @print_category = @product.print_categories.new(params[:print_category])
+      @print_category.print_type = params[:print_type]
+    end
     if params[:paintable_id]
       @painting = @product.paintings.find(params[:paintable_id]) 
       if params[:painting][:paintable_id] == @product.id

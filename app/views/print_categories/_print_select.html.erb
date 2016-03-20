@@ -6,7 +6,7 @@
             <div class="row-fluid">
               <div class="span6">
                 <div class="<%= x %>" >
-                  <%= check_box_tag :pc_type, x, false, id: "pc-click-#{x}", class: 'pc-click' %>
+                  <%= check_box_tag :pc_type, x, false, id: "pc-click-#{x}", class: 'pc-click', product: @product.id %>
                   <%= x %>
                 </div>
               </div>
@@ -14,14 +14,7 @@
           </div>
           <div class="row-fluid">
             <div class="print-form" id="print-form-<%= x %>">
-              <div class="pc-price">
-                <%=f.label :print_price %>
-                <%=f.text_field :print_price %>
-              </div>
-              <div class="pc-size">
-                <%=f.label :print_size %>
-                <%=f.text_field :print_size %>
-              </div>
+              <%= render 'print_categories/pc_form'%>
             </div>
           </div>
         </div>

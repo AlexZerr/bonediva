@@ -46,6 +46,22 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def initialize_print_category(params)
+    if print_categories.present?
+      print_categories.each do |x|
+        if (params[:print_type]) == x.print_type
+          x.update_attributes(params)
+        else
+          print_categories.new(
+            print_type: params([:print_type])
+          )
+        end
+      end
+    else
+      print_categories.new(params)
+    end
+  end
+
   def add_print_to_cart(user)
     print = initialize_print(user)
     CartItem.create(

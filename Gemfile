@@ -64,9 +64,9 @@ end
 gem "letter_opener", :group => :development
 group :test, :development do
   gem 'minitest-rails'
-#  gem "binding_of_caller"
-#  gem "pry-rails"
-#  gem "pry-debugger"
+  #gem "binding_of_caller"
+  #gem "pry-rails"
+  #gem "pry-debugger"
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
 end

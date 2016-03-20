@@ -1,15 +1,21 @@
-<div id="pform">
+<div id="ello">
   <div class="row">
     <div class="span10 offset2">
       <%= form_for [@product, @print_category] do |f| %>
         <div class="row">
           <div class="span6">
-            <%= f.label :description %>
-            <%= f.text_field :description, class: "span8" %>
+            <%= f.label :size %>
+            <%= f.text_field :size, class: "span8" %>
           </div>
           <div class="span6">
             <%= f.label :price %>
             <%= f.text_field :price, class: "span8" %>
+          </div>
+          <div class="span6">
+            <% ["Giclee", "Photo"].each do |x| %>
+              <%= check_box_tag :print_type, x, false, id: "pc-click-#{x}", class: 'pc-click', product: @product.id %>
+              <%= x %>
+            <% end %>
           </div>
         </div>
         <div class="row">
