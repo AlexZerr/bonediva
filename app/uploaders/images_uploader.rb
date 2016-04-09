@@ -15,7 +15,7 @@ class ImagesUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   #storage :s3
-   storage :file
+   storage :fog
 
   #uploader = ImagesUploader.new
   #uploader.store!(my_file)
