@@ -7,7 +7,7 @@ $(function() {
     //console.log('circling', i);
     //var thing = $(conts[i]);
     //var pcId = thing.data('pc'); 
-    //$('.print-form').hide();
+    $('.print-form').hide();
 
     $('.pc-click').click(function() {
       var pcId =$(this).attr('id').split('pc-click-')[1];
